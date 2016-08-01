@@ -77,7 +77,7 @@ public class OrderListFragment extends BaseRefreshMoreListFragment {
         ((Button) v.findViewById(R.id.EmptyButton)).setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                ((OrderActivity) getActivity()).runMainActivity(MainActivity.DIARY_TYPE_PRODUCT);
+                ((OrderActivity) getActivity()).runMainActivity(MainActivity.MainTab.MARKET);
                 getActivity().finish();
             }
         });

@@ -87,6 +87,7 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
     public static final int DIARY_TYPE_REVIEW = 2;
     public static final int DIARY_TYPE_STORY = 3;
 
+
     public static final int SUBMENU_TYPE_1 = 0;
     public static final int SUBMENU_TYPE_2 = 1;
     public static final int SUBMENU_TYPE_3 = 2;
@@ -316,7 +317,7 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
 
         setMoreListView(getSherlockActivity(), R.layout.view_list_footer, loadMoreListener);
         /*if (mainListAdapter == null) {
-			mainListAdapter = new MainAllListAdapter(getSherlockActivity(), R.layout.item_diary, new ArrayList(),
+            mainListAdapter = new MainAllListAdapter(getSherlockActivity(), R.layout.item_diary, new ArrayList(),
 					((BaseFragmentActivity) getSherlockActivity()).imageLoader, AppPreferences.getLatitude(getSherlockActivity()),
 					AppPreferences.getLongitude(getSherlockActivity()));
 		}*/
@@ -722,9 +723,9 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
                                     mainListAdapter.add(diary);
 
 									/*if (mainListAdapter.getCount() == 3) {
-										mainListAdapter.add(mProductList.get(0));
+                                        mainListAdapter.add(mProductList.get(0));
 									*//*adCount = 0;
-									adPos++;
+                                    adPos++;
 									if(mProductList.size() <= adPos) {
 										adPos = 0;
 									}*//*
@@ -1461,7 +1462,7 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
                             @Override
                             public void viewOnClick(View v) {
                                 try {
-                                    KaKaoController.onShareBtnClicked(getSherlockActivity(), JsonUtil.objectToJson(diary), "DIARY_TYPE_FARM");
+                                    KaKaoController.onShareBtnClicked(getSherlockActivity(), JsonUtil.objectToJson(diary), MainActivity.MainTab.DIARY.toString());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
@@ -1662,31 +1663,17 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
         }
     };
 
-    private String getCurFragmentTag() {
-        switch (mSelectType) {
-            case DIARY_TYPE_FARM:
-                return "DIARY_TYPE_FARM";
-            case DIARY_TYPE_REVIEW:
-                return "DIARY_TYPE_REVIEW";
-            default:
-                return "DIARY_TYPE_FARM";
-        }
-    }
-
     private void onSubMenuBtnClicked(int subMenuType) {
         CategoryDialogFragment fragment = null;
         switch (subMenuType) {
             case SUBMENU_TYPE_1:
-                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_1, subMenuIndex1, subMenuTitle1,
-                        subMenuList1.toArray(new String[subMenuList1.size()]), MainActivity.DIARY_TYPE_FARM);
+                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_1, subMenuIndex1, subMenuTitle1, subMenuList1.toArray(new String[subMenuList1.size()]), MainActivity.MainTab.DIARY.toString());
                 break;
             case SUBMENU_TYPE_2:
-                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_2, subMenuIndex2, subMenuTitle2,
-                        subMenuList2.toArray(new String[subMenuList2.size()]), MainActivity.DIARY_TYPE_FARM);
+                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_2, subMenuIndex2, subMenuTitle2, subMenuList2.toArray(new String[subMenuList2.size()]), MainActivity.MainTab.DIARY.toString());
                 break;
             case SUBMENU_TYPE_3:
-                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_3, subMenuIndex3, subMenuTitle3,
-                        subMenuList3.toArray(new String[subMenuList3.size()]), MainActivity.DIARY_TYPE_FARM);
+                fragment = CategoryDialogFragment.newInstance(SUBMENU_TYPE_3, subMenuIndex3, subMenuTitle3, subMenuList3.toArray(new String[subMenuList3.size()]), MainActivity.MainTab.DIARY.toString());
                 break;
         }
         FragmentTransaction ft = getSherlockActivity().getSupportFragmentManager().beginTransaction();
@@ -1880,13 +1867,6 @@ public class DiaryTabFragment extends BaseRefreshMoreListFragment implements OnC
         data.setInitFlag(initFlag);
         data.setOldIndex(oldIndex);
         data.setOldDate(oldDate);
-
-        /*if(diaryType == DIARY_TYPE_FARM) {
-            if (mSelectType == SUBMENU_TYPE_1)
-                data.setVerification("Y");
-            else
-                data.setVerification("N");
-        }*/
 
         switch (mSelectType) {
             case DIARY_TYPE_FARM:

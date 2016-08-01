@@ -383,12 +383,11 @@
 
 	<!-- Get List Diary -->
 <!-- 	<string name="GetListDiaryPrimaryMenu1">전체</string> -->
-    <string name="Menu_Home">HOME</string>
-    <string name="Menu_Story">이야기</string>
-    <string name="Menu_Product">장터</string>
-	<string name="Menu_Event">서포터즈</string>
-	<string name="Menu_Recipe">레시피</string>
-    <string name="Menu_More">...</string>
+    <string name="main_tab_home">HOME</string>
+    <string name="main_tab_diary">이야기</string>
+    <string name="main_tab_market">장터</string>
+	<string name="main_tab_supporters">서포터즈</string>
+	<string name="main_tab_recipe">레시피</string>
 
 	<string-array name="GetListDiarySubMenu2_1">
 		<item>전체</item> <!-- 1,2,3,4,5,6 -->

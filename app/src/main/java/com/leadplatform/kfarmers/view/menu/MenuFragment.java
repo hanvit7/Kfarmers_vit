@@ -115,7 +115,7 @@ public class MenuFragment extends BaseFragment
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MYPAGE_NONMEMBER, "Click_Login", null);
                 break;
             case R.id.Home:
-                ((MainActivity) getActivity()).setCurrentTab(MainActivity.DIARY_TYPE_HOME);
+                ((MainActivity) getActivity()).setCurrentTab(MainActivity.MainTab.HOME);
                 ((BaseMenuFragmentActivity) getActivity()).toggle();
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MYPAGE_NONMEMBER, "Click_Home", null);
                 break;
@@ -125,12 +125,12 @@ public class MenuFragment extends BaseFragment
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MYPAGE_NONMEMBER, "Click_Impressive", null);
                 break;
             case R.id.Product:
-                ((MainActivity) getActivity()).setCurrentTab(MainActivity.DIARY_TYPE_PRODUCT);
+                ((MainActivity) getActivity()).setCurrentTab(MainActivity.MainTab.MARKET);
                 ((BaseMenuFragmentActivity) getActivity()).toggle();
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MYPAGE_NONMEMBER, "Click_Product", null);
                 break;
             case R.id.Event:
-                ((MainActivity) getActivity()).setCurrentTab(MainActivity.DIARY_TYPE_EVENT);
+                ((MainActivity) getActivity()).setCurrentTab(MainActivity.MainTab.SUPPORTERS);
                 ((BaseMenuFragmentActivity) getActivity()).toggle();
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MYPAGE_NONMEMBER, "Click_Event", null);
                 break;

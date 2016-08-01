@@ -93,7 +93,7 @@ public class CartFragment extends BaseListFragment
         mProductShow.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                ((CartActivity)getActivity()).runMainActivity(MainActivity.DIARY_TYPE_PRODUCT);
+                ((CartActivity)getActivity()).runMainActivity(MainActivity.MainTab.MARKET);
                 getActivity().finish();
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_CART, "Click_Recommend", null);
             }

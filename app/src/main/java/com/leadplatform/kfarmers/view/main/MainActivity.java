@@ -50,13 +50,9 @@ import java.util.HashMap;
 public class MainActivity extends BaseMenuFragmentActivity {
     public static final String TAG = "MainActivity";
 
-    public static final String MOVE_TAB = "MOVE_TAB";
+    public static final String EXTRA_CURRENT_TAB = "com.leadplatform.kfarmers.current_tab";
 
-    public static final String DIARY_TYPE_HOME = "DIARY_TYPE_HOME";
-    public static final String DIARY_TYPE_FARM = "DIARY_TYPE_FARM";
-    public static final String DIARY_TYPE_PRODUCT = "DIARY_TYPE_PRODUCT";
-    public static final String DIARY_TYPE_EVENT = "DIARY_TYPE_EVENT";
-    public static final String DIARY_TYPE_RECIPE = "DIARY_TYPE_RECIPE";
+    public enum MainTab {NONE, HOME, DIARY, MARKET, SUPPORTERS, RECIPE}
 
     private FragmentTabHost fragmentTabHost;
     private ImageButton writeDiaryBtn;
@@ -64,7 +60,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
 
     HashMap<String, String> pushData;
 
-    private String mMoveTab = "";
+    private MainTab mMoveTab = MainTab.NONE;
     private String mProfile;
 
     private RelativeLayout mChatLayout;
@@ -92,10 +88,61 @@ public class MainActivity extends BaseMenuFragmentActivity {
         pushData = (HashMap<String, String>) getIntent().getSerializableExtra(GcmIntentService.PUSH_BUNDLE);
         pushCheck();
 
-        mMoveTab = getIntent().getStringExtra(MOVE_TAB);
+        mMoveTab = (MainTab) getIntent().getSerializableExtra(EXTRA_CURRENT_TAB);
 
         filter = new IntentFilter();
         filter.addAction("com.leadplatform.kfarmers.view.main.chatcount");
+    }
+
+    @Override
+    public void onCreateView(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_main);
+        initContentView(savedInstanceState);
+    }
+
+    private void initContentView(Bundle savedInstanceState) {
+        Bundle argumentFarm = new Bundle();
+        argumentFarm.putInt("Type", DiaryTabFragment.DIARY_TYPE_FARM);
+
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        //메인 탭 설정
+        View tabViewHome = layoutInflater.inflate(R.layout.view_tab_base, null);
+        ((TextView) tabViewHome.findViewById(R.id.tab_name)).setText(getString(R.string.main_tab_home));
+
+        View tabViewDiary = layoutInflater.inflate(R.layout.view_tab_base, null);
+        ((TextView) tabViewDiary.findViewById(R.id.tab_name)).setText(getString(R.string.main_tab_diary));
+
+        View tabViewProduct = layoutInflater.inflate(R.layout.view_tab_base, null);
+        ((TextView) tabViewProduct.findViewById(R.id.tab_name)).setText(getString(R.string.main_tab_market));
+
+        View tabViewEvent = layoutInflater.inflate(R.layout.view_tab_base, null);
+        ((TextView) tabViewEvent.findViewById(R.id.tab_name)).setText(getString(R.string.main_tab_supporters));
+
+        View tabViewRecipe = layoutInflater.inflate(R.layout.view_tab_base, null);
+        ((TextView) tabViewRecipe.findViewById(R.id.tab_name)).setText(getString(R.string.main_tab_recipe));
+
+        fragmentTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+        fragmentTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
+        fragmentTabHost.getTabWidget().setShowDividers(LinearLayout.SHOW_DIVIDER_NONE);
+        fragmentTabHost.getTabWidget().setStripEnabled(false);
+
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.HOME.toString()).setIndicator(tabViewHome), HomeTabFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.DIARY.toString()).setIndicator(tabViewDiary), DiaryTabFragment.class, argumentFarm);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.MARKET.toString()).setIndicator(tabViewProduct), MarketTabFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.SUPPORTERS.toString()).setIndicator(tabViewEvent), SupportersFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.RECIPE.toString()).setIndicator(tabViewRecipe), RecipeTabFragment.class, null);
+
+        fragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                if (mMoveTab != null && mMoveTab != MainTab.NONE) {
+                    KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_Tab", mMoveTab.toString());
+                }
+                mMoveTab = MainTab.NONE;
+            }
+        });
+
+        setCurrentTab(mMoveTab);
     }
 
     @Override
@@ -106,16 +153,9 @@ public class MainActivity extends BaseMenuFragmentActivity {
         pushData = (HashMap<String, String>) intent.getSerializableExtra(GcmIntentService.PUSH_BUNDLE);
         pushCheck();
 
-        mMoveTab = intent.getStringExtra(MOVE_TAB);
-        if (null != mMoveTab && !mMoveTab.isEmpty()) {
-            setCurrentTab(mMoveTab);
-        }
-    }
+        mMoveTab = (MainTab) intent.getSerializableExtra(EXTRA_CURRENT_TAB);
 
-    @Override
-    public void onCreateView(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_main);
-        initContentView(savedInstanceState);
+        setCurrentTab(mMoveTab);
     }
 
     public void pushCheck() {
@@ -129,73 +169,10 @@ public class MainActivity extends BaseMenuFragmentActivity {
         }
     }
 
-    private void initContentView(Bundle savedInstanceState) {
-        Bundle argumentFarm = new Bundle();
-        argumentFarm.putInt("Type", DiaryTabFragment.DIARY_TYPE_FARM);
-
-        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-        //메인 탭 설정
-        View tabViewHome = layoutInflater.inflate(R.layout.view_tab_base, null);
-        ((TextView) tabViewHome.findViewById(R.id.tab_name)).setText(getString(R.string.Menu_Home));
-
-        View tabViewDiary = layoutInflater.inflate(R.layout.view_tab_base, null);
-        ((TextView) tabViewDiary.findViewById(R.id.tab_name)).setText(getString(R.string.Menu_Story));
-
-        View tabViewProduct = layoutInflater.inflate(R.layout.view_tab_base, null);
-        ((TextView) tabViewProduct.findViewById(R.id.tab_name)).setText(getString(R.string.Menu_Product));
-
-        View tabViewEvent = layoutInflater.inflate(R.layout.view_tab_base, null);
-        ((TextView) tabViewEvent.findViewById(R.id.tab_name)).setText(getString(R.string.Menu_Event));
-
-        View tabViewRecipe = layoutInflater.inflate(R.layout.view_tab_base, null);
-        ((TextView) tabViewRecipe.findViewById(R.id.tab_name)).setText(getString(R.string.Menu_Recipe));
-
-        fragmentTabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
-        fragmentTabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
-        fragmentTabHost.getTabWidget().setShowDividers(LinearLayout.SHOW_DIVIDER_NONE);
-        fragmentTabHost.getTabWidget().setStripEnabled(false);
-
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_HOME).setIndicator(tabViewHome), HomeTabFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_FARM).setIndicator(tabViewDiary), DiaryTabFragment.class, argumentFarm);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_PRODUCT).setIndicator(tabViewProduct), MarketTabFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_EVENT).setIndicator(tabViewEvent), SupportersFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_RECIPE).setIndicator(tabViewRecipe), RecipeTabFragment.class, null);
-
-        fragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
-            @Override
-            public void onTabChanged(String tabId) {
-                if (mMoveTab != null && mMoveTab.equals("")) {
-                    String name = "";
-                    switch (tabId) {
-                        case DIARY_TYPE_HOME:
-                            name = "HOME";
-                            break;
-                        case DIARY_TYPE_FARM:
-                            name = "이야기";
-                            break;
-                        case DIARY_TYPE_PRODUCT:
-                            name = "장터";
-                            break;
-                        case DIARY_TYPE_EVENT:
-                            name = "서포터즈";
-                            break;
-                        case DIARY_TYPE_RECIPE:
-                            name = "레시피";
-                            break;
-                    }
-                    KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_Tab", name);
-                }
-                mMoveTab = "";
-            }
-        });
-
-        if (null != mMoveTab && !mMoveTab.isEmpty()) {
-            setCurrentTab(mMoveTab);
+    public void setCurrentTab(MainTab tab) {
+        if (mMoveTab != null && mMoveTab != MainTab.NONE) {
+            fragmentTabHost.setCurrentTabByTag(tab.toString());
         }
-    }
-
-    public void setCurrentTab(String tab) {
-        fragmentTabHost.setCurrentTabByTag(tab);
     }
 
     public void setChatData() {
@@ -246,9 +223,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
             @Override
             public void viewOnClick(View v) {
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Menu", null);
-
                 String type = getUserType();
-
                 switch (type) {
                     case "F":
                         KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_FARMER);

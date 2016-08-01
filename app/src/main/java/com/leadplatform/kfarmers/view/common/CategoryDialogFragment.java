@@ -6,11 +6,11 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.text.TextUtils;
+
 import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.view.base.BaseDialogFragment;
 
-public class CategoryDialogFragment extends BaseDialogFragment
-{
+public class CategoryDialogFragment extends BaseDialogFragment {
     public static final String TAG = "CategoryDialogFragment";
 
     private int subMenuType;
@@ -20,8 +20,7 @@ public class CategoryDialogFragment extends BaseDialogFragment
     private String fragmentTag;
     private OnCloseCategoryDialogListener listener;
 
-    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String[] category, String fragmentTag)
-    {
+    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String[] category, String fragmentTag) {
         final CategoryDialogFragment f = new CategoryDialogFragment();
 
         final Bundle args = new Bundle();
@@ -35,8 +34,7 @@ public class CategoryDialogFragment extends BaseDialogFragment
         return f;
     }
 
-    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String title, String[] category, String fragmentTag)
-    {
+    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String title, String[] category, String fragmentTag) {
         final CategoryDialogFragment f = new CategoryDialogFragment();
 
         final Bundle args = new Bundle();
@@ -51,14 +49,12 @@ public class CategoryDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(true);
         setStyle(STYLE_NO_FRAME, android.R.style.Theme_Holo_Light_Dialog);
 
-        if (getArguments() != null)
-        {
+        if (getArguments() != null) {
             subMenuType = getArguments().getInt("SubMenuType");
             selectIndex = getArguments().getInt("SelectIndex");
             title = getArguments().getString("Title");
@@ -68,8 +64,7 @@ public class CategoryDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState)
-    {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         if (TextUtils.isEmpty(title))
@@ -77,11 +72,9 @@ public class CategoryDialogFragment extends BaseDialogFragment
         else
             builder.setTitle(title + " " + getString(R.string.dialog_category_title));
 
-        builder.setNegativeButton(R.string.dialog_cancel, new OnClickListener()
-        {
+        builder.setNegativeButton(R.string.dialog_cancel, new OnClickListener() {
             @Override
-            public void onClick(DialogInterface arg0, int arg1)
-            {
+            public void onClick(DialogInterface arg0, int arg1) {
                 dismiss();
             }
         });
@@ -90,13 +83,10 @@ public class CategoryDialogFragment extends BaseDialogFragment
         return builder.create();
     }
 
-    private class SingleChoiceListener implements DialogInterface.OnClickListener
-    {
+    private class SingleChoiceListener implements DialogInterface.OnClickListener {
         @Override
-        public void onClick(DialogInterface dialog, int position)
-        {
-            if (!fragmentTag.isEmpty())
-            {
+        public void onClick(DialogInterface dialog, int position) {
+            if (!fragmentTag.isEmpty()) {
                 listener = (OnCloseCategoryDialogListener) getFragmentManager().findFragmentByTag(fragmentTag);
             }
 
@@ -108,13 +98,11 @@ public class CategoryDialogFragment extends BaseDialogFragment
         }
     }
 
-    public void setOnCloseCategoryDialogListener(OnCloseCategoryDialogListener listener)
-    {
+    public void setOnCloseCategoryDialogListener(OnCloseCategoryDialogListener listener) {
         this.listener = listener;
     }
 
-    public interface OnCloseCategoryDialogListener
-    {
+    public interface OnCloseCategoryDialogListener {
         public void onDialogListSelection(int subMenuType, int position);
     }
 

@@ -81,11 +81,11 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 		startActivity(intent);
 	}
 
-	public void runMainActivity(String currentTab) {
+	public void runMainActivity(MainActivity.MainTab currentTab) {
 		Intent intent = new Intent(this, MainActivity.class);
 		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 				| Intent.FLAG_ACTIVITY_SINGLE_TOP);
-		intent.putExtra(MainActivity.MOVE_TAB, currentTab);
+		intent.putExtra(MainActivity.EXTRA_CURRENT_TAB, currentTab);
 		startActivity(intent);
 	}
 
