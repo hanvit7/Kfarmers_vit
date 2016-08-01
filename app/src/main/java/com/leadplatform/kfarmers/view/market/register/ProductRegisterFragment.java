@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.product.register;
+package com.leadplatform.kfarmers.view.market.register;
 
 import android.app.Activity;
 import android.content.Intent;

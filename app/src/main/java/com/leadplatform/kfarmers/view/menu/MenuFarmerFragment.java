@@ -42,7 +42,7 @@ import com.leadplatform.kfarmers.view.menu.release.FarmerReleaseActivity;
 import com.leadplatform.kfarmers.view.menu.release.VillageReleaseActivity;
 import com.leadplatform.kfarmers.view.menu.setting.SettingActivity;
 import com.leadplatform.kfarmers.view.menu.setting.SettingServiceActivity;
-import com.leadplatform.kfarmers.view.product.register.ProductRegisterActivity;
+import com.leadplatform.kfarmers.view.market.register.ProductRegisterActivity;
 import com.leadplatform.kfarmers.view.reply.ReplyActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

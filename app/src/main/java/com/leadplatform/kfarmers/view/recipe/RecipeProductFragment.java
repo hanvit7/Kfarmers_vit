@@ -17,7 +17,7 @@ import com.leadplatform.kfarmers.model.json.snipe.RecipeJson;
 import com.leadplatform.kfarmers.util.CommonUtil;
 import com.leadplatform.kfarmers.view.base.BaseFragment;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

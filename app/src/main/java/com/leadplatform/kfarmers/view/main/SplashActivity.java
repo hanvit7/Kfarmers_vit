@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.common;
+package com.leadplatform.kfarmers.view.main;
 
 import android.app.Application;
 import android.content.Context;

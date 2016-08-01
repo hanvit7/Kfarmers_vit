@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.recipe;
+package com.leadplatform.kfarmers.view.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,6 +25,7 @@ import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
+import com.leadplatform.kfarmers.view.recipe.RecipeViewActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

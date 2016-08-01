@@ -30,7 +30,7 @@ import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.leadplatform.kfarmers.view.reply.ReplyActivity;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;

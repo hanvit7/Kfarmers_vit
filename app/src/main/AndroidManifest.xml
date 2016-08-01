@@ -176,7 +176,7 @@
         -->
 
         <activity
-            android:name=".view.common.SplashActivity"
+            android:name=".view.main.SplashActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:noHistory="true"
             android:screenOrientation="portrait"
@@ -236,7 +236,7 @@
             android:theme="@style/Theme.Sherlock.CustomPtrHeader"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.main.SearchActivity"
+            android:name=".view.actionbar.SearchActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -435,7 +435,7 @@
             android:theme="@style/Theme.Transparent"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.product.ProductActivity"
+            android:name=".view.market.ProductActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -483,7 +483,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.product.register.ProductRegisterActivity"
+            android:name=".view.market.register.ProductRegisterActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -541,12 +541,12 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.event.EventDetailActivity"
+            android:name=".view.Supporters.SupportersDetailActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.event.EventWinActivity"
+            android:name=".view.Supporters.SupportersWinActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateAlwaysHidden" />
@@ -558,7 +558,7 @@
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name=".view.product.ProductOptionActivity"
+            android:name=".view.market.ProductOptionActivity"
             android:configChanges="orientation|screenSize|screenLayout"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Transparent"

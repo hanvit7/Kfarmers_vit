@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.event;
+package com.leadplatform.kfarmers.view.Supporters;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -16,8 +16,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import org.apache.http.Header;
 
-public class EventWinActivity extends BaseFragmentActivity {
-    public static final String TAG = "EventWinActivity";
+public class SupportersWinActivity extends BaseFragmentActivity {
+    public static final String TAG = "SupportersWinActivity";
 
     public static final String EVENT_IDX = "EVENT_IDX";
 
@@ -59,7 +59,7 @@ public class EventWinActivity extends BaseFragmentActivity {
 
     private void getData() {
         UiController.showProgressDialog(this);
-        SnipeApiController.getProductList(String.valueOf(10), "", "0", "", "", false,null,null, new SnipeResponseListener(EventWinActivity.this) {
+        SnipeApiController.getProductList(String.valueOf(10), "", "0", "", "", false,null,null, new SnipeResponseListener(SupportersWinActivity.this) {
             @Override
             public void onSuccess(int Code, String content, String error) {
                 try {
@@ -91,17 +91,17 @@ public class EventWinActivity extends BaseFragmentActivity {
 
                         imageLoader.displayImage("http://www.intercrewkorea.co.kr/news/img_data/이마트-15주년-이벤트-당첨.jpg", mImageView);
                     } else {
-                        UiController.showDialog(EventWinActivity.this, R.string.dialog_unknown_error);
+                        UiController.showDialog(SupportersWinActivity.this, R.string.dialog_unknown_error);
                     }
                 } catch (Exception e) {
-                    UiController.showDialog(EventWinActivity.this, R.string.dialog_unknown_error);
+                    UiController.showDialog(SupportersWinActivity.this, R.string.dialog_unknown_error);
                 }
-                UiController.hideProgressDialog(EventWinActivity.this);
+                UiController.hideProgressDialog(SupportersWinActivity.this);
             }
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
                 super.onFailure(statusCode, headers, content, error);
-                UiController.hideProgressDialog(EventWinActivity.this);
+                UiController.hideProgressDialog(SupportersWinActivity.this);
             }
         });
     }

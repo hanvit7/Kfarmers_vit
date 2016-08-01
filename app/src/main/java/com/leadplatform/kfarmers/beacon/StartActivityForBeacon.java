@@ -17,7 +17,7 @@ import com.leadplatform.kfarmers.model.json.BeaconJson;
 import com.leadplatform.kfarmers.util.CommonUtil;
 import com.leadplatform.kfarmers.util.gcm.GcmIntentService;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
-import com.leadplatform.kfarmers.view.common.SplashActivity;
+import com.leadplatform.kfarmers.view.main.SplashActivity;
 
 public class StartActivityForBeacon extends BaseFragmentActivity {
 	

@@ -21,7 +21,7 @@ import com.leadplatform.kfarmers.custom.dialog.UiDialog;
 import com.leadplatform.kfarmers.model.database.UserDb;
 import com.leadplatform.kfarmers.model.json.snipe.ProductJson;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 
 import java.util.List;
 

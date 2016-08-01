@@ -39,7 +39,7 @@ import com.leadplatform.kfarmers.view.base.BaseListFragment;
 import com.leadplatform.kfarmers.view.login.LoginActivity;
 import com.leadplatform.kfarmers.view.main.MainActivity;
 import com.leadplatform.kfarmers.view.payment.PaymentActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

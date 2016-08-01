@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.main;
+package com.leadplatform.kfarmers.view.actionbar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -37,7 +37,7 @@ import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
 import com.leadplatform.kfarmers.view.common.ShopActivity;
 import com.leadplatform.kfarmers.view.farm.FarmActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;

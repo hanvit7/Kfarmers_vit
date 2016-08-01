@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.diary;
+package com.leadplatform.kfarmers.view.main;
 
 import android.app.Activity;
 import android.content.Context;
@@ -59,10 +59,12 @@ import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
 import com.leadplatform.kfarmers.view.common.CategoryDialogFragment.OnCloseCategoryDialogListener;
 import com.leadplatform.kfarmers.view.common.ShareDialogFragment.OnCloseShareDialogListener;
 import com.leadplatform.kfarmers.view.common.ShopActivity;
+import com.leadplatform.kfarmers.view.diary.DiaryDetailActivity;
+import com.leadplatform.kfarmers.view.diary.StoryListActivity;
+import com.leadplatform.kfarmers.view.diary.StoryViewActivity;
 import com.leadplatform.kfarmers.view.evaluation.ReviewDetailActivity;
 import com.leadplatform.kfarmers.view.login.LoginActivity;
-import com.leadplatform.kfarmers.view.main.MainActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.leadplatform.kfarmers.view.reply.ReplyActivity;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;

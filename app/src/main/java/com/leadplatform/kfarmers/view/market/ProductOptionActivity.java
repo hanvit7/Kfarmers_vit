@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.product;
+package com.leadplatform.kfarmers.view.market;
 
 import android.content.Context;
 import android.content.Intent;

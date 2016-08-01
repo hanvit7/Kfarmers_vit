@@ -16,7 +16,7 @@ import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.custom.button.ViewOnClickListener;
 import com.leadplatform.kfarmers.model.json.snipe.ProductJson;
 import com.leadplatform.kfarmers.view.farm.FarmActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 
 public class YoutubePlayActivity extends YouTubeBaseActivity  implements YouTubePlayer.OnInitializedListener
 {

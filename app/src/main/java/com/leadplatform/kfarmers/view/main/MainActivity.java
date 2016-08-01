@@ -32,17 +32,13 @@ import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.util.gcm.GcmController;
 import com.leadplatform.kfarmers.util.gcm.GcmIntentService;
 import com.leadplatform.kfarmers.view.base.BaseMenuFragmentActivity;
-import com.leadplatform.kfarmers.view.diary.DiaryTabFragment;
-import com.leadplatform.kfarmers.view.event.SupportersFragment;
-import com.leadplatform.kfarmers.view.home.HomeTabFragment;
 import com.leadplatform.kfarmers.view.inquiry.InquiryActivity;
 import com.leadplatform.kfarmers.view.login.LoginActivity;
 import com.leadplatform.kfarmers.view.menu.MenuFarmerFragment;
 import com.leadplatform.kfarmers.view.menu.MenuFragment;
 import com.leadplatform.kfarmers.view.menu.MenuUserFragment;
 import com.leadplatform.kfarmers.view.menu.MenuVillageFragment;
-import com.leadplatform.kfarmers.view.product.MarketTabFragment;
-import com.leadplatform.kfarmers.view.recipe.RecipeTabFragment;
+import com.leadplatform.kfarmers.view.actionbar.SearchActivity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -129,7 +125,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
         fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.HOME.toString()).setIndicator(tabViewHome), HomeTabFragment.class, null);
         fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.DIARY.toString()).setIndicator(tabViewDiary), DiaryTabFragment.class, argumentFarm);
         fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.MARKET.toString()).setIndicator(tabViewProduct), MarketTabFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.SUPPORTERS.toString()).setIndicator(tabViewEvent), SupportersFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.SUPPORTERS.toString()).setIndicator(tabViewEvent), SupportersTabFragment.class, null);
         fragmentTabHost.addTab(fragmentTabHost.newTabSpec(MainTab.RECIPE.toString()).setIndicator(tabViewRecipe), RecipeTabFragment.class, null);
 
         fragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {

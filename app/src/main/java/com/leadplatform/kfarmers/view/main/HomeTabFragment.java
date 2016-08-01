@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.home;
+package com.leadplatform.kfarmers.view.main;
 
 import android.content.Context;
 import android.content.Intent;
@@ -47,14 +47,14 @@ import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.common.LicenseeInfoActivity;
 import com.leadplatform.kfarmers.view.diary.DiaryDetailActivity;
 import com.leadplatform.kfarmers.view.evaluation.EvaluationActivity;
-import com.leadplatform.kfarmers.view.event.EventDetailActivity;
+import com.leadplatform.kfarmers.view.Supporters.SupportersDetailActivity;
 import com.leadplatform.kfarmers.view.farm.FarmActivity;
 import com.leadplatform.kfarmers.view.join.JoinTermsActivity;
 import com.leadplatform.kfarmers.view.menu.invite.InviteActivity;
 import com.leadplatform.kfarmers.view.menu.notice.FarmNoticeActivity;
 import com.leadplatform.kfarmers.view.menu.story.FarmStoryActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
-import com.leadplatform.kfarmers.view.product.register.ProductRegisterActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
+import com.leadplatform.kfarmers.view.market.register.ProductRegisterActivity;
 import com.leadplatform.kfarmers.view.recipe.RecipeViewActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -459,8 +459,8 @@ public class HomeTabFragment extends BaseFragment {
                 @Override
                 public void viewOnClick(View v) {
                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_HOME, "Click_Event", null);
-                    Intent intent = new Intent(getSherlockActivity(), EventDetailActivity.class);
-                    intent.putExtra(EventDetailActivity.EVENT_IDX, (String) v.getTag());
+                    Intent intent = new Intent(getSherlockActivity(), SupportersDetailActivity.class);
+                    intent.putExtra(SupportersDetailActivity.EVENT_IDX, (String) v.getTag());
                     startActivity(intent);
                 }
             });

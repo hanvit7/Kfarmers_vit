@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.product.register;
+package com.leadplatform.kfarmers.view.market.register;
 
 import android.content.Context;
 import android.graphics.Bitmap.Config;
@@ -35,7 +35,7 @@ import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
 import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;

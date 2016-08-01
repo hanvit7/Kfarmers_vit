@@ -10,6 +10,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.custom.button.ViewOnClickListener;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
+import com.leadplatform.kfarmers.view.main.RecipeTabFragment;
 
 public class RecipeListActivity extends BaseFragmentActivity {
     public static final String TAG = "RecipeListActivity";

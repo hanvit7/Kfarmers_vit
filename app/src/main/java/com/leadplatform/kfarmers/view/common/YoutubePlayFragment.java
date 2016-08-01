@@ -16,7 +16,7 @@ import com.leadplatform.kfarmers.Constants;
 import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.util.OnKeyBackPressedListener;
 import com.leadplatform.kfarmers.view.base.BaseFragment;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 
 public class YoutubePlayFragment extends BaseFragment implements OnKeyBackPressedListener{
 

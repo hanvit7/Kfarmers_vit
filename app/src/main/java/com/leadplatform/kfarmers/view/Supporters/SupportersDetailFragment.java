@@ -1,4 +1,4 @@
-package com.leadplatform.kfarmers.view.event;
+package com.leadplatform.kfarmers.view.Supporters;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -51,7 +51,7 @@ import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
 import com.leadplatform.kfarmers.view.farm.FarmActivity;
 import com.leadplatform.kfarmers.view.farm.FarmSlideImageAdapter;
 import com.leadplatform.kfarmers.view.login.LoginActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.leadplatform.kfarmers.view.sns.SnsActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -67,8 +67,8 @@ import java.util.List;
 
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-public class EventDetailFragment extends BaseRefreshMoreListFragment {
-    public static final String TAG = "EventDetailFragment";
+public class SupportersDetailFragment extends BaseRefreshMoreListFragment {
+    public static final String TAG = "SupportersDetailFragment";
 
     private final int mLimit = 20;
     private  int mPage = 1;
@@ -120,10 +120,10 @@ public class EventDetailFragment extends BaseRefreshMoreListFragment {
         }
     };
 
-    public static EventDetailFragment newInstance(String orderNo) {
-        final EventDetailFragment f = new EventDetailFragment();
+    public static SupportersDetailFragment newInstance(String orderNo) {
+        final SupportersDetailFragment f = new SupportersDetailFragment();
         final Bundle args = new Bundle();
-        args.putString(EventDetailActivity.EVENT_IDX,orderNo);
+        args.putString(SupportersDetailActivity.EVENT_IDX,orderNo);
         f.setArguments(args);
         return f;
     }
@@ -133,7 +133,7 @@ public class EventDetailFragment extends BaseRefreshMoreListFragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mEventIdx = getArguments().getString(EventDetailActivity.EVENT_IDX);
+            mEventIdx = getArguments().getString(SupportersDetailActivity.EVENT_IDX);
         }
     }
 
@@ -647,7 +647,7 @@ public class EventDetailFragment extends BaseRefreshMoreListFragment {
                 super.onFailure(statusCode, headers, content, error);
                 onRefreshComplete();
                 onLoadMoreComplete();
-                //UiController.hideProgressDialog(EventDetailActivity.this);
+                //UiController.hideProgressDialog(SupportersDetailActivity.this);
             }
         });
     }

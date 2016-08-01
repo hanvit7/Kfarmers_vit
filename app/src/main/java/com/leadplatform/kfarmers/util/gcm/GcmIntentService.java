@@ -26,14 +26,14 @@ import com.leadplatform.kfarmers.util.WakeUpScreen;
 import com.leadplatform.kfarmers.view.common.GcmComentActivity;
 import com.leadplatform.kfarmers.view.common.ShopActivity;
 import com.leadplatform.kfarmers.view.diary.DiaryDetailActivity;
-import com.leadplatform.kfarmers.view.event.EventDetailActivity;
+import com.leadplatform.kfarmers.view.Supporters.SupportersDetailActivity;
 import com.leadplatform.kfarmers.view.farm.FarmActivity;
 import com.leadplatform.kfarmers.view.inquiry.InquiryActivity;
 import com.leadplatform.kfarmers.view.main.MainActivity;
 import com.leadplatform.kfarmers.view.menu.notice.FarmNoticeActivity;
 import com.leadplatform.kfarmers.view.menu.notice.TypeNoticeActivity;
 import com.leadplatform.kfarmers.view.menu.order.OrderGeneralActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.leadplatform.kfarmers.view.recipe.RecipeViewActivity;
 import com.leadplatform.kfarmers.view.reply.ReplyActivity;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -484,8 +484,8 @@ public class GcmIntentService extends IntentService {
 
 		else if(hashMap.get(GcmIntentService.PUSH_TYPE).equals("Event"))
 		{
-			intent = new Intent(context, EventDetailActivity.class);
-			intent.putExtra(EventDetailActivity.EVENT_IDX, hashMap.get(GcmIntentService.PUSH_INDEX));
+			intent = new Intent(context, SupportersDetailActivity.class);
+			intent.putExtra(SupportersDetailActivity.EVENT_IDX, hashMap.get(GcmIntentService.PUSH_INDEX));
 			intent.putExtra("index", hashMap.get(GcmIntentService.PUSH_INDEX));
 			intent.setFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		}

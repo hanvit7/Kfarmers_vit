@@ -7,7 +7,7 @@ import com.leadplatform.kfarmers.KFarmersApplication;
 import com.leadplatform.kfarmers.model.AppState;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
-import com.leadplatform.kfarmers.view.common.SplashActivity;
+import com.leadplatform.kfarmers.view.main.SplashActivity;
 
 import java.util.HashMap;
 

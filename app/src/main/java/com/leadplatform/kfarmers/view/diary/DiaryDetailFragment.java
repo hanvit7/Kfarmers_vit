@@ -45,7 +45,7 @@ import com.leadplatform.kfarmers.view.base.DynamicRatioImageView;
 import com.leadplatform.kfarmers.view.base.InfinitePagerAdapter;
 import com.leadplatform.kfarmers.view.base.OnLikeDiaryListener;
 import com.leadplatform.kfarmers.view.common.ImageViewActivity;
-import com.leadplatform.kfarmers.view.product.ProductActivity;
+import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
