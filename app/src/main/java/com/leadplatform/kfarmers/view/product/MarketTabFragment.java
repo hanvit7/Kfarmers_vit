@@ -53,8 +53,8 @@ import java.util.List;
 import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-public class ProductListFragment extends BaseRefreshMoreListFragment {
-	public static final String TAG = "ProductListFragment";
+public class MarketTabFragment extends BaseRefreshMoreListFragment {
+	public static final String TAG = "MarketTabFragment";
 
     private String mNowType = ProductActivity.TYPE;
 
@@ -444,11 +444,7 @@ public class ProductListFragment extends BaseRefreshMoreListFragment {
                                 oldIndex = mainItemList.get(mainItemList.size() - 1).idx;
                             }
 
-                            if (arrayList.size() == limit)
-                                bMoreFlag = true;
-                            else
-                                bMoreFlag = false;
-
+                            bMoreFlag = arrayList.size() == limit;
 
                             if(mExhibitionAdapter == null && mPlanArrayList != null && mPlanArrayList.size() > 0) {
                                 mExhibitionAdapter = new ExhibitionAdapter(getActivity(),mPlanArrayList);
@@ -591,7 +587,7 @@ public class ProductListFragment extends BaseRefreshMoreListFragment {
 	private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
 		@Override
 		public void onLoadMore() {
-			if (bMoreFlag == true) {
+			if (bMoreFlag) {
 				bMoreFlag = false;
 				getListProduct(false,categoryIndex);
 			} else {
@@ -680,7 +676,6 @@ public class ProductListFragment extends BaseRefreshMoreListFragment {
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((RelativeLayout) object);
             CommonUtil.UiUtil.unbindDrawables((RelativeLayout) object);
-            object = null;
         }
     }
 

@@ -26,9 +26,9 @@ public class RecipeListActivity extends BaseFragmentActivity {
             finish();
         }
 
-        RecipeListFragment fragment = RecipeListFragment.newInstance(mCode);
+        RecipeTabFragment fragment = RecipeTabFragment.newInstance(mCode);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.fragment_container, fragment, RecipeListFragment.TAG);
+        ft.add(R.id.fragment_container, fragment, RecipeTabFragment.TAG);
         ft.commit();
     }
 

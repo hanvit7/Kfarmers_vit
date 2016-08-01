@@ -36,14 +36,14 @@ import java.util.List;
 
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-public class EventListFragment extends BaseRefreshMoreListFragment {
-    public static final String TAG = "EventListFragment";
+public class SupportersFragment extends BaseRefreshMoreListFragment {
+    public static final String TAG = "SupportersFragment";
 
     private ImageLoader mImageLoader;
     private DisplayImageOptions mImageOption;
 
     private final int mLimit = 20;
-    private  int mPage = 1;
+    private int mPage = 1;
     private boolean mMoreFlag = false;
 
     private LinearLayout mEmptyView;
@@ -54,7 +54,7 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
     private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
         @Override
         public void onLoadMore() {
-            if (mMoreFlag == true) {
+            if (mMoreFlag) {
                 mMoreFlag = false;
                 getDataList(false);
             } else {
@@ -111,7 +111,7 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
             }
         });
 
-        if(mEventListAdapter == null) {
+        if (mEventListAdapter == null) {
             mEventListAdapter = new EventListAdapter(getActivity(), R.layout.item_event_list);
             setListAdapter(mEventListAdapter);
         }
@@ -131,7 +131,7 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
         }
 
         UiController.showProgressDialogFragment(getView());
-        SnipeApiController.getEventList(String.valueOf(mPage),String.valueOf(mLimit),"F", new SnipeResponseListener(getActivity()) {
+        SnipeApiController.getEventList(String.valueOf(mPage), String.valueOf(mLimit), "F", new SnipeResponseListener(getActivity()) {
             @Override
             public void onSuccess(int Code, String content, String error) {
                 onRefreshComplete();
@@ -142,16 +142,12 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
                         JsonNode root = JsonUtil.parseTree(content);
                         List<EventJson> arrayList = new ArrayList<>();
 
-                        if(root.path("item").size() > 0)
-                        {
+                        if (root.path("item").size() > 0) {
                             arrayList = (List<EventJson>) JsonUtil.jsonToArrayObject(root.path("item"), EventJson.class);
                             mEventListAdapter.addAll(arrayList);
                         }
 
-                        if (arrayList.size() == mLimit)
-                            mMoreFlag = true;
-                        else
-                            mMoreFlag = false;
+                        mMoreFlag = arrayList.size() == mLimit;
                         mPage++;
 
                         if (mEventListAdapter.getCount() > 0) {
@@ -176,9 +172,8 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
         });
     }
 
-    public class EventListAdapter extends ArrayAdapter
-    {
-        private  int itemLayoutResourceId;
+    public class EventListAdapter extends ArrayAdapter {
+        private int itemLayoutResourceId;
 
         public EventListAdapter(Context context, int resource) {
             super(context, resource);
@@ -188,8 +183,7 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
-            if(convertView == null)
-            {
+            if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(itemLayoutResourceId, null);
             }
@@ -206,25 +200,22 @@ public class EventListFragment extends BaseRefreshMoreListFragment {
 
             name.setText(item.title);
             title.setText(item.sub_title);
-            date.setText(item.start_date + " ~ "+ item.end_date);
+            date.setText(item.start_date + " ~ " + item.end_date);
 
-            if(item.status.equals("진행"))
-            {
+            if (item.status.equals("진행")) {
                 dday.setText(item.duration);
-            }
-            else
-            {
+            } else {
                 dday.setText(item.status);
             }
 
-            if(item.point != null && Integer.parseInt(item.point) > 0) {
+            if (item.point != null && Integer.parseInt(item.point) > 0) {
                 point.setText(item.point + "P 적립");
                 point.setVisibility(View.VISIBLE);
             } else {
                 point.setVisibility(View.GONE);
             }
 
-            mImageLoader.displayImage(Constants.KFARMERS_SNIPE_IMG+item.file.title.path,img,mImageOption);
+            mImageLoader.displayImage(Constants.KFARMERS_SNIPE_IMG + item.file.title.path, img, mImageOption);
             return convertView;
         }
     }

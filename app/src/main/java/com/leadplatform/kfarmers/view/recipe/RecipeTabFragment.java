@@ -36,8 +36,8 @@ import java.util.List;
 
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
-public class RecipeListFragment extends BaseRefreshMoreListFragment {
-	public static final String TAG = "RecipeListFragment";
+public class RecipeTabFragment extends BaseRefreshMoreListFragment {
+	public static final String TAG = "RecipeTabFragment";
 
 	private ImageLoader mImageLoader;
 	private DisplayImageOptions mImageOption;
@@ -57,7 +57,7 @@ public class RecipeListFragment extends BaseRefreshMoreListFragment {
 	private BaseRefreshMoreListFragment.OnLoadMoreListener loadMoreListener = new BaseRefreshMoreListFragment.OnLoadMoreListener() {
 		@Override
 		public void onLoadMore() {
-			if (mMoreFlag == true) {
+			if (mMoreFlag) {
 				mMoreFlag = false;
 				getDataList(false);
 			} else {
@@ -73,8 +73,8 @@ public class RecipeListFragment extends BaseRefreshMoreListFragment {
 		}
 	};
 
-	public static RecipeListFragment newInstance(String code) {
-		final RecipeListFragment f = new RecipeListFragment();
+	public static RecipeTabFragment newInstance(String code) {
+		final RecipeTabFragment f = new RecipeTabFragment();
 		final Bundle args = new Bundle();
 		args.putString("code",code);
 		f.setArguments(args);
@@ -160,10 +160,7 @@ public class RecipeListFragment extends BaseRefreshMoreListFragment {
 							mEmptyView.setVisibility(View.VISIBLE);
 						}
 
-						if (arrayList.size() == mLimit)
-							mMoreFlag = true;
-						else
-							mMoreFlag = false;
+						mMoreFlag = arrayList.size() == mLimit;
 						mPage++;
 
 					} else {

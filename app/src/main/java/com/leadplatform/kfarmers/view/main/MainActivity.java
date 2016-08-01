@@ -32,8 +32,8 @@ import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.util.gcm.GcmController;
 import com.leadplatform.kfarmers.util.gcm.GcmIntentService;
 import com.leadplatform.kfarmers.view.base.BaseMenuFragmentActivity;
-import com.leadplatform.kfarmers.view.diary.DiaryListFragment;
-import com.leadplatform.kfarmers.view.event.EventListFragment;
+import com.leadplatform.kfarmers.view.diary.DiaryTabFragment;
+import com.leadplatform.kfarmers.view.event.SupportersFragment;
 import com.leadplatform.kfarmers.view.home.HomeTabFragment;
 import com.leadplatform.kfarmers.view.inquiry.InquiryActivity;
 import com.leadplatform.kfarmers.view.login.LoginActivity;
@@ -41,8 +41,8 @@ import com.leadplatform.kfarmers.view.menu.MenuFarmerFragment;
 import com.leadplatform.kfarmers.view.menu.MenuFragment;
 import com.leadplatform.kfarmers.view.menu.MenuUserFragment;
 import com.leadplatform.kfarmers.view.menu.MenuVillageFragment;
-import com.leadplatform.kfarmers.view.product.ProductListFragment;
-import com.leadplatform.kfarmers.view.recipe.RecipeListFragment;
+import com.leadplatform.kfarmers.view.product.MarketTabFragment;
+import com.leadplatform.kfarmers.view.recipe.RecipeTabFragment;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -131,7 +131,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
 
     private void initContentView(Bundle savedInstanceState) {
         Bundle argumentFarm = new Bundle();
-        argumentFarm.putInt("Type", DiaryListFragment.DIARY_TYPE_FARM);
+        argumentFarm.putInt("Type", DiaryTabFragment.DIARY_TYPE_FARM);
 
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         //메인 탭 설정
@@ -156,27 +156,32 @@ public class MainActivity extends BaseMenuFragmentActivity {
         fragmentTabHost.getTabWidget().setStripEnabled(false);
 
         fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_HOME).setIndicator(tabViewHome), HomeTabFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_FARM).setIndicator(tabViewDiary), DiaryListFragment.class, argumentFarm);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_PRODUCT).setIndicator(tabViewProduct), ProductListFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_EVENT).setIndicator(tabViewEvent), EventListFragment.class, null);
-        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_RECIPE).setIndicator(tabViewRecipe), RecipeListFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_FARM).setIndicator(tabViewDiary), DiaryTabFragment.class, argumentFarm);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_PRODUCT).setIndicator(tabViewProduct), MarketTabFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_EVENT).setIndicator(tabViewEvent), SupportersFragment.class, null);
+        fragmentTabHost.addTab(fragmentTabHost.newTabSpec(DIARY_TYPE_RECIPE).setIndicator(tabViewRecipe), RecipeTabFragment.class, null);
 
         fragmentTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 if (mMoveTab != null && mMoveTab.equals("")) {
-
                     String name = "";
-                    if (tabId.equals(DIARY_TYPE_HOME)) {
-                        name = "HOME";
-                    } else if (tabId.equals(DIARY_TYPE_FARM)) {
-                        name = "이야기";
-                    } else if (tabId.equals(DIARY_TYPE_PRODUCT)) {
-                        name = "장터";
-                    } else if (tabId.equals(DIARY_TYPE_EVENT)) {
-                        name = "서포터즈";
-                    } else if (tabId.equals(DIARY_TYPE_RECIPE)) {
-                        name = "레시피";
+                    switch (tabId) {
+                        case DIARY_TYPE_HOME:
+                            name = "HOME";
+                            break;
+                        case DIARY_TYPE_FARM:
+                            name = "이야기";
+                            break;
+                        case DIARY_TYPE_PRODUCT:
+                            name = "장터";
+                            break;
+                        case DIARY_TYPE_EVENT:
+                            name = "서포터즈";
+                            break;
+                        case DIARY_TYPE_RECIPE:
+                            name = "레시피";
+                            break;
                     }
                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_Tab", name);
                 }
@@ -244,14 +249,19 @@ public class MainActivity extends BaseMenuFragmentActivity {
 
                 String type = getUserType();
 
-                if (type.equals("F")) {
-                    KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_FARMER);
-                } else if (type.equals("V")) {
-                    KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_VILLAGE);
-                } else if (type.equals("U")) {
-                    KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_USER);
-                } else {
-                    KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_NONMEMBER);
+                switch (type) {
+                    case "F":
+                        KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_FARMER);
+                        break;
+                    case "V":
+                        KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_VILLAGE);
+                        break;
+                    case "U":
+                        KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_USER);
+                        break;
+                    default:
+                        KfarmersAnalytics.onScreen(KfarmersAnalytics.S_MYPAGE_NONMEMBER);
+                        break;
                 }
                 onActionBarLeftBtnClicked();
             }
@@ -366,12 +376,13 @@ public class MainActivity extends BaseMenuFragmentActivity {
                 JsonNode root = JsonUtil.parseTree(mProfile);
                 String type = root.findValue("Type").textValue();
 
-                if (type.equals("F")) {
-                    return "F";
-                } else if (type.equals("V")) {
-                    return "V";
-                } else if (type.equals("U")) {
-                    return "U";
+                switch (type) {
+                    case "F":
+                        return "F";
+                    case "V":
+                        return "V";
+                    case "U":
+                        return "U";
                 }
                 return "G";
             } else {
@@ -386,14 +397,19 @@ public class MainActivity extends BaseMenuFragmentActivity {
     private void displaySetMenuLeftFragment() {
         String type = getUserType();
         //유저 종류에 따른 분류
-        if (type.equals("F")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuFarmerFragment.newInstance(mProfile), MenuFarmerFragment.TAG).commitAllowingStateLoss();
-        } else if (type.equals("V")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuVillageFragment.newInstance(mProfile), MenuVillageFragment.TAG).commitAllowingStateLoss();
-        } else if (type.equals("U")) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuUserFragment.newInstance(mProfile), MenuUserFragment.TAG).commitAllowingStateLoss();
-        } else {
-            getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuFragment.newInstance(), MenuFragment.TAG).commitAllowingStateLoss();
+        switch (type) {
+            case "F":
+                getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuFarmerFragment.newInstance(mProfile), MenuFarmerFragment.TAG).commitAllowingStateLoss();
+                break;
+            case "V":
+                getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuVillageFragment.newInstance(mProfile), MenuVillageFragment.TAG).commitAllowingStateLoss();
+                break;
+            case "U":
+                getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuUserFragment.newInstance(mProfile), MenuUserFragment.TAG).commitAllowingStateLoss();
+                break;
+            default:
+                getSupportFragmentManager().beginTransaction().replace(R.id.left_navigation_menu_frame, MenuFragment.newInstance(), MenuFragment.TAG).commitAllowingStateLoss();
+                break;
         }
     }
 
