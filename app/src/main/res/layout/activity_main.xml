@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/root_container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+    <android.support.v4.app.FragmentTabHost
+            android:id="@android:id/tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+            <TabWidget
+                    android:id="@android:id/tabs"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/CommonMediumByLargeRow"/>
+
+            <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"/>
+
+            <FrameLayout
+                    android:id="@+id/realtabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+        </LinearLayout>
+    </android.support.v4.app.FragmentTabHost>
+
+    <ImageButton
+            android:id="@+id/writeDiaryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumPadding"
+            android:background="@drawable/button_write"
+            android:visibility="gone"
+            android:contentDescription="@string/CommonDummy"/>
+
+    <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <!--<include layout="@layout/view_progress"/>-->
+
+</FrameLayout>   

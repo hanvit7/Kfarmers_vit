@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/RootView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#191919"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/SelectView"
+        android:visibility="gone"
+        android:background="@drawable/rounded_rect_dialog_bg"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14.0dip"
+        android:layout_centerInParent="true">
+
+        <RelativeLayout
+            android:id="@+id/OptionBtn"
+            android:background="@drawable/bg_box_selector"
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:layout_marginTop="@dimen/CommonMediumMargin">
+
+            <TextView
+                android:id="@+id/OptionText"
+                android:textSize="14.0sp"
+                android:textColor="@drawable/combobox_color_selector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="옵션"
+                android:layout_centerInParent="true" />
+
+            <ImageView
+                android:layout_width="20.0dip"
+                android:layout_height="20.0dip"
+                android:layout_marginRight="12.0dip"
+                android:src="@drawable/icon_arrow_bottom"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+
+        <com.leadplatform.kfarmers.view.common.LimitListView xmlns:sub="http://schemas.android.com/apk/res-auto"
+            sub:maxHeight="200dp"
+            android:id="@+id/SelectListView"
+            android:background="#00000000"
+            android:paddingBottom="5.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollingCache="false"
+            android:cacheColorHint="#00000000" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/ll_activity_product_option_bottom"
+            android:paddingTop="10.0dip"
+            android:paddingBottom="@dimen/CommonLargeMargin"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <include
+                layout="@layout/item_minicart_btn_round"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/OptionView"
+        android:background="@drawable/rounded_rect_dialog_bg"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14.0dip"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:textSize="16.0sp"
+            android:textStyle="bold"
+            android:textColor="#ff707070"
+            android:gravity="center"
+            android:text="옵션 선택"
+            android:background="@drawable/rounded_rect_dialog_title"
+            android:layout_width="fill_parent"
+            android:layout_height="55.0dip"
+            android:layout_marginLeft="1.0dip"
+            android:layout_marginTop="1.0dip"
+            android:layout_marginRight="1.0dip" />
+
+        <com.leadplatform.kfarmers.view.common.LimitListView xmlns:sub="http://schemas.android.com/apk/res-auto"
+            sub:maxHeight="310dp"
+            android:id="@+id/OptionListView"
+            android:background="#00000000"
+            android:paddingBottom="5.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:scrollingCache="false"
+            android:scrollbarFadeDuration="999999"
+            android:cacheColorHint="#00000000" />
+
+    </LinearLayout>
+</RelativeLayout>

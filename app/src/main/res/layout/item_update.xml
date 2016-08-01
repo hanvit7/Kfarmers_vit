@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/CommonMediumMargin"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:text="@string/dialog_update_app_version"
+        android:textColor="@color/CommonText"
+        android:textSize="@dimen/CommonMediumText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/CommonXLargeMargin"
+        android:layout_marginBottom="@dimen/CommonMediumMargin"
+        android:textColor="@color/CommonText"
+        android:text="※업데이트 안되실 때 해결 방법※\n\nhttp://me2.do/GJGGW0VI\n"
+        android:textSize="@dimen/CommonMediumText"
+        android:autoLink="web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
+
+

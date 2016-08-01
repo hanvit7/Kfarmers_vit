@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#FFFFFF"
+    android:id="@+id/RootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/Footer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonLargeRow"
+        android:layout_alignParentBottom="true"
+        android:background="#77444444"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/ReplyLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FFFFFFFF">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_minicart_cart"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/button_diary_reply_white" />
+
+                <TextView
+                    android:id="@+id/ReplyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-7px"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_above="@id/Footer"
+        android:id="@+id/Main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/contentView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingTop="@dimen/CommonLargePadding"
+                    android:paddingLeft="@dimen/CommonLargePadding"
+                    android:paddingRight="@dimen/CommonLargePadding"
+                    android:paddingBottom="@dimen/CommonXXXLargeMargin">
+
+                    <RelativeLayout
+                        android:id="@+id/Header1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/Date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="11dp"
+                            android:singleLine="true"
+                            android:textColor="#aeadad"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/Name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/Date"
+                            android:layout_toRightOf="@+id/Profile"
+                            android:textColor="#3d3d3d"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:id="@+id/Profile"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/icon_empty_profile" />
+
+                        <LinearLayout
+                            android:id="@+id/RatingLayout"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/Name"
+                            android:layout_marginTop="5dp"
+                            android:layout_toRightOf="@+id/Profile">
+
+                            <TextView
+                                android:id="@+id/RatingText"
+                                android:layout_gravity="center_vertical"
+                                android:text="10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                            <RatingBar
+                                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/Ratingbar"
+                                style="@android:style/Widget.Holo.Light.RatingBar.Small"
+                                android:numStars="5"
+                                android:rating="2.5"
+                                android:max="5"
+                                android:isIndicator="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                        </LinearLayout>
+
+
+                        <!--<HorizontalScrollView
+                            android:layout_marginTop="@dimen/CommonMediumMargin"
+                            android:layout_below="@+id/Description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@+id/Description"
+                            android:layout_alignStart="@+id/Description">
+
+                            <LinearLayout
+                                android:id="@+id/ImageLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>-->
+
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginTop="@dimen/CommonLargePadding"
+                        android:background="#eaeaea" />
+
+                    <LinearLayout
+                        android:id="@+id/Body"
+                        android:layout_marginTop="@dimen/CommonLargePadding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </LinearLayout>
+
+                <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                    android:layout_marginBottom="@dimen/CommonXXXLargeMargin"
+                    android:background="@drawable/product_box_strok"
+                    android:id="@+id/productView"
+                    android:layout_marginLeft="@dimen/CommonLargePadding"
+                    android:layout_marginRight="@dimen/CommonLargePadding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    custom:viewRatio="0.30">
+
+                    <include layout="@layout/item_story_product_list" />
+                </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

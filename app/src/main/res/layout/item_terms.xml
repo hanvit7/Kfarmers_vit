@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:paddingBottom="@dimen/CommonLargePadding"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#bebdbd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/CommonSmallMargin">
+
+
+        <TextView
+            android:id="@+id/Terms1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/TermsTab1"
+            android:textColor="#FF000000"
+            android:textSize="12sp" />
+
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="12sp"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:background="#bebdbd" />
+
+        <TextView
+            android:id="@+id/Terms2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/TermsTab2"
+            android:textColor="#FF000000"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="12sp"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:background="#bebdbd" />
+
+        <TextView
+            android:id="@+id/Terms3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/TermsTab4"
+            android:textColor="#FF000000"
+            android:textSize="12sp" />
+
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="12sp"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:background="#bebdbd" />
+
+        <TextView
+            android:id="@+id/Terms4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/TermsTab"
+            android:textColor="#FF000000"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/CommonMediumPadding"
+        android:src="@drawable/icon_logo"
+        android:textColor="#FF000000" />
+</LinearLayout>
+

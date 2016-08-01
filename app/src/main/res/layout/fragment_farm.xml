@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eeeeee">
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee">
+
+        <ListView
+            android:id="@id/android:list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+
+    <!--<LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonLargeRow"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:background="@drawable/btn_minicart_buy"
+                android:id="@+id/favoriteLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:text="관심농부 +"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/CommonMediumPadding"
+                    android:textSize="15sp"
+                    android:textColor="#FFFFFFFF"
+                    android:textStyle="bold" />
+
+                &lt;!&ndash;<TextView
+                    android:textSize="25sp"
+                    android:textColor="#ffff"
+                    android:text="+"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />&ndash;&gt;
+
+                &lt;!&ndash;<ImageView
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/favorte_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />&ndash;&gt;
+                <View
+                    android:layout_marginLeft="15dp"
+                    android:background="#e1e1e1"
+                    android:layout_width="1px"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:background="@drawable/btn_minicart_buy"
+            android:id="@+id/rightLayout"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="관심있는"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFFFF"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_marginLeft="3dp"
+                        android:id="@+id/favoriteText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="12dp"
+                        android:textSize="15sp"
+                        android:textColor="#FFFFFFFF"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/favoriteImage"
+                        android:layout_marginLeft="7dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_empty_profile"
+                        android:background="@drawable/common_dummy_circle"
+                        android:padding="2dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>-->
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/CommonSsmallPadding"
+    android:paddingLeft="@dimen/CommonMediumMargin"
+    android:paddingRight="@dimen/CommonMediumMargin">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/CommonMediumMargin"
+        android:background="@drawable/bg_content_s">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/CommonText"
+                android:layout_marginRight="@dimen/CommonMediumMargin"
+                android:id="@+id/TxtDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+
+            <TextView
+                android:textColor="@color/CommonText"
+                android:gravity="right"
+                android:id="@+id/TxtExpireDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+
+        </LinearLayout>
+
+        <View
+
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:background="#ffa1aeb2" />
+
+        <LinearLayout
+            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@color/CommonPrice"
+                android:gravity="right"
+                android:id="@+id/TxtPoint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1" />
+        </LinearLayout>
+
+        <TextView
+            android:textColor="@color/CommonText"
+            android:id="@+id/TxtTitle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2" />
+
+
+        <!--<View
+            android:id="@+id/BottomLine"
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginTop="1.0px"
+            android:background="#ffa1aeb2" />-->
+    </LinearLayout>
+
+</LinearLayout>

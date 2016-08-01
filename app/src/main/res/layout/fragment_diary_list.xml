@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#eeeeee">
+
+            <ListView
+                android:id="@id/android:list"
+                android:listSelector="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:id="@+id/SubMenuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumByLargeRow2"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@color/refresh_background">
+
+            <RelativeLayout
+                android:id="@+id/SubMenuBox1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/SubMenu1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_toRightOf="@+id/SubMenu1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/button_menu_white"
+                    android:contentDescription="@string/CommonDummy" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="20dp"
+                android:background="#FFFF" />
+
+            <RelativeLayout
+                android:id="@+id/SubMenuBox2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/SubMenu2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_toRightOf="@+id/SubMenu2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/button_menu_white"
+                    android:contentDescription="@string/CommonDummy" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="20dp"
+                android:background="#FFFF" />
+
+            <RelativeLayout
+                android:id="@+id/SubMenuBox3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/SubMenu3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_toRightOf="@+id/SubMenu3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/button_menu_white"
+                    android:contentDescription="@string/CommonDummy" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/TabMenuLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/item_diary_tab" />
+
+    </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/topBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="@dimen/CommonXXXLargeMargin"
+        android:layout_marginRight="@dimen/CommonMediumPadding"
+        android:background="@drawable/icon_top"
+        android:visibility="visible"
+        android:contentDescription="@string/CommonDummy"/>
+
+    <include layout="@layout/view_progress" />
+</FrameLayout>

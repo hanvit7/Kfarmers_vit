@@ -1,0 +1,1061 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/MainView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--상품 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:text="주문확인"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ItemViewList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                    `
+
+                    <LinearLayout
+                        android:id="@+id/ItemViewTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/CommonSmallMargin"
+                        android:layout_marginRight="@dimen/CommonSmallMargin"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:background="@drawable/get_list_post_color"
+                        android:orientation="vertical"
+                        android:padding="@dimen/CommonMediumPadding">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:text="총 상품금액"
+                                android:textSize="16.0dip" />
+
+                            <TextView
+                                android:id="@+id/TotalItemText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="0 원"
+                                android:textSize="16.0dip" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="배송비"
+                                android:textSize="16.0dip" />
+
+                            <TextView
+                                android:id="@+id/DeliveryPriceText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="0 원"
+                                android:textSize="16.0dip" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_marginTop="@dimen/CommonMediumMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/TxtPointBtn"
+                                android:padding="@dimen/CommonSmallMargin"
+                                android:background="@drawable/btn_minicart_cart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="포인트 사용"
+                                android:textColor="@color/white"
+                                android:textSize="16.0dip" />
+
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:id="@+id/TxtPointTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:textColor="@color/CommonPrice"
+                                android:text="- 0 P"
+                                android:textSize="16.0dip" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:id="@+id/LayoutPointView"
+                            android:layout_marginTop="@dimen/CommonSsmallMargin"
+                            android:padding="@dimen/CommonMediumMargin"
+                            android:orientation="vertical"
+                            android:background="@drawable/get_list_post"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="보유포인트"
+                                    android:textSize="16.0dip" />
+
+                                <TextView
+                                    android:id="@+id/TxtPointNow"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:textColor="@color/CommonPrice"
+                                    android:text="0 P"
+                                    android:textSize="16.0dip" />
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_marginTop="@dimen/CommonMediumMargin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_centerVertical="true"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="포인트 사용"
+                                    android:textSize="16.0dip" />
+
+                                <EditText
+                                    android:id="@+id/EditPointUse"
+                                    android:padding="@dimen/CommonSsmallMargin"
+                                    android:gravity="right"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:layout_width="200dp"
+                                    android:inputType="number"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:textColor="@color/CommonPrice"
+                                    android:hint="0 P"
+                                    android:imeOptions="actionDone"
+                                    android:textSize="16.0dip" />
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/TxtPointUseBtn"
+                                android:layout_marginTop="@dimen/CommonLargeMargin"
+                                android:layout_gravity="right"
+                                android:padding="@dimen/CommonSmallMargin"
+                                android:background="@drawable/btn_minicart_cart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="포인트 사용하기"
+                                android:textColor="@color/white"
+                                android:textSize="16.0dip" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginBottom="@dimen/CommonSmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallPadding"
+                            android:layout_marginRight="@dimen/CommonSsmallPadding"
+                            android:layout_marginTop="@dimen/CommonMediumPadding"
+                            android:background="#eaeaea" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="총 결제금액"
+                                android:textSize="20.0dip" />
+
+                            <TextView
+                                android:id="@+id/TotalPriceText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="0 원"
+                                android:textColor="@color/CommonPrice"
+                                android:textSize="20.0dip"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginBottom="@dimen/CommonSmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallPadding"
+                            android:layout_marginRight="@dimen/CommonSsmallPadding"
+                            android:layout_marginTop="@dimen/CommonSmallMargin"
+                            android:background="#eaeaea" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="적립 포인트"
+                                android:textSize="16.0dip" />
+
+                            <TextView
+                                android:id="@+id/TotalPointText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="0 P"
+                                android:textColor="@color/CommonPrice"
+                                android:textSize="16.0dip"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:textSize="@dimen/CommonSmallText"
+                            android:textColor="@color/CommonPrice"
+                            android:layout_marginTop="@dimen/CommonSmallMargin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="적립 포인트는 상품 구매확정 이후 적립됩니다." />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--배송지 레이아웃-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:text="배송지 확인"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:background="@drawable/get_list_post"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/CommonMediumPadding"
+                    android:paddingRight="@dimen/CommonMediumPadding"
+                    android:paddingTop="@dimen/CommonMediumPadding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/AddressListBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="0dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_white_left"
+                            android:enabled="true"
+                            android:text="배송지목록"
+                            android:textSize="@dimen/CommonMediumText"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/payment_btn_bar" />
+
+                        <Button
+                            android:id="@+id/AddressInputBtn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="0dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/btn_white_right"
+                            android:text="직접입력"
+                            android:textSize="@dimen/CommonMediumText"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/DeliveryListViewMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="@dimen/CommonSmallPadding"
+                            android:layout_marginTop="@dimen/CommonSmallPadding"
+                            android:text="상품 받으실 배송지를 선택해 주세요." />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:background="#eaeaea" />
+
+                        <LinearLayout
+                            android:id="@+id/DeliveryListViewMain_Sub"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/DeliveryViewInput"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="@dimen/CommonSmallPadding"
+                            android:layout_marginTop="@dimen/CommonSmallPadding"
+                            android:text="받는사람 정보" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginBottom="@dimen/CommonMediumPadding"
+                            android:background="#eaeaea" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/CommonSmallMargin"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="이름"
+                                    android:textColor="@android:color/black" />
+
+                                <EditText
+                                    android:id="@+id/AddressInput_Name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="textUri"
+                                    android:maxLength="20"
+                                    android:padding="7dp"
+                                    android:privateImeOptions="defaultInputmode=korean"
+                                    android:singleLine="true"
+                                    android:textColor="@color/CommonText"
+                                    android:textColorHint="@color/CommonHint"
+                                    android:textSize="@dimen/CommonMediumText" />
+
+                            </LinearLayout>
+
+                            <!--<View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="5dp"
+                                android:background="@color/CommonDivider" />-->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="연락처"
+                                    android:textColor="@android:color/black" />
+
+                                <EditText
+                                    android:id="@+id/AddressInput_Phone"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="15"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/CommonText"
+                                    android:textColorHint="@color/CommonHint"
+                                    android:textSize="@dimen/CommonMediumText" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginTop="@dimen/CommonMediumPadding"
+                                android:background="@color/CommonDivider" />
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/TextViewAddress"
+                                    android:layout_width="70dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="주소"
+                                    android:textColor="@android:color/black" />
+
+                                <EditText
+                                    android:layout_toRightOf="@id/TextViewAddress"
+                                    android:layout_toLeftOf="@+id/AddressInput_Search"
+                                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                                    android:id="@+id/AddressInput_Addr1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:background="@null"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="주소를 검색해주세요."
+                                    android:padding="7dp"
+                                    android:textColor="@color/CommonText"
+                                    android:textColorHint="@color/CommonHint"
+                                    android:textSize="@dimen/CommonMediumText" />
+
+                                <Button
+                                    android:id="@+id/AddressInput_Search"
+                                    style="@style/ButtonMediumConcept"
+                                    android:layout_width="70dp"
+                                    android:layout_height="35dp"
+                                    android:layout_alignParentRight="true"
+                                    android:text="검색" />
+                            </RelativeLayout>
+
+                            <EditText
+                                android:layout_marginLeft="70dp"
+                                android:id="@+id/AddressInput_Addr2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/common_selector_view_gray"
+                                android:hint="상세 주소를 입력해주세요."
+                                android:maxLength="50"
+                                android:padding="7dp"
+                                android:privateImeOptions="defaultInputmode=korean"
+                                android:singleLine="true"
+                                android:textColor="@color/CommonText"
+                                android:textColorHint="@color/CommonHint"
+                                android:textSize="@dimen/CommonMediumText" />
+
+                            <CheckBox
+                                android:id="@+id/AddressInput_Check"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/CommonMediumMargin"
+                                android:checked="false"
+                                android:text="배송지 목록에 추가하기" />
+
+                            <View
+                                android:layout_width="wrap_content"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/CommonDivider" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/DeliveryViewInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+                            android:text="배송시 요청사항" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/DeliveryInfoSpinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/payment_btn_sel"
+                                android:dropDownWidth="match_parent"
+                                android:padding="0dp"
+                                android:spinnerMode="dropdown" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/CommonMediumMargin"
+                                android:src="@drawable/button_menu" />
+
+                        </RelativeLayout>
+
+                        <EditText
+                            android:id="@+id/DeliveryInfoText"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/CommonMediumMargin"
+                            android:layout_marginTop="@dimen/CommonSmallMargin"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:maxLength="50"
+                            android:padding="7dp"
+                            android:inputType="textUri"
+                            android:singleLine="true"
+                            android:text="" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--주문자 입력 레이아웃-->
+
+            <RadioButton
+                android:id="@+id/BuyerCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:textColor="#FF0000"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:text="주문자와 수령인이 다른가요?" />
+
+            <LinearLayout
+                android:id="@+id/BuyerLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/get_list_post"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_marginRight="@dimen/CommonSmallMargin"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:paddingLeft="@dimen/CommonMediumPadding"
+                android:paddingRight="@dimen/CommonMediumPadding"
+                android:paddingTop="@dimen/CommonMediumPadding"
+                android:paddingBottom="@dimen/CommonMediumPadding"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:layout_marginBottom="@dimen/CommonSmallPadding"
+                    android:text="주문자 정보" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="@dimen/CommonMediumPadding"
+                    android:background="#eaeaea" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginBottom="@dimen/CommonSmallMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:text="이름"
+                            android:textColor="@android:color/black" />
+
+                        <EditText
+                            android:id="@+id/BuyerName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:inputType="textUri"
+                            android:maxLength="20"
+                            android:padding="7dp"
+                            android:privateImeOptions="defaultInputmode=korean"
+                            android:singleLine="true"
+                            android:textColor="@color/CommonText"
+                            android:textColorHint="@color/CommonHint"
+                            android:textSize="@dimen/CommonMediumText" />
+
+                    </LinearLayout>
+
+                    <!--<View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:layout_marginBottom="@dimen/CommonMediumPadding"
+                        android:background="#eaeaea" />-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:text="연락처"
+                            android:textColor="@android:color/black" />
+
+                        <EditText
+                            android:id="@+id/BuyerPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:inputType="number"
+                            android:maxLength="15"
+                            android:padding="7dp"
+                            android:singleLine="true"
+                            android:textColor="@color/CommonText"
+                            android:textColorHint="@color/CommonHint"
+                            android:textSize="@dimen/CommonMediumText" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--결제수단 레이아웃-->
+            <LinearLayout
+                android:id="@+id/PaymentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:text="결제수단 선택"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:background="@drawable/get_list_post"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/RadioPayGroup"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/RadioPayCard"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:tag="card"
+                            android:text="신용카드" />
+
+                        <RadioButton
+                            android:id="@+id/RadioPayAccount"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:tag="bank"
+                            android:text="실시간 계좌이체" />
+
+                        <RadioButton
+                            android:id="@+id/RadioPayBank"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:tag="account"
+                            android:text="무통장입금" />
+
+                    </RadioGroup>
+
+                    <LinearLayout
+                        android:id="@+id/CashView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/CommonSmallMargin"
+                        android:layout_marginRight="@dimen/CommonSmallMargin"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+                            android:text="입금 은행" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/CashSpinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/payment_btn_sel"
+                                android:dropDownWidth="match_parent"
+                                android:padding="0dp"
+                                android:spinnerMode="dropdown" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/CommonMediumMargin"
+                                android:src="@drawable/button_menu" />
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+                            android:layout_marginTop="@dimen/CommonMediumMargin"
+                            android:text="입금자명" />
+
+                        <EditText
+                            android:id="@+id/DepositnameEdit"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:maxLength="15"
+                            android:padding="7dp"
+                            android:privateImeOptions="defaultInputmode=korean"
+                            android:inputType="textUri"
+                            android:singleLine="true"
+                            android:text="" />
+
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+                            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+                            android:layout_marginTop="@dimen/CommonLargeMargin"
+                            android:text="현금 영수증" />
+
+                        <RadioGroup
+                            android:id="@+id/RadioCashGroup"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/RadioCashPersonal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="개인소득공제용" />
+
+                            <RadioButton
+                                android:id="@+id/RadioCashLicensee"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="false"
+                                android:text="사업자증빙용" />
+
+                            <RadioButton
+                                android:id="@+id/RadioCashBin"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="신청안함" />
+
+                        </RadioGroup>
+
+
+                        <RelativeLayout
+                            android:id="@+id/CashReceiptSpinnerLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:visibility="gone"
+                            android:layout_marginRight="@dimen/CommonSmallMargin"
+                            android:layout_marginTop="@dimen/CommonMediumMargin">
+
+                            <Spinner
+                                android:id="@+id/CashReceiptSpinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/payment_btn_sel"
+                                android:dropDownWidth="match_parent"
+                                android:padding="0dp"
+                                android:spinnerMode="dropdown" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/CommonMediumMargin"
+                                android:src="@drawable/button_menu" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/CommonMediumMargin"
+                            android:layout_marginTop="@dimen/CommonMediumMargin"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/CashPhoneView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                                android:layout_marginRight="@dimen/CommonSmallMargin"
+                                android:visibility="gone"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/CashPhoneEdit1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:nextFocusDown="@+id/CashPhoneEdit2"
+                                    android:text="" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="-" />
+
+                                <EditText
+                                    android:id="@+id/CashPhoneEdit2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:nextFocusDown="@+id/CashPhoneEdit3"
+                                    android:text="" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="-" />
+
+                                <EditText
+                                    android:id="@+id/CashPhoneEdit3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:text="" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/CashLicenseeView"
+                                android:layout_width="match_parent"
+                                android:visibility="gone"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                                android:layout_marginRight="@dimen/CommonSmallMargin"
+                                android:layout_marginTop="@dimen/CommonMediumMargin"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/CashLicenseeEdit1"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:nextFocusDown="@+id/CashLicenseeEdit2"
+                                    android:text="" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="-" />
+
+                                <EditText
+                                    android:id="@+id/CashLicenseeEdit2"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:nextFocusDown="@+id/CashLicenseeEdit3"
+                                    android:text="" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="-" />
+
+                                <EditText
+                                    android:id="@+id/CashLicenseeEdit3"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:nextFocusDown="@+id/CashLicenseeEdit4"
+                                    android:text="" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="-" />
+
+                                <EditText
+                                    android:id="@+id/CashLicenseeEdit4"
+                                    android:layout_width="50dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/common_selector_view_gray"
+                                    android:inputType="number"
+                                    android:maxLength="10"
+                                    android:padding="7dp"
+                                    android:singleLine="true"
+                                    android:text="" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<CheckBox
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:text="상기 결제 내역을 확인, 구매 진행에 동의합니다." />-->
+
+            <LinearLayout
+                android:id="@+id/PaymentStartBtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/btn_minicart_buy">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="결제하기"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/CommonMediumByLargeText"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

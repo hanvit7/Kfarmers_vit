@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#FFFFFFFF" >
+	
+	<LinearLayout
+		android:id="@+id/Footer"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/CommonLargeRow"
+		android:layout_alignParentBottom="true"
+		android:paddingTop="2dp"
+		android:background="@color/CommonConcept"
+		android:orientation="horizontal" >
+
+	    <RelativeLayout 
+	        android:id="@+id/Like"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"	  
+			android:background="#FFFFFFFF"      
+	        >
+			<TextView
+			    android:id="@+id/LikeText"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_centerInParent="true"
+				android:gravity="center"
+				android:drawableLeft="@drawable/icon_like2"
+				android:textColor="#86c729"
+				android:textSize="@dimen/CommonMediumText"
+				android:textStyle="bold"
+				/>	        
+	    </RelativeLayout>
+		
+		<ImageView
+			android:layout_width="1dp"
+			android:layout_height="match_parent"
+			android:src="#e8e8e8"     
+		    />
+		
+		<RelativeLayout 
+	        android:id="@+id/Reply"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"	
+			android:background="#FFFFFFFF"        
+	        >			
+			<TextView
+			    android:id="@+id/ReplyText"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_centerInParent="true"
+			    android:gravity="center"
+				android:drawableLeft="@drawable/icon_comment2"
+				android:textColor="#86c729"
+				android:textSize="@dimen/CommonMediumText"
+				android:textStyle="bold"
+				/>			
+		</RelativeLayout>			
+
+		<ImageView
+			android:layout_width="1dp"
+			android:layout_height="match_parent"
+			android:src="#e8e8e8"     
+		    />
+				
+		<RelativeLayout 
+	        android:id="@+id/Share"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"	
+			android:background="#FFFFFFFF"        
+	        >		
+			<TextView
+				android:id="@+id/ShareText"
+				android:layout_width="wrap_content"
+				android:layout_height="match_parent"
+				android:layout_centerInParent="true"
+				android:gravity="center"
+				android:drawableLeft="@drawable/icon_share2"
+				android:textColor="#86c729"
+				android:textSize="@dimen/CommonMediumText"
+				android:textStyle="bold"
+				android:background="#FFFFFFFF"
+				/>	        
+		</RelativeLayout>		
+		
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:id="@+id/Main"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@+id/Footer"
+		android:orientation="vertical"
+		android:background="#FFFFFF" >
+		
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" >
+			<LinearLayout				
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/CommonLargePadding"
+				android:orientation="vertical" >
+				
+				<RelativeLayout
+					android:id="@+id/Header1"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:paddingBottom="@dimen/CommonLargePadding"
+					>
+					<ImageView
+						android:id="@+id/Profile"
+						android:layout_width="50dp"
+						android:layout_height="50dp"
+						android:scaleType="centerCrop"
+						android:src="@drawable/icon_empty_profile"
+						android:contentDescription="@string/CommonDummy" />
+					<RelativeLayout
+						android:id="@+id/Info"
+						android:layout_toRightOf="@+id/Profile"
+						android:layout_width="match_parent"
+						android:layout_height="25dp" >
+						<TextView
+							android:id="@+id/Farmer"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:layout_marginLeft="@dimen/CommonMediumMargin"
+							android:layout_centerVertical="true"
+							android:textColor="@color/CommonText"
+							android:textSize="@dimen/CommonMediumText"
+							android:textStyle="bold"
+							android:singleLine="true" />
+					</RelativeLayout>
+					<TextView
+						android:id="@+id/Date"
+						android:layout_toRightOf="@+id/Profile"
+						android:layout_below="@+id/Info"
+						android:layout_width="wrap_content"
+						android:layout_height="25dp"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:gravity="center_vertical"
+						android:textColor="#a7a7a7"
+						android:textSize="@dimen/CommonMediumText" />
+				</RelativeLayout>
+				<View
+					android:layout_width="match_parent"
+					android:layout_height="0.5dp"
+					android:background="#eaeaea" />
+							    
+				<LinearLayout
+				    android:id="@+id/Body"
+				    android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:orientation="vertical"
+					/>
+				     
+			</LinearLayout>
+		</ScrollView>
+	</LinearLayout>
+	
+	<include layout="@layout/view_progress"/>
+</RelativeLayout>

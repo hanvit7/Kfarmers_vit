@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#FFFFFFFF"
+              android:orientation="vertical">
+
+    <ScrollView android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/CommonMediumPadding"
+                android:background="#FFFFFFFF"
+                android:orientation="vertical">
+
+            <!--<TextView
+                    android:textSize="@dimen/CommonLargeText"
+                    android:textStyle="bold"
+                    android:id="@+id/Name"
+                    android:maxLines="1"
+                    android:layout_width="wrap_content"
+                    android:text="[은파농장]"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:textSize="@dimen/CommonMediumText"
+                    android:id="@+id/Title"
+                    android:maxLines="1"
+                    android:text="[전남 화순 아사삭 5명 추첨"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:textColor="@color/minicart_cart_disable"
+                    android:textSize="@dimen/CommonSmallByMediumText"
+                    android:text="2014-5-22 ~ 2015-4-55"
+                    android:maxLines="1"
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+-->
+
+            <TextView
+                    android:id="@+id/Content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <!--<View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="@dimen/CommonSsmallMargin"
+                    android:layout_marginBottom="@dimen/CommonSmallMargin"
+                    android:background="#bbbbbb"/>-->
+
+            <com.leadplatform.kfarmers.view.base.DynamicRatioImageView
+                    android:id="@+id/Image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:scaleType="fitXY"
+                    android:visibility="gone"
+                    android:padding="@dimen/CommonMediumPadding"
+                    android:background="@drawable/get_list_post"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

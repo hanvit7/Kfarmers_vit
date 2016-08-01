@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/CommonMediumMargin"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toLeftOf="@+id/Dday"
+            android:layout_toStartOf="@+id/Dday">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="@dimen/CommonMediumByLargeText"
+                    android:textStyle="bold"
+                    android:id="@+id/Name"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/Dday"
+                    android:layout_toStartOf="@+id/Dday" />
+
+                <TextView
+                    android:textSize="@dimen/CommonMediumText"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/Dday"
+                    android:textColor="@color/CommonPrice"
+                    android:background="@drawable/get_list_post"
+                    android:paddingLeft="@dimen/CommonMediumPadding"
+                    android:paddingRight="@dimen/CommonMediumPadding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:textSize="@dimen/CommonMediumText"
+                android:id="@+id/Title"
+                android:maxLines="1"
+                android:lines="1"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:textColor="@color/minicart_cart_disable"
+                    android:textSize="@dimen/CommonSmallByMediumText"
+                    android:maxLines="1"
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:textColor="@color/minicart_buy_enabled"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:maxLines="1"
+                    android:id="@+id/Point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:id="@+id/Image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="0.60" />
+
+        <TextView
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:id="@+id/EventInfo"
+            android:textSize="@dimen/CommonMediumText"
+            android:visibility="gone"
+            android:background="#88e2e2e2"
+            android:padding="@dimen/CommonMediumPadding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/ContentTitle"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:textSize="@dimen/CommonLargeText"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:textSize="@dimen/CommonMediumText"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:id="@+id/ContentDes"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:viewRatio="0.80">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/EventViewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <RelativeLayout
+                android:id="@+id/Main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/EventViewpagerPaging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="10dp" />
+
+            </RelativeLayout>
+        </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/CommonXLargeMargin"
+            android:layout_marginBottom="@dimen/CommonLargeMargin"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/ButtonFarm"
+                android:text="농장보기"
+                android:visibility="gone"
+                android:paddingLeft="@dimen/CommonLargeMargin"
+                android:paddingRight="@dimen/CommonLargeMargin"
+                style="@style/ButtonMediumConcept"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+
+            <Button
+                android:id="@+id/ButtonProduct"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:text="상품보기"
+                android:visibility="gone"
+                android:paddingLeft="@dimen/CommonLargeMargin"
+                android:paddingRight="@dimen/CommonLargeMargin"
+                style="@style/ButtonMediumConcept"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/HeaderLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#bbbbbb" />
+</LinearLayout>

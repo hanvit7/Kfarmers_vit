@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:paddingLeft="@dimen/CommonSmallMargin"
+            android:paddingRight="@dimen/CommonSmallMargin"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:paddingTop="@dimen/CommonXXLargeMargin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:shadowColor="#7F000000"
+                    android:shadowDx="3"
+                    android:shadowDy="3"
+                    android:shadowRadius="2"
+                    android:textColor="#ffffff"
+                    android:gravity="center_horizontal"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:text="레시피 속\n그 재료가 궁금하다!"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:layout_marginBottom="@dimen/CommonMediumMargin"
+                android:orientation="vertical"
+                android:id="@+id/productLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

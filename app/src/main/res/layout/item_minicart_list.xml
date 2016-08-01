@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="fill_parent"
+              android:background="#323b4a"
+              android:orientation="vertical">
+
+
+    <TextView
+            android:id="@+id/Name"
+            android:layout_width="fill_parent"
+            android:layout_height="33dp"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:background="@drawable/w_btn_minicart_drowdown"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="상품명"
+            android:textStyle="bold"/>
+
+    <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:background="#ffa1aeb2"/>
+
+
+    <ListView
+            android:id="@+id/ListView"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:layout_weight="1"
+            android:cacheColorHint="#00000000"
+            android:listSelector="#00000000"/>
+
+    <View
+            android:id="@+id/BinLayout"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"/>
+
+    <include
+            layout="@layout/item_minicart_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/CommonLargeMargin"
+        android:background="#5f5f5f"
+        android:orientation="vertical"
+        android:padding="@dimen/CommonMediumPadding">
+
+        <RelativeLayout
+            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="총 상품 금액"
+                android:textColor="#B4B4B4" />
+
+            <TextView
+                android:id="@+id/TotalProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="45,000 원"
+                android:textStyle="bold"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="배송비"
+                android:textColor="#B4B4B4" />
+
+            <TextView
+                android:id="@+id/TotalProductDelivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="45,000 원"
+                android:textStyle="bold"
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/DividerTop"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/TopView"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:background="#6C6C6C" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/CommonMediumText"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최종 결제금" />
+
+            <TextView
+                android:textSize="@dimen/CommonMediumByLargeText"
+                android:textColor="#FFE400"
+                android:id="@+id/TotalPrice"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="45,000 원" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:background="#6C6C6C" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/CommonMediumText"
+                android:textColor="#ffffff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="적립 포인트" />
+
+            <TextView
+                android:textSize="@dimen/CommonMediumByLargeText"
+                android:textColor="#FFE400"
+                android:id="@+id/TotalPoint"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="45,000 P" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonLargeRow" />
+
+
+    </LinearLayout>
+</LinearLayout>

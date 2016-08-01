@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/categoryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:orientation="horizontal"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp">
+
+                <TextView
+                    android:id="@+id/categoryText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="7dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/button_menu" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/CommonDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/CommonLargePadding">
+
+                <TextView
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/productDes"
+                    android:textColor="#ff8dd427"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewMediumDefault"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="상품명"
+                        android:textColorHint="@color/CommonHint" />
+
+                    <EditText
+                        android:id="@+id/productName"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/CommonLargeRow"
+                        android:hint="상품명"
+                        android:maxLength="30"
+                        android:padding="7dp"
+                        android:privateImeOptions="defaultInputmode=korean"
+                        android:singleLine="true"
+                        android:textColorHint="@color/CommonHint" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewMediumDefault"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="정상가"
+                        android:textColorHint="@color/CommonHint" />
+
+                    <EditText
+                        android:id="@+id/productPrice"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/CommonLargeRow"
+                        android:hint="정상가격(숫자만 기입)"
+                        android:inputType="number"
+                        android:maxLength="7"
+                        android:padding="7dp"
+                        android:privateImeOptions="defaultInputmode=korean"
+                        android:singleLine="true"
+                        android:textColorHint="@color/CommonHint"></EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewMediumDefault"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="할인가"
+                        android:textColorHint="@color/CommonHint" />
+
+                    <EditText
+                        android:id="@+id/productDisPrice"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/CommonLargeRow"
+                        android:hint="할인가격(숫자만 기입)"
+                        android:inputType="number"
+                        android:maxLength="7"
+                        android:padding="7dp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/CommonHint" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="@style/TextViewMediumDefault"
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:hint="재고량"
+                        android:textColorHint="@color/CommonHint" />
+
+                    <EditText
+                        android:id="@+id/productCount"
+                        style="@style/EditTextDefault"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/CommonLargeRow"
+                        android:layout_weight="1"
+                        android:inputType="number"
+                        android:maxLength="7"
+                        android:padding="7dp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/CommonHint" />
+
+                    <CheckBox
+                        android:id="@+id/productSoldOut"
+                        android:layout_marginLeft="@dimen/CommonXXXLargeMargin"
+                        android:hint="품절"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/prodcutDelivery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:gravity="center_vertical"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:id="@+id/prodcutDeliveryRadio"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/prodcutDeliveryRadio1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="배송비 무료" />
+
+                        <RadioButton
+                            android:id="@+id/prodcutDeliveryRadio2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="유료" />
+                    </RadioGroup>
+
+                    <EditText
+                        android:id="@+id/prodcutDeliveryPrice"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/CommonLargeRow"
+                        android:layout_marginLeft="@dimen/CommonMediumMargin"
+                        android:hint="배송비"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:padding="7dp"
+                        android:singleLine="true"
+                        android:textColorHint="@color/CommonHint"></EditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/CommonDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/CommonLargePadding">
+
+                <TextView
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/productOption"
+                    android:textColor="#ff8dd427"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/prodcutOptionAdd"
+                    style="@style/ButtonMediumConcept"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:text="옵션추가" />
+
+                <LinearLayout
+                    android:id="@+id/prodcutOption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/CommonDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/CommonLargePadding">
+
+                <TextView
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/productImg"
+                    android:textColor="#ff8dd427"
+                    android:textStyle="bold" />
+
+                <HorizontalScrollView
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/image1"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image2"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image3"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image4"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image5"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image6"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image7"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image8"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image9"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+
+                        <ImageView
+                            android:id="@+id/image10"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:contentDescription="@string/CommonEmpty"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_custom_new_picture" />
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/CommonDivider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="@dimen/CommonLargePadding">
+
+                <TextView
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/productStory"
+                    android:textColor="#ff8dd427"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/productDes"
+                    style="@style/EditTextDefault"
+                    android:layout_width="fill_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:scrollbarDefaultDelayBeforeFade="99999999"
+                    android:scrollbars="vertical"
+                    android:overScrollMode="always"
+                    android:gravity="top"
+                    android:hint="상품설명을 입력해주세요."
+                    android:maxLength="1000"
+                    android:padding="7dp"
+                    android:privateImeOptions="defaultInputmode=korean"
+                    android:textColorHint="@color/CommonHint"></EditText>
+
+                <Button
+                    android:id="@+id/productRegisterBtn"
+                    style="@style/ButtonLargeConcept"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/CommonLargeRow"
+                    android:layout_marginTop="@dimen/CommonXXXLargeMargin" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

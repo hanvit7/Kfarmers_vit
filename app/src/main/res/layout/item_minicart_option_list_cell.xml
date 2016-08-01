@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/btn_minicart_option_bg"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/CommonLargePadding"
+    android:paddingLeft="@dimen/CommonMediumPadding"
+    android:paddingRight="@dimen/CommonMediumPadding">
+
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:textColor="@drawable/btn_minicart_option_title_text" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/Price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textStyle="bold"
+            android:textColor="@color/CommonPrice" />
+
+        <TextView
+            android:layout_alignBaseline="@id/Price"
+            android:layout_toRightOf="@id/Price"
+            android:id="@+id/OriPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/CommonHint"
+            android:maxLines="1"
+            android:layout_marginLeft="5dp"
+            android:textSize="@dimen/CommonSmallText" />
+
+        <TextView
+            android:layout_alignBaseline="@id/OriPrice"
+            android:layout_toRightOf="@id/OriPrice"
+            android:id="@+id/TextPointAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/CommonPrice"
+            android:maxLines="1"
+            android:layout_marginLeft="5dp"
+            android:textSize="@dimen/CommonSmallText" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:id="@+id/IsSelectd"
+            android:layout_width="wrap_content"
+            android:gravity="right"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="선택됨"
+            android:textColor="@color/minicart_buy_enabled" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/Line"
+        android:layout_marginTop="@dimen/CommonLargePadding"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#555555" />
+
+</LinearLayout>

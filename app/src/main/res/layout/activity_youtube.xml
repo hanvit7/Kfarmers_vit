@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/root_container"
+    android:gravity="center"
+    android:background="#AAFFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/CommonLargeMargin"
+        android:layout_marginRight="@dimen/CommonLargeMargin"
+        android:paddingRight="@dimen/CommonSmallPadding"
+        android:paddingLeft="@dimen/CommonSmallPadding"
+        android:paddingTop="@dimen/CommonLargePadding"
+        android:paddingBottom="@dimen/CommonMediumMargin"
+        android:background="#000000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtube"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/LayoutBtn"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_marginLeft="@dimen/CommonLargeMargin"
+            android:layout_marginRight="@dimen/CommonLargeMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:paddingTop="@dimen/CommonSsmallPadding"
+                android:paddingBottom="@dimen/CommonSsmallPadding"
+                android:paddingLeft="@dimen/CommonSmallPadding"
+                android:paddingRight="@dimen/CommonSmallPadding"
+                android:id="@+id/LayoutFarm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_green">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="농장보기"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                android:paddingTop="@dimen/CommonSsmallPadding"
+                android:paddingBottom="@dimen/CommonSsmallPadding"
+                android:paddingLeft="@dimen/CommonSmallPadding"
+                android:paddingRight="@dimen/CommonSmallPadding"
+                android:id="@+id/LayoutProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_minicart_buy">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="상품보기"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>
+
+

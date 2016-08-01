@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/TabMenuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonMediumByLargeRow2"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#FFFFFF">
+
+        <RelativeLayout
+            android:id="@+id/TabMenuBox1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/TabMenuText1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:textColor="#FF000000"
+                android:textSize="@dimen/CommonMediumText_1"
+                android:gravity="center_vertical" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/TabBar1_2"
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:background="#bebdbd" />
+
+        <RelativeLayout
+            android:id="@+id/TabMenuBox2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/TabMenuText2"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:textColor="#FF000000"
+                android:textSize="@dimen/CommonMediumText_1"
+                android:gravity="center_vertical" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/TabBar2_3"
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:background="#bebdbd" />
+
+        <RelativeLayout
+            android:id="@+id/TabMenuBox3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/TabMenuText3"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:textColor="#FF000000"
+                android:textSize="@dimen/CommonMediumText_1"
+                android:gravity="center_vertical" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

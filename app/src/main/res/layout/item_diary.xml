@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/DiaryView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/CommonSmallMargin">
+
+        <RelativeLayout
+            android:id="@+id/Top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="@drawable/get_list_diary_selector_top"
+            android:padding="@dimen/CommonLargePadding">
+
+            <ImageView
+                android:id="@+id/Profile"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="@string/CommonDummy"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_empty_profile" />
+
+            <RelativeLayout
+                android:id="@+id/Info"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_toRightOf="@+id/Profile"
+                android:layout_toLeftOf="@+id/farmImageView"
+                android:layout_toStartOf="@+id/farmImageView">
+
+                <TextView
+                    android:id="@+id/Farmer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:maxWidth="100dp"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/Pipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_toRightOf="@+id/Farmer"
+                    android:text="@string/CommonPipe"
+                    android:visibility="invisible"
+                    android:textColor="#d1d1d1"
+                    android:textSize="@dimen/CommonSmallText" />
+
+                <TextView
+                    android:id="@+id/Category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_toRightOf="@+id/Pipe"
+                    android:singleLine="true"
+                    android:textColor="#8b7a62"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/farmImageView"
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/button_farm_product2"
+                android:visibility="gone" />
+
+            <!--             <ImageButton
+                            android:id="@+id/farmHomeBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="1dp"
+                            android:background="@drawable/intro2_btn"
+                            android:contentDescription="@string/CommonDummy"
+                            android:visibility="gone" /> -->
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_below="@+id/Info"
+                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                android:layout_toRightOf="@+id/Profile"
+                android:gravity="center_vertical"
+                android:textColor="#a7a7a7"
+                android:textSize="@dimen/CommonMediumText" />
+
+            <View
+                android:id="@+id/Divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/Profile"
+                android:layout_marginTop="@dimen/CommonLargeMargin"
+                android:background="#eaeaea" />
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Divider"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/Middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Top"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="@drawable/get_list_diary_selector_middle"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/CommonLargePadding"
+            android:paddingLeft="@dimen/CommonLargePadding"
+            android:paddingRight="@dimen/CommonLargePadding">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--
+                     <com.leadplatform.kfarmers.view.base.DynamicImageViewBackground
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:background="@drawable/get_list_diary_selector_middle" />
+
+                <view
+                    android:id="@+id/image_viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    class="com.leadplatform.kfarmers.view.base.DynamicViewPager" />
+-->
+
+                <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                    android:id="@+id/imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"
+                    custom:viewRatio="0.70" />
+
+                <!-- <TextView
+                    android:padding="0px"
+                    android:id="@+id/ImgCount"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#A0767676"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/CommonMediumText_1" /> -->
+
+                <TextView
+                    android:id="@+id/Blind"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/diary_blind"
+                    android:textSize="@dimen/CommonMediumByLargeText"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/Address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/CommonLargeMargin"
+                    android:textColor="#999999"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <TextView
+                    android:id="@+id/FoodMile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/CommonLargeMargin"
+                    android:drawableLeft="@drawable/icon_food_mile"
+                    android:drawablePadding="4dp"
+                    android:textColor="#ae8b80"
+                    android:textSize="@dimen/CommonMediumText" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/Middle"
+            android:layout_marginBottom="-45dp"
+            android:layout_marginLeft="28dp">
+
+            <ImageView
+                android:id="@+id/Verification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/icon_verification" />
+
+            <ImageView
+                android:layout_toRightOf="@+id/Verification"
+                android:id="@+id/Auth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/icon_eco" />
+        </LinearLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/Footer"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_below="@+id/Middle"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:gravity="center_vertical">
+
+            <RelativeLayout
+                android:id="@+id/Like"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/get_list_diary_selector_bottom_left"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/LikeImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/button_diary_like" />
+
+                <TextView
+                    android:id="@+id/LikeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/LikeImage"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Reply"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/Share"
+                android:layout_toRightOf="@+id/Like"
+                android:background="@drawable/get_list_diary_selector_bottom_center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ReplyImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/button_diary_reply" />
+
+                <TextView
+                    android:id="@+id/ReplyText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/ReplyImage"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/Share"
+                android:layout_width="115dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/get_list_diary_selector_bottom_right"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/button_diary_share" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/AdView"
+        android:layout_marginTop="@dimen/CommonSmallMargin"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:background="@drawable/get_list_post"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+            android:text="추천 상품"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/AdViewContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

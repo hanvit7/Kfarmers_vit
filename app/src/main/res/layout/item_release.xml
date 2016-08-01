@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	>
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:padding="@dimen/CommonMediumPadding"
+		>
+		<Button 
+		    android:id="@+id/Edit"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/CommonLargeRow"
+			android:layout_alignParentRight="true"
+			android:text="관리"
+			style="@style/ButtonMediumGray"
+			/>
+		<TextView 
+		    android:id="@+id/Category"
+		    android:layout_toLeftOf="@+id/Edit"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/CommonLargeRow"
+			android:layout_alignParentLeft="true"
+			android:gravity="center_vertical"
+			android:text="사과"
+			android:textStyle="bold"
+			style="@style/TextViewMediumDefault"
+			/>
+	</RelativeLayout>
+</LinearLayout>

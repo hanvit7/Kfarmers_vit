@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/common_selector_view_gray"
+        android:hint="친구이름을 검색하세요."
+        android:inputType="textUri"
+        android:maxLength="20"
+        android:padding="7dp"
+        android:singleLine="true"
+        android:drawableLeft="@drawable/button_menu_search_gray"
+        android:textColor="@color/CommonText"
+        android:textColorHint="@color/CommonHint"
+        android:textSize="@dimen/CommonMediumText" >
+        <requestFocus />
+    </EditText>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#bdbdbd" />
+    
+	<ListView 
+	    android:id="@id/android:list"
+	    android:layout_width="match_parent"
+        android:background="#ffffff"
+	    android:layout_height="match_parent"
+	    android:divider="#bdbdbd"
+	    android:dividerHeight="1dp"
+	    />
+	
+</LinearLayout>

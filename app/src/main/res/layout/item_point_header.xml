@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/CommonMediumMargin"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_content_s"
+        android:padding="@dimen/CommonLargeMargin">
+
+<!--        <TextView
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:text="K파머스 포인트"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />-->
+
+        <TextView
+            android:textColor="@color/CommonPrice"
+            android:id="@+id/TextUsePoint"
+            android:textSize="30sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <!--<com.leadplatform.kfarmers.view.base.DynamicSameFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:viewRatio="0.5">
+
+            <com.github.lzyzsd.circleprogress.ArcProgress
+                android:id="@+id/ArcPoint"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                custom:arc_progress="0"
+                custom:arc_stroke_width="8dp"
+                custom:arc_bottom_text_size="18sp"
+                custom:arc_text_size="30sp"
+                custom:arc_suffix_text=" "
+                custom:arc_finished_color="#486ab0"
+                custom:arc_unfinished_color="#eeeeee"
+                custom:arc_bottom_text="Point" />
+        </com.leadplatform.kfarmers.view.base.DynamicSameFrameLayout>-->
+
+    </LinearLayout>
+</LinearLayout>

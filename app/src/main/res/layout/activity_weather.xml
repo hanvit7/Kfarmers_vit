@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:background="#FFFFFF" >
+		<ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="#FFFFFF" >
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:padding="@dimen/CommonLargePadding"
+				android:orientation="vertical" >
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/CommonLargeRow"
+					android:layout_marginTop="@dimen/CommonMediumMargin"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:background="@drawable/common_selector_view_gray" >
+					<TextView style="@style/TextViewMediumDefault"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:text="@string/WriteDiarySkyHintTemperature" />
+					<EditText
+					    android:id="@+id/temperatureEdit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:layout_marginRight="@dimen/CommonMediumMargin"
+						android:textColor="@color/CommonConcept"
+						android:textSize="@dimen/CommonMediumText"
+						android:inputType="text"
+						android:singleLine="true"
+						android:background="@null" >
+						<requestFocus />
+					</EditText>
+				</LinearLayout>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/CommonLargeRow"
+					android:layout_marginTop="@dimen/CommonMediumMargin"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:background="@drawable/common_selector_view_gray" >
+					<TextView style="@style/TextViewMediumDefault"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:text="@string/WriteDiarySkyHintHumidity" />
+					<EditText
+					    android:id="@+id/humidityEdit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:layout_marginRight="@dimen/CommonMediumMargin"
+						android:textColor="@color/CommonConcept"
+						android:textSize="@dimen/CommonMediumText"
+						android:inputType="text"
+						android:singleLine="true"
+						android:background="@null" />
+				</LinearLayout>
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/CommonLargeRow"
+					android:layout_marginTop="@dimen/CommonMediumMargin"
+					android:orientation="horizontal"
+					android:gravity="center_vertical"
+					android:background="@drawable/common_selector_view_gray" >
+					<TextView style="@style/TextViewMediumDefault"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:text="@string/WriteDiarySkyHintSky" />
+					<EditText
+					    android:id="@+id/weatherEdit"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:layout_marginLeft="@dimen/CommonMediumMargin"
+						android:layout_marginRight="@dimen/CommonMediumMargin"
+						android:textColor="@color/CommonConcept"
+						android:textSize="@dimen/CommonMediumText"
+						android:inputType="text"
+						android:singleLine="true"
+						android:background="@null" />
+				</LinearLayout>
+			</LinearLayout>
+		</ScrollView>
+	</LinearLayout>    
+    
+    <include layout="@layout/view_progress"/>
+    
+</FrameLayout>    
+
+
+

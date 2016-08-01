@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RootView"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="@dimen/CommonMediumPadding"
+    android:paddingRight="@dimen/CommonMediumPadding"
+    android:paddingLeft="@dimen/CommonMediumPadding"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/CommonSmallMargin"
+        android:background="#22000000">
+
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="23.699982dip"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:background="#ff8686" />
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_btn4"
+        android:padding="@dimen/CommonMediumMargin">
+
+
+        <ImageView
+            android:id="@+id/productImg"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="2dp"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:scaleType="centerCrop" />
+
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/productImg"
+            android:id="@+id/client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true" />
+
+
+        <TextView
+            android:layout_below="@id/client"
+            android:id="@+id/productName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@+id/productImg"
+            android:layout_toEndOf="@+id/productImg" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_below="@id/productName"
+            android:layout_toRightOf="@+id/productImg"
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true" />
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

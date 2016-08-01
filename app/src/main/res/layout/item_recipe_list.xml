@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/CommonSmallPadding"
+        android:layout_marginRight="@dimen/CommonSmallPadding"
+        android:layout_marginLeft="@dimen/CommonSmallPadding"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:background="@drawable/bg_content"
+            android:orientation="vertical"
+            android:id="@+id/item1"
+            android:layout_marginRight="@dimen/CommonSsmallMargin"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+
+            <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                android:id="@+id/image1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/common_dummy"
+                custom:viewRatio="0.7" />
+
+
+            <TextView
+                android:id="@+id/title1"
+                android:textSize="@dimen/CommonSmallByMediumText"
+                android:textColor="@color/CommonHint"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/name1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="30dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/bg_content"
+            android:id="@+id/item2"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+
+            <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                android:id="@+id/image2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/common_dummy"
+                custom:viewRatio="0.7" />
+
+            <TextView
+                android:id="@+id/title2"
+                android:textSize="@dimen/CommonSmallByMediumText"
+                android:textColor="@color/CommonHint"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp" />
+
+            <TextView
+                android:id="@+id/name2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_marginBottom="30dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

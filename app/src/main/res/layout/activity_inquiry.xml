@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/BottomLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/CommonLargeRow">
+
+        <Button
+            android:id="@+id/InquiryBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_minicart_buy"
+            android:text="@string/product_buy"
+            android:textColor="@drawable/btn_minicart_text_buy"
+            android:textSize="@dimen/CommonMediumByLargeText"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_above="@id/BottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="@dimen/CommonLargePadding"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                style="@style/TextViewMediumDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상품 정보"
+                android:textStyle="bold"
+                android:textColor="#ff8dd427" />
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/CommonSsmallMargin"
+                android:orientation="vertical"
+                android:background="@drawable/get_list_post"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:padding="@dimen/CommonSsmallPadding"
+                    android:id="@+id/ProductName"
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/CommonMediumText_1"
+                    android:text="[상품 정보]" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/BankLayout"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="계좌 번호"
+                    android:textStyle="bold"
+                    android:textColor="#ff8dd427" />
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/CommonSsmallMargin"
+                    android:orientation="vertical"
+                    android:background="@drawable/get_list_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:padding="@dimen/CommonSsmallPadding"
+                        android:id="@+id/BankNo"
+                        style="@style/TextViewMediumDefault"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="[상품 정보]" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="구매 문의"
+                android:textStyle="bold"
+                android:textColor="#ff8dd427" />
+
+            <EditText
+                android:background="@drawable/get_list_post"
+                android:id="@+id/Des"
+                style="@style/EditTextSearch"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="@dimen/CommonSsmallMargin"
+                android:scrollbarDefaultDelayBeforeFade="99999999"
+                android:scrollbars="vertical"
+                android:overScrollMode="always"
+                android:gravity="top"
+                android:hint="내용을 입력해주세요."
+                android:maxLength="500"
+                android:padding="@dimen/CommonMediumPadding"
+                android:privateImeOptions="defaultInputmode=korean"
+                android:textColorHint="@color/CommonHint" />
+
+            <LinearLayout
+                android:id="@+id/InfoLayout"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:orientation="vertical"
+                android:background="#55f85b2f"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/InfoText"
+                    android:paddingTop="@dimen/CommonSmallPadding"
+                    android:paddingBottom="@dimen/CommonSmallPadding"
+                    android:paddingLeft="@dimen/CommonMediumPadding"
+                    android:paddingRight="@dimen/CommonMediumPadding"
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

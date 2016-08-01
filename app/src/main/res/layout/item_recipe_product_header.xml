@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:orientation="vertical"
+    android:background="@android:color/transparent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:paddingTop="@dimen/CommonXXLargeMargin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:textColor="#ffffff"
+            android:gravity="center_horizontal"
+            android:textSize="30sp"
+            android:text="레시피속\n그 재료가 궁금하다!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:orientation="vertical"
+            android:id="@+id/ProductItemLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5px"
+            android:background="#515151" />
+    </LinearLayout>
+
+</LinearLayout>

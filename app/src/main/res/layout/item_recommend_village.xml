@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="@dimen/CommonLargePadding"
+	android:orientation="vertical"
+	android:background="#f4f4f4"
+	android:gravity="center" > 
+	<ImageView
+		android:id="@+id/Profile"
+		android:layout_width="140dp"
+		android:layout_height="140dp"
+		android:background="@drawable/common_dummy"
+		android:scaleType="centerCrop"
+		android:contentDescription="@string/CommonDummy" />
+	<TextView 
+	    android:id="@+id/Village"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="@dimen/CommonSmallMargin"
+		android:textColor="@color/CommonConcept"
+		android:textStyle="bold"
+		android:singleLine="true"
+		android:ellipsize="end"
+		style="@style/TextViewMediumDefault"
+		/>
+	<TextView 
+	    android:id="@+id/CategoryList"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:singleLine="true"
+		android:ellipsize="end"
+		style="@style/TextViewMediumDefault"
+		android:textSize="@dimen/CommonSmallText"
+		/>
+</LinearLayout>

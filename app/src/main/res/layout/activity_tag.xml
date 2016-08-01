@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:id="@+id/root_container"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#FFFFFF">
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFFFFF">
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/CommonLargePadding"
+                    android:orientation="vertical">
+
+                <TextView style="@style/TextViewMediumDefault"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/CommonMediumMargin"
+                          android:text="@string/WriteDiaryTagCategory"/>
+                <EditText style="@style/EditTextDefault"
+                          android:id="@+id/Tag"
+                          android:layout_width="match_parent"
+                          android:layout_height="@dimen/CommonLargeRow"
+                          android:layout_marginTop="@dimen/CommonMediumMargin"
+                          android:hint="@string/WriteDiaryTagHintTag"
+                          android:maxLength="20"
+                          android:inputType="text"
+                          android:enabled="false"
+                          android:singleLine="true"/>
+
+                <View
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:layout_marginBottom="@dimen/CommonMediumMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:background="#555555"/>
+
+                <TextView style="@style/TextViewMediumDefault"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginTop="@dimen/CommonMediumMargin"
+                          android:text="@string/WriteDiaryTagMax"/>
+                <EditText style="@style/EditTextDefault"
+                          android:id="@+id/Tag1"
+                          android:layout_width="match_parent"
+                          android:layout_height="@dimen/CommonLargeRow"
+                          android:layout_marginTop="@dimen/CommonMediumMargin"
+                          android:hint="@string/WriteDiaryTagHintTag2"
+                          android:maxLength="20"
+                          android:inputType="text"
+                          android:singleLine="true">
+                    <requestFocus/>
+                </EditText>
+                <EditText style="@style/EditTextDefault"
+                          android:id="@+id/Tag2"
+                          android:layout_width="match_parent"
+                          android:layout_height="@dimen/CommonLargeRow"
+                          android:layout_marginTop="@dimen/CommonMediumMargin"
+                          android:hint="@string/WriteDiaryTagHintTag3"
+                          android:inputType="text"
+                          android:maxLength="20"
+                          android:singleLine="true"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <include layout="@layout/view_progress"/>
+
+</FrameLayout>  

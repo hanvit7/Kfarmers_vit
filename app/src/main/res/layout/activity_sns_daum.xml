@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/CommonLargePadding">
+
+        <RelativeLayout
+            android:id="@+id/daumLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/setting_btn1">
+
+            <ImageView
+                android:id="@+id/naver_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/CommonMediumPadding"
+                android:src="@drawable/naver_icon" />
+
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/CommonMediumPadding"
+                android:layout_toRightOf="@+id/naver_icon"
+                android:text="네이버 아이디로 로그인"
+                android:textColor="#969696"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/button_product_more" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/categoryTitleText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daumLayout"
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:layout_marginTop="@dimen/CommonLargeMargin"
+            android:text="카테고리"
+            android:textColor="#ff8dd427"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/categoryLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoryTitleText"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/categoryBtn"
+                style="@style/ButtonLargeConcept"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="카테고리 선택" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/categoryText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categoryLayout"
+            android:layout_marginTop="@dimen/CommonLargeMargin"
+            android:hint="@string/sns_no_category"></TextView>
+
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/loginView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#77000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone" />
+
+    <include layout="@layout/view_progress" />
+
+</RelativeLayout>

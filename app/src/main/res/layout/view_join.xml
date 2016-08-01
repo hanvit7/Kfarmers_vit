@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/welcome_fragment"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:background="#bb0f9d58"
+    android:layout_weight="6"
+    android:paddingTop="48dp">
+
+    <FrameLayout
+        android:id="@+id/images"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipChildren="false">
+        <ImageView
+            android:id="@+id/welcome_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/k_logo"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/CommonMediumText_1"
+        android:gravity="center_vertical" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/transparent"/>
+
+</LinearLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/CommonSmallMargin"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:background="@drawable/get_list_post"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/item1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="35">
+
+            <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:padding="5dp"
+                custom:viewRatio="0.70" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:padding="3dp"
+            android:id="@+id/item2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_weight="65">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/summary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/CommonHint"
+                    android:textSize="@dimen/CommonSmallText" />
+
+                <TextView
+                    android:text="허가네 성산메론"
+                    android:id="@+id/des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="4.0"
+                        android:id="@+id/star"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="@dimen/CommonMediumText" />
+
+                    <RatingBar
+                        android:layout_marginLeft="@dimen/CommonSmallMargin"
+                        style="@android:style/Widget.Holo.Light.RatingBar.Small"
+                        android:id="@+id/ratingbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:stepSize="0.5"
+                        android:rating="0.0"
+                        android:focusableInTouchMode="true"
+                        android:soundEffectsEnabled="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/CommonSmallMargin"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="19000"
+                        android:id="@+id/dcPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/des"
+                        android:layout_marginRight="@dimen/CommonSmallMargin"
+                        android:maxLines="1"
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:text="2000"
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/price"
+                        android:textColor="@color/CommonHint"
+                        android:maxLines="1"
+                        android:textSize="@dimen/CommonSmallBy1Text" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

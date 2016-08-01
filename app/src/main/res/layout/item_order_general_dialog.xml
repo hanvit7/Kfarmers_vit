@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="@dimen/CommonMediumPadding"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/state_radio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radio1"
+            android:text="입금대기"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/radio2"
+            android:text="결제확인"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/radio3"
+            android:text="배송중"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:id="@+id/radio4"
+            android:text="취소완료"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--<RadioButton
+            android:id="@+id/radio5"
+            android:text="반품완료"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
+    </RadioGroup>
+
+    <View
+        android:layout_marginTop="@dimen/CommonMediumMargin"
+        android:layout_marginBottom="@dimen/CommonMediumMargin"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#bbbbbb"/>
+
+    <Spinner
+        android:layout_marginBottom="@dimen/CommonMediumMargin"
+        android:id="@+id/deliveryCompany_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/payment_btn_sel"
+        android:dropDownWidth="match_parent"
+        android:padding="0dp"
+        android:spinnerMode="dropdown" />
+
+    <EditText
+        android:id="@+id/deliveryNo_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_selector_view_gray"
+        android:inputType="textMultiLine"
+        android:paddingTop="@dimen/CommonSmallPadding"
+        android:paddingBottom="@dimen/CommonSmallPadding"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/CommonText"
+        android:textColorHint="@color/CommonHint"
+        android:hint="송장번호를 입력해 주세요."
+        android:textSize="@dimen/CommonMediumText"/>
+
+
+
+</LinearLayout>

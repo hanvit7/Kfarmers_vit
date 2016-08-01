@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/item1"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:padding="3dp">
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/image1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="1" />
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/imageTop1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/image_select"
+            custom:viewRatio="1" />
+
+        <ImageView
+            android:id="@+id/imageOk1"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginRight="@dimen/CommonSsmallMargin"
+            android:src="@drawable/evaluation_ok" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item2"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:padding="3dp">
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/image2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="1" />
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/imageTop2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_select"
+            android:visibility="gone"
+            custom:viewRatio="1" />
+
+        <ImageView
+            android:id="@+id/imageOk2"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginRight="@dimen/CommonSsmallMargin"
+            android:src="@drawable/evaluation_ok" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item3"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:padding="3dp">
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/image3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="1" />
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/imageTop3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_select"
+            android:visibility="gone"
+            custom:viewRatio="1" />
+
+        <ImageView
+            android:id="@+id/imageOk3"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginRight="@dimen/CommonSsmallMargin"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:src="@drawable/evaluation_ok" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item4"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:padding="3dp">
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/image4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="1" />
+
+        <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:id="@+id/imageTop4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_select"
+            android:visibility="gone"
+            custom:viewRatio="1" />
+
+        <ImageView
+            android:id="@+id/imageOk4"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginRight="@dimen/CommonSsmallMargin"
+            android:src="@drawable/evaluation_ok" />
+
+    </RelativeLayout>
+
+</LinearLayout>

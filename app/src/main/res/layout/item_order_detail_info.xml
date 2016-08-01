@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/CommonMediumPadding"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ffffff"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/CommonMediumPadding">
+
+        <LinearLayout
+            android:id="@+id/PaymentView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="결제 정보"
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonMediumPadding">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="총 상품 금액"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:id="@+id/PayProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="배송비"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:id="@+id/PayDeliveryPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_toLeftOf="@+id/PayDeliveryPrice"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="(+) "
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6.6999817dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="포인트"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:id="@+id/PayPointPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_toLeftOf="@+id/PayPointPrice"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="(-) "
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonSmallMargin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="총 결제금액"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:id="@+id/PayTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/PayType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:layout_toLeftOf="@+id/PayTotalPrice"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/AddPointView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/CommonSmallMargin"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:singleLine="true"
+                    android:text="적립 포인트 정보"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:gravity="center_vertical|right"
+                    android:layout_gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textSize="@dimen/CommonSmallText"
+                    android:textColor="@color/CommonPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="26.699982dip"
+                    android:text="구매확정 이후 적립됩니다." />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.6999817dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="적립 포인트"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:text="0 P"
+                    android:id="@+id/AddPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CanCelView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6.6999817dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="환불 정보"
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonMediumPadding">
+
+                <TextView
+                    android:id="@+id/CancelTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="환불 금액"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <!--<TextView
+                        android:layout_toRightOf="@+id/CancelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26.699982dip"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="(1개)"
+                        android:textColor="#ff323b4a"
+                        android:textSize="16.669983dip"/>-->
+
+                <TextView
+                    android:id="@+id/CancelPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6.6999817dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="환불 포인트"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+                <!--<TextView
+                        android:layout_toRightOf="@+id/CancelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="26.699982dip"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="(1개)"
+                        android:textColor="#ff323b4a"
+                        android:textSize="16.669983dip"/>-->
+
+                <TextView
+                    android:id="@+id/CancelPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="16.669983dip" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonSmallMargin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="총 취소금액"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip" />
+
+                <TextView
+                    android:id="@+id/CancelTotalPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonPrice"
+                    android:textSize="16.669983dip"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6.6999817dip"
+            android:layout_marginLeft="5.0dip"
+            android:layout_marginRight="5.0dip"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="배송 정보"
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="fill_parent"
+                    android:background="#10000000"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="받으시는 분"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/DeliveryName"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="fill_parent"
+                    android:background="#10000000"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="연락처 번호"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/DeliveryPhone"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="fill_parent"
+                    android:background="#10000000"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="배송지 주소"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/DeliveryAddress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="fill_parent"
+                    android:background="#10000000"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="배송 요청사항"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/DeliveryRequest"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:padding="5dp"
+                    android:textColor="#ff323b4a"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginTop="1.0px"
+                android:background="#ffa1aeb2" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

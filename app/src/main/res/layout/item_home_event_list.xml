@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/CommonSmallPadding"
+    android:orientation="vertical">
+
+    <RelativeLayout
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:textSize="@dimen/CommonMediumText"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:id="@+id/Dday"
+                android:paddingLeft="@dimen/CommonMediumPadding"
+                android:paddingRight="@dimen/CommonMediumPadding"
+                android:textColor="@color/CommonPrice"
+                android:background="@drawable/get_list_post"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/Dday"
+                android:layout_toStartOf="@+id/Dday">
+
+            <!--<TextView
+                    android:textSize="@dimen/CommonLargeText"
+                    android:textStyle="bold"
+                    android:id="@+id/Title"
+                    android:maxLines="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>-->
+            <TextView
+                    android:textSize="@dimen/CommonMediumText"
+                    android:id="@+id/TitleSub"
+                    android:maxLines="1"
+                    android:lines="1"
+                    android:ellipsize="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            <!--<TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:textColor="@color/minicart_cart_disable"
+                    android:textSize="@dimen/CommonSmallByMediumText"
+                    android:maxLines="1"
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+    <com.leadplatform.kfarmers.view.base.DynamicImageView
+            xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:id="@+id/Image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            custom:viewRatio="0.60"/>
+
+</LinearLayout>

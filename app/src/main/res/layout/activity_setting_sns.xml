@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_daumblog_default" />
+
+            <TextView
+                android:id="@+id/daumConnectBtn1"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="가져오기 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/daumConnectBtn2"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_tistory_default" />
+
+            <TextView
+                android:id="@+id/tistoryConnectBtn1"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="가져오기 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tistoryConnectBtn2"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_naverblog_default" />
+
+            <TextView
+                android:id="@+id/naverConnectBtn1"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="가져오기 연결"
+                android:textColor="#8dd427"
+                android:visibility="gone"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/naverConnectBtn2"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_kakao_default" />
+            
+            <TextView
+                android:id="@+id/kakaoConnectBtn1"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="스토리 채널"
+                android:textColor="#8dd427"
+                android:visibility="gone"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/kakaoConnectBtn2"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_facebook_default" />
+
+            <TextView
+                android:id="@+id/facebookConnectBtn"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65dp" >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="17dp"
+                android:src="@drawable/button_write_share_twitter_default" />
+
+            <TextView
+                android:id="@+id/twitterConnectBtn"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_weight="1"
+                android:gravity="right|center_vertical"
+                android:paddingRight="29dp"
+                android:text="동시등록 연결"
+                android:textColor="#8dd427"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#FFB5B5B5" />
+    </LinearLayout>
+
+    <include layout="@layout/view_progress" />
+
+</FrameLayout>

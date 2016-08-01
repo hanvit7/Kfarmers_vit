@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/libraries/Quickreturn/Quickreturn.iml" filepath="$PROJECT_DIR$/libraries/Quickreturn/Quickreturn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/androidasynchttp146/androidasynchttp146.iml" filepath="$PROJECT_DIR$/libraries/androidasynchttp146/androidasynchttp146.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/dragSortListViewLibrary/dragSortListViewLibrary.iml" filepath="$PROJECT_DIR$/libraries/dragSortListViewLibrary/dragSortListViewLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/kakao_sdk/kakao_sdk.iml" filepath="$PROJECT_DIR$/libraries/kakao_sdk/kakao_sdk.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kfarmers_android_vit.iml" filepath="$PROJECT_DIR$/kfarmers_android_vit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/libraries.iml" filepath="$PROJECT_DIR$/libraries/libraries.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/slidingMenuLibrary/slidingMenuLibrary.iml" filepath="$PROJECT_DIR$/libraries/slidingMenuLibrary/slidingMenuLibrary.iml" />
+    </modules>
+  </component>
+</project>

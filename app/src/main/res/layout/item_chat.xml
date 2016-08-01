@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:paddingTop="@dimen/CommonSmallPadding"
+    android:paddingLeft="@dimen/CommonMediumPadding"
+    android:paddingRight="@dimen/CommonMediumPadding"
+    android:paddingBottom="0dp"
+    android:id="@+id/RootView"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/LeftMsgLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/LeftProfile"
+            android:background="@drawable/common_dummy_circle"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/icon_empty_profile" />
+
+        <TextView
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_toRightOf="@id/LeftProfile"
+            android:id="@+id/LeftName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:id="@+id/LeftContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/LeftProfile"
+            android:layout_below="@id/LeftName">
+
+            <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                android:id="@+id/LeftItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                custom:viewRatio="0.30">
+
+                <include
+                    android:id="@+id/LeftProduct"
+                    layout="@layout/item_story_product_list" />
+            </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/LeftMsg"
+                android:paddingTop="@dimen/CommonSmallPadding"
+                android:paddingBottom="@dimen/CommonSmallPadding"
+                android:paddingLeft="@dimen/CommonLargePadding"
+                android:paddingRight="@dimen/CommonSmallPadding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/msg_left" />
+
+        </RelativeLayout>
+
+        <!--<TextView
+            android:id="@+id/LeftMsg"
+            android:paddingTop="@dimen/CommonSmallPadding"
+            android:paddingBottom="@dimen/CommonSmallPadding"
+            android:paddingLeft="@dimen/CommonLargePadding"
+            android:paddingRight="@dimen/CommonSmallPadding"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_below="@id/LeftName"
+            android:layout_toRightOf="@id/LeftProfile"
+            android:text="xcbxcbxzcvnbxcvncxvnxcvnxcvnxcvnxcvndfghdfhdfhdfhdfh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/msg_left" />-->
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:id="@+id/LeftTime"
+            android:maxLines="1"
+            android:lines="1"
+            android:textColor="#ffff"
+            android:textSize="9sp"
+            android:layout_below="@+id/LeftContent"
+            android:layout_alignLeft="@+id/LeftName"
+            android:layout_alignStart="@+id/LeftName" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RightMsgLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!--        <TextView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/RightMsg"
+                    android:paddingTop="@dimen/CommonSmallPadding"
+                    android:paddingBottom="@dimen/CommonSmallPadding"
+                    android:paddingRight="@dimen/CommonLargePadding"
+                    android:paddingLeft="@dimen/CommonSmallPadding"
+                    android:layout_marginTop="@dimen/CommonSsmallMargin"
+                    android:layout_toRightOf="@id/Profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/msg_right" />-->
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:id="@+id/RightContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                android:id="@+id/RightItem"
+                android:layout_alignParentRight="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/CommonSmallMargin"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                custom:viewRatio="0.30">
+
+                <include
+                    android:id="@+id/RightProduct"
+                    layout="@layout/item_story_product_list" />
+            </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+            <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/RightMsg"
+                android:layout_alignParentRight="true"
+                android:paddingTop="@dimen/CommonSmallPadding"
+                android:paddingBottom="@dimen/CommonSmallPadding"
+                android:paddingRight="@dimen/CommonLargePadding"
+                android:paddingLeft="@dimen/CommonSmallPadding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/msg_right" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_below="@id/RightContent"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_alignParentRight="true"
+            android:id="@+id/RightTime"
+            android:layout_marginRight="8dp"
+            android:maxLines="1"
+            android:lines="1"
+            android:gravity="center"
+            android:textColor="#ffff"
+            android:textSize="9sp" />
+
+    </RelativeLayout>
+</FrameLayout>
+

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:clickable="true"
+    android:background="#ffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_alignParentBottom="true"
+            android:id="@+id/SendBtn"
+            android:text="등록하기"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/CommonMediumByLargeText"
+            android:textStyle="bold"
+            android:background="@drawable/btn_minicart_buy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_above="@id/SendBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ItemView"
+                    android:paddingLeft="@dimen/CommonMediumMargin"
+                    android:paddingRight="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/CommonMediumPadding"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textSize="@dimen/CommonMediumText"
+                            android:paddingLeft="@dimen/CommonMediumPadding"
+                            android:paddingRight="@dimen/CommonMediumPadding"
+                            android:id="@+id/Title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/Category"
+                            android:gravity="center_vertical" />
+
+                        <View
+                            android:layout_marginTop="@dimen/CommonSsmallMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/CommonDivider" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:padding="@dimen/CommonSsmallPadding"
+                        android:id="@+id/ItemLayout"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:padding="@dimen/CommonSmallMargin"
+                        android:background="#ffc000"
+                        android:gravity="center"
+                        android:id="@+id/ItemText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="@dimen/CommonXXLargeText"
+                        android:layout_marginTop="@dimen/CommonSmallMargin"
+                        android:gravity="center"
+                        android:text="10점"
+                        android:id="@+id/Score"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:layout_marginTop="@dimen/CommonSsmallMargin"
+                        android:gravity="center"
+                        android:text="평점을 남겨주세요!"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <RatingBar
+                        android:layout_marginTop="@dimen/CommonSsmallMargin"
+                        android:id="@+id/Ratingbar"
+                        style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
+                        android:numStars="5"
+                        android:max="5"
+                        android:rating="5"
+                        android:isIndicator="false"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <EditText
+                        android:id="@+id/EditDes"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:scrollbarDefaultDelayBeforeFade="99999999"
+                        android:scrollbars="vertical"
+                        android:overScrollMode="always"
+                        android:gravity="top"
+                        android:hint="맛은 어떠셨나요?\n후기를 남겨주세요!"
+                        android:maxLength="500"
+                        android:padding="7dp"
+                        android:privateImeOptions="defaultInputmode=korean"
+                        android:textColorHint="@color/CommonHint"></EditText>
+
+                    <LinearLayout
+                        android:layout_marginBottom="@dimen/CommonLargeMargin"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="@dimen/CommonLargeMargin"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/ImageBtn"
+                            android:text="+\n사진"
+                            android:background="@drawable/common_selector_view_gray"
+                            android:src="@drawable/ic_custom_new_picture"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp" />
+
+                        <HorizontalScrollView
+                            android:layout_marginLeft="@dimen/CommonSmallMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:id="@+id/ImageLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+    <include layout="@layout/view_progress" />
+</FrameLayout>

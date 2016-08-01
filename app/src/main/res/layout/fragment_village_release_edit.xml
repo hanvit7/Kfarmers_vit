@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFF" >
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#FFFFFF" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/CommonLargePadding"
+			android:orientation="vertical" >
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonMediumRow"
+				android:orientation="horizontal"
+				android:gravity="center_vertical" >
+				<TextView style="@style/TextViewMediumDefault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/WriteReleaseVillageTextTitle"
+					android:textStyle="bold" />
+				<TextView
+				    android:id="@+id/title" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/CommonLargeMargin"
+					android:text="한옥체험"
+					style="@style/TextViewMediumDefault"
+					/>
+			</LinearLayout>
+			<View
+			    android:layout_width="match_parent"
+				android:layout_height="0.5dp"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:background="#d0d0d0" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal"
+				android:gravity="center_vertical" >
+				<TextView
+				    android:id="@+id/releaseDateStart"  
+				    style="@style/TextViewMediumDefault"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.5"
+					android:textColor="@drawable/release_edit_text_color"
+					android:hint="@string/WriteReleaseFarmerHintDate"
+					android:textColorHint="@color/CommonText"
+					android:padding="@dimen/CommonMediumPadding"
+					android:background="@drawable/common_selector_view_gray"
+					android:singleLine="true" />
+				<View
+					android:layout_width="10dp"
+					android:layout_height="2dp"
+					android:layout_marginLeft="10dp"
+					android:layout_marginRight="10dp"
+					android:background="#d0d0d0" />
+				<TextView
+				    android:id="@+id/releaseDateEnd" 
+				    style="@style/TextViewMediumDefault"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_weight="0.5"
+					android:textColor="@drawable/release_edit_text_color"
+					android:textColorHint="@color/CommonText"
+					android:padding="@dimen/CommonMediumPadding"
+					android:background="@drawable/common_selector_view_gray"
+					android:singleLine="true" />
+			</LinearLayout>			
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<CheckBox
+				    android:id="@+id/alwaysCheck" 
+				    style="@style/CheckBoxDefault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/WriteReleaseCheckAlway" />
+				<CheckBox 
+				    android:id="@+id/finishCheck"
+				    style="@style/CheckBoxDefault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/CommonLargeMargin"
+					android:text="@string/WriteReleaseCheckFinish" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				android:visibility="gone">
+				<EditText
+				    android:id="@+id/releasePrice" 
+				    style="@style/EditTextDefault"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:textColor="@drawable/release_edit_text_color"
+					android:hint="@string/WriteReleaseVillageHintPrice"
+					android:inputType="text"
+					android:singleLine="true" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal"
+				android:gravity="center_vertical">
+				<EditText
+				    android:id="@+id/releaseNote" 
+				    style="@style/EditTextDefault"
+					android:layout_width="match_parent"
+					android:layout_height="80dp"
+					android:textColor="@drawable/release_edit_text_color"
+					android:hint="@string/WriteReleaseFarmerHintNote"
+					android:gravity="start"
+					android:inputType="text" />
+			</LinearLayout>
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal"
+				android:visibility="gone" >
+				<ImageView
+					android:id="@+id/Image1"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image2"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image3"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image4"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image5"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

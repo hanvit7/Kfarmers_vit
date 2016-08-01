@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/RootView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/Footer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonLargeRow"
+        android:layout_alignParentBottom="true"
+        android:background="#77444444"
+        android:orientation="horizontal">
+
+        <!--<RelativeLayout
+            android:id="@+id/CartBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="#444444">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="장바구니 보기"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold" />
+        </RelativeLayout>-->
+
+        <Button
+            android:id="@+id/InquiryBtn"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/CommonSmallMargin"
+            android:paddingRight="@dimen/CommonSmallMargin"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/MenuLInquiry"
+            android:background="@drawable/btn_minicart_cart"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/CommonMediumByLargeText"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/BuyBtn"
+            android:layout_width="0dp"
+            android:text="@string/product_buy"
+            android:layout_weight="7"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:background="@drawable/btn_minicart_buy"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/CommonMediumByLargeText"
+            android:textStyle="bold" />
+
+
+        <!--<RelativeLayout
+            android:id="@+id/More"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#444444">
+
+            <TextView
+                android:id="@+id/ShareText"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="농장보기"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold" />
+        </RelativeLayout>-->
+    </LinearLayout>
+
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/Footer">
+
+        <ListView
+            android:id="@id/android:list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+
+    <!--<com.leadplatform.kfarmers.view.common.WrappingSlidingDrawer
+        android:id="@+id/ProductDrawer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:content="@+id/content"
+        app:handle="@+id/handle">
+
+        &lt;!&ndash;<ImageView
+            android:id="@id/handle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAlignBottom="true"
+            android:src="@drawable/bg_buyoption"
+            android:visibility="visible" />&ndash;&gt;
+
+        <FrameLayout
+            android:id="@id/handle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/w_minicart_top"
+            android:visibility="visible"/>
+
+        <FrameLayout
+            android:id="@id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:clickable="true" />
+
+    </com.leadplatform.kfarmers.view.common.WrappingSlidingDrawer>-->
+
+</RelativeLayout>

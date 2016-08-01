@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF">
+
+    <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/CartView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+        <ListView
+                android:id="@id/android:list"
+                android:cacheColorHint="@android:color/transparent"
+                android:background="#eeeeee"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+            <Button
+                    android:id="@+id/DelBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/btn_minicart_cart"
+                    android:enabled="true"
+                    android:text="선택삭제"
+                    android:textColor="@drawable/btn_minicart_text_cart"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold"/>
+
+            <Button
+                    android:id="@+id/BuyBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="5"
+                    android:background="@drawable/btn_minicart_buy"
+                    android:text="주문하기"
+                    android:textColor="@drawable/btn_minicart_text_buy"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/CartViewEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="100dp">
+
+        <ImageView
+                android:layout_marginBottom="@dimen/CommonLargeMargin"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/icon_cart_empty"
+                android:layout_marginRight="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="@dimen/CommonLargeText"
+                android:text="장바구니에 담은 상품이 없습니다."/>
+        <Button
+                android:id="@+id/ProductShow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/CommonLargeMargin"
+                android:padding="10dp"
+                android:text="추천상품 보기"
+                android:textStyle="bold"
+                style="@style/ButtonLargeConcept"/>
+    </LinearLayout>
+</RelativeLayout>

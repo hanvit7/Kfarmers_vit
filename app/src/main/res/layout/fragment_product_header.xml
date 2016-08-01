@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/RootView"
+    android:background="#eeeeee">
+
+    <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+        android:id="@+id/ImageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        custom:viewRatio="0.7">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/image_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:id="@+id/Main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_marginBottom="@dimen/CommonSmallMargin"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/icon_farm"
+                    android:layout_marginBottom="@dimen/CommonSmallMargin"
+                    android:id="@+id/img_farm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_marginBottom="@dimen/CommonSmallMargin"
+                    android:id="@+id/img_auth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/img_recipe"
+                    android:src="@drawable/icon_recipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Paging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal" />
+
+            <!--<ImageView
+                android:layout_above="@id/Paging"
+                android:id="@+id/Introduction"
+                android:layout_width="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/CommonLargeMargin"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/intro2_btn" />-->
+        </RelativeLayout>
+    </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/ImageLayout"
+        android:id="@+id/Content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:paddingTop="@dimen/CommonMediumMargin"
+        android:gravity="center_vertical">
+
+
+        <TextView
+            android:id="@+id/SummaryText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:textColor="@color/CommonHint"
+            android:textSize="@dimen/CommonSmallByMediumText" />
+
+        <TextView
+            android:layout_below="@id/SummaryText"
+            android:id="@+id/Title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:textColor="@color/CommonText"
+            android:textSize="@dimen/CommonMediumByLargeText" />
+
+        <LinearLayout
+            android:id="@+id/PriceView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_below="@id/Title"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/DcPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/CommonLargeMargin"
+                android:layout_marginRight="@dimen/CommonSmallMargin"
+                android:textColor="@color/CommonPrice"
+                android:textSize="@dimen/CommonLargeText"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:maxLines="1"
+                android:paddingRight="@dimen/CommonMediumPadding"
+                android:textColor="@color/CommonHint"
+                android:textSize="@dimen/CommonMediumText" />
+
+            <TextView
+                android:layout_marginRight="4dp"
+                android:paddingRight="@dimen/CommonMediumPadding"
+                android:gravity="right"
+                android:id="@+id/TextPointAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="@dimen/CommonSmallByMediumText" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:background="@drawable/get_list_post"
+            android:visibility="gone"
+            android:id="@+id/noticeView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/PriceView"
+            android:layout_marginTop="@dimen/CommonSmallPadding"
+            android:layout_marginLeft="@dimen/CommonMediumPadding"
+            android:layout_marginRight="@dimen/CommonMediumPadding"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/noticeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/CommonMediumByLargeText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:id="@+id/Btn_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonSmallButton"
+            android:layout_below="@id/noticeView"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Btn_Des"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_product_info"
+                android:textColor="@color/white"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold"
+                android:text="상품설명" />
+
+            <Button
+                android:id="@+id/Btn_Info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_product_info"
+                android:textColor="@color/white"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold"
+                android:text="상품표기정보" />
+
+            <Button
+                android:id="@+id/Btn_Review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/btn_product_info"
+                android:textColor="@color/white"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold"
+                android:text="상품후기" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <WebView
+        android:layout_below="@id/Content"
+        android:paddingTop="@dimen/CommonSmallPadding"
+        android:id="@+id/DescriptionWebView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <WebView
+        android:layout_below="@id/Content"
+        android:paddingTop="@dimen/CommonSmallPadding"
+        android:id="@+id/InfoWebView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:background="#ffff"
+        android:paddingLeft="@dimen/CommonMediumMargin"
+        android:paddingRight="@dimen/CommonMediumMargin"
+        android:paddingTop="@dimen/CommonMediumMargin"
+        android:paddingBottom="@dimen/CommonMediumMargin"
+        android:layout_below="@id/DescriptionWebView"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:id="@+id/YoutubeViewLayout"
+        android:layout_height="wrap_content">
+
+        <com.google.android.youtube.player.YouTubeThumbnailView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_height="200dp" />
+
+        <View
+            android:background="#33000000"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/Play"
+                android:src="@drawable/icon_play"
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="fill_parent" />
+
+            <ImageView
+                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="#ffff"
+        android:layout_below="@id/YoutubeViewLayout"
+        android:orientation="vertical"
+        android:id="@+id/TypeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/TypeDes"
+            android:textSize="13sp"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:paddingTop="@dimen/CommonSmallPadding"
+            android:paddingBottom="@dimen/CommonSmallPadding"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:background="#55f85b2f"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <View
+        android:layout_below="@id/TypeLayout"
+        android:id="@+id/ContentLine"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#bbbbbb" />
+
+    <RelativeLayout
+        android:background="#ffff"
+        android:layout_below="@+id/ContentLine"
+        android:id="@+id/ReviewTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/CommonLargeMargin"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/CommonMediumPadding"
+        android:paddingRight="@dimen/CommonMediumPadding">
+
+        <LinearLayout
+            android:id="@+id/RatingLayout"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textSize="@dimen/CommonLargeText"
+                android:layout_gravity="center_vertical"
+                android:text="상품만족"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RatingBar
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/Ratingbar"
+                style="@android:style/Widget.Holo.Light.RatingBar.Small"
+                android:numStars="5"
+                android:rating="2.5"
+                android:max="5"
+                android:isIndicator="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="@dimen/CommonLargeText"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:id="@+id/RatingText"
+                android:layout_gravity="center_vertical"
+                android:text="99% (156)명"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_below="@id/RatingLayout"
+            android:background="#eeeeee"
+            android:layout_width="match_parent"
+            android:layout_height="2px" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/ContentLine"
+        android:id="@+id/TitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/CommonMediumPadding"
+        android:paddingRight="@dimen/CommonMediumPadding">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/product_diary_title"
+            android:textColor="@color/CommonButtonTextBin"
+            android:textSize="@dimen/CommonMediumText"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/DiaryMoreView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="더보기"
+                android:textColor="#939393"
+                android:textSize="@dimen/CommonMediumText"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/button_product_more" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:gravity="center"
+        android:visibility="gone"
+        android:id="@+id/NoReviewLayout"
+        android:layout_below="@+id/Content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/icon_info"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+
+            <TextView
+                android:textColor="@color/CommonHint"
+                android:layout_marginTop="@dimen/CommonLargeMargin"
+                android:textSize="@dimen/CommonMediumText"
+                android:text="등록된 후기가 없습니다."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

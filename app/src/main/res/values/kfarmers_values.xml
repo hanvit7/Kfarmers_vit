@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<dimen name="CommonRound">4dp</dimen>
+	<dimen name="CommonStroke">2dp</dimen>
+	<dimen name="CommonThumbnail">48dp</dimen>
+
+	<color name="CommonHint">#FF969696</color>
+	<color name="CommonDivider">#FFF0F0F0</color>
+	<color name="CommonDummy">#FFEEEEEE</color>
+
+	<color name="CommonPrice">#FFf85b2f</color>
+	<color name="CommonConcept">#FF8dd427</color>
+	<color name="CommonText">#FF555555</color>
+	<color name="CommonButtonDefaultBackground">@color/CommonConcept</color>
+	<color name="CommonButtonPresssedBackground">#7F8dd427</color>
+	<color name="CommonButtonText">#FFFFFFFF</color>
+	<color name="CommonEditTextBackground">#FFF0F0F0</color>
+	<color name="CommonEditTextText">@color/CommonText</color>
+	
+	<color name="CommonButtonTextBin">#8b7a62</color>
+
+
+	<dimen name="CommonXLargeRow">56dp</dimen>
+    <dimen name="CommonLargeRow">48dp</dimen>
+	<dimen name="CommonMediumByLargeRow">44dp</dimen>
+	<dimen name="CommonMediumByLargeRow2">40dp</dimen>
+	<dimen name="CommonMediumRow">36dp</dimen>
+	<dimen name="CommonSmallRow">24dp</dimen>
+
+	<dimen name="CommonXXXXLargeText">46sp</dimen>
+	<dimen name="CommonXXXLargeText">40sp</dimen>
+    <dimen name="CommonXXLargeText">30sp</dimen>
+	<dimen name="CommonXLargeText">24sp</dimen>
+	<dimen name="CommonLargeText">20sp</dimen>
+	<dimen name="CommonMediumByLargeText">18sp</dimen>
+	<dimen name="CommonMediumText_1">16sp</dimen>
+	<dimen name="CommonMediumText">15sp</dimen>
+	<dimen name="CommonSmallByMediumText">13sp</dimen>
+	<dimen name="CommonSmallBy1Text">12sp</dimen>
+	<dimen name="CommonSmallText">10sp</dimen>
+
+	<dimen name="CommonLargeButton">64dp</dimen>
+	<dimen name="CommonMediumButton">48dp</dimen>
+	<dimen name="CommonSmallButton">32dp</dimen>
+
+	<dimen name="CommonXXXLargeMargin">48dp</dimen>
+	<dimen name="CommonXXLargeMargin">32dp</dimen>
+	<dimen name="CommonXLargeMargin">24dp</dimen>
+	<dimen name="CommonLargeMargin">16dp</dimen>
+	<dimen name="CommonMediumMargin">12dp</dimen>
+	<dimen name="CommonSmallMargin">8dp</dimen>
+    <dimen name="CommonSsmallMargin">4dp</dimen>
+
+	<dimen name="CommonXXXLargePadding">48dp</dimen>
+	<dimen name="CommonXXLargePadding">32dp</dimen>
+	<dimen name="CommonXLargePadding">24dp</dimen>
+	<dimen name="CommonLargePadding">16dp</dimen>
+	<dimen name="CommonMediumPadding">12dp</dimen>
+	<dimen name="CommonSmallPadding">8dp</dimen>
+    <dimen name="CommonSsmallPadding">4dp</dimen>
+
+	<string name="CommonDummy">dummy</string>
+	<string name="CommonEmpty"></string>
+	<string name="CommonPipe">|</string>
+	<string name="CommonArrow">></string>
+
+	<style name="Default" parent="@android:style/Widget.EditText" >
+		<item name="android:padding">@dimen/CommonMediumPadding</item>
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:textColorHint">@color/CommonHint</item>
+		<item name="android:background">@drawable/common_selector_view_gray</item>
+	</style>
+	<style name="EditTextDefault" parent="@android:style/Widget.EditText" >
+		<item name="android:padding">@dimen/CommonMediumPadding</item>
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:textColorHint">@color/CommonHint</item>
+		<item name="android:background">@drawable/common_selector_view_gray</item>
+	</style>
+	<style name="EditTextSearch" parent="@android:style/Widget.EditText" >
+		<item name="android:padding">@dimen/CommonMediumPadding</item>
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:textColorHint">@color/CommonHint</item>
+		<item name="android:background">@drawable/search_edittext</item>
+	</style>
+	<style name="CheckBoxDefault" parent="@android:style/Widget.CompoundButton.CheckBox" >
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+	</style>
+	<style name="TextViewMediumDefault" parent="@android:style/Widget.TextView" >
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="TextViewMediumGray" parent="@android:style/Widget.TextView" >
+		<item name="android:textColor">#FFAFAFAF</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="TextViewMediumWhite" parent="@android:style/Widget.TextView" >
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="TextViewLargeWhite" parent="@android:style/Widget.TextView" >
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:textSize">@dimen/CommonLargeText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="ButtonFake" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@null</item>
+	</style>
+	<style name="ButtonMediumGray" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@drawable/common_selector_button_gray</item>
+	</style>
+	<style name="ButtonSmallGray" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">#FFFFFFFF</item>
+		<item name="android:textSize">@dimen/CommonSmallBy1Text</item>
+		<item name="android:background">@drawable/common_selector_button_gray</item>
+	</style>
+	<style name="ButtonMediumConcept" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@color/CommonButtonText</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:background">@drawable/common_selector_button_concept</item>
+	</style>
+	<style name="ButtonLargeConcept" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@color/CommonButtonText</item>
+		<item name="android:textSize">@dimen/CommonLargeText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/common_selector_button_concept</item>
+	</style>
+	<style name="ButtonLargeBrown" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@color/CommonButtonText</item>
+		<item name="android:textSize">@dimen/CommonLargeText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/common_selector_button_brown</item>
+	</style>
+	<style name="ButtonLargeBrownStroke" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">#8b7a62</item>
+		<item name="android:textSize">@dimen/CommonLargeText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/common_selector_button_brown_stroke</item>
+	</style>
+	<style name="ButtonLargeWhite" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@color/CommonText</item>
+		<item name="android:textSize">@dimen/CommonLargeText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/common_selector_button_white</item>
+	</style>
+	
+	<style name="ButtonLargeBrownLeftRound" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@drawable/product_detail_button_text</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/product_detail_button_left</item>
+	</style>
+	<style name="ButtonLargeBrownRightRound" parent="@android:style/Widget.Button" >
+		<item name="android:textColor">@drawable/product_detail_button_text</item>
+		<item name="android:textSize">@dimen/CommonMediumText</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:background">@drawable/product_detail_button_rigth</item>
+	</style>
+	
+	
+
+	<dimen name="behindOffset">100dp</dimen>
+	<dimen name="behindWidth">100dp</dimen>
+	<dimen name="behindScrollScale">2dp</dimen>
+	<dimen name="shadowWidth">15dp</dimen>
+
+	<!-- Menu -->
+	<string name="MenuLeftTextHome">홈</string>
+    <string name="MenuLeftTextImpressive">인상깊은</string>
+	<string name="MenuLeftTextProduct">장터</string>
+	<string name="MenuLeftTextEvent">이벤트</string>
+    <string name="MenuLeftTextSetting">설정</string>
+	<string name="MenuLeftTextTerms">이용약관</string>
+    <string name="MenuLeftTextCompany">회사소개</string>
+    <string name="MenuLeftTextCs">고객센터</string>
+    <string name="MenuLeftTextServiceInfo">서비스안내</string>
+    <string name="MenuLeftTextConsumer">소비자이야기</string>
+    <string name="MenuLeftTextDirect">현장탐방기</string>
+	<string name="MenuLeftTextReview">후기관리</string>
+
+
+	<string name="MenuFarmerBoard">생산자소통</string>
+	<string name="MenuRightFarmerTextOrderGeneral">일반주문</string>
+	<string name="MenuRightFarmerTextProdcut">상품관리</string>
+	<string name="MenuRightFarmerTextHome">내 농장보기</string>
+	<string name="MenuRightFarmerTextFavorite">관심있는</string>
+	<string name="MenuRightFarmerTextRelease">출하일정</string>
+	<string name="MenuRightFarmerTextExpInfo">체험정보</string>
+	<string name="MenuRightFarmerTextBlog">블로그리뷰</string>
+	<string name="MenuRightFarmerTextExpReserve">체험예약관리</string>
+	<string name="MenuRightFarmerTextOrder">주문관리</string>
+	<string name="MenuRightFarmerTextNotice">공지사항관리</string>
+	<string name="MenuRightFarmerTextReply">댓글관리</string>
+	<string name="MenuRightFarmerTextSetting">설정</string>
+
+	<string name="MenuRightVillageTextHome">내 마을보기</string>
+	<string name="MenuRightVillageTextFavorite">관심있는</string>
+	<string name="MenuRightVillageTextExpInfo">체험정보</string>
+	<string name="MenuRightVillageTextExpReserve">체험예약</string>
+	<string name="MenuRightVillageTextBlog">블로그리뷰</string>
+	<string name="MenuRightVillageTextNotice">공지사항관리</string>
+	<string name="MenuRightVillageTextReply">댓글관리</string>
+	<string name="MenuRightVillageTextSetting">설정</string>
+
+	<string name="MenuRightUserTextView">내 글보기</string>
+	<string name="MenuRightUserTextInfo">정보관리</string>
+	<string name="MenuRightUserTextFavorite">관심있는</string>
+	<string name="MenuRightUserTextPurchase">주문관리</string>
+	<string name="MenuRightUserTextConsumerAdmin">소비자위원회관리</string>
+	<string name="MenuRightUserTextDirectAdmin">현장탐방기관리</string>
+	<string name="MenuRightUserTextReply">댓글관리</string>
+	<string name="MenuRightUserTextSetting">설정</string>
+	
+	<string name="MenuRightEdit">정보수정</string>
+    <string name="MenuLCart">장바구니</string>
+	<string name="MenuLInquiry">1:1문의</string>
+	<string name="MenuLPoint">포인트</string>
+
+	<!-- Join -->
+	<string name="JoinTitleUser">회원가입</string>
+	<string name="JoinTitleFarmer">회원가입</string>
+	<string name="JoinTitleVillage">회원가입</string>
+	<string name="EditTitleUser">회원정보수정</string>
+	<string name="EditTitleFarmer">회원정보수정</string>
+	<string name="EditTitleVillage">회원정보수정</string>
+	<string name="JoinTitleTerms">이용약관</string>
+
+	<string name="EditHintPWOld">기존 비밀번호</string>
+	<string name="EditHintPWNew">신규 비밀번호</string>
+
+	<string name="JoinTabTitleDefault">기본정보</string>
+	<string name="JoinTabTitleDefaultHint">프로필사진은 선택사항</string>
+	<string name="JoinTabTitleIDPW">아이디 / 비밀번호</string>
+	<string name="JoinTabTitleFarm">농장정보</string>
+	<string name="JoinTabTitleVillage">체험마을정보</string>
+	<string name="JoinTabTitleAgreement">이용약관</string>
+	<string name="JoinTabTitleBank">계좌정보</string>
+	<string name="JoinTabTitleLicensee">사업자정보</string>
+
+	<string name="JoinHintLicenseeNo">사업자번호 (선택사항)</string>
+	<string name="JoinHintLicenseeSellNo">통신판매업 (선택사항)</string>
+	<string name="JoinHintBankName">은행명</string>
+	<string name="JoinHintBankNo">계좌번호</string>
+	<string name="JoinHintBankMaster">예금주명</string>
+	<string name="JoinHintName">이름</string>
+	<string name="JoinHintFarmer">대표농부 이름</string>
+	<string name="JoinHintVillager">관리자</string>
+	<string name="JoinHintPhone">전화번호</string>
+	<string name="JoinHintEmail">이메일 주소</string>
+	<string name="JoinHintID">아이디</string>
+	<string name="JoinHintPW">비밀번호</string>
+	<string name="JoinHintPWConfirm">비밀번호확인</string>
+	<string name="JoinHintFarm">농장이름</string>
+	<string name="JoinHintFarmAddress">농장주소</string>
+	<string name="JoinHintFarmCategory">재배작물 또는 체험정보</string>
+	<string name="JoinHintFarmIntroduction">농장소개</string>
+	<string name="JoinHintVillage">마을이름</string>
+	<string name="JoinHintVillageAddress">마을주소</string>
+	<string name="JoinHintVillageCategory">체험정보</string>
+	<string name="JoinHintVillageIntroduction">마을소개</string>
+
+	<string name="JoinCheckBoxEmailFlag">이메일 수신동의</string>
+	<string name="JoinCheckBoxSMSFlag">SMS 수신동의</string>
+	<string name="JoinCheckBoxAgreement">이용약관 및 개인정보 취급방침</string>
+
+	<string name="JoinTextMobile">http://m.kfarmers.net/</string>
+	<string name="JoinTextMobileID">아이디</string>
+	<string name="JoinTextAddressExample">도로명 주소 기입</string>
+	<string name="JoinTextImageExample">1개이상 사진등록</string>
+	<string name="JoinTextFarmCategoryExample">쉼표로 구분    예) 사과, 버섯, 딸기수확체험 ..</string>
+
+    <string name="JoinTextFarmCategoryEdit">※ 카테고리 추가/변경은 고객센터로 연락주세요.</string>
+
+	<string name="JoinButtonDuplicate">중복확인</string>
+	<string name="JoinButtonNext">다음</string>
+	<string name="JoinButtonCompletion">가입완료</string>
+	<string name="JoinButtonEdit">수정완료</string>
+	<string name="JoinButtonAgreement">자세히</string>
+
+	<!-- Login -->
+	<string name="LoginTitle">로그인</string>
+	<string name="LoginTextFind">아이디/비밀번호 찾기</string>
+	<string name="LoginTextJoinUser1">소비자회원</string>
+	<string name="LoginTextJoinUser2">일반 소비자 회원 가입</string>
+	<string name="LoginTextJoinFarmer1">생산농부</string>
+	<string name="LoginTextJoinFarmer2">농업에 종사 하시는 분</string>
+	<string name="LoginTextJoinVillage1">체험마을</string>
+	<string name="LoginTextJoinVillage2">체험마을을 운영하시는 분</string>
+	<string name="LoginHintID">아이디 or 이메일</string>
+	<string name="LoginHintPW">비밀번호</string>
+	<string name="LoginButtonLogin">로그인</string>
+	<string name="LoginButtonJoin">회원가입</string>
+	<string name="LoginButtonCencel">취소</string>
+	<string name="LoginCheckBoxAuto">자동로그인</string>
+
+	<!-- Write Diary -->
+	<string name="WriteDiaryTitle">글쓰기</string>
+	<string name="WriteDiaryEditTitle">내용입력</string>
+	<string name="WriteDiaryTextCategory">카테고리 선택</string>
+	<string name="WriteDiaryHintTitle"><![CDATA[※]]> 블로그, 공지사항 등록시 제목 기입</string>
+	<string name="WriteDiaryHintContents">내용을 입력하세요.</string>
+	<string name="WriteDiaryButtonSave">임시저장</string>
+
+	<!-- Write Story -->
+
+	<string name="WriteStoryHintTitle"><![CDATA[※]]> 태그를 입력해주세요</string>
+
+	
+	<!-- Product Register -->
+	<string name="productDes">상품정보</string>
+	<string name="productOption">옵션정보</string>
+	<string name="productImg">상품사진</string>
+	<string name="productStory">상품설명</string>
+	
+	
+	<color name="DragHalfBaseColor">#CC555555</color>
+	<color name="DragHalfWhiteColor">#CCFFFFFF</color>
+	<dimen name="DragImageSize">50dp</dimen>
+	<color name="SubColor">#CCCCCC</color>
+	<dimen name="SubFont">12sp</dimen>
+	
+	<!-- ImageSelect -->
+	<string name="ImageSelectNoImg">등록된 이미지가 없습니다.</string>
+	
+	<string-array name="GetListSns">
+		<item>SNS 선택</item>
+		<item>네이버 블로그</item>
+		<item>다음 블로그</item>
+		<item>티스토리 블로그</item>
+		<item>카카오 스토리</item>
+		<item>페이스북</item>
+		<!-- <item>카카오 스토리 채널</item> -->
+	</string-array>
+
+	<!-- Write Diary Tag -->
+	<string name="WriteDiaryTagTitle">태그입력</string>
+	<string name="WriteDiaryTagHintTag">카테고리 태그</string>
+	<string name="WriteDiaryTagHintTag1">첫번째 태그</string>
+	<string name="WriteDiaryTagHintTag2">두번째 태그</string>
+	<string name="WriteDiaryTagHintTag3">세번째 태그</string>
+	<string name="WriteDiaryTagTextDivider">태그는 쉼표(,)로 구분</string>
+	<string name="WriteDiaryTagMax">사용자 태그는 2개까지 입력 가능합니다.</string>
+	<string name="WriteDiaryTagCategory">카테고리 태그는 자동 기입됩니다.</string>
+
+	<!-- Write Diary Sky -->
+	<string name="WriteDiarySkyTitle">날씨 정보</string>
+	<string name="WriteDiarySkyHintTemperature">온도</string>
+	<string name="WriteDiarySkyHintHumidity">습도</string>
+	<string name="WriteDiarySkyHintSky">날씨</string>
+
+	<string name="SNSButtonNext">등록</string>
+	
+	<!-- SNS Naver Blog -->
+	<string name="SNSNaverBlogTitle">네이버블로그</string>
+	<string name="SNSNaverBlogID">로그인 아이디</string>
+	<string name="SNSNaverBlogAPIPW">API연결 암호</string>
+
+	<!-- SNS Tistory -->
+	<string name="SNSTistoryTitle">티스토리</string>
+	<string name="SNSTistoryApiUrl">API 주소</string>
+	<string name="SNSTistoryBlogID">API 아이디</string>
+	<string name="SNSTistoryLoginID">로그인 아이디</string>
+	<string name="SNSTistoryLoginPW">로그인 비밀번호</string>
+
+	<!-- Product -->
+
+	<string name="Product_point"><![CDATA[<font color="#f85b2f">%1sP 적립</font>]]></string>
+
+
+
+	<!-- Get List Diary -->
+<!-- 	<string name="GetListDiaryPrimaryMenu1">전체</string> -->
+    <string name="Menu_Home">HOME</string>
+    <string name="Menu_Story">이야기</string>
+    <string name="Menu_Product">장터</string>
+	<string name="Menu_Event">서포터즈</string>
+	<string name="Menu_Recipe">레시피</string>
+    <string name="Menu_More">...</string>
+
+	<string-array name="GetListDiarySubMenu2_1">
+		<item>전체</item> <!-- 1,2,3,4,5,6 -->
+		<item>과일</item> <!-- 1-->
+		<item>채소</item> <!-- 2 -->
+		<item>쌀/잡곡</item> <!-- 3 -->
+		<item>축산/달걀</item> <!-- 4 -->
+		<item>가공</item> <!-- 5 -->
+		<item>기타</item> <!-- 6 -->
+		<item>체험</item> <!-- 7,9 -->
+	</string-array>
+	<string-array name="GetListDiarySubMenuAuth">
+		<item>전체</item> <!-- 빈값 -->
+		<item>유기농</item> <!-- 2 -->
+		<item>무농약</item> <!-- 3 -->
+		<item>저농약</item> <!-- 4 -->
+		<item>유기가공</item> <!-- 5 -->
+		<item>무항생제</item> <!-- 6 -->
+	</string-array>
+	
+<!-- 		<item>전통식품</item> 7 -->
+<!-- 		<item>GAP</item> 8 -->
+<!-- 		<item>HACCP</item> 9 -->
+<!-- 		<item>스타팜</item> 10 -->
+<!-- 		<item>지리적표시</item> 11 -->
+
+	<string-array name="GetListDiarySubMenuLocalFood">
+		<item>전체</item> <!-- 빈값 -->
+		<item>50km</item> <!-- 50 -->
+		<item>100km</item> <!-- 100 -->
+		<!-- 이하는 보여지는 값을 그대로 넘겨주세요  -->
+		<item>서울</item>
+		<item>인천</item>
+		<item>대전</item>
+		<item>대구</item>
+		<item>광주</item>
+		<item>부산</item>
+		<item>울산</item>
+		<item>경기도</item>
+		<item>강원도</item>
+		<item>충청북도</item>
+		<item>충청남도</item>
+		<item>경상북도</item>
+		<item>경상남도</item>
+		<item>전라북도</item>
+		<item>전라남도</item>
+		<item>제주도</item>
+	</string-array>
+	<string-array name="GetListDiarySubMenu3_1">
+		<item>전체</item> <!-- 5 -->
+	</string-array>
+	<string-array name="GetListDiarySubMenu4_1">
+		<item>전체</item> <!-- 7,9 -->
+		<item>체험 마을</item> <!-- 9 -->
+		<item>체험 농장</item> <!-- 7 -->
+	</string-array>
+	<string-array name="GetListDiarySubMenu4_2">
+		<item>전체</item> <!-- 빈값 -->
+		<!-- 이하는 월을 빼고 숫자만 넘기면 됩니다. -->
+		<item>1월</item>
+		<item>2월</item>
+		<item>3월</item>
+		<item>4월</item>
+		<item>5월</item>
+		<item>6월</item>
+		<item>7월</item>
+		<item>8월</item>
+		<item>9월</item>
+		<item>10월</item>
+		<item>11월</item>
+		<item>12월</item>
+	</string-array>
+	<string-array name="GetListDiarySubMenu4_3">
+		<item>전체</item> <!-- 빈값 -->
+		<!-- 이하는 보여지는 값을 그대로 넘겨주세요  -->
+		<item>서울</item>
+		<item>인천</item>
+		<item>대전</item>
+		<item>대구</item>
+		<item>광주</item>
+		<item>부산</item>
+		<item>울산</item>
+		<item>경기도</item>
+		<item>강원도</item>
+		<item>충청북도</item>
+		<item>충청남도</item>
+		<item>경상북도</item>
+		<item>경상남도</item>
+		<item>전라북도</item>
+		<item>전라남도</item>
+		<item>제주도</item>
+		<!-- 이하는 km을 빼고 숫자만 넘기면 됩니다. -->
+		<item>100km</item>
+		<item>200km</item>
+		<item>300km</item>
+	</string-array>
+	<string name="GetListDiaryFoodMile">푸드마일</string>
+	<string name="GetListDiaryDistance">거리</string>
+	<string name="GetListDiaryLike">좋아요</string>
+	<string name="GetListDiaryReply">댓글</string>
+	<string name="GetListDiaryShare">공유하기</string>
+
+	<!-- Find Account -->
+	<string name="FindAccountTitle">ID / 비밀번호 찾기</string>
+	<string name="FindAccountTabID">아이디 찾기</string>
+	<string name="FindAccountTabPW">비밀번호 찾기</string>
+	<string name="FindAccountFromEmail">이메일로 찾기</string>
+	<string name="FindAccountFromPhone">휴대폰번호로 찾기</string>
+	<string name="FindAccountHintID">아이디</string>
+	<string name="FindAccountHintName">이름</string>
+	<string name="FindAccountHintEmail">이메일</string>
+	<string name="FindAccountHintPhone">휴대폰</string>
+	<string name="FindAccountHintAuth">인증번호</string>
+	<string name="FindAccountButtonAuth">인증번호전송</string>
+	<string name="FindAccountButtonID">아이디 찾기</string>
+	<string name="FindAccountButtonPW">비밀번호 찾기</string>
+
+	<string name="TermsTab1">이용약관</string>
+	<string name="TermsTab2">개인정보취급방침</string>
+	<string name="TermsTab3">위치기반서비스</string>
+    <string name="TermsTab4">구매약관</string>
+    <string name="TermsTab">회사소개</string>
+	
+	<!-- Get List Release -->
+	<string name="GetListReleaseFarmerTitle">출하일정관리</string>
+	<string name="GetListReleaseVillageTitle">체험정보관리</string>
+	<string name="GetListReleaseButton">관리</string>
+
+	<!-- Write Release -->
+	<string name="WriteReleaseFarmerTitle">출하일정관리</string>
+	<string name="WriteReleaseFarmerHintDate">출하일자</string>
+	<string name="WriteReleaseFarmerHintNote">비고</string>
+	<string name="WriteReleaseVillageTitle">체험정보관리</string>
+	<string name="WriteReleaseVillageHintDate">체험시기</string>
+	<string name="WriteReleaseVillageHintPrice">가격</string>
+	<string name="WriteReleaseVillageHintNote">내용</string>
+	<string name="WriteReleaseVillageTextTitle">체험명</string>
+	<string name="WriteReleaseCheckAlway">연중</string>
+	<string name="WriteReleaseCheckFinish">종료</string>
+
+	<!-- Get Release Today -->
+	<string name="GetReleaseTodayTitle">출하소식</string>
+
+	<!-- Get List Notice -->
+	<string name="GetListNoticeTitle">공지사항</string>
+
+	<!-- Get List Favorite -->
+	<string name="GetListFavoriteTitle">관심있는</string>
+	
+	<string name="GetListBlogTitle">블로그 리뷰</string>
+	<string name="WriteBlogTitle">포스트 등록</string>
+
+	<!-- Get View Location -->
+	<string name="GetViewLocationTitle">위치안내</string>
+	
+	<!-- Write experience info -->
+	<string name="WriteExpInfoCancel">취소</string>
+	<string name="WriteExpInfoRegist">등록</string>
+	<string name="WriteExpInfoTitle">글쓰기</string>
+	<string name="WriteExpInfoHintDesc">내용을 입력하세요</string>
+	<string name="WirteExpInfoTempSave">임시저장</string>
+	
+	<!-- Regist post -->
+	<string name="RegistPostTitle">포스트 등록</string>
+	<string name="RegistPostUpload">올리기</string>
+	<string name="RegistPostSelectText">선택(%1$d)</string>
+	<string name="RegistPostNaver">네이버</string>
+	<string name="RegistPostDaum">다음</string>
+	<string name="RegistPostTstory">티스토리</string>
+	<string name="RegistPostInputUrl">포스트 URL 입력</string>
+	   
+	<!-- Setting -->
+	<string name="setting_title">설정</string>
+	<string name="setting_sns_title">SNS 연결</string>
+	<string name="setting_user_info">로그아웃</string>
+	<string name="setting_user_leave">회원 탈퇴</string>
+	<string name="setting_notice">공지사항</string>
+	<string name="setting_sns">SNS 연결</string>
+	<string name="setting_service">서비스 안내</string>
+	<string name="setting_service_center">고객센터</string>
+	<string name="setting_service_center_phone">031-439-6345</string>
+    <string name="kfarmers_phone">01096626345</string>
+	<string name="setting_qa">자주 묻는 질문</string>
+	<string name="setting_notice_alarm">공지사항 알림</string>
+	<string name="setting_event_alarm">이벤트 알림</string>
+	<string name="setting_release_alarm">출하일정 알림</string>
+	<string name="setting_comment_alarm">댓글 알림</string>
+    <string name="setting_invite">친구 초대</string>
+	<string name="setting_version">버전안내</string>
+	
+	<!-- Product -->
+	<string name="product_buy">구매하기</string>
+	<string name="product_diary_title">실시간 생산정보</string>
+	<string name="product_list_bottom_text">모든 상품은 무료배송됩니다!</string>
+	<string name="product_type_normal"><![CDATA[<b>해당 상품은 생산자가 직접 등록한 상품으로 K파머스에서 보증하지 않습니다.</b><br>또한 전자결제(카드결제,계좌이체)가 지원되지않습니다.<br>상품구매시 생산자의 계좌로 직접 입금해주셔야 합니다.<br><b>상품정보 및 거래에 대한 책임은 생산자에게 있습니다.</b>]]></string>
+	<string name="product_type_verify"><![CDATA[해당 상품은 깐깐한 K파머스 검증을 통과한 상품입니다.<br><b>(검증절차 1차: K파머스 MD / 2차: 소비자 집단검증)</b><br>상품에 문제가 있을경우, K파머스가 책임지고 해결해 드립니다.]]></string>
+
+	<!-- Evaluation -->
+	<string name="evaluation_title">소비자 집단검증</string>
+	<string name="evaluation_title_sub">소비자가 최고의 MD!</string>
+	<string name="evaluation_des"><![CDATA[국내최초! 소비자 집단검증 시스템!<br>불특정 다수의 소비자에게 상품검증 후 만족도를 점수화하여 우수 상품만을 추천 합니다!]]></string>
+	<string name="evaluation_info">소비자 집단검증은 국내최초로 시도되는 농산물 검증시스템입니다.\n\n불특정 다수의 인원이 검증에 참여하여 실시간으로 상품만족도를 점수화합니다.\nK파머스는 소비자 집단검증을 토대로 우수 상품만을 추천합니다.\n\n보다 객관적인 농산물 검증을 위한 노력!\n소비자 여러분이 직접 선택해주세요!\n소비자가 최고의 MD입니다!</string>
+	<string name="evaluation_request_btn">테스트 플레이스 신청하기</string>
+
+	<!-- Review -->
+	<string name="review_title">상품 후기</string>
+	<string name="review_realtime_title">실시간 구매후기</string>
+
+
+	<!-- Diary -->
+	<string name="diary_blind">숨겨진 내용입니다\n수정이나 삭제 바랍니다</string>
+	
+	<!-- Kakao -->
+	<string name="Kakao_link_btn">K파머스 바로가기</string>
+	
+	<string name="mypage_title">마이페이지</string>
+	
+	
+	<!-- 주소 -->
+	<string name="address_title">배송주소</string>
+	<string name="address_addBtn">등록하기</string>
+
+    <!-- 회원상태 -->
+    <string name="stateOkFarmer">현재 \'정상승인\' 중입니다.</string>
+    <string name="stateNoFarmer">현재 \'예비승인\' 중입니다.</string>
+	<string name="stateDeFarmer">현재 \'승인대기\' 중입니다.</string>
+
+    <!-- 데이터 없을시 -->
+    <string name="noData">데이터가 없습니다.\n새로고침을 해주세요.</string>
+
+	
+	<!-- sns연동 -->
+	<string name="sns_no_category">선택하신 카테고리가 없습니다.\n등록하실 글의 카테고리를 선택해 주세요.</string>
+
+    <!-- sns 초대-->
+    <string name="inviteSnsText">누가,어디서,어떻게 생산할까요?\n실시간 생산정보기반 농산물 직거래장터, K파머스\n\nhttp://kfarmers.kr/link</string>
+
+    <!-- 주소 -->
+    <string name="order_list">주문내역</string>
+
+    <!-- 메뉴 -->
+    <string name="menu_impressive">인상깊은</string>
+    <string name="menu_general">농어촌일상</string>
+
+	<!-- 문의 -->
+	<string name="inquiry_center">고객센터 문의</string>
+
+	<!-- 일반상품 -->
+	<string name="web_admin">웹어드민</string>
+
+
+    <string-array name="DeliveryInfoList">
+        <item>부재시 경비실에 맡겨주세요.</item>
+        <item>부재시 핸드폰으로 연락바랍니다.</item>
+        <item>배송 전 연락바랍니다.</item>
+        <item>빠른 배송 부탁드립니다.</item>
+    </string-array>
+
+    <string-array name="CashReceiptList">
+        <item>휴대폰 번호</item>
+        <item>현금영수증 카드번호</item>
+
+    </string-array>
+
+</resources>

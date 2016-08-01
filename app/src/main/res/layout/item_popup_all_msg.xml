@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/commentEdit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_selector_view_gray"
+        android:hint="내용을 입력해주세요."
+        android:padding="10dp"
+        android:lines="5"
+        android:gravity="top"
+        android:privateImeOptions="defaultInputmode=korean"
+        android:textColor="@color/CommonText"
+        android:textColorHint="@color/CommonHint"
+        android:textSize="@dimen/CommonMediumText"/>
+
+
+</LinearLayout>

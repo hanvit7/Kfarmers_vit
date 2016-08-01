@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7C000000"
+    android:gravity="center"
+    android:padding="30dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/TitleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_title"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="주소 검색"
+                android:textColor="@android:color/white" >
+            </TextView>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/background_farm_more_bottom"
+            android:orientation="vertical"
+            android:paddingTop="10dp" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center_vertical" >
+
+                <Button
+                    android:id="@+id/address_search"
+                    style="@style/ButtonMediumConcept"
+                    android:layout_width="70dp"
+                    android:layout_height="fill_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="10dp"
+                    android:text="검색" />
+
+                <EditText
+                    android:id="@+id/address_input"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_alignBaseline="@+id/address_search"
+                    android:layout_alignBottom="@+id/address_search"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/address_search"
+                    android:background="@drawable/common_selector_view_gray"
+                    android:hint="검색어를 입력해주세요."
+                    android:inputType="textUri"
+                    android:maxLength="20"
+                    android:padding="7dp"
+                    android:privateImeOptions="defaultInputmode=korean"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonText"
+                    android:textColorHint="@color/CommonHint"
+                    android:textSize="@dimen/CommonMediumText" >
+
+                    <requestFocus />
+                </EditText>
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_input"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="동/읍/명 검색어를 입력해주세요 (예)중앙동"
+                android:textColor="@color/CommonHint" >
+            </TextView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/CommonDivider" />
+
+            <TextView
+                android:id="@+id/nullText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="검색결과가 없습니다.\n\n다시 검색해주세요."
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent" >
+            </ListView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:visibility="gone" >
+
+        <ProgressBar
+            style="@style/Widget.Sherlock.ProgressBar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+
+</RelativeLayout>

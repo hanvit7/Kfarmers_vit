@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:layout_margin="@dimen/CommonLargeMargin"
+        style="@style/EditTextDefault"
+        android:id="@+id/Code"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonLargeRow"
+        android:hint="4~6자리"
+        android:singleLine="true"
+        android:maxLength="6"
+        android:textColorHint="#FF969696">
+        <requestFocus/>
+    </EditText>
+
+    <TextView
+        android:layout_marginBottom="@dimen/CommonSsmallMargin"
+        android:gravity="center_horizontal"
+        android:text="Test Place 현장에서 발급받은 인증코드를 입력해주세요!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

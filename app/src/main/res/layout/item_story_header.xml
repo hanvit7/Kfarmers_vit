@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/ImpressiveView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            custom:viewRatio="0.500">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/ImpressiveViewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <RelativeLayout
+                    android:id="@+id/ImpressiveTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="@drawable/shadow_top">
+
+                    <TextView
+                        android:id="@+id/ImpressiveText"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/ImpressiveMoreView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/shadow_top">
+
+                    <TextView
+                        android:id="@+id/ImpressiveTextMore"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center_horizontal"
+                        android:maxLines="2"
+                        android:text="밥상수다 베스트\n더보기 +"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ImpressivePagingLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal" />
+
+            </RelativeLayout>
+
+
+        </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@id/ImpressiveView"
+        android:background="@drawable/get_list_post"
+        android:visibility="visible"
+        android:id="@+id/wirteView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginTop="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:paddingLeft="@dimen/CommonLargePadding"
+        android:paddingRight="@dimen/CommonLargePadding">
+
+        <ImageView
+            android:layout_marginLeft="5dp"
+            android:src="@drawable/icon_empty_profile"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+            android:layout_centerVertical="true"
+            android:id="@+id/profileImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:textColorHint="@color/CommonHint"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/imageView3"
+            android:layout_toRightOf="@+id/profileImageView"
+            android:layout_toEndOf="@+id/profileImageView" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/icon_write"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/imageView3" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

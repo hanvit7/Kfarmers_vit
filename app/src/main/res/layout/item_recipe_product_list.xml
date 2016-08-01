@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.leadplatform.kfarmers.view.base.DynamicFrameLayout xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+        android:id="@+id/imageLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:background="@drawable/bg_drop"
+        custom:viewRatio="0.60">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY" />
+
+    </com.leadplatform.kfarmers.view.base.DynamicFrameLayout>
+
+    <ImageView
+        android:background="@drawable/common_dummy_circle"
+        android:src="@drawable/icon_empty_profile"
+        android:id="@+id/image_profile"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="1.5dp"
+        android:scaleType="centerCrop"
+        android:layout_marginLeft="@dimen/CommonLargeMargin"
+        android:layout_marginBottom="@dimen/CommonLargeMargin"
+        android:layout_alignBottom="@+id/imageLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_below="@id/imageLayout"
+        android:id="@+id/product_name"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/CommonSsmallMargin"
+        android:layout_marginLeft="@dimen/CommonMediumMargin"
+        android:layout_marginRight="@dimen/CommonMediumMargin"
+        android:textColor="@color/white"
+        android:textSize="@dimen/CommonMediumText_1"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_below="@id/product_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonSmallRow" />
+
+</RelativeLayout>

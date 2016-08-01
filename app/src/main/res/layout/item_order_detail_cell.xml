@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/CommonMediumPadding">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6.6999817dip"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:textColor="#ff323b4a"
+            android:textSize="13.329987dip" />
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/ItemStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/CommonPrice"
+            android:layout_marginLeft="15.0dip" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginBottom="8.0dip"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="5.0dip"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1.0"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/Count"
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="개  |  "
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+            <TextView
+                android:id="@+id/Price"
+                android:layout_width="wrap_content"
+                android:layout_height="26.699982dip"
+                android:gravity="center"
+                android:singleLine="true"
+                android:textColor="#ff323b4a"
+                android:textSize="16.669983dip" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:visibility="visible"
+                android:text="배송추적"
+                android:id="@+id/ItemSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="23.699982dip"
+                android:textSize="12sp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/white"
+                android:background="#AA000000" />
+
+            <Button
+                android:visibility="visible"
+                android:text="구매확정"
+                android:id="@+id/ItemConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="23.699982dip"
+                android:textSize="12sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5.0dip"
+                android:background="#ff8686"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/BottomLine"
+        android:layout_width="fill_parent"
+        android:layout_height="1.0px"
+        android:layout_marginTop="1.0px"
+        android:background="#ffa1aeb2" />
+</LinearLayout>

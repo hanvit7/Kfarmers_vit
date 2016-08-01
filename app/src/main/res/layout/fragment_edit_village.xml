@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFF" >
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#FFFFFF" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/CommonLargePadding"
+			android:orientation="vertical" >
+			<TextView style="@style/TextViewMediumDefault"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/JoinTabTitleDefault"
+				android:textStyle="bold"
+				android:textColor="#ff8dd427" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonSmallMargin"
+				android:orientation="horizontal" >
+				<ImageView
+					android:id="@+id/Profile"
+					android:layout_width="110dp"
+					android:layout_height="110dp"
+					android:adjustViewBounds="true"
+					android:scaleType="centerCrop"
+					android:src="@drawable/bt_profile"
+					android:contentDescription="@string/CommonEmpty" />
+				<RelativeLayout
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_marginLeft="@dimen/CommonSmallMargin" >
+					<EditText style="@style/EditTextDefault"
+						android:id="@+id/Name"
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/CommonLargeRow"
+						android:hint="@string/JoinHintVillager"
+						android:textColorHint="#FF969696"
+						android:inputType="text"
+						android:singleLine="true"
+						android:maxLength="20"
+						android:textColor="#CCCCCC"
+						android:focusable="false"
+						android:clickable="false" />
+					<EditText style="@style/EditTextDefault"
+						android:id="@+id/Phone"
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/CommonLargeRow"
+						android:layout_alignParentBottom="true"
+						android:hint="@string/JoinHintPhone"
+						android:inputType="phone"
+						android:singleLine="true"
+						android:maxLength="14"
+						android:textColorHint="#FF969696" />
+				</RelativeLayout>
+			</LinearLayout>
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/Email"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/JoinHintEmail"
+				android:inputType="textEmailAddress"
+				android:singleLine="true"
+				android:maxLength="50"
+				android:textColorHint="#FF969696" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal" >
+				<CheckBox style="@style/CheckBoxDefault"
+					android:id="@+id/EmailFlag"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/JoinCheckBoxEmailFlag"
+					android:checked="true" />
+				<CheckBox style="@style/CheckBoxDefault"
+					android:id="@+id/PhoneFlag"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="@dimen/CommonLargeMargin"
+					android:text="@string/JoinCheckBoxSMSFlag"
+					android:checked="true" />
+			</LinearLayout>
+			<View
+				android:layout_width="wrap_content"
+				android:layout_height="1dp"
+				android:layout_marginTop="@dimen/CommonLargeMargin"
+				android:layout_marginBottom="@dimen/CommonLargeMargin"
+				android:background="@color/CommonDivider" />
+			<TextView style="@style/TextViewMediumDefault"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonLargeMargin"
+				android:text="@string/JoinTabTitleIDPW"
+				android:textStyle="bold"
+				android:textColor="#ff8dd427" />
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/ID"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/JoinHintID"
+				android:inputType="textUri"
+				android:singleLine="true"
+				android:maxLength="20"
+				android:textColorHint="#FF969696"
+				android:textColor="#CCCCCC"
+				android:focusable="false"
+				android:clickable="false" />
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:orientation="horizontal" >
+				<TextView style="@style/TextViewMediumDefault"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/JoinTextMobile"
+					android:textColor="#ffafafaf"
+					android:textSize="12sp" />
+				<TextView style="@style/TextViewMediumDefault"
+					android:id="@+id/MobileAddress"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="12sp"
+					android:textColor="#ffafafaf"
+					/>
+			</LinearLayout>
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/PW"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/EditHintPWOld"
+				android:inputType="textPassword"
+				android:singleLine="true"
+				android:maxLength="20"
+				android:textColorHint="#FF969696" />
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/PWConfirm"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/EditHintPWNew"
+				android:inputType="textPassword"
+				android:singleLine="true"
+				android:maxLength="20"
+				android:textColorHint="#FF969696" />
+			<Button style="@style/ButtonLargeConcept"
+				android:id="@+id/Next"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonXXXLargeMargin"
+				android:text="@string/JoinButtonNext" />
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

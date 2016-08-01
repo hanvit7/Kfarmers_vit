@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/CommonSmallMargin" >
+
+        <RelativeLayout
+            android:id="@+id/Top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="@drawable/get_list_diary_selector_top"
+            android:padding="@dimen/CommonLargePadding" >
+
+            <RelativeLayout
+                android:id="@+id/Info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/Date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:textColor="#a7a7a7"
+                    android:textSize="@dimen/CommonMediumText" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/Divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/Info"
+                android:layout_marginTop="@dimen/CommonLargeMargin"
+                android:background="#eaeaea" />
+            <!--
+                      <uk.co.deanwild.flowtextview.FlowTextView
+                android:id="@+id/ftv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Divider"
+                android:layout_marginTop="@dimen/CommonMediumMargin" >
+
+                <ImageView
+                    android:id="@+id/img"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:layout_marginRight="10dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true" />
+            </uk.co.deanwild.flowtextview.FlowTextView>-->
+
+            <TextView
+                android:id="@+id/Description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Divider"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_below="@id/Description"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/BottomView"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_below="@+id/Top"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="@drawable/get_list_diary_selector_bottom" />
+
+        <RelativeLayout
+            android:id="@+id/ClickLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/BottomView"
+            android:layout_alignTop="@id/Top"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="#3347C83E"
+            android:padding="@dimen/CommonLargePadding"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</LinearLayout>

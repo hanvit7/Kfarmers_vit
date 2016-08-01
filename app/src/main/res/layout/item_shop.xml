@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/CommonLargePadding"
+    android:orientation="vertical"
+    android:background="#f4f4f4"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/Profile"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:background="@drawable/common_dummy"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/CommonDummy" />
+
+    <ImageView
+        android:id="@+id/Verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:layout_marginRight="@dimen/CommonSsmallMargin"
+        android:layout_marginTop="@dimen/CommonSsmallMargin"
+        android:src="@drawable/md_auth"
+        android:contentDescription="@string/CommonDummy"
+        android:layout_alignTop="@+id/Profile"
+        android:layout_alignRight="@+id/Profile"
+        android:layout_alignEnd="@+id/Profile" />
+
+    <LinearLayout
+        android:layout_below="@id/Profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#f4f4f4"
+        android:gravity="center"
+        android:layout_alignRight="@+id/Profile"
+        android:layout_alignEnd="@+id/Profile"
+        android:layout_alignLeft="@+id/Profile"
+        android:layout_alignStart="@+id/Profile">
+
+        <TextView
+            android:id="@+id/Farm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:textColor="@color/CommonConcept"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/TextViewMediumDefault" />
+
+        <TextView
+            android:id="@+id/Farmer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/TextViewMediumDefault" />
+
+        <TextView
+            android:id="@+id/CategoryList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            style="@style/TextViewMediumDefault"
+            android:textSize="@dimen/CommonSmallText" />
+    </LinearLayout>
+
+</RelativeLayout>

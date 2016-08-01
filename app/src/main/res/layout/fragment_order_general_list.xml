@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee">
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomLayout">
+
+        <ListView
+            android:id="@id/android:list"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/EmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="100dp">
+
+        <ImageView
+            android:id="@+id/EmptyImage"
+            android:src="@drawable/icon_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/EmptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noData"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/CommonXLargeMargin"
+            android:textSize="@dimen/CommonLargeText" />
+
+        <Button
+            android:id="@+id/EmptyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/CommonLargeMargin"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:textStyle="bold"
+            style="@style/ButtonLargeConcept" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/BottomLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/CommonLargeRow">
+
+        <Button
+            android:id="@+id/adminBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_minicart_buy"
+            android:text="@string/web_admin"
+            android:textColor="@drawable/btn_minicart_text_buy"
+            android:textSize="@dimen/CommonMediumByLargeText"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

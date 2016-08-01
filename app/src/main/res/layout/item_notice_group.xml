@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<LinearLayout
+	    android:id="@+id/GroupLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingLeft="14dp"
+		android:paddingTop="14dp"
+		android:paddingBottom="15dp"
+		android:orientation="horizontal">
+		<TextView
+		    android:id="@+id/Title"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:layout_gravity="center_vertical"
+			android:textColor="#555555"
+			android:textSize="16sp" />
+		<TextView
+		    android:id="@+id/Date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center_vertical"
+			android:layout_marginLeft="15dp"
+			android:textColor="#858585"
+			android:textSize="11sp" />
+		<ImageView
+		    android:id="@+id/Arrow"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="15dp"
+		    android:layout_gravity="center_vertical"
+		    android:src="@drawable/button_menu_right_array_small"
+		    android:contentDescription="@string/CommonDummy" />
+	</LinearLayout>
+	    
+<!-- 	<RelativeLayout -->
+<!-- 	    android:id="@+id/GroupLayout" -->
+<!-- 		android:layout_width="match_parent" -->
+<!-- 		android:layout_height="wrap_content" -->
+<!-- 		android:padding="15dp"> -->
+<!-- 		<TextView -->
+<!-- 		    android:id="@+id/Title" -->
+<!-- 			android:layout_width="wrap_content" -->
+<!-- 			android:layout_height="wrap_content" -->
+<!-- 			android:layout_alignParentLeft="true" -->
+<!-- 			android:textColor="#000000" -->
+<!-- 			android:textSize="15sp" -->
+<!-- 			android:textStyle="bold" /> -->
+<!-- 		<TextView -->
+<!-- 		    android:id="@+id/Date" -->
+<!-- 			android:layout_width="wrap_content" -->
+<!-- 			android:layout_height="wrap_content" -->
+<!-- 			android:layout_toRightOf="@+id/Title" -->
+<!-- 			android:layout_toLeftOf="@+id/Arrow" -->
+<!-- 			android:layout_centerVertical="true" -->
+<!-- 			android:layout_marginLeft="15dp" -->
+<!-- 			android:textColor="#858585" -->
+<!-- 			android:textSize="11sp" />		 -->
+<!-- 		<ImageView -->
+<!-- 		    android:id="@+id/Arrow" -->
+<!-- 		    android:layout_width="wrap_content" -->
+<!-- 		    android:layout_height="wrap_content" -->
+<!-- 		    android:layout_alignParentRight="true" -->
+<!-- 		    android:layout_marginLeft="15dp" -->
+<!-- 		    android:src="@drawable/button_category_dropdown" -->
+<!-- 		    android:contentDescription="@string/CommonDummy" /> -->
+<!-- 	</RelativeLayout> -->
+	
+	<View
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:background="#cccccc" />
+	
+</LinearLayout>

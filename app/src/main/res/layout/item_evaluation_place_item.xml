@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:padding="@dimen/CommonSsmallPadding"
+        android:textColor="#ffffff"
+        android:background="#8C8C8C"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:textSize="@dimen/CommonSmallText"
+        android:layout_alignParentRight="true"
+        android:id="@+id/State"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="@dimen/CommonLargeMargin"
+        android:layout_marginBottom="@dimen/CommonLargeMargin"
+        android:paddingLeft="@dimen/CommonSmallMargin"
+        android:paddingRight="@dimen/CommonSmallMargin"
+        android:id="@+id/Des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/State"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <!--<View
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:layout_below="@id/Des"
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="#BDBDBD" />-->
+
+
+</RelativeLayout>

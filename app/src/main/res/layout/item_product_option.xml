@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:padding="@dimen/CommonSmallPadding"
+        android:background="@drawable/get_list_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/optionDel"
+            style="@style/ButtonLargeConcept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:text="-" />
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:hint="옵션명"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:id="@+id/textView1" />
+
+        <EditText
+            android:id="@+id/optionName"
+            style="@style/EditTextDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_weight="2"
+            android:maxLength="30"
+            android:padding="7dp"
+            android:privateImeOptions="defaultInputmode=korean"
+            android:singleLine="true"
+            android:textColorHint="@color/CommonHint"
+            android:layout_toLeftOf="@+id/optionDel"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:layout_below="@id/optionName"
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:hint="정상가"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:id="@+id/textView2" />
+
+        <EditText
+            android:layout_below="@id/optionName"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:id="@+id/optionPrice"
+            style="@style/EditTextDefault"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:maxLength="7"
+            android:padding="7dp"
+            android:singleLine="true"
+            android:textColorHint="@color/CommonHint"
+            android:layout_alignLeft="@+id/optionName"
+            android:layout_alignStart="@+id/optionName" />
+
+        <TextView
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:layout_below="@id/optionPrice"
+            android:gravity="center_vertical"
+            android:layout_marginRight="@dimen/CommonMediumMargin"
+            android:hint="할인가"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:id="@+id/textView3" />
+
+
+        <EditText
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:layout_below="@id/optionPrice"
+            android:id="@+id/optionPriceDc"
+            style="@style/EditTextDefault"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:maxLength="7"
+            android:padding="7dp"
+            android:singleLine="true"
+            android:textColorHint="@color/CommonHint"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_toEndOf="@+id/textView3" />
+
+        <LinearLayout
+            android:layout_below="@id/optionPriceDc"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/CommonSmallMargin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_marginRight="@dimen/CommonMediumMargin"
+                android:hint="재고량"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/CommonLargeRow" />
+
+
+            <EditText
+                android:id="@+id/optionCount"
+                style="@style/EditTextDefault"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/CommonLargeRow"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:maxLength="7"
+                android:padding="7dp"
+                android:singleLine="true"
+                android:textColorHint="@color/CommonHint" />
+
+            <CheckBox
+                android:id="@+id/optionSoldOut"
+                android:layout_marginLeft="@dimen/CommonXXXLargeMargin"
+                android:hint="품절"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

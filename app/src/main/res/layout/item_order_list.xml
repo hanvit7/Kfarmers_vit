@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:paddingTop="@dimen/CommonMediumPadding"
+    android:paddingRight="@dimen/CommonMediumPadding"
+    android:paddingLeft="@dimen/CommonMediumPadding"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#22000000">
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:id="@+id/ItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="구매일"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/CommonSsmallPadding"
+            android:background="#ff8686"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textColor="#ffff"
+            android:textStyle="bold"
+            android:text="상세보기" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ItemView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/setting_btn4"
+        android:orientation="vertical" />
+
+
+</LinearLayout>

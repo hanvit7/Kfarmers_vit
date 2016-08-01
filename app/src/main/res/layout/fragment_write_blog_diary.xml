@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <RelativeLayout
+            android:id="@+id/CategoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/CommonSmallPadding"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:paddingTop="@dimen/CommonSmallPadding" >
+
+            <TextView
+                android:id="@+id/CategoryText"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonMediumRow"
+                android:layout_toLeftOf="@+id/Category"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:text="@string/WriteDiaryTextCategory"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/button_category_dropdown" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/CategoryLine"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/CategoryLayout"
+            android:background="@color/CommonDivider" />
+
+        <RelativeLayout
+            android:id="@+id/UrlLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/CategoryLine"
+            android:paddingBottom="@dimen/CommonSmallPadding"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:paddingTop="@dimen/CommonSmallPadding"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/urlButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/button_category_dropdown" />
+
+            <EditText
+                android:id="@+id/UrlEdit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonMediumRow"
+                android:layout_toLeftOf="@id/urlButton"
+                android:gravity="center_vertical"
+                android:hint="@string/WriteDiaryTextCategory"
+                android:inputType="textUri"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/UrlDiv"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/UrlLayout"
+            android:background="@color/CommonDivider" />
+
+        <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/UrlDiv"
+            android:background="#eeeeee" >
+
+            <ListView
+                android:id="@id/android:list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/UrlDiv" />
+
+        <LinearLayout
+            android:id="@+id/sns_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical"
+            android:layout_margin="20dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_blog_info1"
+                android:textColor="#999999"
+                android:gravity="center"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_blog_info2"
+                android:textColor="#999999"
+                android:textSize="17sp" />
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dialog_blog_info3"
+                android:textColor="#999999"
+                android:textSize="17sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

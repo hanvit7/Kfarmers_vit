@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <LinearLayout
+            android:id="@+id/Footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/CommonConcept" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_marginLeft="@dimen/CommonLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/linearLayout2">
+
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/pictureBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/CommonMediumButton"
+                        android:contentDescription="@string/CommonDummy"
+                        android:scaleType="center"
+                        android:src="@drawable/button_blog_write_picture_default" />
+
+                    <ImageView
+                        android:layout_marginLeft="@dimen/CommonXLargeMargin"
+                        android:id="@+id/shareBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/CommonMediumButton"
+                        android:contentDescription="@string/CommonDummy"
+                        android:scaleType="center"
+                        android:src="@drawable/icon_kako_s_n" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:gravity="right|center"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/CommonMediumMargin"
+                    android:id="@+id/tempBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:text="@string/WirteExpInfoTempSave"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/Footer">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <LinearLayout
+                    android:id="@+id/TitleAndCategoryLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/CategoryLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="@dimen/CommonSmallPadding"
+                        android:paddingLeft="@dimen/CommonMediumPadding"
+                        android:paddingRight="@dimen/CommonMediumPadding"
+                        android:paddingTop="@dimen/CommonSmallPadding">
+
+                        <TextView
+                            android:id="@+id/CategoryText"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/CommonMediumRow"
+                            android:layout_toLeftOf="@+id/Category"
+                            android:background="@null"
+                            android:gravity="center_vertical"
+                            android:text="@string/WriteDiaryTextCategory"
+                            android:textColor="@color/CommonText"
+                            android:textSize="@dimen/CommonMediumText" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:contentDescription="@string/CommonDummy"
+                            android:src="@drawable/button_category_dropdown" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.5dp"
+                        android:background="@color/CommonDivider" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/editLayout"
+                    android:paddingLeft="@dimen/CommonMediumMargin"
+                    android:paddingRight="@dimen/CommonMediumMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/TitleAndCategoryLayout"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/EditDes"
+                        style="@style/EditTextDefault"
+                        android:layout_width="fill_parent"
+                        android:layout_height="150dp"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:scrollbarDefaultDelayBeforeFade="99999999"
+                        android:scrollbars="vertical"
+                        android:overScrollMode="always"
+                        android:gravity="top"
+                        android:hint="내용을 입력해주세요."
+                        android:maxLength="500"
+                        android:maxLines="200"
+                        android:padding="7dp"
+                        android:privateImeOptions="defaultInputmode=korean"
+                        android:textColorHint="@color/CommonHint"></EditText>
+
+                    <LinearLayout
+                        android:visibility="gone"
+                        android:id="@+id/tagLayout"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/CommonMediumMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/tagLayout1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:windowSoftInputMode="adjustResize|adjustPan"
+                                android:id="@+id/tagEdit1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:ems="10"
+                                android:hint="@string/WriteStoryHintTitle"
+                                android:singleLine="true"
+                                android:text="@string/CommonEmpty"
+                                style="@style/EditTextDefault"
+                                android:textColor="@color/CommonText"
+                                android:layout_toLeftOf="@+id/button1"
+                                android:layout_toStartOf="@+id/button1" />
+
+                            <Button
+                                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:text="+"
+                                style="@style/ButtonMediumConcept"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:id="@+id/button1" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/tagLayout2"
+                            android:layout_marginTop="@dimen/CommonSsmallMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/tagEdit2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:ems="10"
+                                android:hint="@string/WriteStoryHintTitle"
+                                android:singleLine="true"
+                                android:text="@string/CommonEmpty"
+                                style="@style/EditTextDefault"
+                                android:textColor="@color/CommonText"
+                                android:layout_toLeftOf="@+id/button2"
+                                android:layout_toStartOf="@+id/button2" />
+
+                            <Button
+                                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:text="-"
+                                style="@style/ButtonMediumConcept"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:id="@+id/button2" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:visibility="gone"
+                            android:id="@+id/tagLayout3"
+                            android:layout_marginTop="@dimen/CommonSsmallMargin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/tagEdit3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:ems="10"
+                                android:hint="@string/WriteStoryHintTitle"
+                                android:singleLine="true"
+                                android:text="@string/CommonEmpty"
+                                style="@style/EditTextDefault"
+                                android:textColor="@color/CommonText"
+                                android:layout_toLeftOf="@+id/button3"
+                                android:layout_toStartOf="@+id/button3" />
+
+                            <Button
+                                android:layout_marginLeft="@dimen/CommonMediumMargin"
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:text="-"
+                                style="@style/ButtonMediumConcept"
+                                android:layout_width="40dp"
+                                android:layout_height="30dp"
+                                android:id="@+id/button3" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <HorizontalScrollView
+                        android:layout_marginTop="@dimen/CommonLargeMargin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/ImageLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/CommonMediumMargin"
+                    android:layout_marginRight="@dimen/CommonMediumMargin"
+                    android:text="※ 농산물과 관련된 어떤 이야기라도 좋습니다\n※ 인상깊은 이야기는 구매포인트를 적립해드립니다."
+                    android:textColor="@color/CommonHint"
+                    android:id="@+id/noticeText"
+                    android:layout_below="@id/editLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <include layout="@layout/view_progress" />
+
+</FrameLayout>

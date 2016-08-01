@@ -1,0 +1,308 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/userLayout"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:background="#4b4949"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="18dp">
+
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:contentDescription="@string/CommonDummy"
+                android:src="@drawable/icon_empty_profile" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/farmText"
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/nameText"
+                    style="@style/TextViewMediumDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="19sp" />
+            </LinearLayout>
+
+            <!--            <ImageButton
+                                android:id="@+id/editUserBtn"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="8dp"
+                                android:background="@drawable/button_menu_right_array"
+                                android:contentDescription="@string/CommonDummy"/>-->
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#555555" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:background="#4b4949"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/stateText"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="22dp"
+                android:paddingRight="22dp"
+                android:layout_toLeftOf="@+id/ItemStatus"
+                android:textColor="#EDD200" />
+
+            <Button
+                android:id="@+id/ItemStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="23.699982dip"
+                android:textSize="12sp"
+                android:text="@string/MenuFarmerBoard"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/CommonXLargeMargin"
+                android:background="#ff8686"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/homeText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextHome" />
+
+        <TextView
+            android:id="@+id/editText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightEdit" />
+
+        <TextView
+            android:id="@+id/buyText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/order_list" />
+
+        <TextView
+            android:id="@+id/cartText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuLCart" />
+
+        <TextView
+            android:id="@+id/InquiryText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuLInquiry" />
+
+        <TextView
+            android:id="@+id/PointText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuLPoint" />
+
+
+        <View
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#555555" />
+
+        <TextView
+            android:id="@+id/ProductText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextProdcut" />
+
+        <TextView
+            android:id="@+id/OrderGeneralText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextOrderGeneral" />
+
+        <View
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_marginBottom="@dimen/CommonMediumMargin"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#555555" />
+
+        <TextView
+            android:id="@+id/favoriteText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextFavorite" />
+
+        <TextView
+            android:id="@+id/releaseText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextRelease" />
+
+        <TextView
+            android:id="@+id/expInfoText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextExpInfo" />
+
+        <TextView
+            android:id="@+id/replyText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuRightFarmerTextReply" />
+
+        <TextView
+            android:id="@+id/reviewText"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:textSize="19sp"
+            android:gravity="center_vertical"
+            android:paddingLeft="22dp"
+            android:text="@string/MenuLeftTextReview" />
+
+        <!--<TextView
+                android:id="@+id/logoutText"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonMediumRow"
+                android:textSize="19sp"
+                android:gravity="center_vertical"
+                android:paddingLeft="22dp"
+                android:text="@string/setting_user_info"/>-->
+
+        <View
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#555555" />
+
+        <TextView
+            android:id="@+id/Setting"
+            style="@style/TextViewMediumDefault"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/CommonMediumRow"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/CommonMediumMargin"
+            android:textSize="19sp"
+            android:paddingLeft="15dp"
+            android:drawableLeft="@drawable/button_menu_left_more_normal"
+            android:text="@string/MenuLeftTextSetting" />
+
+        <!--<TextView
+                android:layout_marginTop="@dimen/CommonXLargeMargin"
+                android:id="@+id/Terms"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonSmallRow"
+                android:textSize="@dimen/CommonMediumText"
+                android:gravity="center_vertical"
+                android:paddingLeft="22dp"
+                android:textColor="@color/CommonHint"
+                android:text="@string/MenuLeftTextTerms"/>
+        <TextView
+                android:id="@+id/ServiceInfo"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonSmallRow"
+                android:layout_marginTop="@dimen/CommonSmallMargin"
+                android:gravity="center_vertical"
+                android:textColor="@color/CommonHint"
+                android:textSize="@dimen/CommonMediumText"
+                android:paddingLeft="22dp"
+                android:text="@string/MenuLeftTextServiceInfo"/>
+        <TextView
+                android:id="@+id/Company"
+                style="@style/TextViewMediumDefault"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/CommonSmallRow"
+                android:gravity="center_vertical"
+                android:textColor="@color/CommonHint"
+                android:layout_marginTop="@dimen/CommonSmallMargin"
+                android:textSize="@dimen/CommonMediumText"
+                android:paddingLeft="22dp"
+                android:layout_marginBottom="@dimen/CommonMediumMargin"
+                android:text="@string/MenuLeftTextCompany"/>-->
+    </LinearLayout>
+</ScrollView>

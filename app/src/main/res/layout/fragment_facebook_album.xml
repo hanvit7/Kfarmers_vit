@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="페이스북 앨범"
+        android:textColor="#FF41bae6"
+        android:textSize="22sp" />
+
+    <View
+        android:id="@+id/titl_line"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/title"
+        android:background="#FF41bae6" />
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titl_line">
+
+        <ListView
+            android:id="@id/android:list"
+            android:listSelector="#FF41bae6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+</RelativeLayout>

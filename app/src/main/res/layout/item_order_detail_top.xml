@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:visibility="gone"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/CommonMediumPadding"
+        android:paddingRight="@dimen/CommonMediumPadding"
+        android:paddingTop="@dimen/CommonMediumPadding">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#22000000"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/OrderNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/OrderNum"
+                android:gravity="center_vertical"
+                android:singleLine="true"
+                android:text="No. "
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/BankView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_btn4"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5.0dip"
+                android:layout_marginLeft="5.0dip"
+                android:layout_marginRight="5.0dip"
+                android:layout_marginTop="5.0dip"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="무통장 입금 정보"
+                    android:textColor="#ff323b4a"
+                    android:textSize="13.329987dip" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginTop="1.0px"
+                    android:background="#ffa1aeb2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:background="#10000000"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="입금정보"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/BankInfo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginTop="1.0px"
+                    android:background="#ffa1aeb2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:background="#10000000"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="예금주명"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/BankDepositor"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginTop="1.0px"
+                    android:background="#ffa1aeb2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:background="#10000000"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="입금할 금액"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/BankPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/CommonPrice"
+                        android:textSize="14sp" />
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:text="(입금 대기중)"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginTop="1.0px"
+                    android:background="#ffa1aeb2" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="fill_parent"
+                        android:background="#10000000"
+                        android:gravity="center"
+                        android:singleLine="true"
+                        android:text="입금자명"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/BankSendName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:textColor="#ff323b4a"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_marginTop="1.0px"
+                    android:background="#ffa1aeb2" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

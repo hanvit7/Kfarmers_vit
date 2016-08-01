@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="@dimen/CommonMediumPadding"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="이름"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_selector_view_gray"
+            android:inputType="textUri"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:padding="7dp"
+            android:privateImeOptions="defaultInputmode=korean"
+            android:textColor="@color/CommonText"
+            android:textColorHint="@color/CommonHint"
+            android:hint="이름을 입력해주세요"
+            android:textSize="@dimen/CommonMediumText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/CommonMediumMargin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:text="연락처"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_selector_view_gray"
+            android:inputType="number"
+            android:maxLength="20"
+            android:singleLine="true"
+            android:padding="7dp"
+            android:phoneNumber="true"
+            android:textColor="@color/CommonText"
+            android:textColorHint="@color/CommonHint"
+            android:hint="전화번호를 입력해주세요"
+            android:textSize="@dimen/CommonMediumText" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="@dimen/CommonMediumMargin"
+        android:layout_marginBottom="@dimen/CommonMediumMargin"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#bbbbbb" />
+
+    <EditText
+        android:id="@+id/Comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_selector_view_gray"
+        android:inputType="textMultiLine"
+        android:maxLength="100"
+        android:paddingTop="@dimen/CommonLargePadding"
+        android:paddingBottom="@dimen/CommonLargePadding"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:gravity="top"
+        android:scrollbarDefaultDelayBeforeFade="99999999"
+        android:scrollbars="vertical"
+        android:overScrollMode="always"
+        android:singleLine="false"
+        android:lines="2"
+        android:privateImeOptions="defaultInputmode=korean"
+        android:textColor="@color/CommonText"
+        android:textColorHint="@color/CommonHint"
+        android:hint="메세지를 입력해주세요(20자 이상)"
+        android:textSize="@dimen/CommonMediumText">
+
+        <requestFocus />
+    </EditText>
+
+</LinearLayout>

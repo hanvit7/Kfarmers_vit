@@ -1,0 +1,67 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.Sherlock.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="Theme.Sherlock.CustomPtrHeader" parent="AppTheme">
+        <item name="ptrHeaderStyle">@style/Widget.Custom.PtrHeader</item>
+    </style>
+
+
+    <style name="Widget.Custom.PtrHeader" parent="android:Widget">
+
+        <item name="ptrHeaderBackground">@color/refresh_background</item>
+
+        <!-- This is commented out as you should not set this unless you know what you're doing -->
+        <!--<item name="ptrHeaderHeight"></item>-->
+
+        <item name="ptrHeaderTitleTextAppearance">@style/TextAppearance.Custom.PtrHeader.Title</item>
+        <item name="ptrProgressBarStyle">inside</item>
+        <item name="ptrProgressBarColor">@android:color/white</item>
+
+<!--         <item name="ptrPullText">Keep going...</item> -->
+<!--         <item name="ptrRefreshingText">Pulling down the internet</item> -->
+<!--         <item name="ptrReleaseText">Let go if you want me to refresh!</item> -->
+    </style>
+
+    <style name="TextAppearance.Custom.PtrHeader.Title"
+           parent="android:TextAppearance.Large.Inverse">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+
+  </style>
+
+  <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
+
+  </style>
+
+
+  <style name="Theme.Transparent" parent="Theme.Sherlock.Light">
+	<item name="android:windowBackground">@android:color/transparent</item>
+	<item name="android:colorBackgroundCacheHint">@null</item>
+	<item name="android:windowIsTranslucent">true</item>
+	<item name="android:windowAnimationStyle">@android:style/Animation</item>
+	<item name="android:windowNoTitle">true</item>
+	<item name="android:windowContentOverlay">@null</item>
+	<item name="android:backgroundDimEnabled">false</item>
+  </style>
+
+</resources>

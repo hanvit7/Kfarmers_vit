@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7C000000"
+    android:gravity="center"
+    android:padding="30dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/TitleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/popup_title"
+            android:padding="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="주소 등록"
+                android:textColor="@android:color/white" >
+            </TextView>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_farm_more_bottom" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="이름"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_selector_view_gray"
+                    android:hint="이름을 입력해주세요."
+                    android:inputType="textUri"
+                    android:maxLength="20"
+                    android:padding="7dp"
+                    android:privateImeOptions="defaultInputmode=korean"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonText"
+                    android:textColorHint="@color/CommonHint"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/CommonDivider" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="연락처"
+                    android:textColor="@android:color/black" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_selector_view_gray"
+                    android:hint="연락처를 입력해주세요."
+                    android:inputType="number"
+                    android:maxLength="11"
+                    android:padding="7dp"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonText"
+                    android:textColorHint="@color/CommonHint"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/CommonDivider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="주소"
+                        android:textColor="@android:color/black" />
+
+                    <Button
+                        android:id="@+id/address_search"
+                        style="@style/ButtonMediumConcept"
+                        android:layout_width="70dp"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:text="검색" />
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/addr1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/common_selector_view_gray"
+                    android:focusableInTouchMode="false"
+                    android:hint="주소를 검색해주세요."
+                    android:padding="7dp"
+                    android:textColor="@color/CommonText"
+                    android:textColorHint="@color/CommonHint"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <EditText
+                    android:id="@+id/addr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/common_selector_view_gray"
+                    android:hint="나머지 주소를 입력해주세요."
+                    android:maxLength="50"
+                    android:padding="7dp"
+                    android:privateImeOptions="defaultInputmode=korean"
+                    android:singleLine="true"
+                    android:textColor="@color/CommonText"
+                    android:textColorHint="@color/CommonHint"
+                    android:textSize="@dimen/CommonMediumText" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/CommonDivider" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:id="@+id/okBtn"
+                        style="@style/ButtonMediumConcept"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="등록" />
+
+                    <Button
+                        android:id="@+id/cancelBtn"
+                        style="@style/ButtonMediumConcept"
+                        android:layout_width="0dp"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:text="취소" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

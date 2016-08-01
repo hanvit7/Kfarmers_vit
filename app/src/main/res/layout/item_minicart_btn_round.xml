@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!--
+        <LinearLayout
+            android:id="@+id/TotalPriceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="@dimen/CommonSmallPadding">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="총 상품금액 "
+                android:textColor="#ffffff"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/PriceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/CommonLargeRow"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/CartBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_minicart_cart_round"
+            android:enabled="true"
+            android:text="장바구니"
+            android:textColor="@drawable/btn_minicart_text_cart"
+            android:textSize="@dimen/CommonMediumText"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/BuyBtn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/btn_minicart_buy_round"
+            android:text="바로구매"
+            android:textColor="@drawable/btn_minicart_text_buy"
+            android:textSize="@dimen/CommonMediumText"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

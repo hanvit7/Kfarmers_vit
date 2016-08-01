@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#eeeeee">
+
+        <ListView
+            android:id="@id/android:list"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/EmptyView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_marginBottom="100dp">
+
+        <ImageView
+            android:id="@+id/EmptyImage"
+            android:src="@drawable/icon_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/EmptyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/noData"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="@dimen/CommonXLargeMargin"
+            android:textSize="@dimen/CommonLargeText" />
+
+        <Button
+            android:id="@+id/EmptyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/CommonLargeMargin"
+            android:padding="10dp"
+            android:visibility="gone"
+            android:textStyle="bold"
+            style="@style/ButtonLargeConcept" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/topBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:layout_marginBottom="@dimen/CommonXXXLargeMargin"
+        android:layout_marginRight="@dimen/CommonMediumPadding"
+        android:background="@drawable/icon_top"
+        android:visibility="gone"
+        android:contentDescription="@string/CommonDummy"/>
+
+
+    <include layout="@layout/view_progress" />
+</FrameLayout>

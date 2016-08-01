@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeeeee"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/CommonSmallMargin">
+
+        <RelativeLayout
+            android:id="@+id/Box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/CommonSmallMargin"
+            android:layout_marginRight="@dimen/CommonSmallMargin"
+            android:background="@drawable/get_list_post"
+            android:paddingLeft="@dimen/CommonLargePadding"
+            android:paddingRight="@dimen/CommonLargePadding"
+            android:paddingTop="@dimen/CommonLargePadding">
+
+            <RelativeLayout
+                android:layout_marginBottom="@dimen/CommonSsmallMargin"
+                android:id="@+id/TopView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:id="@+id/IsCheck"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:backgroundTintMode="src_in"
+                    android:layout_height="wrap_content" />
+
+                <ImageButton
+                    android:id="@+id/DellBtn"
+                    android:layout_width="26.699982dip"
+                    android:layout_height="26.699982dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/w_btn_minicart_close" />
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_below="@id/TopView"
+                android:id="@+id/DividerTop"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginBottom="@dimen/CommonLargeMargin"
+                android:background="#eaeaea" />
+
+            <RelativeLayout
+                android:id="@+id/ItemBox"
+                android:layout_below="@id/DividerTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ProductImg"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:contentDescription="@string/CommonDummy"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/common_dummy" />
+
+                <RelativeLayout
+                    android:id="@+id/Info"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_alignBottom="@+id/ProductImg"
+                    android:layout_toRightOf="@+id/ProductImg"
+                    android:gravity="center_vertical"
+                    android:layout_alignTop="@+id/ProductImg">
+
+                    <TextView
+                        android:id="@+id/ProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/CommonMediumMargin"
+                        android:maxLines="2"
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_below="@id/ProductName"
+                        android:id="@+id/ProductInfo"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/CommonMediumMargin"
+                        android:maxLines="2"
+                        android:layout_marginTop="5dp"
+                        android:text="인포인포"
+                        android:textColor="#FFf85b2f"
+                        android:textSize="@dimen/CommonSmallText"
+                        android:visibility="gone"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+            <!--             <ImageButton
+                android:id="@+id/farmHomeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="1dp"
+                android:background="@drawable/intro2_btn"
+                android:contentDescription="@string/CommonDummy"
+                android:visibility="gone" /> -->
+
+            <View
+                android:id="@+id/Divider"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/ItemBox"
+                android:layout_marginTop="@dimen/CommonLargeMargin"
+                android:background="#eaeaea" />
+
+            <LinearLayout
+                android:id="@+id/OptionView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Divider"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/TotalView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/OptionView"
+                android:layout_marginTop="@dimen/CommonMediumMargin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:text="배송비 : "
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/DeliveryPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:text="0원"
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:text="주문금액 : "
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/TotalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:singleLine="true"
+                        android:text="0원"
+                        android:textColor="@color/CommonText"
+                        android:textSize="@dimen/CommonMediumText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/abs__action_bar_default_height"
+    android:layout_gravity="center"
+    android:background="#FF8DD427">
+
+    <ImageButton
+	    android:id="@+id/homeBtn"
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentLeft="true"
+	    android:layout_centerVertical="true"
+	    android:paddingLeft="12dp"
+	    android:src="@drawable/icon_home"
+	    android:background="#00FFFFFF"
+	    android:visibility="gone" 
+	    />
+       	
+	<Button
+	    android:id="@+id/leftBtn"
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentLeft="true"
+	    android:textColor="#FF446219"
+	    android:textStyle="bold"
+	    android:visibility="gone" 
+	    style="@style/ButtonMediumConcept"
+	    />
+	    
+	<TextView
+	    android:id="@+id/title"
+	    android:layout_width="200dp"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+	    android:textSize="20sp"
+	    android:textColor="#FFFFFFFF"
+	    android:singleLine="true"
+	    android:ellipsize="end"
+	    android:gravity="center"
+	    android:textStyle="bold" />
+	
+	<Button
+	    android:id="@+id/rightBtn"
+	    android:layout_width="wrap_content"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentRight="true"
+	    android:textColor="#FF446219"
+	    android:textStyle="bold"
+	    android:visibility="gone"
+	    style="@style/ButtonMediumConcept"
+	    />
+	
+</RelativeLayout>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/Top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:layout_marginTop="@dimen/CommonSmallMargin"
+        android:background="@drawable/get_list_diary_selector_top"
+        android:padding="@dimen/CommonLargePadding">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--
+            <Button
+                android:id="@+id/prodcutSoldOutYes"
+                style="@style/ButtonMediumGray"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:text="품절중" />
+
+            <Button
+                android:id="@+id/prodcutSoldOutNo"
+                style="@style/ButtonMediumConcept"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:text="판매중" />-->
+
+            <ImageView
+                android:id="@+id/productImg"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="2dp"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_toRightOf="@id/productImg"
+                android:id="@+id/desLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/des"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:layout_toLeftOf="@+id/publish"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:id="@+id/publish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="23.699982dip"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:background="#AA000000" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/desLayout"
+                android:layout_marginLeft="@dimen/CommonSmallMargin"
+                android:layout_toRightOf="@id/productImg"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/priceDc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/CommonSmallMargin"
+                    android:maxLines="1"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_alignBaseline="@id/priceDc"
+                    android:layout_toRightOf="@id/priceDc"
+                    android:id="@+id/price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/CommonHint"
+                    android:textSize="@dimen/CommonSmallBy1Text" />
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/productType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText" />
+            </RelativeLayout>
+
+
+            <!--
+                 <TextView
+                android:id="@+id/publish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/productImg"
+                android:maxLines="1"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText" />
+            -->
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin">
+
+        <LinearLayout
+            android:id="@+id/productDel"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/get_list_diary_selector_bottom_left"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:textSize="@dimen/CommonMediumText"
+                android:text="삭제" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/prodcutModify"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/get_list_diary_selector_bottom_center"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:textSize="@dimen/CommonMediumText"
+                android:text="수정" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/prodcutUrl"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:background="@drawable/get_list_diary_selector_bottom_right"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@null"
+                android:textSize="@dimen/CommonMediumText"
+                android:text="주소복사" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

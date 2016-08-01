@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:background="#FFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <LinearLayout
+            android:id="@+id/BottomLayout"
+            android:layout_alignParentBottom="true"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <View
+                android:id="@+id/BottomLine"
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:background="#ffa1aeb2"/>
+
+
+        <LinearLayout
+                android:padding="@dimen/CommonMediumPadding"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#11969696"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/SiteBtn"
+                    android:gravity="center"
+                    android:layout_width="fill_parent"
+                    android:textSize="@dimen/CommonSmallByMediumText"
+                    android:textColor="@color/CommonHint"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="공정위 사업자 정보"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ScrollView
+            android:layout_above="@id/BottomLayout"
+            android:background="#FFFFFF"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        <!--        <LinearLayout
+                        android:layout_marginTop="@dimen/CommonXLargeMargin"
+                        android:layout_marginRight="@dimen/CommonXXXLargeMargin"
+                        android:layout_marginLeft="@dimen/CommonXXXLargeMargin"
+                        android:layout_marginBottom="@dimen/CommonXXXLargeMargin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical">-->
+        <LinearLayout
+                android:layout_margin="@dimen/CommonXLargeMargin"
+                android:layout_gravity="center"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+            <LinearLayout
+                    android:layout_marginTop="@dimen/CommonLargeMargin"
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="고객센터   "
+                        android:textSize="@dimen/CommonMediumText"/>
+
+                <TextView
+                        android:id="@+id/PhoneText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/CommonHint"
+                        android:text="@string/setting_service_center_phone"
+                        android:textSize="@dimen/CommonSmallByMediumText"/>
+
+                <ImageView
+                        android:id="@+id/PhoneIcon"
+                        android:layout_marginLeft="@dimen/CommonSmallMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_phone"/>
+
+
+            </LinearLayout>
+
+            <View
+                    android:layout_marginTop="@dimen/CommonMediumMargin"
+                    android:id="@+id/BottomLine"
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:background="#ffa1aeb2"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/CommonHint"
+                    android:text="상호"
+                    android:textSize="@dimen/CommonSmallByMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주식회사 케이파머스"
+                    android:textSize="@dimen/CommonMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonXLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/CommonHint"
+                    android:text="대표자"
+                    android:textSize="@dimen/CommonSmallByMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="윤성진"
+                    android:textSize="@dimen/CommonMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonXLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/CommonHint"
+                    android:text="사업자등록번호"
+                    android:textSize="@dimen/CommonSmallByMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="134-87-21139"
+                    android:textSize="@dimen/CommonMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonXLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="통신판매업신고번호"
+                    android:textColor="@color/CommonHint"
+                    android:textSize="@dimen/CommonSmallByMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="제2014-경기안산-0149호"
+                    android:textSize="@dimen/CommonMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonXLargeMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="주소"
+                    android:textColor="@color/CommonHint"
+                    android:textSize="@dimen/CommonSmallByMediumText"/>
+
+            <TextView
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경기도 안산시 단원구 예술대학로 89\n(고잔동,스포츠센터 220-1호)"
+                    android:textSize="@dimen/CommonMediumText"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
+

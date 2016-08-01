@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@drawable/shadow_center"
+        android:id="@+id/mainContentView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/CommonXXXLargeMargin"
+            android:paddingLeft="@dimen/CommonXLargeMargin"
+            android:paddingRight="@dimen/CommonXLargeMargin"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginLeft="3dp"
+                android:textColor="#000000"
+                android:id="@+id/textTitle"
+                android:textSize="@dimen/CommonMediumByLargeText"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#000000"
+                android:id="@+id/textName"
+                android:textSize="@dimen/CommonXXLargeText"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="@dimen/CommonSmallMargin"
+                android:id="@+id/textDes"
+                android:textColor="@color/CommonText"
+                android:textSize="@dimen/CommonMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/subContentView"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:layout_marginTop="@dimen/CommonLargeRow"
+        android:layout_marginBottom="@dimen/CommonLargeRow"
+        android:background="@drawable/bg_monun"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/viewMaterial"
+                    android:layout_margin="@dimen/CommonMediumMargin"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:textColor="#000000"
+                        android:id="@+id/textMaterialTitle"
+                        android:textSize="@dimen/CommonXXLargeText"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toLeftOf="@+id/imageView2"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_below="@+id/textMaterialTitle"
+                        android:textColor="#000000"
+                        android:id="@+id/textMaterialPeple"
+                        android:textSize="@dimen/CommonLargeText"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="3dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/icon_material"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView2" />
+
+                    <WebView
+                        android:layout_below="@+id/textMaterialPeple"
+                        android:id="@+id/WebSubDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </RelativeLayout>
+
+
+                <com.leadplatform.kfarmers.view.base.DynamicImageView xmlns:custom="http://schemas.android.com/apk/res/com.leadplatform.kfarmers"
+                    android:padding="6dp"
+                    android:id="@+id/ImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:visibility="visible"
+                    custom:viewRatio="0.7" />
+
+
+                <LinearLayout
+                    android:layout_below="@id/ImageView"
+                    android:paddingLeft="@dimen/CommonMediumPadding"
+                    android:paddingRight="@dimen/CommonMediumPadding"
+                    android:orientation="horizontal"
+                    android:id="@+id/desLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginRight="@dimen/CommonSsmallMargin"
+                        android:textSize="@dimen/CommonXXXXLargeText"
+                        android:id="@+id/textSubNo"
+                        android:textColor="@color/black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:textSize="@dimen/CommonMediumByLargeText"
+                        android:layout_marginTop="@dimen/CommonSmallMargin"
+                        android:id="@+id/textSubDes"
+                        android:textColor="@color/black"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

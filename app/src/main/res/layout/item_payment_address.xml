@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/CommonSmallPadding"
+        android:gravity="center_vertical">
+
+        <RadioButton
+            android:id="@+id/RadioBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:clickable="false"
+            android:focusable="false"
+            android:layout_marginRight="@dimen/CommonMediumMargin" />
+
+        <ImageButton
+            android:id="@+id/DellBtn"
+            android:layout_width="26.699982dip"
+            android:layout_height="26.699982dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:background="@drawable/w_btn_minicart_close" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/DellBtn"
+            android:layout_toRightOf="@id/RadioBtn"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="가나다"
+                android:textColor="#FF4b99b7" />
+
+
+            <TextView
+                android:id="@+id/Address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:text="가나다간아낟ㅇ낭람ㄴㅇ란망ㄹ만ㅇ람ㄴㅇ람낭람ㄴㅇㄹ" />
+
+            <TextView
+                android:id="@+id/Phone"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="010-4947-7579"
+                android:textColor="#aeadad" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/CommonSmallPadding"
+        android:background="@color/CommonDivider" />
+</LinearLayout>

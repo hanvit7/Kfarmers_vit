@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/msg"
+    android:paddingTop="@dimen/CommonSmallPadding"
+    android:paddingBottom="@dimen/CommonSmallPadding"
+    android:paddingLeft="@dimen/CommonLargePadding"
+    android:paddingRight="@dimen/CommonSmallPadding"
+    android:layout_marginTop="@dimen/CommonSsmallMargin"
+    android:text="xcbxcbxzcvnbxcvncxvnxcvnxcvnxcvnxcvndfghdfhdfhdfhdfh"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/msg_left" />

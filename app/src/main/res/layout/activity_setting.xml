@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f4f4">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="30dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="14dp"
+                android:paddingTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/setting_notice_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/setting_btn1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="19dp"
+                        android:text="@string/setting_notice"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/button_menu_right_array_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setting_sns_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/setting_btn1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="19dp"
+                        android:text="@string/setting_sns_title"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/button_menu_right_array_small" />
+                </LinearLayout>
+
+                <!--<LinearLayout
+                        android:id="@+id/setting_address_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/setting_btn1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                    <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingLeft="19dp"
+                            android:text="@string/address_title"
+                            android:textColor="#000000"
+                            android:textSize="16sp"/>
+                    <ImageButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:background="@drawable/button_menu_right_array_small"/>
+                </LinearLayout>-->
+
+                <LinearLayout
+                    android:id="@+id/setting_invite_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/setting_btn1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="19dp"
+                        android:text="@string/setting_invite"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/button_menu_right_array_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/setting_btn1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="19dp"
+                        android:text="@string/setting_comment_alarm"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/setting_comment_alarm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="13dp"
+                        android:button="@drawable/selector_setting_menu_checkbox"
+                        android:checked="true" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/setting_service_center_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/setting_btn1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="19dp"
+                        android:text="@string/setting_service_center"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:text="@string/setting_service_center_phone"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="4dp"
+                        android:background="@drawable/button_menu_right_array_small" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/setting_btn1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/setting_version"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="19dp"
+                        android:paddingRight="4dp"
+                        android:text="@string/setting_version"
+                        android:textColor="#000000"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/current_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="12dp"
+                        android:gravity="center_vertical"
+                        android:textColor="#66C930"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_marginTop="12dp"
+                    android:id="@+id/logout"
+                    android:visibility="gone"
+                    style="@style/ButtonLargeConcept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_user_info" />
+
+                <Button
+                    android:layout_marginTop="30dp"
+                    android:id="@+id/leave"
+                    android:visibility="gone"
+                    style="@style/ButtonLargeConcept"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting_user_leave" />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/view_progress" />
+    </FrameLayout>
+</FrameLayout>

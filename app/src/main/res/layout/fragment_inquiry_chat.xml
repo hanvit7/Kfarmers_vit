@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:background="#eeeeee"
+    android:layout_height="match_parent">
+
+    <uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_marginBottom="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:transcriptMode="alwaysScroll"
+            android:id="@id/android:list"
+            android:background="#9abbd3"
+            android:listSelector="@android:color/transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:id="@+id/writeCommentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="45dp"
+        android:paddingRight="10dp"
+        android:background="#e5e5e5"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:id="@+id/moreView"
+            android:background="@color/gray1"
+            android:layout_width="45dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_gravity="bottom"
+                android:id="@+id/moreBtn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:src="@drawable/plus"
+                android:padding="@dimen/CommonMediumPadding" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/CommentEdit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:maxLength="300"
+            android:maxLines="10"
+            android:padding="@dimen/CommonSmallPadding"
+            android:textColor="@color/CommonText"
+            android:textSize="@dimen/CommonMediumText"
+            android:hint="문의 내용을 입력해주세요."
+            android:background="#00FFFFFF" />
+
+        <ImageView
+            android:id="@+id/SendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="7dp"
+            android:src="@drawable/button_reply_regist" />
+
+    </LinearLayout>
+
+</RelativeLayout>

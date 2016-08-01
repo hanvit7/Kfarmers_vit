@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF" >
+
+    <RelativeLayout
+        android:id="@+id/CategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp" >
+
+        <TextView
+            android:id="@+id/CategoryText"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="7dp"
+            android:gravity="center_vertical"
+            android:text="@string/RegistPostSelectText"
+            android:textColor="@color/CommonText"
+            android:textSize="@dimen/CommonMediumText" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/button_menu" />
+    </RelativeLayout>
+
+	<View
+	    android:id="@+id/categoryLine"
+		android:layout_width="match_parent"
+		android:layout_height="0.5dp"
+		android:layout_below="@+id/CategoryLayout"
+		android:background="@color/CommonDivider" />
+	    
+    <RadioGroup
+        android:id="@+id/type_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/categoryLine"
+        android:layout_marginTop="23dp"
+        android:orientation="horizontal"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp" >
+
+        <RadioButton
+            android:id="@+id/post_naver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_post_type_btn"
+            android:paddingLeft="12dp"
+            android:text="@string/RegistPostNaver"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/post_daum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:button="@drawable/selector_post_type_btn"
+            android:paddingLeft="12dp"
+            android:text="@string/RegistPostDaum"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/post_tstory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:button="@drawable/selector_post_type_btn"
+            android:paddingLeft="12dp"
+            android:text="@string/RegistPostTstory"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+    <EditText style="@style/EditTextDefault"
+        android:id="@+id/write_post_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/type_radio_group"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="33dp"
+        android:background="#EBEBEB"
+        android:hint="@string/RegistPostInputUrl"
+        android:textColor="#000000"
+        android:textColorHint="#969696" />
+
+    <Button
+        android:id="@+id/post_upload"
+        style="@style/ButtonLargeConcept"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:text="@string/RegistPostUpload"
+        android:visibility="gone" />
+
+</RelativeLayout>

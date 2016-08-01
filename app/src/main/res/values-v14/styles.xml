@@ -1,0 +1,58 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!--     <style name="AppTheme" parent="android:Theme.Holo.Light"> -->
+<!-- 		<item name="android:actionBarStyle">@style/ActionBarStyle</item> -->
+<!-- 		<item name="android:actionMenuTextAppearance">@style/ActionMenuTextStyle</item> -->
+<!-- 		<item name="android:imageButtonStyle">@style/ImageButtonStyle</item> -->
+<!-- 	</style> -->
+	
+<!-- 	<style name="ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar"> -->
+<!-- 		<item name="android:background">@color/CommonConcept</item> -->
+<!-- 		<item name="android:icon">@android:color/transparent</item> -->
+<!-- 		<item name="android:displayOptions">homeAsUp|showHome</item> -->
+<!-- 		<item name="android:titleTextStyle">@style/ActionBarTitleTextStyle</item> -->
+<!-- 	</style> -->
+	
+<!-- 	<style name="ActionBarTitleTextStyle" parent="@android:style/TextAppearance"> -->
+<!-- 		<item name="android:textColor">#FFFFFF</item> -->
+<!-- 		<item name="android:textSize">@dimen/CommonLargeText</item> -->
+<!-- 		<item name="android:textStyle">bold</item> -->
+<!-- 	</style> -->
+	
+<!-- 	<style name="ActionMenuTextStyle" parent="android:style/TextAppearance.Holo.Widget.ActionBar.Menu"> -->
+<!-- 		<item name="android:textColor">@color/CommonText</item> -->
+<!-- 		<item name="android:textSize">@dimen/CommonMediumText</item> -->
+<!-- 	</style> -->
+	
+<!-- 	<style name="ImageButtonStyle"> -->
+<!-- 		<item name="android:background">?android:attr/selectableItemBackground</item> -->
+<!-- 	</style> -->
+
+	
+	<style name="AppTheme" parent="Theme.Sherlock.Light">
+	    <item name="actionBarStyle">@style/CustomActionBarStyle</item>
+	    <item name="android:actionBarStyle">@style/CustomActionBarStyle</item>
+    	<item name="actionDropDownStyle">@style/CustomActionBarSpinnerStyle</item>
+	    <item name="android:actionDropDownStyle">@style/CustomActionBarSpinnerStyle</item>
+	    <item name="android:actionButtonStyle">@style/CustomActionButtonStyle</item>
+	</style>
+<!-- 	    <item name="homeAsUpIndicator">@null</item> -->
+<!--         <item name="android:homeAsUpIndicator">@null</item> -->
+	
+	<style name="CustomActionBarStyle" parent="Widget.Sherlock.Light.ActionBar">
+	    <item name="android:background">@color/CommonConcept</item>
+	    <item name="background">@color/CommonConcept</item>
+	</style>
+<!-- 	    <item name="homeAsUpIndicator">@null</item> -->
+<!--         <item name="android:homeAsUpIndicator">@null</item> -->
+
+	<style name="CustomActionButtonStyle" parent="Widget.Sherlock.Light.ActionButton">
+	    <item name="android:minWidth">32dip</item>
+	    <item name="android:paddingLeft">12dip</item>
+	</style>	
+	
+	<style name="CustomActionBarSpinnerStyle" parent="@style/Widget.Sherlock.Light.Spinner.DropDown.ActionBar">
+    	<item name="android:background">@drawable/button_menu_triangle</item>
+	</style>
+	
+</resources>

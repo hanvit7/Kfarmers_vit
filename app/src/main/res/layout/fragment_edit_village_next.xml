@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="#FFFFFF" >
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="#FFFFFF" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:padding="@dimen/CommonLargePadding"
+			android:orientation="vertical" >
+			<TextView style="@style/TextViewMediumDefault"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/JoinTabTitleVillage"
+				android:textStyle="bold"
+				android:textColor="#ff8dd427" />
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/Farm"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/JoinHintVillage"
+				android:inputType="text"
+				android:singleLine="true"
+				android:maxLength="20"
+				android:textColorHint="#FF969696"
+				android:textColor="#CCCCCC"
+				android:focusable="false"
+				android:clickable="false" >
+				<requestFocus />
+			</EditText>
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/Address"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:hint="@string/JoinHintVillageAddress"
+				android:inputType="text"
+				android:singleLine="true"
+				android:textColorHint="#FF969696" />
+<!-- 			<TextView style="@style/TextViewMediumDefault" -->
+<!-- 				android:layout_width="wrap_content" -->
+<!-- 				android:layout_height="wrap_content" -->
+<!-- 				android:layout_marginTop="@dimen/CommonSmallMargin" -->
+<!-- 				android:text="@string/JoinTextAddressExample" /> -->
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="@dimen/CommonMediumMargin"
+				android:orientation="horizontal" >
+				<ImageView
+					android:id="@+id/Image1"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image2"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image3"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image4"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+				<ImageView
+					android:id="@+id/Image5"
+					android:layout_width="60dp"
+					android:layout_height="60dp"
+					android:layout_marginLeft="@dimen/CommonSmallMargin"
+					android:adjustViewBounds="true"
+					android:scaleType="center"
+					android:src="@drawable/ic_custom_new_picture"
+					android:contentDescription="@string/CommonEmpty"
+					android:background="@drawable/common_selector_view_gray" />
+			</LinearLayout>
+			<TextView style="@style/TextViewMediumDefault"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/JoinTextImageExample"
+				android:textColor="#ffafafaf" />
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/Category"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="26dp"
+				android:hint="@string/JoinHintFarmCategory"
+				android:inputType="text"
+				android:singleLine="true"
+				android:textColorHint="#FF969696"
+				android:textColor="#CCCCCC"
+				android:focusable="false"
+				android:clickable="false" />
+			<!--<EditText
+			    android:id="@+id/newCategory" 
+			    style="@style/EditTextDefault" 
+			    android:layout_width="match_parent" 
+			    android:layout_height="@dimen/CommonLargeRow" 
+			    android:layout_marginTop="@dimen/CommonMediumMargin" 
+			    android:hint="@string/JoinHintVillageCategory" 
+			    android:inputType="text" 
+			    android:singleLine="true"
+			    android:textColorHint="#FF969696"/>
+			<TextView style="@style/TextViewMediumDefault"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="5dp"
+				android:text="@string/JoinTextFarmCategoryExample"
+				android:textColor="#ffafafaf" />-->
+            <TextView style="@style/TextViewMediumDefault"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/JoinTextFarmCategoryEdit"
+                android:textColor="#ffafafaf" />
+
+            <LinearLayout
+                    android:id="@+id/PhoneLayout"
+                    android:layout_marginTop="@dimen/CommonSmallMargin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView style="@style/TextViewMediumDefault"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="@string/setting_service_center_phone"
+                          android:textColor="#ffafafaf"/>
+
+                <ImageView
+                        android:layout_marginLeft="@dimen/CommonSmallMargin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/icon_phone"/>
+            </LinearLayout>
+
+
+			<EditText style="@style/EditTextDefault"
+				android:id="@+id/Introduction"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="26dp"
+				android:minLines="5"
+				android:hint="@string/JoinHintVillageIntroduction"
+				android:gravity="top"
+				android:inputType="textMultiLine"
+				android:textColorHint="#FF969696" />
+			<View
+				android:layout_width="wrap_content"
+				android:layout_height="1dp"
+				android:layout_marginTop="@dimen/CommonLargeMargin"
+				android:layout_marginBottom="@dimen/CommonLargeMargin"
+				android:background="@color/CommonDivider" />
+			<Button style="@style/ButtonLargeConcept"
+				android:id="@+id/Completion"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/CommonLargeRow"
+				android:layout_marginTop="@dimen/CommonXXXLargeMargin"
+				android:text="@string/JoinButtonEdit" />
+		</LinearLayout>
+	</ScrollView>
+</LinearLayout>

@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\kakao_internal_login_activity.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\layout\\kakao_internal_login_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\kakao_internal_login_activity.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\layout\\kakao_internal_login_activity.xml"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\kakao_login_layout.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\layout\\kakao_login_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\kakao_login_layout.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\layout\\kakao_login_layout.xml"
+    }
+]

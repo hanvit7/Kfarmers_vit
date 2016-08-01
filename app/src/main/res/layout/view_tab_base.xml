@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/CommonLargeRow"
+    android:background="#4f4a48">
+    
+    <TextView
+        android:id="@+id/tab_name"
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:gravity="center"
+		android:layout_centerInParent="true"
+		android:textColor="@drawable/tab_main_title"
+		android:textSize="@dimen/CommonMediumText_1"
+		android:textStyle="bold"
+		android:drawableBottom="@drawable/get_list_diary_menu" />
+
+</RelativeLayout>
