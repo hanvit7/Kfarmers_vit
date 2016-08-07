@@ -108,7 +108,7 @@ public class ReviewListFragment extends BaseRefreshMoreListFragment {
 
         final View v = inflater.inflate(R.layout.fragment_base_pull_list, container, false);
 
-        mTopDiaryBtn = (ImageButton) v.findViewById(R.id.topBtn);
+        mTopDiaryBtn = (ImageButton) v.findViewById(R.id.back_to_top_button);
         mTopDiaryBtn.setVisibility(View.GONE);
 
         mTopDiaryBtn.setOnClickListener(new ViewOnClickListener() {
@@ -472,7 +472,10 @@ public class ReviewListFragment extends BaseRefreshMoreListFragment {
                     @Override
                     public void viewOnClick(View v) {
                         String idx = (String) v.getTag();
-                        ((ReviewActivity)getActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_REVIEW, "구매후기 댓글", idx);
+                        ((ReviewActivity)getActivity()).runReplyActivity(
+                                ReplyActivity.REPLY_TYPE_REVIEW,
+                                "구매후기 댓글",
+                                idx);
                     }
                 });
             }

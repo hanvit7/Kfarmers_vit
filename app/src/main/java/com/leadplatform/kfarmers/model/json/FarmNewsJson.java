@@ -1,13 +1,12 @@
 package com.leadplatform.kfarmers.model.json;
 
-public class DiaryListJson
-{
+public class FarmNewsJson {
     public String Type;
-    public String ID;
     public String FarmerIndex;
+    public String ID;
     public String FarmerName;
     public String Diary;
-    public String Auths;
+    public String Auths;//
     public String CategoryIndex;
     public String CategoryName;
     public String Farm;
@@ -18,18 +17,18 @@ public class DiaryListJson
     public String ProductImage3;
     public String ProductImage4;
     public String ProductImage5;
-    public String AddressKeyword1;
-    public String AddressKeyword2;
+    public String ImageCount;
+    public String AddressKeyword1;//
+    public String AddressKeyword2;//
     public String Latitude;
     public String Longitude;
     public String Like;
+    public String Blind;//
     public String Reply;
     public String RegistrationDate;
     public String RegistrationDate2;
     public String ProductFlag;
     public String ProductFlag2;
-    public String Blind;
-    public String ImageCount;
     public String Verification;
 
     public String BoardType;
@@ -37,8 +36,6 @@ public class DiaryListJson
     public String Image;
     public String BlogTag;
     public String MemberIndex;
-
-
 }
 
 // {Farmer : 664,

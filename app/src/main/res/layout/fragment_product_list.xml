@@ -16,12 +16,6 @@
             android:layout_height="match_parent" />
     </uk.co.senab.actionbarpulltorefresh.extras.actionbarsherlock.PullToRefreshLayout>
 
-    <!--<include
-        android:id="@+id/TabMenuLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        layout="@layout/item_diary_tab" />-->
-
     <RelativeLayout
         android:id="@+id/categoryLayout"
         android:layout_alignParentBottom="true"
@@ -44,7 +38,7 @@
 
 
     <ImageButton
-        android:id="@+id/topBtn"
+        android:id="@+id/back_to_top_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

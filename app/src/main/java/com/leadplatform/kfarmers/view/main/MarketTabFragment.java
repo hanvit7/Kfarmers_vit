@@ -36,7 +36,7 @@ import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
+import com.leadplatform.kfarmers.view.common.DialogFragment;
 import com.leadplatform.kfarmers.view.common.ShopActivity;
 import com.leadplatform.kfarmers.view.evaluation.ReviewActivity;
 import com.leadplatform.kfarmers.view.market.ProductActivity;
@@ -55,16 +55,16 @@ import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class MarketTabFragment extends BaseRefreshMoreListFragment {
-	public static final String TAG = "MarketTabFragment";
+    public static final String TAG = "MarketTabFragment";
 
     private String mNowType = ProductActivity.TYPE;
 
-	private final int limit = 40;
-	private String oldIndex = "";
-	
-	private boolean bMoreFlag = false;
-	private ArrayList<ProductJson> mainItemList;
-	private MainAllListAdapter mainListAdapter;
+    private final int limit = 40;
+    private String oldIndex = "";
+
+    private boolean bMoreFlag = false;
+    private ArrayList<ProductJson> mainItemList;
+    private MainAllListAdapter mainListAdapter;
 
     private RelativeLayout categoryLayout;
     private TextView categoryText;
@@ -97,20 +97,20 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
 
     private ImageButton mTopDiaryBtn;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         KfarmersAnalytics.onScreen(KfarmersAnalytics.S_PRODUCT_LIST);
-	}
+    }
 
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		final View v = inflater.inflate(R.layout.fragment_product_list, container, false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        final View v = inflater.inflate(R.layout.fragment_product_list, container, false);
 
-        if(categoryList == null) {
+        if (categoryList == null) {
             categoryList = new ArrayList<>();
-            Collections.addAll(categoryList, getResources().getStringArray(R.array.GetListDiarySubMenu2_1));
+            Collections.addAll(categoryList, getResources().getStringArray(R.array.diary_tab_footer_category_array));
         }
 
         imageLoader = ((BaseFragmentActivity) getSherlockActivity()).imageLoader;
@@ -122,7 +122,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
 
         PagingLayout = (LinearLayout) mHeaderView.findViewById(R.id.PagingLayout);
 
-        mTopDiaryBtn = (ImageButton) v.findViewById(R.id.topBtn);
+        mTopDiaryBtn = (ImageButton) v.findViewById(R.id.back_to_top_button);
         mTopDiaryBtn.setVisibility(View.GONE);
 
         mTopDiaryBtn.setOnClickListener(new ViewOnClickListener() {
@@ -184,9 +184,9 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
         categoryLayout.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                /*onCategoryBtnClicked(categoryIndex, new CategoryDialogFragment.OnCloseCategoryDialogListener() {
+                /*onCategoryBtnClicked(categoryIndex, new DialogFragment.OnCloseCategoryDialogListener() {
                     @Override
-                    public void onDialogListSelection(int subMenuType, int position) {
+                    public void onDialogSelected(int subMenuType, int position) {
                         if (categoryIndex != position) {
                             categoryIndex = position;
                             categoryText.setText(categoryList.get(position));
@@ -201,7 +201,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                 getActivity().overridePendingTransition(R.anim.slide_in_from_bottom, R.anim.slide_in_from_now);
             }
         });
-		setRefreshListView(getSherlockActivity(), v, R.id.refresh_layout, refreshListener);
+        setRefreshListView(getSherlockActivity(), v, R.id.refresh_layout, refreshListener);
         //selectBtn();
 
         mHeaderViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -227,11 +227,11 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
             }
         });
         return v;
-	}
+    }
 
     @Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         oldIndex = "";
         bMoreFlag = false;
@@ -246,14 +246,10 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
         getListView().setDivider(null);
         getListView().setDividerHeight(0);
 
-        if(getListView().getAdapter() == null)
-        {
+        if (getListView().getAdapter() == null) {
             getListView().addHeaderView(mHeaderView);
-        }
-        else
-        {
-            if(getListView().getHeaderViewsCount()==0)
-            {
+        } else {
+            if (getListView().getHeaderViewsCount() == 0) {
                 getListView().setAdapter(null);
                 getListView().addHeaderView(mHeaderView);
             }
@@ -280,7 +276,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-                if(firstVisibleItem>1) {
+                if (firstVisibleItem > 1) {
                     mTopDiaryBtn.setVisibility(View.VISIBLE);
                 } else {
                     mTopDiaryBtn.setVisibility(View.GONE);
@@ -307,7 +303,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                 getListView().addHeaderView(mTempLayout);
             }
         }*/
-	}
+    }
 
     /*private void selectBtn()
     {
@@ -349,7 +345,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
     private void displayViewPagerIndicator(int position) {
         PagingLayout.removeAllViews();
 
-        if(mExhibitionAdapter.getCount()>1) {
+        if (mExhibitionAdapter.getCount() > 1) {
             for (int i = 0; i < mExhibitionAdapter.getCount(); i++) {
                 LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -407,6 +403,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                     getListProduct(true, categoryIndex);
                 }
             }
+
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
                 getListView().removeHeaderView(mHeaderView);
@@ -416,17 +413,17 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
         });
     }
 
-	private void getListProduct(Boolean isClear,int categoryNo) {
+    private void getListProduct(Boolean isClear, int categoryNo) {
 
-		if (isClear) {
-			oldIndex = "";
-			bMoreFlag = false;
+        if (isClear) {
+            oldIndex = "";
+            bMoreFlag = false;
             mainItemList = new ArrayList<>();
-			mainListAdapter.notifyDataSetChanged();
-		}
+            mainListAdapter.notifyDataSetChanged();
+        }
 
         //UiController.showProgressDialogFragment(getView());
-        SnipeApiController.getProductList(String.valueOf(limit),oldIndex,String.valueOf(categoryNo),"","",false,null,mNowType,new SnipeResponseListener(getActivity()) {
+        SnipeApiController.getProductList(String.valueOf(limit), oldIndex, String.valueOf(categoryNo), "", "", false, null, mNowType, new SnipeResponseListener(getActivity()) {
             @Override
             public void onSuccess(int Code, String content, String error) {
                 onRefreshComplete();
@@ -437,8 +434,7 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                             JsonNode root = JsonUtil.parseTree(content);
                             List<ProductJson> arrayList = new ArrayList<ProductJson>();
 
-                            if(root.path("item").size() > 0)
-                            {
+                            if (root.path("item").size() > 0) {
                                 arrayList = (List<ProductJson>) JsonUtil.jsonToArrayObject(root.path("item"), ProductJson.class);
                                 mainItemList.addAll(arrayList);
 
@@ -447,8 +443,8 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
 
                             bMoreFlag = arrayList.size() == limit;
 
-                            if(mExhibitionAdapter == null && mPlanArrayList != null && mPlanArrayList.size() > 0) {
-                                mExhibitionAdapter = new ExhibitionAdapter(getActivity(),mPlanArrayList);
+                            if (mExhibitionAdapter == null && mPlanArrayList != null && mPlanArrayList.size() > 0) {
+                                mExhibitionAdapter = new ExhibitionAdapter(getActivity(), mPlanArrayList);
                                 mHeaderViewPager.setAdapter(mExhibitionAdapter);
                                 displayViewPagerIndicator(0);
                                 mHeaderView.setVisibility(View.VISIBLE);
@@ -460,10 +456,10 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                         default:
                             UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
                     }
-                   // UiController.hideProgressDialogFragment(getView());
+                    // UiController.hideProgressDialogFragment(getView());
                 } catch (Exception e) {
                     UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
-                   // UiController.hideProgressDialogFragment(getView());
+                    // UiController.hideProgressDialogFragment(getView());
                 }
             }
 
@@ -471,17 +467,16 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
             public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
                 onRefreshComplete();
                 onLoadMoreComplete();
-               // UiController.hideProgressDialogFragment(getView());
+                // UiController.hideProgressDialogFragment(getView());
                 super.onFailure(statusCode, headers, content, error);
             }
         });
-	}
+    }
 
     private class MainAllListAdapter extends BaseAdapter {
-		private DisplayImageOptions optionsProfile;
+        private DisplayImageOptions optionsProfile;
 
-        public MainAllListAdapter()
-        {
+        public MainAllListAdapter() {
             this.optionsProfile = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
                     .bitmapConfig(Config.RGB_565)
                     .displayer(new RoundedBitmapDisplayer(CommonUtil.AndroidUtil.pixelFromDp(getSherlockActivity(), 50) / 2))
@@ -504,15 +499,15 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
         }
 
         @Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+        public View getView(int position, View convertView, ViewGroup parent) {
 
-			if (convertView == null) {
-				LayoutInflater inflater = (LayoutInflater) getSherlockActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-				convertView = inflater.inflate(R.layout.item_product_list, null);
-			}
+            if (convertView == null) {
+                LayoutInflater inflater = (LayoutInflater) getSherlockActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.item_product_list, null);
+            }
 
-            LinearLayout root = ViewHolder.get(convertView,R.id.root);
-			ImageView img = ViewHolder.get(convertView, R.id.image);
+            LinearLayout root = ViewHolder.get(convertView, R.id.root);
+            ImageView img = ViewHolder.get(convertView, R.id.image);
             ImageView img_profile = ViewHolder.get(convertView, R.id.image_profile);
             TextView des = ViewHolder.get(convertView, R.id.des);
             TextView price = ViewHolder.get(convertView, R.id.price);
@@ -521,46 +516,38 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
             TextView dDay = ViewHolder.get(convertView, R.id.textDday);
 
             final ProductJson item = (ProductJson) getItem(position);
-            if (item != null)
-            {
-                if(item.profile_image != null && !item.profile_image.isEmpty()) {
+            if (item != null) {
+                if (item.profile_image != null && !item.profile_image.isEmpty()) {
                     imageLoader.displayImage(Constants.KFARMERS_SNIPE_PRIFILE_IMG + item.profile_image, img_profile, optionsProfile);
-                }
-                else {
+                } else {
                     img_profile.setImageResource(0);
                 }
                 imageLoader.displayImage(Constants.KFARMERS_SNIPE_IMG + item.image1, img, optionsProduct);
 
-                if(item.summary != null && !item.summary.isEmpty())
-                {
+                if (item.summary != null && !item.summary.isEmpty()) {
                     summary.setVisibility(View.VISIBLE);
                     summary.setText(item.summary);
-                }
-                else
-                {
+                } else {
                     summary.setVisibility(View.GONE);
                 }
 
                 //des.setText(item.name);
                 des.setText(item.name.replace(" ", "\u00A0")); // 문자단위 줄바꿈
 
-                int itemPrice = (int)Double.parseDouble(item.price);
+                int itemPrice = (int) Double.parseDouble(item.price);
                 int itemBuyPrice = (int) Double.parseDouble(item.buyprice);
 
-                if(itemPrice > itemBuyPrice)
-                {
-                    price.setText(CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit(itemPrice)+getResources().getString(R.string.korea_won));
+                if (itemPrice > itemBuyPrice) {
+                    price.setText(CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit(itemPrice) + getResources().getString(R.string.korea_won));
                     dcPrice.setText(CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit((int) Double.parseDouble(item.buyprice)) + getResources().getString(R.string.korea_won));
                     price.setVisibility(View.VISIBLE);
 
                     price.setPaintFlags(price.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                }
-                else
-                {
+                } else {
                     price.setText("");
                     dcPrice.setText(CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit((int) Double.parseDouble(item.buyprice)) + getResources().getString(R.string.korea_won));
                     price.setVisibility(View.GONE);
-                    price.setPaintFlags( price.getPaintFlags() & (~ Paint.STRIKE_THRU_TEXT_FLAG));
+                    price.setPaintFlags(price.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));
 
                 }
 
@@ -574,44 +561,48 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
                     }
                 });
 
-                if(item.duration != null && item.duration.startsWith("D") && !item.duration.equals("D-day")) {
+                if (item.duration != null && item.duration.startsWith("D") && !item.duration.equals("D-day")) {
                     dDay.setText(item.duration);
                     dDay.setVisibility(View.VISIBLE);
                 } else {
                     dDay.setVisibility(View.GONE);
                 }
             }
-			return convertView;
-		}
-	}
+            return convertView;
+        }
+    }
 
-	private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
-		@Override
-		public void onLoadMore() {
-			if (bMoreFlag) {
-				bMoreFlag = false;
-				getListProduct(false,categoryIndex);
-			} else {
-				onLoadMoreComplete();
-			}
-		}
-	};
+    private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
+        @Override
+        public void onLoadMore() {
+            if (bMoreFlag) {
+                bMoreFlag = false;
+                getListProduct(false, categoryIndex);
+            } else {
+                onLoadMoreComplete();
+            }
+        }
+    };
 
-	private OnRefreshListener refreshListener = new OnRefreshListener() {
-		@Override
-		public void onRefreshStarted(View view) {
-			getListProduct(true,categoryIndex);
-		}
-	};
+    private OnRefreshListener refreshListener = new OnRefreshListener() {
+        @Override
+        public void onRefreshStarted(View view) {
+            getListProduct(true, categoryIndex);
+        }
+    };
 
-    public void onCategoryBtnClicked(int categoryIndex , CategoryDialogFragment.OnCloseCategoryDialogListener onCloseCategoryDialogListener) {
-        CategoryDialogFragment fragment = CategoryDialogFragment.newInstance(0, categoryIndex, categoryList.toArray(new String[categoryList.size()]), "");
+    public void onCategoryBtnClicked(int categoryIndex, DialogFragment.OnCloseCategoryDialogListener onCloseCategoryDialogListener) {
+        DialogFragment fragment = DialogFragment.newInstance(
+                0,
+                categoryIndex,
+                categoryList.toArray(new String[categoryList.size()]),
+                "");
         fragment.setOnCloseCategoryDialogListener(onCloseCategoryDialogListener);
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.addToBackStack(null);
-        ft.add(fragment,CategoryDialogFragment.TAG);
+        ft.add(fragment, DialogFragment.TAG);
         ft.commitAllowingStateLoss();
-        //fragment.show(ft, CategoryDialogFragment.TAG);
+        //fragment.show(ft, DialogFragment.TAG);
     }
 
     public class ExhibitionAdapter extends PagerAdapter {
@@ -653,23 +644,23 @@ public class MarketTabFragment extends BaseRefreshMoreListFragment {
 
             imageLoader.displayImage(Constants.KFARMERS_SNIPE_IMG + item.picture, image, optionsProduct);
 
-            image.setTag(R.integer.tag_id,item.idx);
-            image.setTag(R.integer.tag_st,item.title);
+            image.setTag(R.integer.tag_id, item.idx);
+            image.setTag(R.integer.tag_st, item.title);
 
             image.setOnClickListener(new ViewOnClickListener() {
                 @Override
                 public void viewOnClick(View v) {
 
-                    String id  = (String) v.getTag(R.integer.tag_id);
-                    String name  = (String) v.getTag(R.integer.tag_st);
+                    String id = (String) v.getTag(R.integer.tag_id);
+                    String name = (String) v.getTag(R.integer.tag_st);
                     Intent intent = new Intent(getSherlockActivity(), ShopActivity.class);
                     intent.putExtra("id", id);
-                    intent.putExtra("type",ShopActivity.type.Plan);
+                    intent.putExtra("type", ShopActivity.type.Plan);
                     startActivity(intent);
                 }
             });
 
-            container.addView(v, container.getChildCount() > position ? position: container.getChildCount());
+            container.addView(v, container.getChildCount() > position ? position : container.getChildCount());
             return v;
         }
 

@@ -199,5 +199,10 @@
     <string name="sPos"></string>
     <string name="Pos"></string>
 
+    <!--VIT 추가-->
+    <string name="diary_tab_header_farm_news_label">농장소식</string>
+    <string name="diary_tab_header_reviews_label">구매후기</string>
+    <string name="diary_tab_header_daily_life_label">일상</string>
+
 
 </resources>

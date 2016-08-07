@@ -10,18 +10,22 @@ import android.text.TextUtils;
 import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.view.base.BaseDialogFragment;
 
-public class CategoryDialogFragment extends BaseDialogFragment {
-    public static final String TAG = "CategoryDialogFragment";
+public class DialogFragment extends BaseDialogFragment {
+    public static final String TAG = "DialogFragment";
 
     private int subMenuType;
-    private int selectIndex;
-    private String title;
-    private String[] categoryList;
+    private int mSelect;
+    private String mTitle;
+    private String[] mList;
     private String fragmentTag;
     private OnCloseCategoryDialogListener listener;
 
-    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String[] category, String fragmentTag) {
-        final CategoryDialogFragment f = new CategoryDialogFragment();
+    public static DialogFragment newInstance(
+            int subMenuType,
+            int selectIndex,
+            String[] category,
+            String fragmentTag) {
+        final DialogFragment f = new DialogFragment();
 
         final Bundle args = new Bundle();
         args.putInt("SubMenuType", subMenuType);
@@ -34,8 +38,13 @@ public class CategoryDialogFragment extends BaseDialogFragment {
         return f;
     }
 
-    public static CategoryDialogFragment newInstance(int subMenuType, int selectIndex, String title, String[] category, String fragmentTag) {
-        final CategoryDialogFragment f = new CategoryDialogFragment();
+    public static DialogFragment newInstance(
+            int subMenuType,
+            int selectIndex,
+            String title,
+            String[] category,
+            String fragmentTag) {
+        final DialogFragment f = new DialogFragment();
 
         final Bundle args = new Bundle();
         args.putInt("SubMenuType", subMenuType);
@@ -56,9 +65,9 @@ public class CategoryDialogFragment extends BaseDialogFragment {
 
         if (getArguments() != null) {
             subMenuType = getArguments().getInt("SubMenuType");
-            selectIndex = getArguments().getInt("SelectIndex");
-            title = getArguments().getString("Title");
-            categoryList = getArguments().getStringArray("Category");
+            mSelect = getArguments().getInt("SelectIndex");
+            mTitle = getArguments().getString("Title");
+            mList = getArguments().getStringArray("Category");
             fragmentTag = getArguments().getString("FragmentTag");
         }
     }
@@ -67,10 +76,10 @@ public class CategoryDialogFragment extends BaseDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        if (TextUtils.isEmpty(title))
+        if (TextUtils.isEmpty(mTitle))
             builder.setTitle(R.string.dialog_category_title);
         else
-            builder.setTitle(title + " " + getString(R.string.dialog_category_title));
+            builder.setTitle(mTitle + " " + getString(R.string.dialog_category_title));
 
         builder.setNegativeButton(R.string.dialog_cancel, new OnClickListener() {
             @Override
@@ -78,7 +87,7 @@ public class CategoryDialogFragment extends BaseDialogFragment {
                 dismiss();
             }
         });
-        builder.setSingleChoiceItems(categoryList, selectIndex, new SingleChoiceListener());
+        builder.setSingleChoiceItems(mList, mSelect, new SingleChoiceListener());
 
         return builder.create();
     }
@@ -91,7 +100,7 @@ public class CategoryDialogFragment extends BaseDialogFragment {
             }
 
             if (listener != null) {
-                listener.onDialogListSelection(subMenuType, position);
+                listener.onDialogSelected(subMenuType, position);
             }
 
             dismiss();
@@ -103,7 +112,7 @@ public class CategoryDialogFragment extends BaseDialogFragment {
     }
 
     public interface OnCloseCategoryDialogListener {
-        public void onDialogListSelection(int subMenuType, int position);
+        public void onDialogSelected(int subMenuType, int position);
     }
 
 }

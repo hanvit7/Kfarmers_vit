@@ -389,7 +389,7 @@
 	<string name="main_tab_supporters">서포터즈</string>
 	<string name="main_tab_recipe">레시피</string>
 
-	<string-array name="GetListDiarySubMenu2_1">
+	<string-array name="diary_tab_footer_category_array">
 		<item>전체</item> <!-- 1,2,3,4,5,6 -->
 		<item>과일</item> <!-- 1-->
 		<item>채소</item> <!-- 2 -->
@@ -399,7 +399,8 @@
 		<item>기타</item> <!-- 6 -->
 		<item>체험</item> <!-- 7,9 -->
 	</string-array>
-	<string-array name="GetListDiarySubMenuAuth">
+
+	<string-array name="diary_tab_footer_eco_certification_array">
 		<item>전체</item> <!-- 빈값 -->
 		<item>유기농</item> <!-- 2 -->
 		<item>무농약</item> <!-- 3 -->
@@ -407,14 +408,14 @@
 		<item>유기가공</item> <!-- 5 -->
 		<item>무항생제</item> <!-- 6 -->
 	</string-array>
-	
+
 <!-- 		<item>전통식품</item> 7 -->
 <!-- 		<item>GAP</item> 8 -->
 <!-- 		<item>HACCP</item> 9 -->
 <!-- 		<item>스타팜</item> 10 -->
 <!-- 		<item>지리적표시</item> 11 -->
 
-	<string-array name="GetListDiarySubMenuLocalFood">
+	<string-array name="diary_tab_footer_location_distance_array">
 		<item>전체</item> <!-- 빈값 -->
 		<item>50km</item> <!-- 50 -->
 		<item>100km</item> <!-- 100 -->

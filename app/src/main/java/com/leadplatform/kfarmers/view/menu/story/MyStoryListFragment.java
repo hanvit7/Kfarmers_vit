@@ -386,7 +386,10 @@ public class MyStoryListFragment extends BaseRefreshMoreListFragment implements 
 						@Override
 						public void viewOnClick(View v) {
 							KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_LIST, "Click_Item-Reply", null);
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_NORMAL, story.Nickname, story.DiaryIndex);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_NORMAL,
+									story.Nickname,
+									story.DiaryIndex);
 						}
 					});
 
@@ -436,7 +439,7 @@ public class MyStoryListFragment extends BaseRefreshMoreListFragment implements 
 
 	@Override
 	public void onDialogListSelection(int position, String object) {
-		Log.e(TAG, "========= onDialogListSelection = position = " + position);
+		Log.e(TAG, "========= onDialogSelected = position = " + position);
 		try {
 			StoryListJson data = (StoryListJson) JsonUtil.jsonToObject(object, StoryListJson.class);
 			if (position == 0) {

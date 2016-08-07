@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\debug\\raw\\gtm_analytics",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-analytics\\7.3.0\\res\\raw\\gtm_analytics"
-    },
-    {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\debug\\raw\\gtm_analytics",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-analytics\\7.3.0\\res\\raw\\gtm_analytics"
     }

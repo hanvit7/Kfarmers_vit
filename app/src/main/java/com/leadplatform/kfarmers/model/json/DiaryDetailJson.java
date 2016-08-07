@@ -2,8 +2,7 @@ package com.leadplatform.kfarmers.model.json;
 
 import java.util.ArrayList;
 
-public class DiaryDetailJson
-{
+public class DiaryDetailJson {
     public String FarmerType;
     public String FarmerIndex;
     public String ID;
@@ -33,5 +32,4 @@ public class DiaryDetailJson
     public String BlogTag;
     public String GeneralCategoryIndex;
     public String ProductFlag;
-    
 }

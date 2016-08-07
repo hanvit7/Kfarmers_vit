@@ -23,14 +23,13 @@ import com.leadplatform.kfarmers.model.database.UserDb;
 import com.leadplatform.kfarmers.model.json.CategoryJson;
 import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.view.base.BaseFragment;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment.OnCloseCategoryDialogListener;
+import com.leadplatform.kfarmers.view.common.DialogFragment;
+import com.leadplatform.kfarmers.view.common.DialogFragment.OnCloseCategoryDialogListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class BlogWriteFragment extends BaseFragment
-{
+public class BlogWriteFragment extends BaseFragment {
     public static final String TAG = "BlogWriteFragment";
 
     private RelativeLayout categoryLayout;
@@ -38,26 +37,23 @@ public class BlogWriteFragment extends BaseFragment
     private int categoryIndex = 0;
     private RadioButton naverRadio, daumRadio, tistoryRadio;
     private EditText postEdit;
-//    private Button uploadBtn;
+    //    private Button uploadBtn;
     private ArrayList<String> categoryList;
     private ArrayList<CategoryJson> categoryObjectList;
 
-    public static BlogWriteFragment newInstance()
-    {
+    public static BlogWriteFragment newInstance() {
         final BlogWriteFragment f = new BlogWriteFragment();
 
         return f;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_blog_write, container, false);
 
         categoryLayout = (RelativeLayout) v.findViewById(R.id.CategoryLayout);
@@ -72,15 +68,12 @@ public class BlogWriteFragment extends BaseFragment
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState)
-    {
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        categoryLayout.setOnClickListener(new ViewOnClickListener()
-        {
+        categoryLayout.setOnClickListener(new ViewOnClickListener() {
             @Override
-            public void viewOnClick(View v)
-            {
+            public void viewOnClick(View v) {
                 onCategoryBtnClicked();
             }
         });
@@ -99,23 +92,21 @@ public class BlogWriteFragment extends BaseFragment
     }
 
     @Override
-    public void onDetach()
-    {
+    public void onDetach() {
         ((BlogActivity) getSherlockActivity()).displayBlogListActionBar();
         super.onDetach();
     }
 
-    private void onCategoryBtnClicked()
-    {
-        CategoryDialogFragment fragment = CategoryDialogFragment.newInstance(0, categoryIndex, categoryList.toArray(new String[categoryList.size()]),
+    private void onCategoryBtnClicked() {
+        DialogFragment fragment = DialogFragment.newInstance(
+                0,
+                categoryIndex,
+                categoryList.toArray(new String[categoryList.size()]),
                 "");
-        fragment.setOnCloseCategoryDialogListener(new OnCloseCategoryDialogListener()
-        {
+        fragment.setOnCloseCategoryDialogListener(new OnCloseCategoryDialogListener() {
             @Override
-            public void onDialogListSelection(int subMenuType, int position)
-            {
-                if (categoryIndex != position)
-                {
+            public void onDialogSelected(int subMenuType, int position) {
+                if (categoryIndex != position) {
                     categoryIndex = position;
                     categoryText.setText(categoryList.get(position));
                 }
@@ -123,21 +114,18 @@ public class BlogWriteFragment extends BaseFragment
         });
         FragmentTransaction ft = getSherlockActivity().getSupportFragmentManager().beginTransaction();
         ft.addToBackStack(null);
-        fragment.show(ft, CategoryDialogFragment.TAG);
+        fragment.show(ft, DialogFragment.TAG);
     }
 
-    public void onUploadBtnClicked()
-    {
+    public void onUploadBtnClicked() {
         String category, blogtype = "N", address;
 
-        if (categoryIndex == 0)
-        {
+        if (categoryIndex == 0) {
             UiController.showDialog(getSherlockActivity(), R.string.dialog_invalid_category);
             return;
         }
 
-        if (TextUtils.isEmpty(postEdit.getText().toString()))
-        {
+        if (TextUtils.isEmpty(postEdit.getText().toString())) {
             UiController.showDialog(getSherlockActivity(), R.string.dialog_invalid_category);
             return;
         }
@@ -153,15 +141,11 @@ public class BlogWriteFragment extends BaseFragment
             blogtype = "T";
 
         UiController.hideSoftKeyboard(getSherlockActivity());
-        CenterController.writePost(category, blogtype, address, new CenterResponseListener(getSherlockActivity())
-        {
+        CenterController.writePost(category, blogtype, address, new CenterResponseListener(getSherlockActivity()) {
             @Override
-            public void onSuccess(int Code, String content)
-            {
-                try
-                {
-                    switch (Code)
-                    {
+            public void onSuccess(int Code, String content) {
+                try {
+                    switch (Code) {
                         case 0000:
                             Toast.makeText(getSherlockActivity(), R.string.toast_success_write_post, Toast.LENGTH_SHORT).show();
                             getSherlockActivity().getSupportFragmentManager().popBackStack();
@@ -171,41 +155,31 @@ public class BlogWriteFragment extends BaseFragment
                             UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
                             break;
                     }
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                     UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
                 }
             }
         });
     }
 
-    private void requestCategory()
-    {
-        if (categoryObjectList == null)
-        {
+    private void requestCategory() {
+        if (categoryObjectList == null) {
             UserDb user = DbController.queryCurrentUser(getSherlockActivity());
             categoryList = new ArrayList<String>();
             categoryList.add("카테고리 선택");
             categoryObjectList = new ArrayList<CategoryJson>();
             categoryObjectList.add(new CategoryJson());
 
-            CenterController.getCategory(user.getUserID(), new CenterResponseListener(getSherlockActivity())
-            {
+            CenterController.getCategory(user.getUserID(), new CenterResponseListener(getSherlockActivity()) {
                 @Override
-                public void onSuccess(int Code, String content)
-                {
-                    try
-                    {
-                        switch (Code)
-                        {
+                public void onSuccess(int Code, String content) {
+                    try {
+                        switch (Code) {
                             case 0000:
                                 JsonNode root = JsonUtil.parseTree(content);
-                                if (root.findPath("List").isArray())
-                                {
+                                if (root.findPath("List").isArray()) {
                                     Iterator<JsonNode> it = root.findPath("List").iterator();
-                                    while (it.hasNext())
-                                    {
+                                    while (it.hasNext()) {
                                         CategoryJson category = (CategoryJson) JsonUtil.jsonToObject(it.next().toString(), CategoryJson.class);
                                         categoryList.add(category.SubName);
                                         categoryObjectList.add(category);
@@ -222,9 +196,7 @@ public class BlogWriteFragment extends BaseFragment
                                 UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
                                 break;
                         }
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         UiController.showDialog(getSherlockActivity(), R.string.dialog_unknown_error);
                     }
                 }

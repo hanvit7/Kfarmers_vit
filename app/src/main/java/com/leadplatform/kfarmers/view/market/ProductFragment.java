@@ -50,7 +50,7 @@ import com.leadplatform.kfarmers.custom.dialog.UiDialog;
 import com.leadplatform.kfarmers.model.database.UserDb;
 import com.leadplatform.kfarmers.model.holder.DiaryListHolder;
 import com.leadplatform.kfarmers.model.holder.ViewHolder;
-import com.leadplatform.kfarmers.model.json.DiaryListJson;
+import com.leadplatform.kfarmers.model.json.FarmNewsJson;
 import com.leadplatform.kfarmers.model.json.snipe.ProductJson;
 import com.leadplatform.kfarmers.model.json.snipe.RecipeJson;
 import com.leadplatform.kfarmers.model.json.snipe.ReviewListJson;
@@ -113,14 +113,14 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
     private LinearLayout PagingLayout;
     private ImageView mFarmLayout;
 
-    private ArrayList<DiaryListJson> farmObjectList;
+    private ArrayList<FarmNewsJson> farmObjectList;
     private FarmListAdapter farmListAdapter;
 
     private final int limit = 20;
 
     private Button btnHeaderInfo, btnHeaderDes, btnHeaderReview;
 
-    ImageView imgHeaderAuth,imgHeaderRecipy,imgHeaderFarm;
+    ImageView imgHeaderAuth, imgHeaderRecipy, imgHeaderFarm;
 
     //private View webViewLine;
 
@@ -193,8 +193,8 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.fragment_product, container,false);
-        headerView = inflater.inflate(R.layout.fragment_product_header, null,false);
+        final View v = inflater.inflate(R.layout.fragment_product, container, false);
+        headerView = inflater.inflate(R.layout.fragment_product_header, null, false);
 
         mNoReviewLayout = (RelativeLayout) headerView.findViewById(R.id.NoReviewLayout);
 
@@ -438,7 +438,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                     optionObject.put("idx", subItemJson.idx);
                     optionObject.put("cnt", subItemJson.count);
                     optionObject.put("price", subItemJson.buyprice);
-                    optionObject.put("point",subItemJson.provide_point);
+                    optionObject.put("point", subItemJson.provide_point);
                     optionJsonArray.add(optionObject);
                 }
                 itemObject.put("option", optionJsonArray);
@@ -499,8 +499,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 } else {
                     onLoadMoreComplete();
                 }
-            }
-            else {
+            } else {
                 onLoadMoreComplete();
             }
         }
@@ -644,7 +643,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                         } else {
                             intent.putExtra("url","http://farmorder.kr/"+mItem.id+"/"+mItem.code+"?view_type=mini");
                         }*/
-                        intent.putExtra("url","http://farmorder.kr/"+mItem.id+"/"+mItem.code+"?view_type=mini");
+                        intent.putExtra("url", "http://farmorder.kr/" + mItem.id + "/" + mItem.code + "?view_type=mini");
                         startActivity(intent);
                         //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://farmorder.kr/"+mItem.id+"/"+mItem.code+"?view_type=mini"));
                         //startActivity(intent);
@@ -758,14 +757,14 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
             double latitude = AppPreferences.getLatitude(getSherlockActivity());
             double longitude = AppPreferences
                     .getLongitude(getSherlockActivity());
-            farmObjectList = new ArrayList<DiaryListJson>();
+            farmObjectList = new ArrayList<FarmNewsJson>();
             farmListAdapter = new FarmListAdapter(getSherlockActivity(),
                     R.layout.item_farm_diary, farmObjectList,
                     ((BaseFragmentActivity) getSherlockActivity()).imageLoader,
                     latitude, longitude);
 
 			 /*SwingBottomInAnimationAdapter swingBottomInAnimationAdapter = new SwingBottomInAnimationAdapter(farmListAdapter);
-			 swingBottomInAnimationAdapter.setAbsListView(getListView());
+             swingBottomInAnimationAdapter.setAbsListView(getListView());
 
 			 assert swingBottomInAnimationAdapter.getViewAnimator() != null;
 			 swingBottomInAnimationAdapter.getViewAnimator().setInitialDelayMillis(300);*/
@@ -819,7 +818,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 }
             }
         });
-		/*CenterController.getViewFarmerShopProduct(productIndex,
+        /*CenterController.getViewFarmerShopProduct(productIndex,
 				new CenterResponseListener(getSherlockActivity()) {
 					@Override
 					public void onSuccess(int Code, String content) {
@@ -833,7 +832,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
 												ProductDetailJson.class);
 								if (productDetailJson != null) {
 									displayFarmHeaderView();
-									getListDiary("","");
+									getFarmNewsList("","");
 								}
 								break;
 
@@ -855,9 +854,9 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
             return;
 
         String category = "";
-        for(ProductJson.Categorys categorys : mItem.categorys) {
-            if(!category.isEmpty()) {
-                category +=",";
+        for (ProductJson.Categorys categorys : mItem.categorys) {
+            if (!category.isEmpty()) {
+                category += ",";
             }
             category += categorys.idx;
         }
@@ -881,10 +880,10 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                                                 "List").iterator();
                                         while (it.hasNext()) {
                                             diaryCount++;
-                                            DiaryListJson diary = (DiaryListJson) JsonUtil
+                                            FarmNewsJson diary = (FarmNewsJson) JsonUtil
                                                     .jsonToObject(it.next()
                                                                     .toString(),
-                                                            DiaryListJson.class);
+                                                            FarmNewsJson.class);
                                             farmListAdapter.add(diary);
 
                                         }
@@ -916,13 +915,13 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 });
     }
 
-    private class FarmListAdapter extends ArrayAdapter<DiaryListJson> {
+    private class FarmListAdapter extends ArrayAdapter<FarmNewsJson> {
         private int itemLayoutResourceId;
         // private DisplayImageOptions options;
         private double userLatitude, userLongitude;
 
         public FarmListAdapter(Context context, int itemLayoutResourceId,
-                               ArrayList<DiaryListJson> items, ImageLoader imageLoader,
+                               ArrayList<FarmNewsJson> items, ImageLoader imageLoader,
                                double userLatitude, double userLongitude) {
             super(context, itemLayoutResourceId, items);
             this.itemLayoutResourceId = itemLayoutResourceId;
@@ -983,7 +982,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 holder = (DiaryListHolder) convertView.getTag();
             }
 
-            final DiaryListJson diary = getItem(position);
+            final FarmNewsJson diary = getItem(position);
 
             if (diary != null) {
                 holder.rootLayout.setTag(new String(diary.Diary));
@@ -1108,15 +1107,13 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                     public void viewOnClick(View v) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_PRODUCT_DETAIL, "Click_Item-Reply", diary.Diary);
                         if (diary.Type.equals("F")) {
-                            ((BaseFragmentActivity) getSherlockActivity())
-                                    .runReplyActivity(
-                                            ReplyActivity.REPLY_TYPE_FARMER,
-                                            diary.Farm, diary.Diary);
+                            ((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+                                    ReplyActivity.REPLY_TYPE_FARMER,
+                                    diary.Farm, diary.Diary);
                         } else if (diary.Type.equals("V")) {
-                            ((BaseFragmentActivity) getSherlockActivity())
-                                    .runReplyActivity(
-                                            ReplyActivity.REPLY_TYPE_VILLAGE,
-                                            diary.Farm, diary.Diary);
+                            ((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+                                    ReplyActivity.REPLY_TYPE_VILLAGE,
+                                    diary.Farm, diary.Diary);
                         }
                     }
                 });
@@ -1329,12 +1326,12 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
             }
 
             int point = Integer.parseInt(mOptionList.get(0).provide_point);
-            if(point > 0) {
-                poindAdd.setText(Html.fromHtml(getString(R.string.Product_point,CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit(point))));
+            if (point > 0) {
+                poindAdd.setText(Html.fromHtml(getString(R.string.Product_point, CommonUtil.SimpleFormatUtil.convertUnitToCommaUnit(point))));
             }
         }
 
-        if(mNotice != null && !mNotice.trim().isEmpty()) {
+        if (mNotice != null && !mNotice.trim().isEmpty()) {
             mNoticeText.setText(Html.fromHtml(mNotice));
             mNoticeLayout.setVisibility(View.VISIBLE);
         } else {
@@ -1365,7 +1362,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
             imgHeaderAuth.setVisibility(View.GONE);
         }
 
-        if(mRecipeJson.size()>0) {
+        if (mRecipeJson.size() > 0) {
             imgHeaderRecipy.setVisibility(View.VISIBLE);
         } else {
             imgHeaderRecipy.setVisibility(View.GONE);
@@ -1375,7 +1372,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
             @Override
             public void viewOnClick(View v) {
                 Intent intent = new Intent(getActivity(), RecipeListActivity.class);
-                intent.putExtra("code",mItem.code);
+                intent.putExtra("code", mItem.code);
                 startActivity(intent);
             }
         });
@@ -1430,10 +1427,10 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
 
     @Override
     public void onDialogListSelection(int position, String object) {
-        Log.e(TAG, "========= onDialogListSelection = position = " + position);
+        Log.e(TAG, "========= onDialogSelected = position = " + position);
         try {
-            DiaryListJson data = (DiaryListJson) JsonUtil.jsonToObject(object,
-                    DiaryListJson.class);
+            FarmNewsJson data = (FarmNewsJson) JsonUtil.jsonToObject(object,
+                    FarmNewsJson.class);
             if (position == 0) {
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_PRODUCT_DETAIL, "Click_Item-Share", "카카오톡");
                 KaKaoController.sendKakaotalk(this, data);
@@ -1499,7 +1496,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
     }
 
     private void getReviewData() {
-        SnipeApiController.getReviewList(mItem.code,"","", String.valueOf(mReviewPage), String.valueOf(limit), new SnipeResponseListener(getActivity()) {
+        SnipeApiController.getReviewList(mItem.code, "", "", String.valueOf(mReviewPage), String.valueOf(limit), new SnipeResponseListener(getActivity()) {
             @Override
             public void onSuccess(int Code, String content, String error) {
                 try {
@@ -1584,7 +1581,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 HorizontalScrollView horizontalScrollview = ViewHolder.get(convertView, R.id.horizontalScrollview);
                 LinearLayout imageLayout = ViewHolder.get(convertView, R.id.ImageLayout);
 
-                if(item.member_profile_image != null && !item.member_profile_image.isEmpty()) {
+                if (item.member_profile_image != null && !item.member_profile_image.isEmpty()) {
                     imageLoader.displayImage(Constants.KFARMERS_SNIPE_PRIFILE_IMG + item.member_profile_image, profile, optionsProfile);
                 } else {
                     profile.setImageResource(R.drawable.icon_empty_profile);
@@ -1603,7 +1600,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                     imageLayout.addView(view, layoutParams);
 
                     imageView.setTag(R.integer.tag_pos, position);
-                    imageView.setTag(R.integer.tag_id,i);
+                    imageView.setTag(R.integer.tag_id, i);
 
                     imageView.setOnClickListener(new ViewOnClickListener() {
                         @Override
@@ -1626,7 +1623,7 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                     i++;
                 }
 
-                if(i>0) {
+                if (i > 0) {
                     horizontalScrollview.setVisibility(View.VISIBLE);
                 } else {
                     horizontalScrollview.setVisibility(View.GONE);
@@ -1670,8 +1667,8 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                 float rating = Float.parseFloat(item.rating) / 2f;
                 ratingBar.setRating(rating);
 
-                if(Integer.parseInt(item.comments_count) > 0) {
-                    replyCount.setText("("+item.comments_count+") 댓글달기");
+                if (Integer.parseInt(item.comments_count) > 0) {
+                    replyCount.setText("(" + item.comments_count + ") 댓글달기");
                 } else {
                     replyCount.setText("댓글달기");
                 }
@@ -1681,7 +1678,10 @@ public class ProductFragment extends BaseRefreshMoreListFragment implements
                     @Override
                     public void viewOnClick(View v) {
                         String idx = (String) v.getTag();
-                        ((ProductActivity)getActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_REVIEW, "구매후기 댓글", idx);
+                        ((ProductActivity) getActivity()).runReplyActivity(
+                                ReplyActivity.REPLY_TYPE_REVIEW,
+                                "구매후기 댓글",
+                                idx);
                     }
                 });
             }

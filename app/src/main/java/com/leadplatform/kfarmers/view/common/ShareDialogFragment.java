@@ -1,8 +1,5 @@
 package com.leadplatform.kfarmers.view.common;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -13,16 +10,17 @@ import android.widget.ArrayAdapter;
 import com.leadplatform.kfarmers.R;
 import com.leadplatform.kfarmers.view.base.BaseDialogFragment;
 
-public class ShareDialogFragment extends BaseDialogFragment
-{
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ShareDialogFragment extends BaseDialogFragment {//카 카 오 공 유
     public static final String TAG = "ShareDialogFragment";
 
     private String[] categoryList;
     private String object;
     private String fragmentTag;
 
-    public static ShareDialogFragment newInstance(String[] category, String object, String fragmentTag)
-    {
+    public static ShareDialogFragment newInstance(String[] category, String object, String fragmentTag) {
         final ShareDialogFragment f = new ShareDialogFragment();
 
         final Bundle args = new Bundle();
@@ -35,14 +33,12 @@ public class ShareDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setCancelable(true);
         setStyle(STYLE_NO_FRAME, android.R.style.Theme_Holo_Light_Dialog);
 
-        if (getArguments() != null)
-        {
+        if (getArguments() != null) {
             categoryList = getArguments().getStringArray("Category");
             object = getArguments().getString("Object");
             fragmentTag = getArguments().getString("FragmentTag");
@@ -50,15 +46,12 @@ public class ShareDialogFragment extends BaseDialogFragment
     }
 
     @Override
-    public Dialog onCreateDialog(Bundle savedInstanceState)
-    {
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_category_title);
-        builder.setNegativeButton(R.string.dialog_cancel, new OnClickListener()
-        {
+        builder.setNegativeButton(R.string.dialog_cancel, new OnClickListener() {
             @Override
-            public void onClick(DialogInterface arg0, int arg1)
-            {
+            public void onClick(DialogInterface arg0, int arg1) {
                 dismiss();
             }
         });
@@ -72,23 +65,21 @@ public class ShareDialogFragment extends BaseDialogFragment
         return builder.create();
     }
 
-    private class SingleChoiceListener implements DialogInterface.OnClickListener
-    {
+    private class SingleChoiceListener implements DialogInterface.OnClickListener {//카 카 오 관 련
+
         @Override
-        public void onClick(DialogInterface dialog, int position)
-        {
+        public void onClick(DialogInterface dialog, int position) {
             OnCloseShareDialogListener listener = (OnCloseShareDialogListener) getFragmentManager().findFragmentByTag(fragmentTag);
             if (listener != null)
                 listener.onDialogListSelection(position, object);
             else
-                ((OnCloseShareDialogListener)getSherlockActivity()).onDialogListSelection(position, object);
+                ((OnCloseShareDialogListener) getSherlockActivity()).onDialogListSelection(position, object);
 
             dismiss();
         }
     }
 
-    public interface OnCloseShareDialogListener
-    {
+    public interface OnCloseShareDialogListener {
         public void onDialogListSelection(int position, String object);
     }
 }

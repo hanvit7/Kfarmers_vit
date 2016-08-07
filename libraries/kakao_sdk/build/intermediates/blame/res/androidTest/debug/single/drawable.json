@@ -4,8 +4,8 @@
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_profile_boxbg.9.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_profile_boxbg.9.png"
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_editable_profile.png",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_editable_profile.png"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_symbol.png",
@@ -16,8 +16,12 @@
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_cancel_button_background.xml"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_bar.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_bar.png"
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_icon_light.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_bar.png",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_bar.png"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_profile_boxbg.9.png",
@@ -28,76 +32,20 @@
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_text_light.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_text_light.xml"
-    },
-    {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_account_button_background.xml",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_account_button_background.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_close_button.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_close_button.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_default_profile_image.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_default_profile_image.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_editable_profile.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_editable_profile.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_account_logo.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_account_logo.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_text_light.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_editable_profile.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_editable_profile.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_bar.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_bar.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_button_background.9.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_button_background.9.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_symbol.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_symbol.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_default_profile_image.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_default_profile_image.png"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_account_logo.png",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_account_logo.png"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_cancel_button_background.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_cancel_button_background.xml"
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_default_profile_image.png",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_default_profile_image.png"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_signin_btn_text_light.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_text_light.xml"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_close_button.png",
@@ -106,9 +54,5 @@
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_login_button_background.9.png",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_login_button_background.9.png"
-    },
-    {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\kakao_account_button_background.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers-android_origin\\libraries\\kakao_sdk\\build\\intermediates\\bundles\\debug\\res\\drawable\\kakao_account_button_background.xml"
     }
 ]

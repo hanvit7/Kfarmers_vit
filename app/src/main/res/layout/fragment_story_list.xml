@@ -10,7 +10,7 @@
             android:orientation="vertical">
 
         <LinearLayout
-                android:id="@+id/SubMenuLayout"
+                android:id="@+id/diary_tab_footer"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/CommonMediumByLargeRow2"
                 android:background="#FFFFFF"
@@ -19,14 +19,14 @@
                 android:orientation="horizontal">
 
             <RelativeLayout
-                    android:id="@+id/SubMenuBox1"
+                    android:id="@+id/diary_tab_footer_category"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
                     android:gravity="center">
 
                 <TextView
-                        android:id="@+id/SubMenu1"
+                        android:id="@+id/diary_tab_footer_category_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/CommonLargeRow"
                         android:gravity="center_vertical"
@@ -49,14 +49,14 @@
                     android:background="#bebdbd"/>
 
             <RelativeLayout
-                    android:id="@+id/SubMenuBox2"
+                    android:id="@+id/diary_tab_footer_eco_certification"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.33"
                     android:gravity="center">
 
                 <TextView
-                        android:id="@+id/SubMenu2"
+                        android:id="@+id/diary_tab_footer_eco_certification_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/CommonLargeRow"
                         android:gravity="center_vertical"

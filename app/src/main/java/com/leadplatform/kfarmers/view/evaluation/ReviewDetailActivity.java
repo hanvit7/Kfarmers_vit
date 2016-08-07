@@ -258,7 +258,10 @@ public class ReviewDetailActivity extends BaseFragmentActivity {
         mFooterView.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                runReplyActivity(ReplyActivity.REPLY_TYPE_REVIEW, "구매후기 댓글", mReviewListJson.idx);
+                runReplyActivity(
+                        ReplyActivity.REPLY_TYPE_REVIEW,
+                        "구매후기 댓글",
+                        mReviewListJson.idx);
             }
         });
 

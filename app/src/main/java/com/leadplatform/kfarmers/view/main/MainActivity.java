@@ -98,7 +98,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
 
     private void initContentView(Bundle savedInstanceState) {
         Bundle argumentFarm = new Bundle();
-        argumentFarm.putInt("Type", DiaryTabFragment.DIARY_TYPE_FARM);
+        argumentFarm.putSerializable("Type", DiaryTabFragment.DiaryTab.FARM_NEWS);
 
         LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
         //메인 탭 설정

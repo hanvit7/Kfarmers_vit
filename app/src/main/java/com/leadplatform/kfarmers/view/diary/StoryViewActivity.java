@@ -331,7 +331,10 @@ public class StoryViewActivity extends BaseFragmentActivity implements ShareDial
 		replyLayout.setOnClickListener(new ViewOnClickListener() {
 			@Override
 			public void viewOnClick(View v) {
-				runReplyActivity(ReplyActivity.REPLY_TYPE_NORMAL, detailStoryData.Nickname,diaryIndex);
+				runReplyActivity(
+						ReplyActivity.REPLY_TYPE_NORMAL,
+						detailStoryData.Nickname,
+						diaryIndex);
 			}
 		});
 

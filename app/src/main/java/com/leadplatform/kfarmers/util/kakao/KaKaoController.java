@@ -13,7 +13,7 @@ import com.leadplatform.kfarmers.controller.CenterController;
 import com.leadplatform.kfarmers.controller.CenterResponseListener;
 import com.leadplatform.kfarmers.controller.UiController;
 import com.leadplatform.kfarmers.model.json.DiaryDetailJson;
-import com.leadplatform.kfarmers.model.json.DiaryListJson;
+import com.leadplatform.kfarmers.model.json.FarmNewsJson;
 import com.leadplatform.kfarmers.model.json.FarmerInfoJson;
 import com.leadplatform.kfarmers.model.json.RowJson;
 import com.leadplatform.kfarmers.model.json.StoryDetailJson;
@@ -106,7 +106,7 @@ public class KaKaoController
         }
     }
 
-    public static void sendKakaotalk(final Fragment fragment, final DiaryListJson data)
+    public static void sendKakaotalk(final Fragment fragment, final FarmNewsJson data)
     {
         final Context context = fragment.getActivity();
         try
@@ -345,7 +345,7 @@ public class KaKaoController
         }
     }
 
-    public static void sendKakaostory(final Fragment fragment, final DiaryListJson data)
+    public static void sendKakaostory(final Fragment fragment, final FarmNewsJson data)
     {
         final Context context = fragment.getActivity();
         try
@@ -590,7 +590,7 @@ public class KaKaoController
         // if (farmData != null)
         // {
         // displayFarmHeaderView(farmData);
-        // getListDiary(makeListDiaryData(true, 0));
+        // getFarmNewsList(makeListDiaryData(true, 0));
         // }
         // break;
         //

@@ -67,7 +67,7 @@
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/categoryTitleText"
+                android:layout_below="@+id/categoryTitleText"
                 android:orientation="horizontal">
 
                 <EditText
@@ -88,7 +88,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/categoryTitleText"
+            android:id="@id/categoryTitleText"
             style="@style/TextViewMediumDefault"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -16,17 +16,16 @@ import com.leadplatform.kfarmers.controller.UiController;
 import com.leadplatform.kfarmers.model.json.DaumCategoryJson;
 import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.view.base.BaseFragment;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
+import com.leadplatform.kfarmers.view.common.DialogFragment;
 
 import net.daum.mf.oauth.MobileOAuthLibrary;
 import net.daum.mf.oauth.OAuthError;
 
 import java.util.ArrayList;
 
-public class SnsDaumFragment extends BaseFragment
-{
+public class SnsDaumFragment extends BaseFragment {
     public static final String TAG = "SnsDaumFragment";
-    public  static final String DAUM_CLIENT_ID = "405346064575943911";
+    public static final String DAUM_CLIENT_ID = "405346064575943911";
 
     TextView mTextView;
     EditText mEditText;
@@ -36,22 +35,19 @@ public class SnsDaumFragment extends BaseFragment
 
     private int categoryIndex = 0;
 
-    public static SnsDaumFragment newInstance()
-    {
+    public static SnsDaumFragment newInstance() {
         final SnsDaumFragment f = new SnsDaumFragment();
         return f;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MobileOAuthLibrary.getInstance().initialize(getActivity(), DAUM_CLIENT_ID);  // OAuth 라이브러리 초기화.
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_sns_daum, container, false);
 
         mTextView = (TextView) v.findViewById(R.id.categoryText);
@@ -84,10 +80,12 @@ public class SnsDaumFragment extends BaseFragment
     MobileOAuthLibrary.OAuthListener oAuthListener = new MobileOAuthLibrary.OAuthListener() {
 
         @Override
-        public void onAuthorizeSuccess() {}
+        public void onAuthorizeSuccess() {
+        }
 
         @Override
-        public void onAuthorizeFail(OAuthError.OAuthErrorCodes oAuthErrorCodes, String s) {}
+        public void onAuthorizeFail(OAuthError.OAuthErrorCodes oAuthErrorCodes, String s) {
+        }
 
         @Override
         public void onRequestResourceSuccess(String response) {
@@ -98,13 +96,13 @@ public class SnsDaumFragment extends BaseFragment
                 daumCategoryJsons = (ArrayList<DaumCategoryJson>) JsonUtil.jsonToArrayObject(jsonNode, DaumCategoryJson.class);
 
                 mCategoryStr = new ArrayList<String>();
-                for(DaumCategoryJson categoryJson : daumCategoryJsons) {
+                for (DaumCategoryJson categoryJson : daumCategoryJsons) {
                     mCategoryStr.add(categoryJson.name);
                 }
 
-                onCategoryBtnClicked(categoryIndex, new CategoryDialogFragment.OnCloseCategoryDialogListener() {
+                onCategoryBtnClicked(categoryIndex, new DialogFragment.OnCloseCategoryDialogListener() {
                     @Override
-                    public void onDialogListSelection(int subMenuType, int position) {
+                    public void onDialogSelected(int subMenuType, int position) {
                         categoryIndex = position;
                         mTextView.setText("선택한 카테고리 : " + daumCategoryJsons.get(position).name);
                         //DbController.updateNaverCategory(getSherlockActivity(), mArrayList.get(position).categoryNo, mCategoryStr.get(position));
@@ -140,11 +138,15 @@ public class SnsDaumFragment extends BaseFragment
         }
     };
 
-    public void onCategoryBtnClicked(int categoryIndex , CategoryDialogFragment.OnCloseCategoryDialogListener onCloseCategoryDialogListener) {
-        CategoryDialogFragment fragment = CategoryDialogFragment.newInstance(0, categoryIndex, mCategoryStr.toArray(new String[mCategoryStr.size()]), "");
+    public void onCategoryBtnClicked(int categoryIndex, DialogFragment.OnCloseCategoryDialogListener onCloseCategoryDialogListener) {
+        DialogFragment fragment = DialogFragment.newInstance(
+                0,
+                categoryIndex,
+                mCategoryStr.toArray(new String[mCategoryStr.size()]),
+                "");
         fragment.setOnCloseCategoryDialogListener(onCloseCategoryDialogListener);
         FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
         ft.addToBackStack(null);
-        fragment.show(ft, CategoryDialogFragment.TAG);
+        fragment.show(ft, DialogFragment.TAG);
     }
 }

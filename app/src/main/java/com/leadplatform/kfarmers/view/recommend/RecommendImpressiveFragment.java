@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.leadplatform.kfarmers.Constants;
 import com.leadplatform.kfarmers.R;
@@ -20,8 +21,8 @@ import com.leadplatform.kfarmers.controller.CenterResponseListener;
 import com.leadplatform.kfarmers.controller.UiController;
 import com.leadplatform.kfarmers.custom.button.ViewOnClickListener;
 import com.leadplatform.kfarmers.model.holder.DiaryListHolder;
-import com.leadplatform.kfarmers.model.json.DiaryListJson;
-import com.leadplatform.kfarmers.model.parcel.DiaryListData;
+import com.leadplatform.kfarmers.model.json.FarmNewsJson;
+import com.leadplatform.kfarmers.model.parcel.FarmNewsFooterFilter;
 import com.leadplatform.kfarmers.model.preference.AppPreferences;
 import com.leadplatform.kfarmers.model.tag.LikeTag;
 import com.leadplatform.kfarmers.util.CommonUtil;
@@ -38,17 +39,19 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
 import org.apache.http.Header;
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment implements OnCloseShareDialogListener {
 	public static final String TAG = "RecommendImpressiveFragment";
 
 	private boolean bMoreFlag = false;
-	private ArrayList<DiaryListJson> mainItemList;
+	private ArrayList<FarmNewsJson> mainItemList;
 	private MainAllListAdapter mainListAdapter;
 
 	public static RecommendImpressiveFragment newInstance() {
@@ -81,7 +84,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 			double latitude = AppPreferences.getLatitude(getSherlockActivity());
 			double longitude = AppPreferences.getLongitude(getSherlockActivity());
 			// UserDb user = DbController.queryCurrentUser(getSherlockActivity());
-			mainItemList = new ArrayList<DiaryListJson>();
+			mainItemList = new ArrayList<FarmNewsJson>();
 			mainListAdapter = new MainAllListAdapter(getSherlockActivity(), R.layout.item_recommend_impressive, mainItemList, ((BaseFragmentActivity) getSherlockActivity()).imageLoader, latitude,
 					longitude);
 			setListAdapter(mainListAdapter);
@@ -89,7 +92,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 		}
 	}
 
-	private void getListDiary(DiaryListData data) {
+	private void getListDiary(FarmNewsFooterFilter data) {
 		if (data == null)
 			return;
 
@@ -99,7 +102,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 			mainListAdapter.notifyDataSetChanged();
 		}
 
-		CenterController.getListDiary(data, new CenterResponseListener(getSherlockActivity()) {
+		CenterController.getFarmNewsList(data, new CenterResponseListener(getSherlockActivity()) {
 			@Override
 			public void onSuccess(int Code, String content) {
 				onRefreshComplete();
@@ -113,7 +116,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 							Iterator<JsonNode> it = root.findPath("List").iterator();
 							while (it.hasNext()) {
 								diaryCount++;
-								DiaryListJson diary = (DiaryListJson) JsonUtil.jsonToObject(it.next().toString(), DiaryListJson.class);
+								FarmNewsJson diary = (FarmNewsJson) JsonUtil.jsonToObject(it.next().toString(), FarmNewsJson.class);
 								mainListAdapter.add(diary);
 							}
 
@@ -140,13 +143,13 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 		});
 	}
 
-	private class MainAllListAdapter extends ArrayAdapter<DiaryListJson> {
+	private class MainAllListAdapter extends ArrayAdapter<FarmNewsJson> {
 		private int itemLayoutResourceId;
 		private ImageLoader imageLoader;
 		private DisplayImageOptions options;
 		private double userLatitude, userLongitude;
 
-		public MainAllListAdapter(Context context, int itemLayoutResourceId, ArrayList<DiaryListJson> items, ImageLoader imageLoader, double userLatitude, double userLongitude) {
+		public MainAllListAdapter(Context context, int itemLayoutResourceId, ArrayList<FarmNewsJson> items, ImageLoader imageLoader, double userLatitude, double userLongitude) {
 			super(context, itemLayoutResourceId, items);
 			this.itemLayoutResourceId = itemLayoutResourceId;
 			this.imageLoader = imageLoader;
@@ -189,7 +192,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 				holder = (DiaryListHolder) convertView.getTag();
 			}
 
-			final DiaryListJson diary = getItem(position);
+			final FarmNewsJson diary = getItem(position);
 
 			if (diary != null) {
 				holder.rootLayout.setTag(new String(diary.Diary));
@@ -291,11 +294,17 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 				holder.Reply.setOnClickListener(new ViewOnClickListener() {
 					@Override
 					public void viewOnClick(View v) {
-						DiaryListJson data = (DiaryListJson) v.getTag();
+						FarmNewsJson data = (FarmNewsJson) v.getTag();
 						if (data.Type.equals("F")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_FARMER, data.Farm, data.Diary);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_FARMER,
+									data.Farm,
+									data.Diary);
 						} else if (data.Type.equals("V")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_VILLAGE, data.Farm, data.Diary);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_VILLAGE,
+									data.Farm,
+									data.Diary);
 						}
 					}
 				});
@@ -424,8 +433,8 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 		}
 	};
 
-	private DiaryListData makeListDiaryData(boolean initFlag, int oldIndex, String oldDate) {
-		DiaryListData data = new DiaryListData();
+	private FarmNewsFooterFilter makeListDiaryData(boolean initFlag, int oldIndex, String oldDate) {
+		FarmNewsFooterFilter data = new FarmNewsFooterFilter();
 		data.setImpressive(true);
 		data.setInitFlag(initFlag);
 		data.setOldIndex(oldIndex);
@@ -437,7 +446,7 @@ public class RecommendImpressiveFragment extends BaseRefreshMoreListFragment imp
 	@Override
 	public void onDialogListSelection(int position, String object) {
 		try {
-			DiaryListJson data = (DiaryListJson) JsonUtil.jsonToObject(object, DiaryListJson.class);
+			FarmNewsJson data = (FarmNewsJson) JsonUtil.jsonToObject(object, FarmNewsJson.class);
 			if (position == 0) {
 				KaKaoController.sendKakaotalk(this, data);
 			} else if (position == 1) {

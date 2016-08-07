@@ -34,7 +34,7 @@ import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment;
+import com.leadplatform.kfarmers.view.common.DialogFragment;
 import com.leadplatform.kfarmers.view.market.ProductActivity;
 import com.nhaarman.listviewanimations.appearance.simple.SwingBottomInAnimationAdapter;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -93,9 +93,9 @@ public class ProductRegisterListFragment extends BaseRefreshMoreListFragment {
 		@Override
 		public void viewOnClick(View v) 
 		{
-			((ProductRegisterActivity)getActivity()).onCategoryBtnClicked(categoryIndex, new CategoryDialogFragment.OnCloseCategoryDialogListener() {
+			((ProductRegisterActivity)getActivity()).onCategoryBtnClicked(categoryIndex, new DialogFragment.OnCloseCategoryDialogListener() {
 				@Override
-				public void onDialogListSelection(int subMenuType, int position) {
+				public void onDialogSelected(int subMenuType, int position) {
 					if (categoryIndex != position) {
 						categoryIndex = position;
 						mCategoryText.setText(((ProductRegisterActivity)getActivity()).mFarmerCategory.get(position).SubName);

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/diary_tab_footer"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/CommonMediumByLargeRow2"
+    android:layout_alignParentBottom="true"
+    android:background="@color/refresh_background"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_footer_category"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_footer_category_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/CommonMediumText"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/diary_tab_footer_category_text_view"
+            android:contentDescription="@string/CommonDummy"
+            android:src="@drawable/button_menu_white"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="20dp"
+        android:background="@color/white"/>
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_footer_eco_certification"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_footer_eco_certification_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/CommonMediumText"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/diary_tab_footer_eco_certification_text_view"
+            android:contentDescription="@string/CommonDummy"
+            android:src="@drawable/button_menu_white"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="20dp"
+        android:background="@color/white"/>
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_footer_location_distance"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_footer_location_distance_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="@dimen/CommonMediumText"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/diary_tab_footer_location_distance_text_view"
+            android:contentDescription="@string/CommonDummy"
+            android:src="@drawable/button_menu_white"/>
+    </RelativeLayout>
+</LinearLayout>

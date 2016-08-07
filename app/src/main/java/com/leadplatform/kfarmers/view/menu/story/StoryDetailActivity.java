@@ -222,11 +222,20 @@ public class StoryDetailActivity extends BaseFragmentActivity {
 			@Override
 			public void viewOnClick(View v) {
 				if (detailType == DETAIL_CONSUMER) {
-					runReplyActivity(ReplyActivity.REPLY_TYPE_CONSUMER, detailStoryData.Nickname, diaryIndex);
+					runReplyActivity(
+							ReplyActivity.REPLY_TYPE_CONSUMER,
+							detailStoryData.Nickname,
+							diaryIndex);
 				} else if (detailType == DETAIL_INTERVIEW) {
-					runReplyActivity(ReplyActivity.REPLY_TYPE_INTERVIEW, detailStoryData.Nickname, diaryIndex);
+					runReplyActivity(
+							ReplyActivity.REPLY_TYPE_INTERVIEW,
+							detailStoryData.Nickname,
+							diaryIndex);
 				} else if (detailType == DETAIL_NORMAL) {
-					runReplyActivity(ReplyActivity.REPLY_TYPE_NORMAL, detailStoryData.Nickname, diaryIndex);
+					runReplyActivity(
+							ReplyActivity.REPLY_TYPE_NORMAL,
+							detailStoryData.Nickname,
+							diaryIndex);
 				}
 			}
 		});

@@ -30,7 +30,7 @@ import com.leadplatform.kfarmers.controller.SnipeApiController;
 import com.leadplatform.kfarmers.controller.SnipeResponseListener;
 import com.leadplatform.kfarmers.controller.UiController;
 import com.leadplatform.kfarmers.custom.button.ViewOnClickListener;
-import com.leadplatform.kfarmers.model.json.DiaryListJson;
+import com.leadplatform.kfarmers.model.json.FarmNewsJson;
 import com.leadplatform.kfarmers.model.json.NoticeListJson;
 import com.leadplatform.kfarmers.model.json.ProfileJson;
 import com.leadplatform.kfarmers.model.json.RecommendListJson;
@@ -678,7 +678,7 @@ public class HomeTabFragment extends BaseFragment {
         mImpressivePagingLayout = (LinearLayout) v.findViewById(R.id.ImpressivePagingLayout);
         mImpressiveText = (TextView) v.findViewById(R.id.ImpressiveText);
 
-        mImpressiveAdapter = new ImpressiveAdapter(getActivity(), new ArrayList<DiaryListJson>(), ((BaseFragmentActivity) getSherlockActivity()).imageLoader);
+        mImpressiveAdapter = new ImpressiveAdapter(getActivity(), new ArrayList<FarmNewsJson>(), ((BaseFragmentActivity) getSherlockActivity()).imageLoader);
         mImpressiveViewpager.setAdapter(mImpressiveAdapter);
 
         mImpressiveViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -720,8 +720,8 @@ public class HomeTabFragment extends BaseFragment {
                     switch (Code) {
                         case 0000:
                             JsonNode root = JsonUtil.parseTree(content);
-                            ArrayList<DiaryListJson> jsonArrayList = (ArrayList<DiaryListJson>) JsonUtil.jsonToArrayObject(root.findPath("List"), DiaryListJson.class);
-                            ArrayList<DiaryListJson> mTempArrayList = new ArrayList<DiaryListJson>();
+                            ArrayList<FarmNewsJson> jsonArrayList = (ArrayList<FarmNewsJson>) JsonUtil.jsonToArrayObject(root.findPath("List"), FarmNewsJson.class);
+                            ArrayList<FarmNewsJson> mTempArrayList = new ArrayList<FarmNewsJson>();
                             for (int i = 0; i < jsonArrayList.size(); i++) {
                                 mTempArrayList.add(jsonArrayList.get(i));
                                 if (i >= 5) {
@@ -775,19 +775,19 @@ public class HomeTabFragment extends BaseFragment {
     public class ImpressiveAdapter extends PagerAdapter {
         private Context context;
         private ImageLoader imageLoader;
-        private ArrayList<DiaryListJson> items;
+        private ArrayList<FarmNewsJson> items;
 
-        public ImpressiveAdapter(Context context, ArrayList<DiaryListJson> items, ImageLoader imageLoader) {
+        public ImpressiveAdapter(Context context, ArrayList<FarmNewsJson> items, ImageLoader imageLoader) {
             this.context = context;
             this.imageLoader = imageLoader;
             this.items = items;
         }
 
-        public void addAll(ArrayList<DiaryListJson> items) {
+        public void addAll(ArrayList<FarmNewsJson> items) {
             this.items = items;
         }
 
-        public void add(DiaryListJson item) {
+        public void add(FarmNewsJson item) {
             this.items.add(item);
         }
 
@@ -809,7 +809,7 @@ public class HomeTabFragment extends BaseFragment {
 
             ImageView image = (ImageView) v.findViewById(R.id.imageView);
 
-            DiaryListJson item = items.get(position);
+            FarmNewsJson item = items.get(position);
 
             imageLoader.displayImage(item.ProductImage1, image, mOptionsProduct);
 

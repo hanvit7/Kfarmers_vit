@@ -1,7 +1,6 @@
 package com.leadplatform.kfarmers.model.parcel;
 
-public class DiaryListData
-{
+public class FarmNewsFooterFilter {
     public static final String KEY = "DiaryListData";
 
     private String Farmer;
@@ -20,8 +19,7 @@ public class DiaryListData
     private boolean initFlag;
     private String Verification;
 
-    public DiaryListData()
-    {
+    public FarmNewsFooterFilter() {
         Farmer = null;
         Category1 = null;
         Category2 = null;
@@ -38,141 +36,115 @@ public class DiaryListData
         Verification = null;
     }
 
-    public String getFarmer()
-    {
+    public String getFarmer() {
         return Farmer;
     }
 
-    public void setFarmer(String farmer)
-    {
+    public void setFarmer(String farmer) {
         Farmer = farmer;
     }
 
-    public String getCategory1()
-    {
+    public String getCategory1() {
         return Category1;
     }
 
-    public void setCategory1(String category1)
-    {
+    public void setCategory1(String category1) {
         Category1 = category1;
     }
 
-    public String getCategory2()
-    {
+    public String getCategory2() {
         return Category2;
     }
 
-    public void setCategory2(String category2)
-    {
+    public void setCategory2(String category2) {
         Category2 = category2;
     }
 
-    public int getOldIndex()
-    {
+    public int getOldIndex() {
         return OldIndex;
     }
 
-    public void setOldIndex(int oldIndex)
-    {
+    public void setOldIndex(int oldIndex) {
         OldIndex = oldIndex;
     }
-    
-	public String getOldDate() {
-		return OldDate;
-	}
 
-	public void setOldDate(String oldDate) {
-		OldDate = oldDate;
-	}
+    public String getOldDate() {
+        return OldDate;
+    }
 
-	public int getAuth()
-    {
+    public void setOldDate(String oldDate) {
+        OldDate = oldDate;
+    }
+
+    public int getAuth() {
         return Auth;
     }
 
-    public void setAuth(int auth)
-    {
+    public void setAuth(int auth) {
         Auth = auth;
     }
-    
-    public int getReleaseDate2Month()
-    {
+
+    public int getReleaseDate2Month() {
         return ReleaseDate2Month;
     }
-    
-    public void setReleaseDate2Month(int month)
-    {
+
+    public void setReleaseDate2Month(int month) {
         ReleaseDate2Month = month;
     }
 
-    public String getAddress()
-    {
+    public String getAddress() {
         return Address;
     }
 
-    public void setAddress(String address)
-    {
+    public void setAddress(String address) {
         Address = address;
     }
 
-    public int getDistance()
-    {
+    public int getDistance() {
         return Distance;
     }
 
-    public void setDistance(int distance)
-    {
+    public void setDistance(int distance) {
         Distance = distance;
     }
 
-    public double getLatitude()
-    {
+    public double getLatitude() {
         return Latitude;
     }
 
-    public void setLatitude(double latitude)
-    {
+    public void setLatitude(double latitude) {
         Latitude = latitude;
     }
 
-    public double getLongitude()
-    {
+    public double getLongitude() {
         return Longitude;
     }
 
-    public void setLongitude(double longitude)
-    {
+    public void setLongitude(double longitude) {
         Longitude = longitude;
     }
 
-    public boolean isImpressive()
-    {
+    public boolean isImpressive() {
         return Impressive;
     }
 
-    public void setImpressive(boolean impressive)
-    {
+    public void setImpressive(boolean impressive) {
         Impressive = impressive;
     }
 
-    public String getSearch()
-    {
+    public String getSearch() {
         return Search;
     }
 
-    public void setSearch(String search)
-    {
+    public void setSearch(String search) {
         Search = search;
     }
 
-    public boolean isInitFlag()
-    {
+    public boolean isInitFlag() {
         return initFlag;
     }
 
-    public void setInitFlag(boolean initFlag)
-    {
+    public void setInitFlag(boolean initFlag) {
         this.initFlag = initFlag;
     }
 

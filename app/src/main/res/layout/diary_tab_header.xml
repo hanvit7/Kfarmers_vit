@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/diary_tab_header"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/CommonMediumByLargeRow2"
+    android:background="@color/white"
+    android:layout_alignParentTop="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_header_farm_news"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_header_farm_news_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:text="@string/diary_tab_header_farm_news_label"
+            android:textColor="#FF000000"
+            android:textSize="@dimen/CommonMediumText_1"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="20dp"
+        android:background="#bebdbd"/>
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_header_reviews"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_header_reviews_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:text="@string/diary_tab_header_reviews_label"
+            android:textColor="#FF000000"
+            android:textSize="@dimen/CommonMediumText_1"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="0.5dp"
+        android:layout_height="20dp"
+        android:background="#bebdbd"/>
+
+    <RelativeLayout
+        android:id="@+id/diary_tab_header_daily_life"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/diary_tab_header_daily_life_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/CommonLargeRow"
+            android:gravity="center_vertical"
+            android:text="@string/diary_tab_header_daily_life_label"
+            android:textColor="#FF000000"
+            android:textSize="@dimen/CommonMediumText_1"/>
+    </RelativeLayout>
+</LinearLayout>

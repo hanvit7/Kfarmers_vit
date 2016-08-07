@@ -25,8 +25,8 @@ import com.leadplatform.kfarmers.controller.CenterResponseListener;
 import com.leadplatform.kfarmers.controller.UiController;
 import com.leadplatform.kfarmers.custom.button.ViewOnClickListener;
 import com.leadplatform.kfarmers.model.holder.DiaryListHolder;
-import com.leadplatform.kfarmers.model.json.DiaryListJson;
-import com.leadplatform.kfarmers.model.parcel.DiaryListData;
+import com.leadplatform.kfarmers.model.json.FarmNewsJson;
+import com.leadplatform.kfarmers.model.parcel.FarmNewsFooterFilter;
 import com.leadplatform.kfarmers.model.preference.AppPreferences;
 import com.leadplatform.kfarmers.model.tag.LikeTag;
 import com.leadplatform.kfarmers.util.CommonUtil;
@@ -58,7 +58,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 	public static final String TAG = "FarmStoryListFragment";
 
 	private boolean bMoreFlag = false;
-	private ArrayList<DiaryListJson> farmStoryItemList;
+	private ArrayList<FarmNewsJson> farmStoryItemList;
 	private FarmStoryListAdapter farmStoryListAdapter;
 
     private LinearLayout mSubMenuLayout;
@@ -90,11 +90,11 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 		final View v = inflater.inflate(R.layout.fragment_story_list, container, false);
 		setRefreshListView(getSherlockActivity(), v, R.id.refresh_layout, refreshListener);
 
-        mSubMenuLayout = (LinearLayout) v.findViewById(R.id.SubMenuLayout);
-		subMenuBox1 = (RelativeLayout) v.findViewById(R.id.SubMenuBox1);
-		subMenuBox2 = (RelativeLayout) v.findViewById(R.id.SubMenuBox2);
-		subMenuText1 = (TextView) v.findViewById(R.id.SubMenu1);
-		subMenuText2 = (TextView) v.findViewById(R.id.SubMenu2);
+        mSubMenuLayout = (LinearLayout) v.findViewById(R.id.diary_tab_footer);
+		subMenuBox1 = (RelativeLayout) v.findViewById(R.id.diary_tab_footer_category);
+		subMenuBox2 = (RelativeLayout) v.findViewById(R.id.diary_tab_footer_eco_certification);
+		subMenuText1 = (TextView) v.findViewById(R.id.diary_tab_footer_category_text_view);
+		subMenuText2 = (TextView) v.findViewById(R.id.diary_tab_footer_eco_certification_text_view);
 		
 		subMenuTitle1 = "인상깊은 이야기";
 		subMenuTitle2 = "농어촌 이야기";
@@ -176,7 +176,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 			farmStoryListAdapter.clear();
 		}
 		
-		farmStoryItemList = new ArrayList<DiaryListJson>();
+		farmStoryItemList = new ArrayList<FarmNewsJson>();
 		
 		switch (selectType)
 		{
@@ -198,7 +198,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 		getStoryList(makeStoryListData(true, 0,""));		
 	}
 
-	private void getStoryList(DiaryListData data) {
+	private void getStoryList(FarmNewsFooterFilter data) {
 		if (data == null)
 			return;
 
@@ -210,7 +210,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 
         UiController.showProgressDialogFragment(getView());
 
-		CenterController.getListDiary(data, new CenterResponseListener(getSherlockActivity()) {
+		CenterController.getFarmNewsList(data, new CenterResponseListener(getSherlockActivity()) {
 			@Override
 			public void onSuccess(int Code, String content) {
 				onRefreshComplete();
@@ -224,7 +224,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 							Iterator<JsonNode> it = root.findPath("List").iterator();
 							while (it.hasNext()) {
 								diaryCount++;
-								DiaryListJson diary = (DiaryListJson) JsonUtil.jsonToObject(it.next().toString(), DiaryListJson.class);
+								FarmNewsJson diary = (FarmNewsJson) JsonUtil.jsonToObject(it.next().toString(), FarmNewsJson.class);
 								farmStoryListAdapter.add(diary);
 							}
 
@@ -254,12 +254,12 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 		});
 	}
 
-	private class FarmStoryListAdapter extends ArrayAdapter<DiaryListJson> {
+	private class FarmStoryListAdapter extends ArrayAdapter<FarmNewsJson> {
 		private int itemLayoutResourceId;
 		private ImageLoader imageLoader;
 		private DisplayImageOptions options;
 
-		public FarmStoryListAdapter(Context context, int itemLayoutResourceId, ArrayList<DiaryListJson> items, ImageLoader imageLoader) {
+		public FarmStoryListAdapter(Context context, int itemLayoutResourceId, ArrayList<FarmNewsJson> items, ImageLoader imageLoader) {
 			super(context, itemLayoutResourceId, items);
 			this.itemLayoutResourceId = itemLayoutResourceId;
 			this.imageLoader = imageLoader;
@@ -309,7 +309,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 				holder = (DiaryListHolder) convertView.getTag();
 			}
 
-			final DiaryListJson item = getItem(position);
+			final FarmNewsJson item = getItem(position);
 
 			if (item != null) {
 				holder.rootLayout.setTag(new String(item.Diary));
@@ -421,9 +421,15 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 					public void viewOnClick(View v) {
 						KfarmersAnalytics.onClick(KfarmersAnalytics.S_IMPRESSIVE, "Click_Item-Reply", null);
 						if (item.Type.equals("F")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_FARMER, item.Farm, item.Diary);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_FARMER,
+									item.Farm,
+									item.Diary);
 						} else if (item.Type.equals("V")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_VILLAGE, item.Farm, item.Diary);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_VILLAGE,
+									item.Farm,
+									item.Diary);
 						}
 					}
 				});
@@ -592,9 +598,9 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 		}
 	};
 
-	private DiaryListData makeStoryListData(boolean initFlag, int oldIndex, String oldDate) {
+	private FarmNewsFooterFilter makeStoryListData(boolean initFlag, int oldIndex, String oldDate) {
 		
-		DiaryListData data = new DiaryListData();
+		FarmNewsFooterFilter data = new FarmNewsFooterFilter();
 		
 		switch (selectType) 
 		{
@@ -617,7 +623,7 @@ public class FarmStoryListFragment extends BaseRefreshMoreListFragment implement
 	@Override
 	public void onDialogListSelection(int position, String object) {
 		try {
-			DiaryListJson data = (DiaryListJson) JsonUtil.jsonToObject(object, DiaryListJson.class);
+			FarmNewsJson data = (FarmNewsJson) JsonUtil.jsonToObject(object, FarmNewsJson.class);
 			if (position == 0) {
 				KfarmersAnalytics.onClick(KfarmersAnalytics.S_IMPRESSIVE, "Click_Item-Share", "카카오톡");
 				KaKaoController.sendKakaotalk(this, data);

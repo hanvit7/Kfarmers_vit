@@ -1,11 +1,5 @@
 package com.leadplatform.kfarmers.view.menu.story;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.apache.http.Header;
-
-import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap.Config;
@@ -42,6 +36,13 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+
+import org.apache.http.Header;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
 
 public class FreshStoryListFragment extends BaseRefreshMoreListFragment implements OnCloseShareDialogListener {
 	public static final String TAG = "FreshStoryListFragment";
@@ -263,11 +264,20 @@ public class FreshStoryListFragment extends BaseRefreshMoreListFragment implemen
 					@Override
 					public void viewOnClick(View v) {
 						if (item.Auth.equals("C")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_CONSUMER, item.Nickname, item.DiaryIndex);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_CONSUMER,
+									item.Nickname,
+									item.DiaryIndex);
 						} else if (item.Auth.equals("D")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_INTERVIEW, item.Nickname, item.DiaryIndex);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_INTERVIEW,
+									item.Nickname,
+									item.DiaryIndex);
 						} else if (item.Auth.equals("N")) {
-							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(ReplyActivity.REPLY_TYPE_NORMAL, item.Nickname, item.DiaryIndex);
+							((BaseFragmentActivity) getSherlockActivity()).runReplyActivity(
+									ReplyActivity.REPLY_TYPE_NORMAL,
+									item.Nickname,
+									item.DiaryIndex);
 						}
 					}
 				});

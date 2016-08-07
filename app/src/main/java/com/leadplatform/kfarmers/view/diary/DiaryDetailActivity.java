@@ -43,82 +43,87 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DiaryDetailActivity extends BaseFragmentActivity implements OnCloseShareDialogListener {
-	public static final int DETAIL_DIARY = 0;
-	public static final int DETAIL_IMPRESSIVE = 1;
-	public static final int DETAIL_FARMER = 2;
-	public static final int DETAIL_VILLAGE = 3;
-	public static final int DETAIL_FARM_STORY = 4;
-	
-	//private ImageButton actionBarFarmHomeBtn;
+    public static final int DETAIL_DIARY = 0;
+    public static final int DETAIL_IMPRESSIVE = 1;
+    public static final int DETAIL_FARMER = 2;
+    public static final int DETAIL_VILLAGE = 3;
+    public static final int DETAIL_FARM_STORY = 4;
 
-	public String farmName = "";
-	private String diary;
-	
-	//private RelativeLayout likeLayout, replyLayout, shareLayout;
-	private RelativeLayout replyLayout,farmLayout; //productLayout,farmLayout;
-	public TextView actionBarTitleText, likeText, replyText;
-	
-	private int detailType = DETAIL_DIARY;
-	
-	public ViewPager viewPager;
-	
-	private ArrayList<String> diaryList;
-	private DetailViewPagerAdapter adapter;
-	
-	public HashMap<Integer, DiaryDetailJson> dataHashMap; 
-	public ArrayList<ProductJson> shopArrayList;
-	public boolean isProductCheck = false;
-	
-	private ImageView leftArrow,rightArrow;
+    //private ImageButton actionBarFarmHomeBtn;
 
-	/***************************************************************/
-	// Override
+    public String farmName = "";
+    private String diary;
 
-	/***************************************************************/
+    //private RelativeLayout likeLayout, replyLayout, shareLayout;
+    private RelativeLayout replyLayout, farmLayout; //productLayout,farmLayout;
+    public TextView actionBarTitleText, likeText, replyText;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
-	
-	@Override
-	public void onCreateView(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_detail_diary);
+    private int detailType = DETAIL_DIARY;
+
+    public ViewPager viewPager;
+
+    private ArrayList<String> diaryList;
+    private DetailViewPagerAdapter adapter;
+
+    public HashMap<Integer, DiaryDetailJson> dataHashMap;
+    public ArrayList<ProductJson> shopArrayList;
+    public boolean isProductCheck = false;
+
+    private ImageView leftArrow, rightArrow;
+
+    /***************************************************************/
+    // Override
+
+    /***************************************************************/
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onCreateView(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_detail_diary);
 
 		/*likeLayout = (RelativeLayout) findViewById(R.id.Like);
-		likeText = (TextView) findViewById(R.id.LikeText);
+        likeText = (TextView) findViewById(R.id.LikeText);
 		shareLayout = (RelativeLayout) findViewById(R.id.Share);*/
-		
-		replyLayout = (RelativeLayout) findViewById(R.id.ReplyLayout);
-		replyText = (TextView) findViewById(R.id.RepleText);
-		
-		//productLayout = (RelativeLayout) findViewById(R.id.ProductHomeLayout);
-		farmLayout = (RelativeLayout) findViewById(R.id.ProductHomeLayout);
-		
-		
-		viewPager = (ViewPager) findViewById(R.id.viewpager);
-		
-		dataHashMap = new HashMap<Integer, DiaryDetailJson>();
-		
-		leftArrow = (ImageView)findViewById(R.id.left_arrow);
-		rightArrow = (ImageView)findViewById(R.id.right_arrow);
 
-		Intent intent = getIntent();
-		if (intent != null) 
-		{
-			diary = intent.getStringExtra("diary");
-			farmName = intent.getStringExtra("farm");
-			detailType = intent.getIntExtra("type", DETAIL_DIARY);
-		}
+        replyLayout = (RelativeLayout) findViewById(R.id.ReplyLayout);
+        replyText = (TextView) findViewById(R.id.RepleText);
+
+        //productLayout = (RelativeLayout) findViewById(R.id.ProductHomeLayout);
+        farmLayout = (RelativeLayout) findViewById(R.id.ProductHomeLayout);
+
+
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        dataHashMap = new HashMap<Integer, DiaryDetailJson>();
+
+        leftArrow = (ImageView) findViewById(R.id.left_arrow);
+        rightArrow = (ImageView) findViewById(R.id.right_arrow);
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            diary = intent.getStringExtra("diary");
+            farmName = intent.getStringExtra("farm");
+            detailType = intent.getIntExtra("type", DETAIL_DIARY);
+        }
 
         replyLayout.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Reply", null);
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Reply", null);
                 if (getDetailData().FarmerType.equals("F")) {
-                    runReplyActivity(ReplyActivity.REPLY_TYPE_FARMER, getDetailData().Farm, getDetailData().Diary);
+                    runReplyActivity(
+                            ReplyActivity.REPLY_TYPE_FARMER,
+                            getDetailData().Farm,
+                            getDetailData().Diary);
                 } else if (getDetailData().FarmerType.equals("V")) {
-                    runReplyActivity(ReplyActivity.REPLY_TYPE_VILLAGE, getDetailData().Farm, getDetailData().Diary);
+                    runReplyActivity(
+                            ReplyActivity.REPLY_TYPE_VILLAGE,
+                            getDetailData().Farm,
+                            getDetailData().Diary);
                 }
             }
         });
@@ -127,7 +132,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
             @Override
             public void viewOnClick(View v) {
 
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Farm", getDetailData().Farm);
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Farm", getDetailData().Farm);
 
                 Intent intent = new Intent(mContext, FarmActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -193,14 +198,14 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 				}
 			}
 		});*/
-		
-		reqDiaryList();
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		initView();
+
+        reqDiaryList();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initView();
 		
 		/*ObjectAnimator  objectAnimator = ObjectAnimator.ofFloat(new PagerHintMovement(-20), "progress", -1f, 1f);
         objectAnimator.setInterpolator(new AccelerateInterpolator());
@@ -237,7 +242,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
         });
         objectAnimator.setStartDelay(2000);
         objectAnimator.start();*/
-	}
+    }
 	
 	
 	/*class PagerHintMovement{
@@ -263,107 +268,101 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 	    }
 	}*/
 
-		
-	
-	public DiaryDetailJson getDetailData()
-	{
-		DiaryDetailJson detailJson = dataHashMap.get(viewPager.getCurrentItem());
-		return detailJson;
-	}
-	
-	public void setBottomData()
-	{
+
+    public DiaryDetailJson getDetailData() {
+        DiaryDetailJson detailJson = dataHashMap.get(viewPager.getCurrentItem());
+        return detailJson;
+    }
+
+    public void setBottomData() {
 		/*if (!PatternUtil.isEmpty(getDetailData().Like) && !getDetailData().Like.equals("0")) {
 			likeText.setText( getString(R.string.GetListDiaryLike) + " (" + getDetailData().Like + ")");
 		} else {
 			likeText.setText( R.string.GetListDiaryLike "");
 		}*/
 
-		if(getDetailData() != null && getDetailData().Reply != null) {
-			if (!PatternUtil.isEmpty(getDetailData().Reply) && !getDetailData().Reply.equals("0")) {
-				replyText.setText(/* getString(R.string.GetListDiaryReply) + */" (" + getDetailData().Reply + ")");
-			} else {
-				replyText.setText(/* R.string.GetListDiaryReply */"");
-			}
-		} else {
-			replyText.setText("");
-		}
-	}
-	
-	public void initView()
-	{
-		if (detailType == DETAIL_DIARY || detailType == DETAIL_FARM_STORY) {
-			if (!PatternUtil.isEmpty(farmName)) {
-				actionBarTitleText.setText(farmName);
-				actionBarTitleText.setVisibility(View.VISIBLE);
-			} else {
-				actionBarTitleText.setVisibility(View.INVISIBLE);
-			}
-		} else if (detailType == DETAIL_IMPRESSIVE) {
-			actionBarTitleText.setText(R.string.title_impressive);
-		} else if (detailType == DETAIL_FARMER) {
-			actionBarTitleText.setText(R.string.title_farmer);
-		} else if (detailType == DETAIL_VILLAGE) {
-			actionBarTitleText.setText(R.string.title_village);
-		}
-	}
-	
-	private void reqDiaryList()
-	{
-		CenterController.getDiaryList(diary , new CenterResponseListener(mContext)
-		{
-			@Override
-			public void onSuccess(int Code, String content) {
-				super.onSuccess(Code, content);
+        if (getDetailData() != null && getDetailData().Reply != null) {
+            if (!PatternUtil.isEmpty(getDetailData().Reply) && !getDetailData().Reply.equals("0")) {
+                replyText.setText(/* getString(R.string.GetListDiaryReply) + */" (" + getDetailData().Reply + ")");
+            } else {
+                replyText.setText(/* R.string.GetListDiaryReply */"");
+            }
+        } else {
+            replyText.setText("");
+        }
+    }
 
-				try {
+    public void initView() {
+        if (detailType == DETAIL_DIARY || detailType == DETAIL_FARM_STORY) {
+            if (!PatternUtil.isEmpty(farmName)) {
+                actionBarTitleText.setText(farmName);
+                actionBarTitleText.setVisibility(View.VISIBLE);
+            } else {
+                actionBarTitleText.setVisibility(View.INVISIBLE);
+            }
+        } else if (detailType == DETAIL_IMPRESSIVE) {
+            actionBarTitleText.setText(R.string.title_impressive);
+        } else if (detailType == DETAIL_FARMER) {
+            actionBarTitleText.setText(R.string.title_farmer);
+        } else if (detailType == DETAIL_VILLAGE) {
+            actionBarTitleText.setText(R.string.title_village);
+        }
+    }
 
-					switch (Code) {
-						case 0000:
-							diaryList = new ArrayList<String>();
-							JsonNode jsonNode = JsonUtil.parseTree(content);
+    private void reqDiaryList() {
+        CenterController.getDiaryList(diary, new CenterResponseListener(mContext) {
+            @Override
+            public void onSuccess(int Code, String content) {
+                super.onSuccess(Code, content);
 
-							JsonNode node = jsonNode.get("Data");
+                try {
 
-							for(int i = 0 ; i < node.get("List").size();i++)
-							{
-								diaryList.add(node.get("List").get(i).textValue());
-							}
+                    switch (Code) {
+                        case 0000:
+                            diaryList = new ArrayList<String>();
+                            JsonNode jsonNode = JsonUtil.parseTree(content);
 
-							adapter = new DetailViewPagerAdapter(getSupportFragmentManager());
-							viewPager.setAdapter(adapter);
+                            JsonNode node = jsonNode.get("Data");
 
-							viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                            for (int i = 0; i < node.get("List").size(); i++) {
+                                diaryList.add(node.get("List").get(i).textValue());
+                            }
 
-								@Override
-								public void onPageSelected(int arg0) {
-								}
+                            adapter = new DetailViewPagerAdapter(getSupportFragmentManager());
+                            viewPager.setAdapter(adapter);
 
-								@Override
-								public void onPageScrolled(int arg0, float arg1, int arg2) {
-								}
+                            viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-								@Override
-								public void onPageScrollStateChanged(int arg0) {
+                                @Override
+                                public void onPageSelected(int arg0) {
+                                }
 
-									if (ViewPager.SCROLL_STATE_IDLE == arg0) {
-										setBottomData();
-									}
-								}
-							});
-							viewPager.setCurrentItem(diaryList.indexOf(diary));
-							showArrowBtn(diary);
-							break;
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			@Override
-			public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
-				super.onFailure(statusCode, headers, content, error);
-			}
-		});
+                                @Override
+                                public void onPageScrolled(int arg0, float arg1, int arg2) {
+                                }
+
+                                @Override
+                                public void onPageScrollStateChanged(int arg0) {
+
+                                    if (ViewPager.SCROLL_STATE_IDLE == arg0) {
+                                        setBottomData();
+                                    }
+                                }
+                            });
+                            viewPager.setCurrentItem(diaryList.indexOf(diary));
+                            showArrowBtn(diary);
+                            break;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
+                super.onFailure(statusCode, headers, content, error);
+            }
+        });
 
 		/*TokenApiController.getDiaryList(diary,mContext, new TokenResponseListener(mContext) {
 			@Override
@@ -379,7 +378,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 				super.onFailure(statusCode, headers, content, error);
 			}
 		});*/
-	}
+    }
 	
 	
 	/*private void initUserInfo() {
@@ -394,35 +393,34 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 		}
 	}*/
 
-	public void showArrowBtn(String diary)
-	{
-		if(diary == null)
-		{
-			return;
-		}
+    public void showArrowBtn(String diary) {
+        if (diary == null) {
+            return;
+        }
 
-		Animation mAniArrow = AnimationUtils.loadAnimation(DiaryDetailActivity.this, R.anim.arrow_onoff);
+        Animation mAniArrow = AnimationUtils.loadAnimation(DiaryDetailActivity.this, R.anim.arrow_onoff);
 
-		mAniArrow.setAnimationListener(new Animation.AnimationListener() {
+        mAniArrow.setAnimationListener(new Animation.AnimationListener() {
 
-			@Override
-			public void onAnimationStart(Animation animation) {
-				leftArrow.setVisibility(View.VISIBLE);
-				rightArrow.setVisibility(View.VISIBLE);
-			}
+            @Override
+            public void onAnimationStart(Animation animation) {
+                leftArrow.setVisibility(View.VISIBLE);
+                rightArrow.setVisibility(View.VISIBLE);
+            }
 
-			@Override
-			public void onAnimationRepeat(Animation animation) {}
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
 
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				leftArrow.setVisibility(View.GONE);
-				rightArrow.setVisibility(View.GONE);
-			}
-		});
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                leftArrow.setVisibility(View.GONE);
+                rightArrow.setVisibility(View.GONE);
+            }
+        });
 
-		leftArrow.setAnimation(mAniArrow);
-		rightArrow.setAnimation(mAniArrow);
+        leftArrow.setAnimation(mAniArrow);
+        rightArrow.setAnimation(mAniArrow);
 
 		/*if (diaryList.indexOf(diary) > 0) {
 
@@ -430,13 +428,13 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 		if (diaryList.indexOf(diary) < diaryList.size() - 1) {
 
 		}*/
-	}
-	
-	@Override
-	public void initActionBar() {
-		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-		getSupportActionBar().setCustomView(R.layout.view_actionbar_detail);
-		actionBarTitleText = (TextView) findViewById(R.id.title);
+    }
+
+    @Override
+    public void initActionBar() {
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.view_actionbar_detail);
+        actionBarTitleText = (TextView) findViewById(R.id.title);
 		/*actionBarFarmHomeBtn = (ImageButton) findViewById(R.id.FarmHomeBtn);
 
 		actionBarFarmHomeBtn.setOnClickListener(new ViewOnClickListener() {
@@ -449,116 +447,115 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
                 startActivity(intent);
                     }
 		});*/
-		
-		initActionBarHomeBtn();
-	}
 
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
+        initActionBarHomeBtn();
+    }
 
-	
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-		super.onCreateContextMenu(menu, v, menuInfo);
-		getMenuInflater().inflate(R.menu.menu_diary_item, menu);
-		menu.setHeaderTitle(R.string.context_menu_title);
-	}
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
 
-		switch (item.getItemId()) {
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.menu_diary_item, menu);
+        menu.setHeaderTitle(R.string.context_menu_title);
+    }
 
-			case R.id.btn_copy:
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
 
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "복사");
+        switch (item.getItemId()) {
 
-				String str = "";
-				if (getDetailData() != null) {
-					try {
-						if (getDetailData().Rows != null) {
-							for (RowJson content : getDetailData().Rows) {
-								if (content.Type.equals("Text")) {
-									str += content.Value;
-								}
-							}
-						}
-						ClipboardManager clip = (ClipboardManager)mContext.getSystemService(Context.CLIPBOARD_SERVICE);
-						clip.setText(str);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				return true;
+            case R.id.btn_copy:
 
-			case R.id.btn_edit:
-				if (getDetailData() != null) {
-					try {
-						KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "수정");
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "복사");
 
-						Intent intent = new Intent(this, DiaryWriteActivity.class);
-						intent.putExtra("detail", JsonUtil.objectToJson(getDetailData()));
-						intent.putExtra("type",DiaryWriteActivity.TYPE_DIARY_EDIT);
-						startActivity(intent);
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-				return true;
+                String str = "";
+                if (getDetailData() != null) {
+                    try {
+                        if (getDetailData().Rows != null) {
+                            for (RowJson content : getDetailData().Rows) {
+                                if (content.Type.equals("Text")) {
+                                    str += content.Value;
+                                }
+                            }
+                        }
+                        ClipboardManager clip = (ClipboardManager) mContext.getSystemService(Context.CLIPBOARD_SERVICE);
+                        clip.setText(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
 
-			case R.id.btn_delete:
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "삭제");
+            case R.id.btn_edit:
+                if (getDetailData() != null) {
+                    try {
+                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "수정");
 
-				centerDeleteDiary(getDetailData().Diary, new OnDeleteDiaryListener() {
-					@Override
-					public void onResult(boolean success) {
-						if (success) {
-							Intent intent = new Intent();
-							intent.putExtra("diary", diary);
-							intent.putExtra("delete", true);
-							setResult(RESULT_OK, intent);
-							finish();
-						}
-					}
-				});
-				return true;
-		}
-		return super.onContextItemSelected(item);
-	}
+                        Intent intent = new Intent(this, DiaryWriteActivity.class);
+                        intent.putExtra("detail", JsonUtil.objectToJson(getDetailData()));
+                        intent.putExtra("type", DiaryWriteActivity.TYPE_DIARY_EDIT);
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                return true;
 
-	@Override
-	public void onDialogListSelection(int position, String object) {
-		try {
-			DiaryDetailJson data = (DiaryDetailJson) JsonUtil.jsonToObject(object, DiaryDetailJson.class);
-			if (position == 0) {
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Share", "카카오톡");
-				KaKaoController.sendKakaotalk(DiaryDetailActivity.this, data);
-			} else if (position == 1) {
-				KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Share", "카카오스토리");
-				KaKaoController.sendKakaostory(DiaryDetailActivity.this, data);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public class DetailViewPagerAdapter extends FragmentStatePagerAdapter 
-	{
+            case R.id.btn_delete:
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "삭제");
 
-		public DetailViewPagerAdapter(FragmentManager fm) {
-			super(fm);
-		}
+                centerDeleteDiary(getDetailData().Diary, new OnDeleteDiaryListener() {
+                    @Override
+                    public void onResult(boolean success) {
+                        if (success) {
+                            Intent intent = new Intent();
+                            intent.putExtra("diary", diary);
+                            intent.putExtra("delete", true);
+                            setResult(RESULT_OK, intent);
+                            finish();
+                        }
+                    }
+                });
+                return true;
+        }
+        return super.onContextItemSelected(item);
+    }
 
-		@Override
-		public Fragment getItem(int arg0) {
-			return DiaryDetailFragment.newInstance(diaryList.get(arg0), detailType, arg0);
-		}
+    @Override
+    public void onDialogListSelection(int position, String object) {
+        try {
+            DiaryDetailJson data = (DiaryDetailJson) JsonUtil.jsonToObject(object, DiaryDetailJson.class);
+            if (position == 0) {
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Share", "카카오톡");
+                KaKaoController.sendKakaotalk(DiaryDetailActivity.this, data);
+            } else if (position == 1) {
+                KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Share", "카카오스토리");
+                KaKaoController.sendKakaostory(DiaryDetailActivity.this, data);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-		@Override
-		public int getCount() {
-			return diaryList.size();
-		}
-	}
+    public class DetailViewPagerAdapter extends FragmentStatePagerAdapter {
+
+        public DetailViewPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int arg0) {
+            return DiaryDetailFragment.newInstance(diaryList.get(arg0), detailType, arg0);
+        }
+
+        @Override
+        public int getCount() {
+            return diaryList.size();
+        }
+    }
 }

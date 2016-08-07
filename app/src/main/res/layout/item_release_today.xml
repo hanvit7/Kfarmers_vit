@@ -10,7 +10,7 @@
 		android:orientation="horizontal"
 		android:gravity="center_vertical">
 		<ImageView
-		    android:id="@+id/profileImageView"
+		    android:id="@+id/diary_writing_profile_image_view"
 			android:layout_width="40dp"
 			android:layout_height="40dp"
 			android:layout_marginLeft="11dp"

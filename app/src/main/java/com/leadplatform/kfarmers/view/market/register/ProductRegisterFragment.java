@@ -44,7 +44,7 @@ import com.leadplatform.kfarmers.util.JsonUtil;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseFragment;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
-import com.leadplatform.kfarmers.view.common.CategoryDialogFragment.OnCloseCategoryDialogListener;
+import com.leadplatform.kfarmers.view.common.DialogFragment.OnCloseCategoryDialogListener;
 import com.leadplatform.kfarmers.view.common.ImageRotateActivity;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
@@ -188,8 +188,8 @@ public class ProductRegisterFragment extends BaseFragment {
 				((ProductRegisterActivity) getActivity()).onCategoryBtnClicked(
 						categoryIndex, new OnCloseCategoryDialogListener() {
 							@Override
-							public void onDialogListSelection(int subMenuType,
-															  int position) {
+							public void onDialogSelected(int subMenuType,
+														 int position) {
 								if (categoryIndex != position) {
 									categoryIndex = position;
 									mCategoryText.setText(((ProductRegisterActivity) getActivity()).mFarmerCategory.get(position).SubName);

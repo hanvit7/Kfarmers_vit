@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:id="@+id/diary_writing_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/CommonSmallMargin"
+        android:layout_marginRight="@dimen/CommonSmallMargin"
+        android:layout_marginTop="@dimen/CommonSmallMargin"
+        android:background="@drawable/get_list_post"
+        android:paddingLeft="@dimen/CommonLargePadding"
+        android:paddingRight="@dimen/CommonLargePadding"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/diary_writing_profile_image_view"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/CommonSsmallMargin"
+            android:layout_marginLeft="@dimen/CommonSsmallMargin"
+            android:layout_marginTop="@dimen/CommonSsmallMargin"
+            android:src="@drawable/icon_empty_profile"/>
+
+        <TextView
+            android:id="@+id/diary_writing_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/CommonMediumMargin"
+            android:layout_toLeftOf="@+id/diary_writing_image_view"
+            android:layout_toRightOf="@id/diary_writing_profile_image_view"
+            android:textColorHint="@color/CommonHint"/>
+
+        <ImageView
+            android:id="@id/diary_writing_image_view"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_write"/>
+    </RelativeLayout>
+</LinearLayout>
