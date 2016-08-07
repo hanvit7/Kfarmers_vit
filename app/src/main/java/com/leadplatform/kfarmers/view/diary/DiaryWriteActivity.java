@@ -78,12 +78,14 @@ import java.util.Iterator;
 public class DiaryWriteActivity extends BaseFragmentActivity implements OnLodingCompleteListener {
     public static final String TAG = "DiaryWriteActivity";
 
-    private final int TYPE_USER_FARMER = 0;
-    private final int TYPE_USER_VILLAGE = 1;
-    private final int TYPE_USER_CONSUMER = 2;
-//    private final int TYPE_USER_INTERVIEW = 3;
+//    private final int UserType.FARMER = 0;
+//    private final int UserType.EXPERIENCE_VILLAGE = 1;
+//    private final int TYPE_USER_CONSUMER = 2;
+    //    private final int TYPE_USER_INTERVIEW = 3;
 //    private final int TYPE_USER_NORMAL = 4;
-    private int userType = TYPE_USER_FARMER;
+    private enum UserType {FARMER, EXPERIENCE_VILLAGE, CONSUMER}
+    private UserType mUserType = UserType.FARMER;
+
 
     public final static int TYPE_DIARY_NORMAL = 0;
     public final static int TYPE_DIARY_EDIT = 1;
@@ -150,7 +152,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     @Override
     protected void onResume() {
         super.onResume();
-        if (userType != TYPE_USER_FARMER && userType != TYPE_USER_VILLAGE) {
+        if (mUserType != UserType.FARMER && mUserType != UserType.EXPERIENCE_VILLAGE) {
             if (!checkEditDiary() && diaryType != TYPE_DIARY_BLOG)
                 checkTemporaryDiary();
         }
@@ -184,24 +186,11 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
             TemporaryPermissionFlag = profileData.TemporaryPermissionFlag;
             if (profileData.Type.equals("F")) {
-                userType = TYPE_USER_FARMER;
+                mUserType = UserType.FARMER;
             } else if (profileData.Type.equals("V")) {
-                userType = TYPE_USER_VILLAGE;
+                mUserType = UserType.EXPERIENCE_VILLAGE;
             } else if (profileData.Type.equals("U")) {
-                userType = TYPE_USER_CONSUMER;
-
-                // if (profileData.Auth.equals("C"))
-                // {
-                // userType = TYPE_USER_CONSUMER;
-                // }
-                // else if (profileData.Auth.equals("D"))
-                // {
-                // userType = TYPE_USER_INTERVIEW;
-                // }
-                // else if (profileData.Auth.equals("N"))
-                // {
-                // userType = TYPE_USER_NORMAL;
-                // }
+                mUserType = UserType.CONSUMER;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -570,7 +559,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             saveBtn.setText(getString(R.string.WriteDiaryButtonSave));
         }
 
-        if (userType == TYPE_USER_CONSUMER /*|| userType == TYPE_USER_NORMAL || userType == TYPE_USER_INTERVIEW*/) {
+        if (mUserType == UserType.CONSUMER /*|| mUserType == TYPE_USER_NORMAL || mUserType == TYPE_USER_INTERVIEW*/) {
             titleLayout.setVisibility(View.GONE);
             tagBtn.setVisibility(View.INVISIBLE);
             labelBtnDivider.setVisibility(View.INVISIBLE);
@@ -578,7 +567,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             shareBtnDivider.setVisibility(View.INVISIBLE);
             weatherBtn.setVisibility(View.INVISIBLE);
         }
-        // else if (userType == TYPE_USER_INTERVIEW)
+        // else if (mUserType == TYPE_USER_INTERVIEW)
         // {
         // categoryLayout.setVisibility(View.GONE);
         // weatherBtn.setVisibility(View.INVISIBLE);
@@ -597,7 +586,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             saveBtn.setVisibility(View.INVISIBLE);
         }
 
-        if (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE) {
+        if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
             if (TemporaryPermissionFlag.equals("N")) {
                 tagBtn.setImageResource(R.drawable.button_blog_write_label_default_disable);
                 tagBtn.setEnabled(false);
@@ -633,7 +622,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onActionBarRightBtnClicked() {
-        if (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE) {
+        if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
             if (categoryIndex == 0) {
                 UiController.showDialog(mContext, R.string.dialog_product_reg_category);
                 return;
@@ -713,7 +702,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
 
             WriteDiaryData data = new WriteDiaryData();
-            if (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE) {
+            if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
                 if (categoryObjectList.get(categoryIndex).SubIndex != null)
                     data.setCategory(Integer.valueOf(categoryObjectList.get(categoryIndex).SubIndex));
             }
@@ -746,7 +735,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             data.setFrom(snsType);
 
             if (diaryType == TYPE_DIARY_NORMAL || diaryType == TYPE_DIARY_BLOG_TO_LIST) {
-                if (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE) {
+                if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
                     if (data.getCategory() == 0) {
                         CenterController.writeNotice(data, new CenterResponseListener(this) {
                             @Override
@@ -803,7 +792,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     }
                 }
             } else {
-                if (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE) {
+                if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
                     CenterController.editDiary(detailData.Diary, data, new CenterResponseListener(this) {
                         @Override
                         public void onSuccess(int Code, String content) {
@@ -905,7 +894,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             startFaceBookWriteSub(info);
 
 			/*String dateFormat = "yyyy-MM-dd HH:mm:ss";
-			SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+            SimpleDateFormat format = new SimpleDateFormat(dateFormat);
 			
 			try {
 				Date postDate = format.parse(info.created_time);
@@ -1379,7 +1368,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         double latitude = AppPreferences.getLatitude(this);
         double longitude = AppPreferences.getLongitude(this);
 
-        if (userType != TYPE_USER_FARMER && userType != TYPE_USER_VILLAGE)
+        if (mUserType != UserType.FARMER && mUserType != UserType.EXPERIENCE_VILLAGE)
             return;
 
         // UserDb user = DbController.queryCurrentUser(DiaryWriteActivity.this);
@@ -1424,7 +1413,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             categoryList = new ArrayList<String>();
             categoryObjectList = new ArrayList<CategoryJson>();
 
-            if (userType != TYPE_USER_FARMER && userType != TYPE_USER_VILLAGE) {
+            if (mUserType != UserType.FARMER && mUserType != UserType.EXPERIENCE_VILLAGE) {
                 categoryIndex = 0;
                 categoryList.add("소비자이야기");
                 categoryObjectList.add(new CategoryJson());
@@ -1623,7 +1612,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
                     KfarmersAnalytics.onClick(getType(), "Click_Category", categoryList.get(position));
 
-                    if (diaryType == TYPE_DIARY_NORMAL && (userType == TYPE_USER_FARMER || userType == TYPE_USER_VILLAGE)) {
+                    if (diaryType == TYPE_DIARY_NORMAL && (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE)) {
                         if (categoryIndex == noticeIndex) {
                             alignBtn.setBackgroundResource(R.drawable.btn_write_diary_align_disable);
                             alignBtn.setEnabled(false);
