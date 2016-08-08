@@ -68,6 +68,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 
+import junit.framework.Assert;
+
 import org.apache.http.Header;
 
 import java.io.File;
@@ -78,14 +80,9 @@ import java.util.Iterator;
 public class DiaryWriteActivity extends BaseFragmentActivity implements OnLodingCompleteListener {
     public static final String TAG = "DiaryWriteActivity";
 
-//    private final int UserType.FARMER = 0;
-//    private final int UserType.EXPERIENCE_VILLAGE = 1;
-//    private final int TYPE_USER_CONSUMER = 2;
-    //    private final int TYPE_USER_INTERVIEW = 3;
-//    private final int TYPE_USER_NORMAL = 4;
     private enum UserType {FARMER, EXPERIENCE_VILLAGE, CONSUMER}
-    private UserType mUserType = UserType.FARMER;
 
+    private UserType mUserType = UserType.FARMER;
 
     public final static int TYPE_DIARY_NORMAL = 0;
     public final static int TYPE_DIARY_EDIT = 1;
@@ -113,7 +110,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     private String kakaoStoryText = null;
     private String naverBlogText = null;
     private ArrayList<File> imageArrayList = null;
-    private String TemporaryPermissionFlag;
+    private String mWritePermission;
     private boolean TemporaryDiary = false;
     private String date;
     private String snsType = "";
@@ -184,13 +181,20 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             JsonNode root = JsonUtil.parseTree(user.getProfileContent());
             profileData = (ProfileJson) JsonUtil.jsonToObject(root.findPath("Row").toString(), ProfileJson.class);
 
-            TemporaryPermissionFlag = profileData.TemporaryPermissionFlag;
-            if (profileData.Type.equals("F")) {
-                mUserType = UserType.FARMER;
-            } else if (profileData.Type.equals("V")) {
-                mUserType = UserType.EXPERIENCE_VILLAGE;
-            } else if (profileData.Type.equals("U")) {
-                mUserType = UserType.CONSUMER;
+            mWritePermission = profileData.TemporaryPermissionFlag;
+            switch (profileData.Type) {
+                case "F":
+                    mUserType = UserType.FARMER;
+                    break;
+                case "V":
+                    mUserType = UserType.EXPERIENCE_VILLAGE;
+                    break;
+                case "U":
+                    mUserType = UserType.CONSUMER;
+                    break;
+                default:
+                    Assert.fail("unused user type");
+                    break;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -322,13 +326,11 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         });
 
         if (savedInstanceState == null) {
-
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
             if (diaryType == TYPE_DIARY_BLOG) {
                 DiaryBlogWriteFragment fragment = DiaryBlogWriteFragment.newInstance();
                 ft.replace(R.id.fragment_container, fragment, DiaryBlogWriteFragment.TAG);
-
                 KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE_SNS);
             } else {
                 DiaryWriteDragListFragment fragment = DiaryWriteDragListFragment.newInstance((detailDataString == null) ? TYPE_DIARY_NORMAL : TYPE_DIARY_EDIT);
@@ -342,8 +344,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
             ft.commit();
         }
-
-        // checkTemporaryDiary();
     }
 
     @Override
@@ -380,9 +380,9 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
-
         if (snsType.equals("페이스북")) {
             menu.setHeaderTitle("페이스북 사진첩");
+
             int i = 0;
             for (MyFaceBookAlbumJson albumJson : albumJsons) {
                 menu.add(0, i, 0, albumJson.name);
@@ -397,7 +397,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-
         if (snsType.equals("페이스북")) {
             try {
                 KfarmersAnalytics.onClick(getType(), "Click_Picture", "페이스북");
@@ -409,15 +408,13 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 case R.id.btn_camera_capture:
                     imgPath.clear();
                     imgPath.add(ImageUtil.takePictureFromCamera(this, Constants.REQUEST_TAKE_CAPTURE));
-
                     KfarmersAnalytics.onClick(getType(), "Click_Picture", "촬영");
-
                     return true;
+
                 case R.id.btn_camera_gallery:
                     // 기본 안드로이드 갤러리
                     //ImageUtil.takePictureFromGallery(this, Constants.REQUEST_TAKE_PICTURE);
                     galleryChoice("", "", DiaryWriteDragListFragment.MAX_PICTURE_COUNT);
-
                     KfarmersAnalytics.onClick(getType(), "Click_Picture", "불러오기");
                     return true;
             }
@@ -429,10 +426,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         int count = 0;
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
+
         if (fragment != null) {
             count = fragment.nowPictureCount();
         }
-
         ImageUtil.takeSelectFromGallery(mContext, maxCount, count, faceBoookId, faceBookDate, Constants.REQUEST_GALLERY);
     }
 
@@ -443,10 +440,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 runImageRotateActivity(Constants.REQUEST_TAKE_CAPTURE, imgPath);
                 return;
             } else if (requestCode == Constants.REQUEST_TAKE_PICTURE) {
-
                 if (null == data.getData()) {
                     return;
                 }
+
                 imgPath.add(ImageUtil.getConvertPathMediaStoreImageFile(this, data));
                 runImageRotateActivity(Constants.REQUEST_TAKE_PICTURE, imgPath);
                 return;
@@ -500,11 +497,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    /***************************************************************/
-    // Display
-
-    /***************************************************************/
-
     public void bloginitButton() {
         saveBtn.setVisibility(View.VISIBLE);
     }
@@ -514,7 +506,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void displayInitButton() {
-
         if (diaryType == TYPE_DIARY_BLOG) {
             titleLayout.setVisibility(View.GONE);
             tagBtn.setVisibility(View.GONE);
@@ -543,7 +534,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             rightBtn.setVisibility(View.VISIBLE);
             //saveBtn.setText(getString(R.string.WriteDiaryButtonSave));
             saveBtn.setVisibility(View.GONE);
-
         } else {
             titleLayout.setVisibility(View.VISIBLE);
             tagBtn.setVisibility(View.VISIBLE);
@@ -567,11 +557,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             shareBtnDivider.setVisibility(View.INVISIBLE);
             weatherBtn.setVisibility(View.INVISIBLE);
         }
-        // else if (mUserType == TYPE_USER_INTERVIEW)
-        // {
-        // categoryLayout.setVisibility(View.GONE);
-        // weatherBtn.setVisibility(View.INVISIBLE);
-        // }
 
         if (diaryType == TYPE_DIARY_EDIT) {
             titleEdit.setTextColor(Color.GRAY);
@@ -587,7 +572,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         }
 
         if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
-            if (TemporaryPermissionFlag.equals("N")) {
+            if (mWritePermission.equals("N")) {
                 tagBtn.setImageResource(R.drawable.button_blog_write_label_default_disable);
                 tagBtn.setEnabled(false);
                 shareBtn.setImageResource(R.drawable.button_blog_write_share_default_disable);
@@ -596,10 +581,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         }
     }
 
-    /***************************************************************/
-    // Method
-
-    /***************************************************************/
     private void runImageRotateActivity(int takeType, ArrayList<String> imgPath) {
         Intent intent = new Intent(this, ImageRotateActivity.class);
         intent.putExtra("takeType", takeType);
@@ -611,6 +592,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     private void addPictureListView(ArrayList<String> imgPath) {
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
+
         if (fragment != null) {
             fragment.addListViewPictureItem(imgPath);
         }
@@ -673,6 +655,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     pictureCount++;
                 }
                 naverBlogText += "\n";
+
                 if (!TextUtils.isEmpty(row.Value))
                     rows.add(row);
             }
@@ -702,10 +685,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
 
             WriteDiaryData data = new WriteDiaryData();
+
             if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
                 if (categoryObjectList.get(categoryIndex).SubIndex != null)
                     data.setCategory(Integer.valueOf(categoryObjectList.get(categoryIndex).SubIndex));
             }
+
             data.setBlogTitle(titleEdit.getText().toString());
             data.setbAlign(alignBtn.isChecked());
             data.setBlogTag(tempTag);
@@ -765,6 +750,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
                                             finish();
                                             break;
+
                                         default:
                                             UiController.showDialog(mContext, R.string.dialog_unknown_error);
                                             break;
@@ -802,6 +788,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                                     mDialog.dismiss();
                                 }
                             });
+
                             try {
                                 switch (Code) {
                                     case 0000:
@@ -851,25 +838,24 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void getSnsDiaryData() {
-
-
         FragmentManager fm = getSupportFragmentManager();
         DiaryBlogWriteFragment fragment = (DiaryBlogWriteFragment) fm.findFragmentByTag(DiaryBlogWriteFragment.TAG);
-        if (fragment != null) {
 
+        if (fragment != null) {
             UiController.showProgressDialog(mContext);
+
             switch (fragment.snsIndex) {
                 case 1:
                 case 2:
                 case 3:
                     fragment.getHtml();
                     break;
+
                 case 4:
                     if (fragment.selectItem >= 0) {
                         startKakaoWrite(fragment);
                     }
                     UiController.hideProgressDialog(mContext);
-                    //bloginitButton();
                     break;
 
                 case 5:
@@ -877,10 +863,9 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                         startFaceBookWrite(fragment);
                     }
                     break;
+
                 default:
                     UiController.hideProgressDialog(mContext);
-                    /*UiController.showDialog(mContext, R.string.dialog_blog_no_sns);
-                    bloginitButton();*/
                     break;
             }
         }
@@ -888,55 +873,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     private void startFaceBookWrite(DiaryBlogWriteFragment fragment) {
         if (fragment != null) {
-
             final MyFaceBookJson info = (MyFaceBookJson) fragment.getListView().getItemAtPosition(fragment.selectItem);
-
             startFaceBookWriteSub(info);
-
-			/*String dateFormat = "yyyy-MM-dd HH:mm:ss";
-            SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-			
-			try {
-				Date postDate = format.parse(info.created_time);
-				Date nowDate = Calendar.getInstance().getTime();
-				nowDate.setDate(nowDate.getDate()-1);
-				
-				if(postDate.before(nowDate))
-				{
-					UiController.hideProgressDialog(mContext);
-					UiController.showDialog(mContext, getString(R.string.toast_sns_get));
-					return;
-				}
-			} catch (ParseException e1) {
-				e1.printStackTrace();
-			}*/
-			
-			/*if(info.type.equals("photo") && info.object_id != null)
-			{
-				Request.Callback callback= new Request.Callback() 
-				{
-					@Override
-					public void onCompleted(Response response) {
-						try {
-							JsonNode data = JsonUtil.parseTree(response.getGraphObject().getInnerJSONObject().toString());
-							info.source = data.get("source").textValue();
-							startFaceBookWriteSub(info);
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				};
-				
-				Bundle bundle = new Bundle();
-				Session fSession = Session.getActiveSession();
-				Request request = new Request(fSession, info.object_id,bundle,HttpMethod.GET,callback);
-				RequestAsyncTask asyncTask = new RequestAsyncTask(request);
-				asyncTask.execute();
-			}
-			else
-			{
-				startFaceBookWriteSub(info);
-			}*/
         } else {
             UiController.hideProgressDialog(mContext);
         }
@@ -982,14 +920,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(diaryType);
         ft.replace(R.id.fragment_container, diaryWriteDragListFragment, DiaryWriteDragListFragment.TAG);
 
-        //ft.addToBackStack(null);
         ft.commit();
 
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 displayInitButton();
-                //bloginitButton();
                 UiController.hideProgressDialog(mContext);
             }
         });
@@ -997,29 +933,9 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     private void startKakaoWrite(DiaryBlogWriteFragment fragment) {
         if (fragment != null) {
-
             boolean isEmpty = true;
 
             MyKakaoStoryJson info = (MyKakaoStoryJson) fragment.getListView().getItemAtPosition(fragment.selectItem);
-			
-			/*String dateFormat = "yyyy-MM-dd HH:mm:ss";
-			SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-			
-			try {
-				Date postDate = format.parse(info.created_at);
-				Date nowDate = Calendar.getInstance().getTime();
-				nowDate.setDate(nowDate.getDate()-1);
-				
-				if(postDate.before(nowDate))
-				{
-					UiController.showDialog(mContext, getString(R.string.toast_sns_get));
-					return;
-				}
-			} catch (ParseException e1) {
-				e1.printStackTrace();
-			}*/
-
-
             String html = info.content;
 
             int str = html.lastIndexOf("http://m.kfarmers.kr/");
@@ -1080,7 +996,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(diaryType);
             ft.replace(R.id.fragment_container, diaryWriteDragListFragment, DiaryWriteDragListFragment.TAG);
 
-            //ft.addToBackStack(null);
             ft.commit();
 
             runOnUiThread(new Runnable() {
@@ -1089,16 +1004,14 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     displayInitButton();
                 }
             });
-
         }
     }
 
     private void startBlogWrite() {
-
         FragmentManager fm = getSupportFragmentManager();
         DiaryBlogWriteFragment fragment = (DiaryBlogWriteFragment) fm.findFragmentByTag(DiaryBlogWriteFragment.TAG);
-        if (fragment != null) {
 
+        if (fragment != null) {
             String html = fragment.content;
             tag = fragment.tag;
             date = fragment.date;
@@ -1111,9 +1024,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
                 ArrayList<RowJson> rows = new ArrayList<RowJson>();
 
-
                 for (int index = 0; index < str.length; index++) {
-
                     if (!str[index].trim().equals("")) {
                         RowJson row = new RowJson();
 
@@ -1123,7 +1034,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                             row.Type = "Text";
                         }
                         row.Value = str[index].trim();
-
                         rows.add(row);
                     }
                 }
@@ -1151,7 +1061,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             } else {
                 UiController.showDialog(mContext, R.string.dialog_blog_no_post);
             }
-
         }
     }
 
@@ -1161,6 +1070,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
+
         if (fragment != null) {
             ArrayList<RowJson> rows = new ArrayList<RowJson>();
             DragAdapter adapter = (DragAdapter) fragment.getListAdapter();
@@ -1168,6 +1078,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             for (int index = 0; index < adapter.getCount(); index++) {
                 RowJson row = new RowJson();
                 WDiaryItem item = adapter.getItem(index);
+
                 if (item.getType() == WDiaryItem.TEXT_TYPE) {
                     row.Type = "Text";
                     row.Value = item.getTextContent();
@@ -1205,65 +1116,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             return null;
         }
     }
-	
-	/*public void faceBookAlbumList(String next)
-	{
-		Session fSession = Session.getActiveSession();
-		 
-        if(fSession == null  || fSession.isClosed()){
-        	fSession = Session.openActiveSessionFromCache(mContext);
-        }
-        
-        UiController.showProgressDialog(mContext);
-		
-		Request.Callback callback= new Request.Callback() 
-		{
-			@Override
-			public void onCompleted(Response response) {
-				try {
-					JsonNode data = JsonUtil.parseTree(response.getGraphObject().getInnerJSONObject().toString());
-					JsonNode subData = data.get("data");
-					
-					for(JsonNode node : subData)
-					{
-						MyFaceBookAlbumJson bookJson = (MyFaceBookAlbumJson) JsonUtil.jsonToObject(node.toString(), MyFaceBookAlbumJson.class);
-						albumJsons.add(bookJson);
-					}								
-					
-					if(data.get("paging").has("next"))
-					{
-						faceBookAlbumList(data.get("paging").get("cursors").get("after").textValue());
-					}
-					else
-					{
-						pictureBtn.performClick();
-						
-						UiController.hideProgressDialog(mContext);
-					}
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		};
-		
-		Bundle bundle = new Bundle();
-		bundle.putString("fields","name");
-		bundle.putString("after",next);
-		
-		Request request = new Request(fSession, "me/albums",bundle,HttpMethod.GET,callback);
-		RequestAsyncTask asyncTask = new RequestAsyncTask(request);
-		asyncTask.execute();
-	}*/
-
 
     public void onPictureBtnClicked(View view) {
-
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
 
         if (fragment != null) {
-
             int count = fragment.isPictureCount();
 
             if (snsType.equals("페이스북")) {
@@ -1327,12 +1185,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         intent.putExtra("weather", weather);
         intent.putExtra("temperature", temperature);
         intent.putExtra("humidity", humidity);
-
         startActivityForResult(intent, Constants.REQUEST_WEATHER);
     }
 
     public void onSaveBtnClicked() {
-
         switch (diaryType) {
             case TYPE_DIARY_EDIT:
                 break;
@@ -1395,6 +1251,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                         case 1002:
                             UiController.showDialog(mContext, R.string.dialog_invalid_location);
                             break;
+
                         default:
                             UiController.showDialog(mContext, R.string.dialog_unknown_error);
                             break;
@@ -1450,9 +1307,11 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                                     }
                                 }
                                 break;
+
                             case 1002:
                                 UiController.showDialog(DiaryWriteActivity.this, R.string.dialog_empty_release);
                                 break;
+
                             default:
                                 UiController.showDialog(DiaryWriteActivity.this, R.string.dialog_unknown_error);
                                 break;
@@ -1471,24 +1330,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_NAVER);
             startActivityForResult(intent, Constants.REQUEST_SNS_NAVER);
-
-
         }
-
-        // naverblogBtn.setChecked(true);
-        // UiController.showDialog(this, R.string.dialog_disconnect_sns, R.string.dialog_ok, R.string.dialog_cancel, new CustomDialogListener()
-        // {
-        // @Override
-        // public void onDialog(int type)
-        // {
-        // if (type == UiDialog.DIALOG_POSITIVE_LISTENER)
-        // {
-        // naverblogBtn.setChecked(false);
-        // DbController.updateNaverFlag(DiaryWriteActivity.this, false);
-        // }
-        // }
-        // });
-
     }
 
     public void onTiStoryBtnClicked() {
@@ -1497,23 +1339,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_TISTORY);
             startActivityForResult(intent, Constants.REQUEST_SNS_TISTORY);
-
         }
-
-        // tistoryBtn.setChecked(true);
-        // UiController.showDialog(this, R.string.dialog_disconnect_sns, R.string.dialog_ok, R.string.dialog_cancel, new CustomDialogListener()
-        // {
-        // @Override
-        // public void onDialog(int type)
-        // {
-        // if (type == UiDialog.DIALOG_POSITIVE_LISTENER)
-        // {
-        // tistoryBtn.setChecked(false);
-        // DbController.updateTistoryFlag(DiaryWriteActivity.this, false);
-        // }
-        // }
-        // });
-
     }
 
     public void onDaumBlogBtnClicked() {
@@ -1523,21 +1349,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             intent.putExtra("snsType", Constants.REQUEST_SNS_DAUM);
             startActivityForResult(intent, Constants.REQUEST_SNS_DAUM);
         }
-
-        // daumblogBtn.setChecked(true);
-        // UiController.showDialog(this, R.string.dialog_disconnect_sns, R.string.dialog_ok, R.string.dialog_cancel, new CustomDialogListener()
-        // {
-        // @Override
-        // public void onDialog(int type)
-        // {
-        // if (type == UiDialog.DIALOG_POSITIVE_LISTENER)
-        // {
-        // daumblogBtn.setChecked(false);
-        // DbController.updateDaumFlag(DiaryWriteActivity.this, false);
-        // }
-        // }
-        // });
-
     }
 
     public void onFacebookBtnClicked() {
@@ -1547,21 +1358,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             intent.putExtra("snsType", Constants.REQUEST_SNS_FACEBOOK);
             startActivityForResult(intent, Constants.REQUEST_SNS_FACEBOOK);
         }
-
-        // facebookBtn.setChecked(true);
-        // UiController.showDialog(this, R.string.dialog_disconnect_sns, R.string.dialog_ok, R.string.dialog_cancel, new CustomDialogListener()
-        // {
-        // @Override
-        // public void onDialog(int type)
-        // {
-        // if (type == UiDialog.DIALOG_POSITIVE_LISTENER)
-        // {
-        // facebookBtn.setChecked(false);
-        // DbController.updateFaceBookFlag(DiaryWriteActivity.this, false);
-        // }
-        // }
-        // });
-
     }
 
     public void onTwitterBtnClicked() {
@@ -1571,21 +1367,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             intent.putExtra("snsType", Constants.REQUEST_SNS_TWITTER);
             startActivityForResult(intent, Constants.REQUEST_SNS_TWITTER);
         }
-
-        // twitterBtn.setChecked(true);
-        // UiController.showDialog(this, R.string.dialog_disconnect_sns, R.string.dialog_ok, R.string.dialog_cancel, new CustomDialogListener()
-        // {
-        // @Override
-        // public void onDialog(int type)
-        // {
-        // if (type == UiDialog.DIALOG_POSITIVE_LISTENER)
-        // {
-        // twitterBtn.setChecked(false);
-        // DbController.updateTwitterFlag(DiaryWriteActivity.this, false);
-        // }
-        // }
-        // });
-
     }
 
     public void onKakaoBtnClicked() {
@@ -1644,16 +1425,20 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void checkTemporaryDiary() {
-
         if (TemporaryDiary == false) {
             TemporaryDiary = true;
             String diary = DbController.queryTemporaryDiary(this);
+
             if (diary != null && !diary.isEmpty()) {
-                UiController.showDialog(DiaryWriteActivity.this, R.string.dialog_load_temporary_diary, R.string.actionbar_ok, R.string.actionbar_cancel, new CustomDialogListener() {
+                UiController.showDialog(
+                        DiaryWriteActivity.this,
+                        R.string.dialog_load_temporary_diary,
+                        R.string.actionbar_ok,
+                        R.string.actionbar_cancel,
+                        new CustomDialogListener() {
                     @Override
                     public void onDialog(int type) {
                         if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
-
                             if (diaryType == TYPE_DIARY_BLOG) {
                                 diaryType = TYPE_DIARY_BLOG_TO_LIST;
                                 displayInitButton();
@@ -1702,14 +1487,19 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
             if (!TextUtils.isEmpty(detailData.BlogTitle))
                 titleEdit.setText(detailData.BlogTitle);
+
             if (!TextUtils.isEmpty(detailData.BlogAlign))
                 alignBtn.setChecked(detailData.BlogAlign.equals("C"));
+
             if (!TextUtils.isEmpty(detailData.BlogTag))
                 tag = detailData.BlogTag;
+
             if (!TextUtils.isEmpty(detailData.Sky))
                 weather = detailData.Sky;
+
             if (!TextUtils.isEmpty(detailData.Temperature))
                 temperature = detailData.Temperature;
+
             if (!TextUtils.isEmpty(detailData.Humidity))
                 humidity = detailData.Humidity;
 
@@ -1720,8 +1510,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     DragAdapter adapter = (DragAdapter) fragment.getListAdapter();
                     if (adapter != null) {
                         adapter.clear();
+
                         for (RowJson row : detailData.Rows) {
                             WDiaryItem item = new WDiaryItem();
+
                             if (row.Type.equals("Text")) {
                                 item.setType(WDiaryItem.TEXT_TYPE);
                                 item.setTextContent(row.Value);
@@ -1741,19 +1533,22 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     void downloadImageAndPost(WriteDiaryData data) {
-
-        final DisplayImageOptions options = new DisplayImageOptions.Builder().cacheOnDisk(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-                .bitmapConfig(Bitmap.Config.RGB_565).considerExifParams(true).build();
+        final DisplayImageOptions options = new DisplayImageOptions.Builder()
+                .cacheOnDisk(true)
+                .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .considerExifParams(true)
+                .build();
 
         AsyncTask<WriteDiaryData, Void, WriteDiaryData> task = new AsyncTask<WriteDiaryData, Void, WriteDiaryData>() {
             @Override
             protected WriteDiaryData doInBackground(WriteDiaryData... data) {
-
                 ArrayList<String> img = new ArrayList<String>();
                 for (String path : data[0].getImages()) {
                     try {
                         if (path.contains("http")) {
-                            if (imageLoader.getDiskCache().get(path) == null || !imageLoader.getDiskCache().get(path).isFile()) {
+                            if (imageLoader.getDiskCache().get(path) == null
+                                    || !imageLoader.getDiskCache().get(path).isFile()) {
                                 imageLoader.loadImageSync(path, options);
                             }
                         }
@@ -1782,24 +1577,30 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                             switch (Code) {
                                 case 0000:
                                     if (diaryType == TYPE_DIARY_BLOG_TO_LIST) {
-                                        UiDialog.showDialog(mContext, getString(R.string.dialog_blog_info4), new CustomDialogListener() {
-                                            @Override
-                                            public void onDialog(int type) {
-                                                Toast toast = Toast.makeText(mContext, R.string.toast_success_write_diary, Toast.LENGTH_SHORT);
-                                                toast.setGravity(Gravity.CENTER, 0, 0);
-                                                toast.show();
+                                        UiDialog.showDialog(
+                                                mContext,
+                                                getString(R.string.dialog_blog_info4),
+                                                new CustomDialogListener() {
+                                                    @Override
+                                                    public void onDialog(int type) {
+                                                        Toast toast = Toast.makeText(
+                                                                mContext,
+                                                                R.string.toast_success_write_diary,
+                                                                Toast.LENGTH_SHORT);
+                                                        toast.setGravity(Gravity.CENTER, 0, 0);
+                                                        toast.show();
 
-                                                try {
-                                                    Intent intent = new Intent(mContext, FarmActivity.class);
-                                                    intent.putExtra("userType", profileData.Type);
-                                                    intent.putExtra("userIndex", profileData.Index);
-                                                    startActivity(intent);
-                                                } catch (Exception e) {
-                                                }
+                                                        try {
+                                                            Intent intent = new Intent(mContext, FarmActivity.class);
+                                                            intent.putExtra("userType", profileData.Type);
+                                                            intent.putExtra("userIndex", profileData.Index);
+                                                            startActivity(intent);
+                                                        } catch (Exception e) {
+                                                        }
 
-                                                finish();
-                                            }
-                                        });
+                                                        finish();
+                                                    }
+                                                });
                                     } else {
                                         if (data.isbKakao() || data.isbNaver() || data.isbFacebook()) {
                                             try {
@@ -1830,14 +1631,16 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                                                 Intent intent = new Intent(mContext, SnsPostingService.class);
                                                 intent.putExtra(SnsPostingService.DATA, snsPostItem);
                                                 startService(intent);
-
                                             } catch (Exception e) {
                                                 e.printStackTrace();
                                             }
                                         }
 
                                         DbController.updateTemporaryDiary(DiaryWriteActivity.this, "");
-                                        Toast toast = Toast.makeText(mContext, R.string.toast_success_write_diary, Toast.LENGTH_SHORT);
+                                        Toast toast = Toast.makeText(
+                                                mContext,
+                                                R.string.toast_success_write_diary,
+                                                Toast.LENGTH_SHORT);
                                         toast.setGravity(Gravity.CENTER, 0, 0);
                                         toast.show();
 
@@ -1852,6 +1655,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                                         finish();
                                     }
                                     break;
+
                                 default:
                                     UiController.showDialog(mContext, R.string.dialog_unknown_error);
                                     break;
@@ -1893,7 +1697,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void OnLodingComplete(String tag, boolean success) {
-
         if (tag.equals(DiaryWriteDragListFragment.TAG)) {
             checkEditDiary();
         } else if (tag.equals(DiaryBlogWriteFragment.TAG)) {
