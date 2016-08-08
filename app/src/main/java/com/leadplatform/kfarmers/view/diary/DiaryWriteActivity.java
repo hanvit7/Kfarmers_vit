@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Gravity;
@@ -125,6 +126,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void onCreateView(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView");
         setContentView(R.layout.activity_write_diary);
 
         Intent intent = getIntent();
@@ -148,7 +150,9 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     protected void onResume() {
+        Log.d(TAG, "onResume ");
         super.onResume();
+
         if (mUserType != UserType.FARMER && mUserType != UserType.EXPERIENCE_VILLAGE) {
             if (!checkEditDiary() && diaryType != TYPE_DIARY_BLOG)
                 checkTemporaryDiary();
@@ -157,6 +161,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void onBackPressed() {
+        Log.d(TAG, "onBackPressed ");
         if (shareLayout.getVisibility() == View.VISIBLE) {
             shareLayout.setVisibility(View.GONE);
             return;
@@ -164,6 +169,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
         FragmentManager fm = getSupportFragmentManager();
         DiaryBlogWriteFragment fragment = (DiaryBlogWriteFragment) fm.findFragmentByTag(DiaryBlogWriteFragment.TAG);
+
         if (fragment != null) {
             if (fragment.webView.canGoBack()) {
                 fragment.webView.goBack();
@@ -176,6 +182,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void initUserType() {
+        Log.d(TAG, "initUserType ");
         try {
             UserDb user = DbController.queryCurrentUser(this);
             JsonNode root = JsonUtil.parseTree(user.getProfileContent());
@@ -202,6 +209,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void initContentView(Bundle savedInstanceState) {
+        Log.d(TAG, "initContentView ");
         categoryLayout = (RelativeLayout) findViewById(R.id.CategoryLayout);
         titleLayout = (RelativeLayout) findViewById(R.id.TitleLayout);
         alignBtn = (ToggleButton) findViewById(R.id.AlignImage);
@@ -348,6 +356,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void initActionBar() {
+        Log.d(TAG, "initActionBar ");
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
         TextView title = (TextView) findViewById(R.id.title);
@@ -380,6 +389,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+        Log.d(TAG, "onCreateContextMenu ");
         if (snsType.equals("페이스북")) {
             menu.setHeaderTitle("페이스북 사진첩");
 
@@ -397,6 +407,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+        Log.d(TAG, "onContextItemSelected ");
         if (snsType.equals("페이스북")) {
             try {
                 KfarmersAnalytics.onClick(getType(), "Click_Picture", "페이스북");
@@ -423,6 +434,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void galleryChoice(String faceBoookId, String faceBookDate, int maxCount) {
+        Log.d(TAG, "galleryChoice ");
         int count = 0;
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
@@ -435,6 +447,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult ");
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == Constants.REQUEST_TAKE_CAPTURE) {
                 runImageRotateActivity(Constants.REQUEST_TAKE_CAPTURE, imgPath);
@@ -498,14 +511,17 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void bloginitButton() {
+        Log.d(TAG, "bloginitButton ");
         saveBtn.setVisibility(View.VISIBLE);
     }
 
     public void kakaoinitButton() {
+        Log.d(TAG, "kakaoinitButton ");
         saveBtn.setVisibility(View.GONE);
     }
 
     private void displayInitButton() {
+        Log.d(TAG, "displayInitButton ");
         if (diaryType == TYPE_DIARY_BLOG) {
             titleLayout.setVisibility(View.GONE);
             tagBtn.setVisibility(View.GONE);
@@ -582,6 +598,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void runImageRotateActivity(int takeType, ArrayList<String> imgPath) {
+        Log.d(TAG, "runImageRotateActivity ");
         Intent intent = new Intent(this, ImageRotateActivity.class);
         intent.putExtra("takeType", takeType);
         //intent.putExtra("imagePath", path);
@@ -590,6 +607,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void addPictureListView(ArrayList<String> imgPath) {
+        Log.d(TAG, "addPictureListView ");
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
 
@@ -599,11 +617,13 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onActionBarLeftBtnClicked() {
+        Log.d(TAG, "onActionBarLeftBtnClicked ");
         onSaveBtnClicked();
         finish();
     }
 
     public void onActionBarRightBtnClicked() {
+        Log.d(TAG, "onActionBarRightBtnClicked ");
         if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
             if (categoryIndex == 0) {
                 UiController.showDialog(mContext, R.string.dialog_product_reg_category);
@@ -838,6 +858,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void getSnsDiaryData() {
+        Log.d(TAG, "getSnsDiaryData ");
         FragmentManager fm = getSupportFragmentManager();
         DiaryBlogWriteFragment fragment = (DiaryBlogWriteFragment) fm.findFragmentByTag(DiaryBlogWriteFragment.TAG);
 
@@ -872,6 +893,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void startFaceBookWrite(DiaryBlogWriteFragment fragment) {
+        Log.d(TAG, "startFaceBookWrite ");
         if (fragment != null) {
             final MyFaceBookJson info = (MyFaceBookJson) fragment.getListView().getItemAtPosition(fragment.selectItem);
             startFaceBookWriteSub(info);
@@ -881,6 +903,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void startFaceBookWriteSub(MyFaceBookJson info) {
+        Log.d(TAG, "startFaceBookWriteSub ");
         diaryType = TYPE_DIARY_BLOG_TO_LIST;
 
         date = info.created_time;
@@ -932,6 +955,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void startKakaoWrite(DiaryBlogWriteFragment fragment) {
+        Log.d(TAG, "startKakaoWrite ");
         if (fragment != null) {
             boolean isEmpty = true;
 
@@ -1008,6 +1032,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void startBlogWrite() {
+        Log.d(TAG, "startBlogWrite ");
         FragmentManager fm = getSupportFragmentManager();
         DiaryBlogWriteFragment fragment = (DiaryBlogWriteFragment) fm.findFragmentByTag(DiaryBlogWriteFragment.TAG);
 
@@ -1065,6 +1090,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private String makeWriteDiaryData() {
+        Log.d(TAG, "makeWriteDiaryData ");
         boolean bEmptyContentFlag = true;
         DiaryDetailJson data = new DiaryDetailJson();
 
@@ -1118,6 +1144,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onPictureBtnClicked(View view) {
+        Log.d(TAG, "onPictureBtnClicked");
         FragmentManager fm = getSupportFragmentManager();
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
 
@@ -1160,6 +1187,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onTagBtnClicked() {
+        Log.d(TAG, "onTagBtnClicked");
         Intent intent = new Intent(this, TagActivity.class);
         intent.putExtra("tag", tag);
 
@@ -1173,6 +1201,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onShareBtnClicked() {
+        Log.d(TAG, "onShareBtnClicked");
         if (shareLayout.getVisibility() == View.GONE) {
             shareLayout.setVisibility(View.VISIBLE);
         } else {
@@ -1181,6 +1210,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onWeatherBtnClicked() {
+        Log.d(TAG, "onWeatherBtnClicked");
         Intent intent = new Intent(this, WeatherActivity.class);
         intent.putExtra("weather", weather);
         intent.putExtra("temperature", temperature);
@@ -1189,6 +1219,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onSaveBtnClicked() {
+        Log.d(TAG, "onSaveBtnClicked");
         switch (diaryType) {
             case TYPE_DIARY_EDIT:
                 break;
@@ -1221,6 +1252,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void requestWeather() {
+        Log.d(TAG, "requestWeather");
         double latitude = AppPreferences.getLatitude(this);
         double longitude = AppPreferences.getLongitude(this);
 
@@ -1265,6 +1297,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void requestCategory() {
+        Log.d(TAG, "requestCategory");
         if (categoryObjectList == null) {
             UserDb user = DbController.queryCurrentUser(this);
             categoryList = new ArrayList<String>();
@@ -1325,6 +1358,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onNaverBlogBtnClicked() {
+        Log.d(TAG, "onNaverBlogBtnClicked");
         if (naverblogBtn.isChecked() && !DbController.queryNaverFlag(this)) {
             naverblogBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1334,6 +1368,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onTiStoryBtnClicked() {
+        Log.d(TAG, "onTiStoryBtnClicked");
         if (tistoryBtn.isChecked() && !DbController.queryTistoryFlag(this)) {
             tistoryBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1343,6 +1378,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onDaumBlogBtnClicked() {
+        Log.d(TAG, "onDaumBlogBtnClicked");
         if (daumblogBtn.isChecked() && !DbController.queryDaumFlag(this)) {
             daumblogBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1352,6 +1388,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onFacebookBtnClicked() {
+        Log.d(TAG, "onFacebookBtnClicked");
         if (facebookBtn.isChecked() && !DbController.queryFaceBookFlag(this)) {
             facebookBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1361,6 +1398,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onTwitterBtnClicked() {
+        Log.d(TAG, "onTwitterBtnClicked");
         if (twitterBtn.isChecked() && !DbController.queryTwitterFlag(this)) {
             twitterBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1370,6 +1408,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     public void onKakaoBtnClicked() {
+        Log.d(TAG, "onKakaoBtnClicked");
         if (kakaoBtn.isChecked() && !DbController.queryKakaoFlag(this)) {
             kakaoBtn.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
@@ -1379,6 +1418,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void onCategoryBtnClicked() {
+        Log.d(TAG, "onCategoryBtnClicked");
         DialogFragment fragment = DialogFragment.newInstance(
                 0,
                 categoryIndex,
@@ -1425,6 +1465,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void checkTemporaryDiary() {
+        Log.d(TAG, "checkTemporaryDiary");
         if (TemporaryDiary == false) {
             TemporaryDiary = true;
             String diary = DbController.queryTemporaryDiary(this);
@@ -1462,6 +1503,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private boolean checkEditDiary() {
+        Log.d(TAG, "checkEditDiary");
         if (detailDataString != null) {
             displayUpdateDiaryData(detailDataString);
             //detailDataString = null;
@@ -1471,6 +1513,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private void displayUpdateDiaryData(String diary) {
+        Log.d(TAG, "displayUpdateDiaryData");
         try {
             detailData = (DiaryDetailJson) JsonUtil.jsonToObject(diary, DiaryDetailJson.class);
 
@@ -1533,6 +1576,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     void downloadImageAndPost(WriteDiaryData data) {
+        Log.d(TAG, "downloadImageAndPost");
         final DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .cacheOnDisk(true)
                 .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
@@ -1697,12 +1741,14 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     @Override
     public void OnLodingComplete(String tag, boolean success) {
+        Log.d(TAG, "OnLodingComplete");
         if (tag.equals(DiaryWriteDragListFragment.TAG)) {
             checkEditDiary();
         } else if (tag.equals(DiaryBlogWriteFragment.TAG)) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    Log.d(TAG, "OnLodingComplete run");
                     UiController.hideProgressDialog(mContext);
                 }
             });
@@ -1717,6 +1763,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     }
 
     private String getType() {
+        Log.d(TAG, "getType");
         if (diaryType == TYPE_DIARY_NORMAL) {
             return KfarmersAnalytics.S_WRITE;
         } else if (diaryType == TYPE_DIARY_BLOG_TO_LIST) {

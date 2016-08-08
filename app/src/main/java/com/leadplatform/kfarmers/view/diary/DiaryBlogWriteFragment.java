@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -107,10 +108,10 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
     private boolean bMoreFlag = false;
 
-
     OnLodingCompleteListener mOnLodingCompleteListener;
 
     public static DiaryBlogWriteFragment newInstance() {
+        Log.d(TAG, "newInstance ");
         final DiaryBlogWriteFragment f = new DiaryBlogWriteFragment();
         return f;
     }
@@ -118,11 +119,11 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public void onAttach(Activity activity) {
+        Log.d(TAG, "onAttach ");
         super.onAttach(activity);
 
         try {
@@ -136,6 +137,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d(TAG, "onCreateView ");
         final View v = inflater.inflate(R.layout.fragment_write_blog_diary,
                 container, false);
 
@@ -165,33 +167,29 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
         v.findViewById(R.id.urlButton).setOnClickListener(
                 new OnClickListener() {
-
                     @Override
                     public void onClick(View arg0) {
-
                         String url = editText.getText().toString().trim();
                         if (url.contains("://")) {
                             webView.loadUrl(url);
                         } else {
                             webView.loadUrl("http://" + url);
                         }
-                        //webView.loadUrl("http://blog.naver.com/ssunde1/220110787056");
-                        // webView.loadUrl("http://blog.naver.com/hoon2e125/220061010888");
                     }
                 });
 
         onSnsBtnClicked();
-
         return v;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+        Log.d(TAG, "onActivityCreated ");
         super.onActivityCreated(savedInstanceState);
-
     }
 
     private void onSnsBtnClicked() {
+        Log.d(TAG, "onSnsBtnClicked ");
         DialogFragment fragment = DialogFragment.newInstance(
                 0,
                 snsIndex,
@@ -224,11 +222,13 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                                 kakaoListAdapter.clear();
                                 kakaoListAdapter.notifyDataSetChanged();
                             }
+
                             if (null != faceBookAdapter) {
                                 faceBookAdapter.clear();
                                 faceBookAdapter.notifyDataSetChanged();
                             }
                             break;
+
                         case 1:
                             if (PatternUtil.isEmpty(DbController.queryBlogNaver(getSherlockActivity()))) {
                                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Sns-Category", "네이버");
@@ -239,6 +239,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                                 blogInit(Constants.REQUEST_SNS_BLOG_NAVER);
                             }
                             break;
+
                         case 2:
                             if (PatternUtil.isEmpty(DbController.queryBlogDaum(getSherlockActivity()))) {
                                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Sns-Category", "다음");
@@ -249,6 +250,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                                 blogInit(Constants.REQUEST_SNS_BLOG_DAUM);
                             }
                             break;
+
                         case 3:
                             if (PatternUtil.isEmpty(DbController.queryBlogTstory(getSherlockActivity()))) {
                                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Sns-Category", "티스토리");
@@ -259,17 +261,16 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                                 blogInit(Constants.REQUEST_SNS_BLOG_TSTORY);
                             }
                             break;
+
                         case 4:
                             kakaoStroyInit(Constants.REQUEST_SNS_KAKAO);
                             KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Sns-Category", "카카오 스토리");
                             break;
+
                         case 5:
                             faceBookInit();
                             KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Sns-Category", "페이스북");
                             break;
-                    /*case 6:
-						kakaoStroyInit(Constants.REQUEST_SNS_KAKAO_CH);	
-						break;*/
                     }
                 }
             }
@@ -283,11 +284,11 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "onActivityResult ");
         super.onActivityResult(requestCode, resultCode, data);
 
         switch (requestCode) {
             case Constants.REQUEST_SNS_NAVER:
-
                 if (resultCode == Activity.RESULT_OK) {
                     DbController.updateNaverFlag(getSherlockActivity(), true);
                     snsInfoLayout.setVisibility(View.GONE);
@@ -296,8 +297,8 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     snsText.setText(snsList.get(0));
                     snsIndex = 0;
                 }
-
                 break;
+
             case Constants.REQUEST_SNS_BLOG_DAUM:
                 if (resultCode == Activity.RESULT_OK) {
                     snsInfoLayout.setVisibility(View.GONE);
@@ -306,8 +307,8 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     snsText.setText(snsList.get(0));
                     snsIndex = 0;
                 }
-
                 break;
+
             case Constants.REQUEST_SNS_BLOG_TSTORY:
                 if (resultCode == Activity.RESULT_OK) {
                     snsInfoLayout.setVisibility(View.GONE);
@@ -317,6 +318,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     snsIndex = 0;
                 }
                 break;
+
             case Constants.REQUEST_SNS_FACEBOOK:
                 if (resultCode == Activity.RESULT_OK) {
                     DbController.updateFaceBookFlag(getSherlockActivity(), true);
@@ -327,6 +329,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     snsIndex = 0;
                 }
                 break;
+
             case Constants.REQUEST_SNS_KAKAO:
                 if (resultCode == Activity.RESULT_OK) {
                     DbController.updateKakaoFlag(getSherlockActivity(), true);
@@ -336,7 +339,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     snsText.setText(snsList.get(0));
                     snsIndex = 0;
                 }
-
                 break;
 
             case Constants.REQUEST_SNS_KAKAO_CH:
@@ -350,11 +352,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
             default:
                 break;
         }
-
-
     }
-
-    //////////////////// more
 
     private OnLoadMoreListener loadMoreListener = new OnLoadMoreListener() {
         @Override
@@ -369,16 +367,14 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                 } else {
                     onLoadMoreComplete();
                 }
-
             } else {
                 onLoadMoreComplete();
             }
         }
     };
 
-    ////////////////////faceBook
-
     private void faceBookInit() {
+        Log.d(TAG, "faceBookInit ");
         bMoreFlag = false;
         faceBookLastId = "";
         faceBookPaging = "";
@@ -389,7 +385,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
             getSherlockActivity().startActivityFromFragment(DiaryBlogWriteFragment.this, intent, Constants.REQUEST_SNS_FACEBOOK);
             return;
         }
-
 
         ((DiaryWriteActivity) getActivity()).kakaoinitButton();
         snsInfoLayout.setVisibility(View.GONE);
@@ -414,6 +409,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     }
 
     private void getFacebook() {
+        Log.d(TAG, "getFacebook ");
         UiController.showProgressDialog(getSherlockActivity());
 
         GraphRequest graphRequest = GraphRequest.newGraphPathRequest(AccessToken.getCurrentAccessToken(), "me/feed", new GraphRequest.Callback() {
@@ -449,7 +445,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     }
 
                     faceBookAdapter.addAll(arrayList);
-
                     faceBookAdapter.notifyDataSetChanged();
 
                     if (pagingData.has("next") && pagingData.get("next").textValue() != null) {
@@ -459,12 +454,10 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                         faceBookLastId = uri.getQueryParameter("until");
                         faceBookPaging = uri.getQueryParameter("__paging_token");
                         bMoreFlag = true;
-
                     } else {
                         faceBookLastId = "";
                         bMoreFlag = false;
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -481,72 +474,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
         graphRequest.setParameters(bundle);
         graphRequest.executeAsync();
-
-			/*Request.Callback callback = new Request.Callback() {
-
-				@Override
-				public void onCompleted(Response response) {
-					try {
-
-						ArrayList<MyFaceBookJson> arrayList = new ArrayList<MyFaceBookJson>();
-
-						JsonNode data = JsonUtil.parseTree(response.getGraphObject().getInnerJSONObject().toString());
-
-						JsonNode subData = data.get("data");
-						JsonNode pagingData = data.get("paging");
-
-						String dateFormat = "yyyy-MM-dd'T'HH:mm:ss'+0000'";
-						String dateFormat2 = "yyyy-MM-dd HH:mm:ss";
-
-						SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-						SimpleDateFormat format2 = new SimpleDateFormat(dateFormat2);
-
-						for (JsonNode node : subData) {
-							MyFaceBookJson bookJson = (MyFaceBookJson) JsonUtil.jsonToObject(node.toString(), MyFaceBookJson.class);
-
-							if (bookJson.message != null || bookJson.description != null) {
-								bookJson.created_time = format2.format(TimeUtil.convertUTCToLocalTime(format.parse(bookJson.created_time).getTime()));
-								arrayList.add(bookJson);
-							}
-						
-						*//*if(bookJson.description == null && bookJson.name == null && bookJson.message != null)
-						{
-							bookJson.created_time = format2.format(TimeUtil.convertUTCToLocalTime(format.parse(bookJson.created_time).getTime()));
-							arrayList.add(bookJson);
-						}*//*
-						}
-
-						faceBookAdapter.addAll(arrayList);
-
-						faceBookAdapter.notifyDataSetChanged();
-
-						if (pagingData.has("next") && pagingData.get("next").textValue() != null) {
-							String str = pagingData.get("next").textValue();
-							faceBookLastId = str.split("&until=")[1];
-							bMoreFlag = true;
-						} else {
-							faceBookLastId = "";
-							bMoreFlag = false;
-						}
-
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-
-					onLoadMoreComplete();
-					UiController.hideProgressDialog(getSherlockActivity());
-				}
-
-			};
-
-			Bundle bundle = new Bundle();
-			bundle.putString("limit","30");
-			bundle.putString("until",faceBookLastId);
-
-			Session fSession = Session.getActiveSession();
-			Request request = new Request(fSession, "me/feed", bundle, HttpMethod.GET, callback);
-			RequestAsyncTask asyncTask = new RequestAsyncTask(request);
-			asyncTask.execute();*/
     }
 
     private class FaceBookAdapter extends ArrayAdapter<MyFaceBookJson> {
@@ -560,11 +487,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
             this.itemLayoutResourceId = itemLayoutResourceId;
             this.imageLoader = imageLoader;
 
-			/*this.optionsProfile = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-					.bitmapConfig(Config.RGB_565)
-					.displayer(new CustomRoundedBitmapDisplayer(CommonUtil.AndroidUtil.pixelFromDp(getSherlockActivity(), 68 ) / 2))
-					.showImageOnLoading(R.drawable.common_dummy).build();*/
-
             this.optionsProfile = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
                     .bitmapConfig(Config.RGB_565)
                     .displayer(new RoundedBitmapDisplayer(140))
@@ -577,7 +499,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-
+            Log.d(TAG, "FaceBookAdapter getView ");
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) getSherlockActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(itemLayoutResourceId, null);
@@ -617,35 +539,13 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                 convertView.setOnClickListener(clickListener);
 
                 imgView.setVisibility(View.GONE);
-				/*if(item.type.equals("photo"))
-				{
-					imgView.setVisibility(View.VISIBLE);
-					imageLoader.displayImage(item.picture, imgView);
-				}
-				else
-				{
-					imgView.setVisibility(View.GONE);
-				}*/
-				
-/*				if(selectItem == position)
-				{
-					check.setVisibility(View.VISIBLE);
-				}
-				else
-				{
-					check.setVisibility(View.GONE);
-				}*/
-
             }
-
             return convertView;
         }
     }
 
-
-    //////////////////// kakao
-
     private void kakaoStroyViewInit() {
+        Log.d(TAG, "kakaoStroyViewInit ");
         ((DiaryWriteActivity) getActivity()).kakaoinitButton();
         snsInfoLayout.setVisibility(View.GONE);
         webView.setVisibility(View.GONE);
@@ -669,13 +569,13 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     }
 
     private void kakaoStroyInit(int type) {
+        Log.d(TAG, "kakaoStroyInit ");
         boolean isOpen = false;
         bMoreFlag = false;
         kakaoLastId = "";
 
         if (type == Constants.REQUEST_SNS_KAKAO) {
             if (com.kakao.Session.initializeSession(getSherlockActivity(), new SessionCallback() {
-
                 @Override
                 public void onSessionOpened() {
                     kakaoStroyViewInit();
@@ -726,13 +626,12 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     }
 
     private void getKakaoStroyCh() {
+        Log.d(TAG, "getKakaoStroyCh ");
         String id = DbController.querySnsKakaoCh(getSherlockActivity()).trim();
 
         CenterController.getKakaoStoryCh("https://story.kakao.com/api/profiles/@" + id + "/activities?since=" + kakaoLastId, new AsyncHttpResponseHandler() {
-
             @Override
             public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-
                 try {
                     JsonNode root = JsonUtil.parseTree(new String(arg2));
 
@@ -757,7 +656,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     }
 
                     kakaoListAdapter.addAll(arrayList);
-
                     kakaoListAdapter.notifyDataSetChanged();
 
                     if (arrayList.size() > 0) {
@@ -775,7 +673,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
                     onLoadMoreComplete();
                     UiController.hideProgressDialog(getSherlockActivity());
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -788,13 +685,13 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     }
 
     private void getKakaoStory() {
+        Log.d(TAG, "getKakaoStory ");
         UiController.showProgressDialog(getSherlockActivity());
         Bundle bundle = new KakaoStoryMyStoriesParamBuilder(kakaoLastId).build();
         KakaoStoryService.requestGetMyStories(new MyKakaoStoryHttpResponseHandler<MyStoryInfo[]>(getSherlockActivity()) {
 
             @Override
             protected void onHttpSuccess(MyStoryInfo[] resultObj) {
-
                 String dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'";
                 String dateFormat2 = "yyyy-MM-dd HH:mm:ss";
 
@@ -831,7 +728,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                 }
 
                 kakaoListAdapter.addAll(arrayList);
-
                 kakaoListAdapter.notifyDataSetChanged();
 
                 if (resultObj.length > 0) {
@@ -865,16 +761,10 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
             this.itemLayoutResourceId = itemLayoutResourceId;
             this.imageLoader = imageLoader;
 
-			/*this.optionsProfile = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-					.bitmapConfig(Config.RGB_565)
-					.displayer(new CustomRoundedBitmapDisplayer(CommonUtil.AndroidUtil.pixelFromDp(getSherlockActivity(), 68 ) / 2))
-					.showImageOnLoading(R.drawable.common_dummy).build();*/
-
             this.optionsProfile = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
                     .bitmapConfig(Config.RGB_565)
                     .displayer(new RoundedBitmapDisplayer(140))
                     .showImageOnLoading(R.drawable.common_dummy).build();
-
 
             this.optionsProduct = new DisplayImageOptions.Builder().cacheOnDisc(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT).bitmapConfig(Config.RGB_565).showImageOnLoading(R.drawable.common_dummy)
                     .build();
@@ -882,7 +772,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-
+            Log.d(TAG, "KakaoListAdapter getView");
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) getSherlockActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(itemLayoutResourceId, null);
@@ -935,25 +825,13 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                 } else {
                     imgLayout.setVisibility(View.GONE);
                 }
-				
-/*				if(selectItem == position)
-				{
-					check.setVisibility(View.VISIBLE);
-				}
-				else
-				{
-					check.setVisibility(View.GONE);
-				}*/
-
             }
-
             return convertView;
         }
     }
 
-    //////////////////// blog
-
     private void blogInit(int type) {
+        Log.d(TAG, "blogInit ");
         ((DiaryWriteActivity) getActivity()).bloginitButton();
 
         webView.setVisibility(View.VISIBLE);
@@ -976,42 +854,40 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
     class WebClient extends WebViewClient {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            Log.d(TAG, "shouldOverrideUrlLoading ");
             view.loadUrl(url);
             return true;
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            Log.d(TAG, "onPageStarted ");
             super.onPageStarted(view, url, favicon);
             UiController.showProgressDialog(getSherlockActivity());
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
+            Log.d(TAG, "onPageFinished ");
             super.onPageFinished(view, url);
             UiController.hideProgressDialog(getSherlockActivity());
             if (url.contains("naver.com") || url.contentEquals("blog.me")) {
                 type = TYPE_NAVER;
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByClassName('post_ct')[0].innerHTML+'</head>');");
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
             } else if (url.contains("daum.net")) {
                 type = TYPE_DAUM;
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByClassName('small')[0].innerHTML+'</head>');");
             } else if (url.contains("tistory.com")) {
                 type = TYPE_TISTORY;
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
-                // webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByClassName('area_content')[0].innerHTML+'</head>');");
             }
         }
     }
 
     public void getHtml() {
+        Log.d(TAG, "getHtml ");
         webView.loadUrl("javascript:window.HtmlViewer.showHTML('<head>'+document.getElementsByTagName('html')[0].innerHTML+'</head>');");
     }
 
     public void saveHtml(String content) {
-
+        Log.d(TAG, "saveHtml ");
         String dateFormat;
         SimpleDateFormat format;
 
@@ -1037,7 +913,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
         switch (type) {
             case TYPE_NAVER:
-
                 if (doc.getElementsByClass("map") != null)
                     doc.getElementsByClass("map").remove();
 
@@ -1082,10 +957,9 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                                 + "w2==]img]==");
                     }
                 }
-
                 break;
-            case TYPE_DAUM:
 
+            case TYPE_DAUM:
                 if (doc.getElementsByClass("relation_article") != null)
                     doc.getElementsByClass("relation_article").remove();
 
@@ -1122,10 +996,9 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     m.appendReplacement(resultString, "==]img]==" + str.toString()
                             + "==]img]==");
                 }
-
                 break;
-            case TYPE_TISTORY:
 
+            case TYPE_TISTORY:
                 if (doc.getElementsByClass("map_attach") != null)
                     doc.getElementsByClass("map_attach").remove();
 
@@ -1142,7 +1015,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                 } else {
                     date = date.replaceAll("/", ".");
                 }
-
 
                 if (content.trim().isEmpty()) {
                     IMG = Pattern.compile("<img[^>]*original=[\"']?([^>\"']+)[\"']?[^>]*>");
@@ -1163,7 +1035,6 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     m.appendReplacement(resultString, "==]img]==" + str.toString()
                             + "==]img]==");
                 }
-
                 break;
         }
 
@@ -1199,50 +1070,9 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
     class MyJavaScriptInterface {
         @JavascriptInterface
         public void showHTML(String html) {
+            Log.d(TAG, "showHTML");
             saveHtml(html);
-
             mOnLodingCompleteListener.OnLodingComplete(TAG, !content.trim().equals("") ? true : false);
-			
-			/*boolean isOneDay = true;
-			
-			String dateFormat = "yyyy.MM.dd HH:mm";
-			SimpleDateFormat format = new SimpleDateFormat(dateFormat);
-			
-			try {
-				Date postDate = format.parse(date);
-				Date nowDate = Calendar.getInstance().getTime();
-				nowDate.setDate(nowDate.getDate()-1);
-				
-				if(postDate.before(nowDate))
-				{
-					isOneDay = false;
-				}
-			} catch (ParseException e1) {
-				
-				if(date.contains("방금전")||date.contains("분전"))
-				{
-					isOneDay = true;
-				}
-				else
-				{
-					isOneDay = false;
-				}
-			}
-			
-			if(isOneDay)
-			{
-				mOnLodingCompleteListener.OnLodingComplete(TAG,!content.trim().equals("")?true:false);
-			}
-			else
-			{
-				getSherlockActivity().runOnUiThread(new Runnable() {
-					@Override
-					public void run() {
-						UiController.hideProgressDialog(getSherlockActivity());					
-					}
-				});
-				UiController.showDialog(getSherlockActivity(), getString(R.string.toast_sns_get));
-			}*/
         }
     }
 }
