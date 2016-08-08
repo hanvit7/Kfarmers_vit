@@ -94,16 +94,26 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     public final static int FACEBOOK_ALBUM = 1000;
 
     private ProfileJson profileData;
-    private RelativeLayout categoryLayout, titleLayout;
-    private ToggleButton alignBtn, naverblogBtn, tistoryBtn, daumblogBtn, facebookBtn, twitterBtn, kakaoBtn;
-    private TextView categoryText;
-    private EditText titleEdit;
-    private RelativeLayout shareLayout;
+    private RelativeLayout mWriteDiaryCategory,
+            mWriteDiaryTitleForSNSnNotice;
+    private TextView mWriteDiaryCategoryTextView;
+    private EditText mWriteDiaryTitleEditTextForSNSnNotice;
+
     private ImageView pictureBtn, tagBtn, shareBtn, weatherBtn;
     private Button saveBtn;
-    private String tag, tempTag, weather, temperature, humidity;
     private View labelBtnDivider, shareBtnDivider, saveBtnDivider, pictureBtnDivider;
+    private String tag, tempTag, weather, temperature, humidity;
     private int categoryIndex = 0, noticeIndex = 0;
+
+    private RelativeLayout mWriteDiaryExportSNSLayout;
+    private ToggleButton mWriteDiaryAlignImageForSNSnNotice,
+            mWriteDiaryExportNaverBlogButton,
+            mWriteDiaryExportTistoryButton,
+            mWriteDiaryExportDaumBlogButton,
+            mWriteDiaryExportFacebookButton,
+            mWriteDiaryExportTwitterButton,
+            mWriteDiaryExportKakaoStoryButton;
+
     private ArrayList<String> categoryList;
     private ArrayList<CategoryJson> categoryObjectList;
     private DiaryDetailJson detailData;
@@ -162,8 +172,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     @Override
     public void onBackPressed() {
         Log.d(TAG, "onBackPressed ");
-        if (shareLayout.getVisibility() == View.VISIBLE) {
-            shareLayout.setVisibility(View.GONE);
+        if (mWriteDiaryExportSNSLayout.getVisibility() == View.VISIBLE) {
+            mWriteDiaryExportSNSLayout.setVisibility(View.GONE);
             return;
         }
 
@@ -186,9 +196,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         try {
             UserDb user = DbController.queryCurrentUser(this);
             JsonNode root = JsonUtil.parseTree(user.getProfileContent());
-            profileData = (ProfileJson) JsonUtil.jsonToObject(root.findPath("Row").toString(), ProfileJson.class);
-
+            profileData = (ProfileJson) JsonUtil.jsonToObject(
+                    root.findPath("Row").toString(), ProfileJson.class);
             mWritePermission = profileData.TemporaryPermissionFlag;
+
             switch (profileData.Type) {
                 case "F":
                     mUserType = UserType.FARMER;
@@ -210,97 +221,29 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     private void initContentView(Bundle savedInstanceState) {
         Log.d(TAG, "initContentView ");
-        categoryLayout = (RelativeLayout) findViewById(R.id.CategoryLayout);
-        titleLayout = (RelativeLayout) findViewById(R.id.TitleLayout);
-        alignBtn = (ToggleButton) findViewById(R.id.AlignImage);
-        categoryText = (TextView) findViewById(R.id.CategoryText);
-        titleEdit = (EditText) findViewById(R.id.TitleEdit);
-        shareLayout = (RelativeLayout) findViewById(R.id.ShareLayout);
-        pictureBtn = (ImageView) findViewById(R.id.pictureBtn);
-        tagBtn = (ImageView) findViewById(R.id.labelBtn);
-        shareBtn = (ImageView) findViewById(R.id.shareBtn);
-        weatherBtn = (ImageView) findViewById(R.id.weatherBtn);
-        saveBtn = (Button) findViewById(R.id.saveBtn);
-        naverblogBtn = (ToggleButton) findViewById(R.id.naverblogBtn);
-        tistoryBtn = (ToggleButton) findViewById(R.id.tistoryBtn);
-        daumblogBtn = (ToggleButton) findViewById(R.id.daumblogBtn);
-        facebookBtn = (ToggleButton) findViewById(R.id.facebookBtn);
-        twitterBtn = (ToggleButton) findViewById(R.id.twitterBtn);
-        kakaoBtn = (ToggleButton) findViewById(R.id.kakaoBtn);
-        labelBtnDivider = findViewById(R.id.labelBtnDivider);
-        shareBtnDivider = findViewById(R.id.shareBtnDivider);
-        saveBtnDivider = findViewById(R.id.saveBtnDivider);
-        pictureBtnDivider = findViewById(R.id.pictureBtnDivider);
 
-        daumblogBtn.setChecked(DbController.queryDaumFlag(this));
-        naverblogBtn.setChecked(DbController.queryNaverFlag(this));
-        tistoryBtn.setChecked(DbController.queryTistoryFlag(this));
-        facebookBtn.setChecked(DbController.queryFaceBookFlag(this));
-        twitterBtn.setChecked(DbController.queryTwitterFlag(this));
-        kakaoBtn.setChecked(DbController.queryKakaoFlag(this));
-
-        categoryLayout.setOnClickListener(new ViewOnClickListener() {
+        mWriteDiaryCategory = (RelativeLayout) findViewById(R.id.write_diary_category);
+        mWriteDiaryCategory.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
                 onCategoryBtnClicked();
             }
         });
 
-        naverblogBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "네이버");
-                onNaverBlogBtnClicked();
-            }
-        });
+        mWriteDiaryCategoryTextView = (TextView) findViewById(R.id.write_diary_category_text_view);
+        mWriteDiaryTitleForSNSnNotice = (RelativeLayout) findViewById(R.id.write_diary_title_for_sns_n_notice);
+        mWriteDiaryTitleEditTextForSNSnNotice = (EditText) findViewById(R.id.write_diary_title_edit_text_for_sns_n_notice);
+        mWriteDiaryAlignImageForSNSnNotice = (ToggleButton) findViewById(R.id.write_diary_align_image_for_sns_n_notice);
 
-        tistoryBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "티스토리");
-                onTiStoryBtnClicked();
-            }
-        });
-
-        daumblogBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "다음");
-                onDaumBlogBtnClicked();
-            }
-        });
-
-        facebookBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "페이스북");
-                onFacebookBtnClicked();
-            }
-        });
-
-        twitterBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "트위터");
-                onTwitterBtnClicked();
-            }
-        });
-
-        kakaoBtn.setOnClickListener(new ViewOnClickListener() {
-            @Override
-            public void viewOnClick(View v) {
-                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "카카오스토리");
-                onKakaoBtnClicked();
-            }
-        });
-
+        pictureBtn = (ImageView) findViewById(R.id.write_diary_footer_picture_Image_view);
         pictureBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                onPictureBtnClicked(v);
+                onPictureBtnClicked(v);//camera button
             }
         });
 
+        tagBtn = (ImageView) findViewById(R.id.write_diary_footer_tag_image_view);
         tagBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
@@ -309,6 +252,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
         });
 
+        shareBtn = (ImageView) findViewById(R.id.write_diary_footer_export_sns_image_view);
         shareBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
@@ -317,6 +261,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
         });
 
+        weatherBtn = (ImageView) findViewById(R.id.write_diary_footer_weather_image_view);
         weatherBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
@@ -325,11 +270,78 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             }
         });
 
+        saveBtn = (Button) findViewById(R.id.write_diary_footer_temporary_save_button);
         saveBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
                 KfarmersAnalytics.onClick(getType(), "Click_TempSave", null);
                 onSaveBtnClicked();
+            }
+        });
+
+        pictureBtnDivider = findViewById(R.id.pictureBtnDivider);
+        labelBtnDivider = findViewById(R.id.labelBtnDivider);
+        shareBtnDivider = findViewById(R.id.shareBtnDivider);
+        saveBtnDivider = findViewById(R.id.saveBtnDivider);
+
+        mWriteDiaryExportSNSLayout = (RelativeLayout) findViewById(R.id.write_diary_export_sns_layout);
+        mWriteDiaryExportNaverBlogButton = (ToggleButton) findViewById(R.id.write_diary_export_naver_blog_button);
+        mWriteDiaryExportNaverBlogButton.setChecked(DbController.queryNaverFlag(this));
+        mWriteDiaryExportNaverBlogButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "네이버");
+                onNaverBlogBtnClicked();
+            }
+        });
+
+        mWriteDiaryExportTistoryButton = (ToggleButton) findViewById(R.id.write_diary_export_tistory_button);
+        mWriteDiaryExportTistoryButton.setChecked(DbController.queryTistoryFlag(this));
+        mWriteDiaryExportTistoryButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "티스토리");
+                onTiStoryBtnClicked();
+            }
+        });
+
+        mWriteDiaryExportDaumBlogButton = (ToggleButton) findViewById(R.id.write_diary_export_daum_blog_button);
+        mWriteDiaryExportDaumBlogButton.setChecked(DbController.queryDaumFlag(this));
+        mWriteDiaryExportDaumBlogButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "다음");
+                onDaumBlogBtnClicked();
+            }
+        });
+
+        mWriteDiaryExportFacebookButton = (ToggleButton) findViewById(R.id.write_diary_export_facebook_button);
+        mWriteDiaryExportFacebookButton.setChecked(DbController.queryFaceBookFlag(this));
+        mWriteDiaryExportFacebookButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "페이스북");
+                onFacebookBtnClicked();
+            }
+        });
+
+        mWriteDiaryExportTwitterButton = (ToggleButton) findViewById(R.id.write_diary_export_twitter_button);
+        mWriteDiaryExportTwitterButton.setChecked(DbController.queryTwitterFlag(this));
+        mWriteDiaryExportTwitterButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "트위터");
+                onTwitterBtnClicked();
+            }
+        });
+
+        mWriteDiaryExportKakaoStoryButton = (ToggleButton) findViewById(R.id.write_diary_export_kakao_story_button);
+        mWriteDiaryExportKakaoStoryButton.setChecked(DbController.queryKakaoFlag(this));
+        mWriteDiaryExportKakaoStoryButton.setOnClickListener(new ViewOnClickListener() {
+            @Override
+            public void viewOnClick(View v) {
+                KfarmersAnalytics.onClick(getType(), "Click_Share-Sns", "카카오스토리");
+                onKakaoBtnClicked();
             }
         });
 
@@ -341,7 +353,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 ft.replace(R.id.fragment_container, fragment, DiaryBlogWriteFragment.TAG);
                 KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE_SNS);
             } else {
-                DiaryWriteDragListFragment fragment = DiaryWriteDragListFragment.newInstance((detailDataString == null) ? TYPE_DIARY_NORMAL : TYPE_DIARY_EDIT);
+                DiaryWriteDragListFragment fragment = DiaryWriteDragListFragment.newInstance(
+                        (detailDataString == null) ? TYPE_DIARY_NORMAL : TYPE_DIARY_EDIT);
                 ft.replace(R.id.fragment_container, fragment, DiaryWriteDragListFragment.TAG);
 
                 if (detailDataString == null) {
@@ -477,27 +490,27 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 humidity = data.getStringExtra("humidity");
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_NAVER) {
-                naverblogBtn.setChecked(true);
+                mWriteDiaryExportNaverBlogButton.setChecked(true);
                 DbController.updateNaverFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_TISTORY) {
-                tistoryBtn.setChecked(true);
+                mWriteDiaryExportTistoryButton.setChecked(true);
                 DbController.updateTistoryFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_DAUM) {
-                daumblogBtn.setChecked(true);
+                mWriteDiaryExportDaumBlogButton.setChecked(true);
                 DbController.updateDaumFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_FACEBOOK) {
-                facebookBtn.setChecked(true);
+                mWriteDiaryExportFacebookButton.setChecked(true);
                 DbController.updateFaceBookFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_TWITTER) {
-                twitterBtn.setChecked(true);
+                mWriteDiaryExportTwitterButton.setChecked(true);
                 DbController.updateTwitterFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == Constants.REQUEST_SNS_KAKAO) {
-                kakaoBtn.setChecked(true);
+                mWriteDiaryExportKakaoStoryButton.setChecked(true);
                 DbController.updateKakaoFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == FACEBOOK_ALBUM) {
@@ -523,7 +536,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
     private void displayInitButton() {
         Log.d(TAG, "displayInitButton ");
         if (diaryType == TYPE_DIARY_BLOG) {
-            titleLayout.setVisibility(View.GONE);
+            mWriteDiaryTitleForSNSnNotice.setVisibility(View.GONE);
             tagBtn.setVisibility(View.GONE);
             labelBtnDivider.setVisibility(View.GONE);
             shareBtn.setVisibility(View.GONE);
@@ -531,13 +544,13 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             weatherBtn.setVisibility(View.GONE);
             pictureBtn.setVisibility(View.GONE);
             pictureBtnDivider.setVisibility(View.GONE);
-            categoryLayout.setVisibility(View.GONE);
+            mWriteDiaryCategory.setVisibility(View.GONE);
 
             rightBtn.setVisibility(View.GONE);
             saveBtn.setText("가져오기");
             saveBtn.setVisibility(View.GONE);
         } else if (diaryType == TYPE_DIARY_BLOG_TO_LIST) {
-            titleLayout.setVisibility(View.GONE);
+            mWriteDiaryTitleForSNSnNotice.setVisibility(View.GONE);
             tagBtn.setVisibility(View.VISIBLE);
             labelBtnDivider.setVisibility(View.VISIBLE);
             shareBtn.setVisibility(View.GONE);
@@ -545,13 +558,13 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             weatherBtn.setVisibility(View.VISIBLE);
             pictureBtn.setVisibility(View.VISIBLE);
             pictureBtnDivider.setVisibility(View.VISIBLE);
-            categoryLayout.setVisibility(View.VISIBLE);
+            mWriteDiaryCategory.setVisibility(View.VISIBLE);
 
             rightBtn.setVisibility(View.VISIBLE);
             //saveBtn.setText(getString(R.string.WriteDiaryButtonSave));
             saveBtn.setVisibility(View.GONE);
         } else {
-            titleLayout.setVisibility(View.VISIBLE);
+            mWriteDiaryTitleForSNSnNotice.setVisibility(View.VISIBLE);
             tagBtn.setVisibility(View.VISIBLE);
             labelBtnDivider.setVisibility(View.VISIBLE);
             shareBtn.setVisibility(View.VISIBLE);
@@ -559,14 +572,14 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             weatherBtn.setVisibility(View.VISIBLE);
             pictureBtn.setVisibility(View.VISIBLE);
             pictureBtnDivider.setVisibility(View.VISIBLE);
-            categoryLayout.setVisibility(View.VISIBLE);
+            mWriteDiaryCategory.setVisibility(View.VISIBLE);
 
             rightBtn.setVisibility(View.VISIBLE);
             saveBtn.setText(getString(R.string.WriteDiaryButtonSave));
         }
 
         if (mUserType == UserType.CONSUMER /*|| mUserType == TYPE_USER_NORMAL || mUserType == TYPE_USER_INTERVIEW*/) {
-            titleLayout.setVisibility(View.GONE);
+            mWriteDiaryTitleForSNSnNotice.setVisibility(View.GONE);
             tagBtn.setVisibility(View.INVISIBLE);
             labelBtnDivider.setVisibility(View.INVISIBLE);
             shareBtn.setVisibility(View.INVISIBLE);
@@ -575,10 +588,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         }
 
         if (diaryType == TYPE_DIARY_EDIT) {
-            titleEdit.setTextColor(Color.GRAY);
-            titleEdit.setEnabled(false);
-            alignBtn.setBackgroundResource(R.drawable.btn_write_diary_align_disable);
-            alignBtn.setEnabled(false);
+            mWriteDiaryTitleEditTextForSNSnNotice.setTextColor(Color.GRAY);
+            mWriteDiaryTitleEditTextForSNSnNotice.setEnabled(false);
+            mWriteDiaryAlignImageForSNSnNotice.setBackgroundResource(R.drawable.btn_write_diary_align_disable);
+            mWriteDiaryAlignImageForSNSnNotice.setEnabled(false);
             tagBtn.setImageResource(R.drawable.button_blog_write_label_default_disable);
             tagBtn.setEnabled(false);
             shareBtn.setImageResource(R.drawable.button_blog_write_share_default_disable);
@@ -588,7 +601,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         }
 
         if (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE) {
-            if (mWritePermission.equals("N")) {
+            if (mWritePermission.equals("N")) {//do it test
                 tagBtn.setImageResource(R.drawable.button_blog_write_label_default_disable);
                 tagBtn.setEnabled(false);
                 shareBtn.setImageResource(R.drawable.button_blog_write_share_default_disable);
@@ -629,7 +642,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 UiController.showDialog(mContext, R.string.dialog_product_reg_category);
                 return;
             } else if (categoryList.get(categoryIndex).equals("공지사항")) {
-                if (PatternUtil.isEmpty(titleEdit.getText().toString())) {
+                if (PatternUtil.isEmpty(mWriteDiaryTitleEditTextForSNSnNotice.getText().toString())) {
                     UiController.showDialog(mContext, R.string.dialog_empty_title);
                     return;
                 }
@@ -688,11 +701,11 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
             kakaoStoryText += "\n";
             kakaoStoryText += "\n";
-            kakaoStoryText += "#" + categoryText.getText().toString().trim() + " ";
+            kakaoStoryText += "#" + mWriteDiaryCategoryTextView.getText().toString().trim() + " ";
 
             if (tag != null && !tag.isEmpty()) {
                 String str[] = tag.split(",");
-                tempTag = categoryText.getText().toString();
+                tempTag = mWriteDiaryCategoryTextView.getText().toString();
 
                 if (str != null && str.length > 0) {
                     for (String subStr : str) {
@@ -701,7 +714,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     }
                 }
             } else {
-                tempTag = categoryText.getText().toString();
+                tempTag = mWriteDiaryCategoryTextView.getText().toString();
             }
 
             WriteDiaryData data = new WriteDiaryData();
@@ -711,8 +724,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                     data.setCategory(Integer.valueOf(categoryObjectList.get(categoryIndex).SubIndex));
             }
 
-            data.setBlogTitle(titleEdit.getText().toString());
-            data.setbAlign(alignBtn.isChecked());
+            data.setBlogTitle(mWriteDiaryTitleEditTextForSNSnNotice.getText().toString());
+            data.setbAlign(mWriteDiaryAlignImageForSNSnNotice.isChecked());
             data.setBlogTag(tempTag);
 
             data.setbNaver(false);
@@ -723,12 +736,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             data.setbKakao(false);
 
             if (shareBtn.isEnabled()) {
-                data.setbTistory(tistoryBtn.isChecked());
-                data.setbDaum(daumblogBtn.isChecked());
-                data.setbFacebook(facebookBtn.isChecked());
-                data.setbTwitter(twitterBtn.isChecked());
-                data.setbNaver(naverblogBtn.isChecked());
-                data.setbKakao(kakaoBtn.isChecked());
+                data.setbTistory(mWriteDiaryExportTistoryButton.isChecked());
+                data.setbDaum(mWriteDiaryExportDaumBlogButton.isChecked());
+                data.setbFacebook(mWriteDiaryExportFacebookButton.isChecked());
+                data.setbTwitter(mWriteDiaryExportTwitterButton.isChecked());
+                data.setbNaver(mWriteDiaryExportNaverBlogButton.isChecked());
+                data.setbKakao(mWriteDiaryExportKakaoStoryButton.isChecked());
             }
 
             data.setWeather(weather);
@@ -942,7 +955,6 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(diaryType);
         ft.replace(R.id.fragment_container, diaryWriteDragListFragment, DiaryWriteDragListFragment.TAG);
-
         ft.commit();
 
         runOnUiThread(new Runnable() {
@@ -1122,8 +1134,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
             if (categoryObjectList != null)
                 data.CategoryIndex = categoryObjectList.get(categoryIndex).SubIndex;
-            data.BlogTitle = titleEdit.getText().toString();
-            data.BlogAlign = (alignBtn.isChecked() ? "C" : "L");
+            data.BlogTitle = mWriteDiaryTitleEditTextForSNSnNotice.getText().toString();
+            data.BlogAlign = (mWriteDiaryAlignImageForSNSnNotice.isChecked() ? "C" : "L");
             data.BlogTag = tag;
             data.Sky = weather;
             data.Temperature = temperature;
@@ -1192,7 +1204,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
         intent.putExtra("tag", tag);
 
         if (categoryIndex != 0) {
-            intent.putExtra("categoryTag", categoryText.getText().toString());
+            intent.putExtra("categoryTag", mWriteDiaryCategoryTextView.getText().toString());
         } else {
             intent.putExtra("categoryTag", "");
         }
@@ -1202,10 +1214,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onShareBtnClicked() {
         Log.d(TAG, "onShareBtnClicked");
-        if (shareLayout.getVisibility() == View.GONE) {
-            shareLayout.setVisibility(View.VISIBLE);
+        if (mWriteDiaryExportSNSLayout.getVisibility() == View.GONE) {
+            mWriteDiaryExportSNSLayout.setVisibility(View.VISIBLE);
         } else {
-            shareLayout.setVisibility(View.GONE);
+            mWriteDiaryExportSNSLayout.setVisibility(View.GONE);
         }
     }
 
@@ -1307,7 +1319,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 categoryIndex = 0;
                 categoryList.add("소비자이야기");
                 categoryObjectList.add(new CategoryJson());
-                categoryText.setText(categoryList.get(0));
+                mWriteDiaryCategoryTextView.setText(categoryList.get(0));
                 return;
             } else {
                 categoryList.add("카테고리 선택");
@@ -1333,7 +1345,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
                                     categoryIndex = 0;
                                     noticeIndex = categoryList.size() - 1;
-                                    categoryText.setText(categoryList.get(0));
+                                    mWriteDiaryCategoryTextView.setText(categoryList.get(0));
 
                                     if (!checkEditDiary() && diaryType != TYPE_DIARY_BLOG) {
                                         checkTemporaryDiary();
@@ -1359,8 +1371,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onNaverBlogBtnClicked() {
         Log.d(TAG, "onNaverBlogBtnClicked");
-        if (naverblogBtn.isChecked() && !DbController.queryNaverFlag(this)) {
-            naverblogBtn.setChecked(false);
+        if (mWriteDiaryExportNaverBlogButton.isChecked() && !DbController.queryNaverFlag(this)) {
+            mWriteDiaryExportNaverBlogButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_NAVER);
             startActivityForResult(intent, Constants.REQUEST_SNS_NAVER);
@@ -1369,8 +1381,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onTiStoryBtnClicked() {
         Log.d(TAG, "onTiStoryBtnClicked");
-        if (tistoryBtn.isChecked() && !DbController.queryTistoryFlag(this)) {
-            tistoryBtn.setChecked(false);
+        if (mWriteDiaryExportTistoryButton.isChecked() && !DbController.queryTistoryFlag(this)) {
+            mWriteDiaryExportTistoryButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_TISTORY);
             startActivityForResult(intent, Constants.REQUEST_SNS_TISTORY);
@@ -1379,8 +1391,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onDaumBlogBtnClicked() {
         Log.d(TAG, "onDaumBlogBtnClicked");
-        if (daumblogBtn.isChecked() && !DbController.queryDaumFlag(this)) {
-            daumblogBtn.setChecked(false);
+        if (mWriteDiaryExportDaumBlogButton.isChecked() && !DbController.queryDaumFlag(this)) {
+            mWriteDiaryExportDaumBlogButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_DAUM);
             startActivityForResult(intent, Constants.REQUEST_SNS_DAUM);
@@ -1389,8 +1401,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onFacebookBtnClicked() {
         Log.d(TAG, "onFacebookBtnClicked");
-        if (facebookBtn.isChecked() && !DbController.queryFaceBookFlag(this)) {
-            facebookBtn.setChecked(false);
+        if (mWriteDiaryExportFacebookButton.isChecked() && !DbController.queryFaceBookFlag(this)) {
+            mWriteDiaryExportFacebookButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_FACEBOOK);
             startActivityForResult(intent, Constants.REQUEST_SNS_FACEBOOK);
@@ -1399,8 +1411,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onTwitterBtnClicked() {
         Log.d(TAG, "onTwitterBtnClicked");
-        if (twitterBtn.isChecked() && !DbController.queryTwitterFlag(this)) {
-            twitterBtn.setChecked(false);
+        if (mWriteDiaryExportTwitterButton.isChecked() && !DbController.queryTwitterFlag(this)) {
+            mWriteDiaryExportTwitterButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_TWITTER);
             startActivityForResult(intent, Constants.REQUEST_SNS_TWITTER);
@@ -1409,8 +1421,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
     public void onKakaoBtnClicked() {
         Log.d(TAG, "onKakaoBtnClicked");
-        if (kakaoBtn.isChecked() && !DbController.queryKakaoFlag(this)) {
-            kakaoBtn.setChecked(false);
+        if (mWriteDiaryExportKakaoStoryButton.isChecked() && !DbController.queryKakaoFlag(this)) {
+            mWriteDiaryExportKakaoStoryButton.setChecked(false);
             Intent intent = new Intent(this, SnsActivity.class);
             intent.putExtra("snsType", Constants.REQUEST_SNS_KAKAO);
             startActivityForResult(intent, Constants.REQUEST_SNS_KAKAO);
@@ -1429,14 +1441,14 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
             public void onDialogSelected(int subMenuType, int position) {
                 if (categoryIndex != position) {
                     categoryIndex = position;
-                    categoryText.setText(categoryList.get(position));
+                    mWriteDiaryCategoryTextView.setText(categoryList.get(position));
 
                     KfarmersAnalytics.onClick(getType(), "Click_Category", categoryList.get(position));
 
                     if (diaryType == TYPE_DIARY_NORMAL && (mUserType == UserType.FARMER || mUserType == UserType.EXPERIENCE_VILLAGE)) {
                         if (categoryIndex == noticeIndex) {
-                            alignBtn.setBackgroundResource(R.drawable.btn_write_diary_align_disable);
-                            alignBtn.setEnabled(false);
+                            mWriteDiaryAlignImageForSNSnNotice.setBackgroundResource(R.drawable.btn_write_diary_align_disable);
+                            mWriteDiaryAlignImageForSNSnNotice.setEnabled(false);
                             tagBtn.setImageResource(R.drawable.button_blog_write_label_default_disable);
                             tagBtn.setEnabled(false);
                             shareBtn.setImageResource(R.drawable.button_blog_write_share_default_disable);
@@ -1444,8 +1456,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                             weatherBtn.setImageResource(R.drawable.button_blog_write_sky_default_disable);
                             weatherBtn.setEnabled(false);
                         } else {
-                            alignBtn.setBackgroundResource(R.drawable.btn_write_diary_align);
-                            alignBtn.setEnabled(true);
+                            mWriteDiaryAlignImageForSNSnNotice.setBackgroundResource(R.drawable.btn_write_diary_align);
+                            mWriteDiaryAlignImageForSNSnNotice.setEnabled(true);
                             tagBtn.setImageResource(R.drawable.button_blog_write_label_default);
                             tagBtn.setEnabled(true);
                             shareBtn.setImageResource(R.drawable.button_blog_write_share_default);
@@ -1477,27 +1489,27 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                         R.string.actionbar_ok,
                         R.string.actionbar_cancel,
                         new CustomDialogListener() {
-                    @Override
-                    public void onDialog(int type) {
-                        if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
-                            if (diaryType == TYPE_DIARY_BLOG) {
-                                diaryType = TYPE_DIARY_BLOG_TO_LIST;
-                                displayInitButton();
-                                detailDataString = DbController.queryTemporaryDiary(DiaryWriteActivity.this);
+                            @Override
+                            public void onDialog(int type) {
+                                if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
+                                    if (diaryType == TYPE_DIARY_BLOG) {
+                                        diaryType = TYPE_DIARY_BLOG_TO_LIST;
+                                        displayInitButton();
+                                        detailDataString = DbController.queryTemporaryDiary(DiaryWriteActivity.this);
 
-                                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                                DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(diaryType);
-                                ft.replace(R.id.fragment_container, diaryWriteDragListFragment, DiaryWriteDragListFragment.TAG);
-                                ft.remove(getSupportFragmentManager().findFragmentByTag(DialogFragment.TAG));
-                                ft.commit();
-                            } else {
-                                displayUpdateDiaryData(DbController.queryTemporaryDiary(DiaryWriteActivity.this));
+                                        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+                                        DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(diaryType);
+                                        ft.replace(R.id.fragment_container, diaryWriteDragListFragment, DiaryWriteDragListFragment.TAG);
+                                        ft.remove(getSupportFragmentManager().findFragmentByTag(DialogFragment.TAG));
+                                        ft.commit();
+                                    } else {
+                                        displayUpdateDiaryData(DbController.queryTemporaryDiary(DiaryWriteActivity.this));
+                                    }
+                                } else {
+                                    DbController.updateTemporaryDiary(DiaryWriteActivity.this, "");//delete temporary diary
+                                }
                             }
-                        } else {
-                            DbController.updateTemporaryDiary(DiaryWriteActivity.this, "");
-                        }
-                    }
-                });
+                        });
             }
         }
     }
@@ -1522,17 +1534,17 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
                 for (CategoryJson category : categoryObjectList) {
                     if (category.SubIndex != null && category.SubIndex.equals(detailData.CategoryIndex)) {
                         categoryIndex = index;
-                        categoryText.setText(category.SubName);
+                        mWriteDiaryCategoryTextView.setText(category.SubName);
                     }
                     index++;
                 }
             }
 
             if (!TextUtils.isEmpty(detailData.BlogTitle))
-                titleEdit.setText(detailData.BlogTitle);
+                mWriteDiaryTitleEditTextForSNSnNotice.setText(detailData.BlogTitle);
 
             if (!TextUtils.isEmpty(detailData.BlogAlign))
-                alignBtn.setChecked(detailData.BlogAlign.equals("C"));
+                mWriteDiaryAlignImageForSNSnNotice.setChecked(detailData.BlogAlign.equals("C"));
 
             if (!TextUtils.isEmpty(detailData.BlogTag))
                 tag = detailData.BlogTag;
@@ -1665,7 +1677,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoding
 
 												/*naverBlogText += "\n\n<a href=\"http://kfarmers.kr/link\">새로운 직거래 생태계, K파머스</a>";*/
                                                 HashMap<String, String> naverData = new HashMap<String, String>();
-                                                naverData.put(SnsPostItem.TITLE, titleEdit.getText().toString());
+                                                naverData.put(SnsPostItem.TITLE, mWriteDiaryTitleEditTextForSNSnNotice.getText().toString());
                                                 naverData.put(SnsPostItem.TEXT, naverBlogText);
                                                 naverData.put(SnsPostItem.TAG, data.getBlogTag());
                                                 snsPostItem.setNaverData(naverData);

@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/root_container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:focusable="true"
-        android:focusableInTouchMode="true" >
+        android:focusableInTouchMode="true">
 
         <LinearLayout
             android:id="@+id/TitleAndCategoryLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <RelativeLayout
-                android:id="@+id/CategoryLayout"
+                android:id="@+id/write_diary_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/CommonSmallPadding"
                 android:paddingLeft="@dimen/CommonMediumPadding"
                 android:paddingRight="@dimen/CommonMediumPadding"
-                android:paddingTop="@dimen/CommonSmallPadding" >
+                android:paddingTop="@dimen/CommonSmallPadding">
 
                 <TextView
-                    android:id="@+id/CategoryText"
+                    android:id="@+id/write_diary_category_text_view"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/CommonMediumRow"
-                    android:layout_toLeftOf="@+id/Category"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
                     android:background="@null"
                     android:gravity="center_vertical"
                     android:text="@string/WriteDiaryTextCategory"
                     android:textColor="@color/CommonText"
-                    android:textSize="@dimen/CommonMediumText" />
+                    android:textSize="@dimen/CommonMediumText"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:contentDescription="@string/CommonDummy"
-                    android:src="@drawable/button_category_dropdown" />
+                    android:src="@drawable/button_category_dropdown"/>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/CommonDivider" />
+                android:background="@color/CommonDivider"/>
 
             <RelativeLayout
-                android:id="@+id/TitleLayout"
+                android:id="@+id/write_diary_title_for_sns_n_notice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="@dimen/CommonSmallPadding"
                 android:paddingLeft="@dimen/CommonMediumPadding"
                 android:paddingRight="@dimen/CommonMediumPadding"
-                android:paddingTop="@dimen/CommonSmallPadding" >
-
-                <EditText
-                    android:id="@+id/TitleEdit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/AlignImage"
-                    android:background="@null"
-                    android:ems="10"
-                    android:hint="@string/WriteDiaryHintTitle"
-                    android:singleLine="true"
-                    android:text="@string/CommonEmpty"
-                    android:textColor="@color/CommonText"
-                    android:textSize="@dimen/CommonMediumText" >
-
-                    <requestFocus />
-                </EditText>
+                android:paddingTop="@dimen/CommonSmallPadding">
 
                 <ToggleButton
-                    android:id="@+id/AlignImage"
+                    android:id="@+id/write_diary_align_image_for_sns_n_notice"
                     android:layout_width="70dp"
                     android:layout_height="28dp"
+                    android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/btn_write_diary_align"
                     android:checked="false"
                     android:contentDescription="@string/CommonDummy"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
+
+                <EditText
+                    android:id="@+id/write_diary_title_edit_text_for_sns_n_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/write_diary_align_image_for_sns_n_notice"
+                    android:layout_toStartOf="@id/write_diary_align_image_for_sns_n_notice"
+                    android:background="@null"
+                    android:ems="10"
+                    android:hint="@string/WriteDiaryHintTitle"
+                    android:singleLine="true"
+                    android:text="@string/CommonEmpty"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText">
+                    <requestFocus/>
+                </EditText>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/CommonDivider" />
+                android:background="@color/CommonDivider"/>
         </LinearLayout>
 
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/Footer"
-            android:layout_below="@id/TitleAndCategoryLayout" />
+            android:layout_above="@+id/write_diary_footer"
+            android:layout_below="@id/TitleAndCategoryLayout"/>
 
         <RelativeLayout
-            android:id="@+id/ShareLayout"
+            android:id="@+id/write_diary_export_sns_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/Footer"
+            android:layout_above="@id/write_diary_footer"
             android:layout_marginBottom="10dp"
             android:clickable="true"
             android:gravity="center"
-            android:visibility="gone" >
+            android:visibility="gone">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -122,10 +128,10 @@
                 android:paddingBottom="12dp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:paddingTop="4dp" >
+                android:paddingTop="4dp">
 
                 <ToggleButton
-                    android:id="@+id/naverblogBtn"
+                    android:id="@+id/write_diary_export_naver_blog_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_naver"
@@ -133,10 +139,10 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
 
                 <ToggleButton
-                    android:id="@+id/tistoryBtn"
+                    android:id="@+id/write_diary_export_tistory_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_tistory"
@@ -144,10 +150,10 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
 
                 <ToggleButton
-                    android:id="@+id/daumblogBtn"
+                    android:id="@+id/write_diary_export_daum_blog_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_daum"
@@ -155,10 +161,10 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
 
                 <ToggleButton
-                    android:id="@+id/facebookBtn"
+                    android:id="@+id/write_diary_export_facebook_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_facebook"
@@ -166,10 +172,10 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
 
                 <ToggleButton
-                    android:id="@+id/twitterBtn"
+                    android:id="@+id/write_diary_export_twitter_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_twitter"
@@ -177,10 +183,10 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
 
                 <ToggleButton
-                    android:id="@+id/kakaoBtn"
+                    android:id="@+id/write_diary_export_kakao_story_button"
                     android:layout_width="53dp"
                     android:layout_height="53dp"
                     android:background="@drawable/btn_write_diary_kakao"
@@ -188,102 +194,97 @@
                     android:contentDescription="@string/CommonDummy"
                     android:paddingLeft="2pt"
                     android:textOff=""
-                    android:textOn="" />
+                    android:textOn=""/>
             </LinearLayout>
         </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/Footer"
+            android:id="@id/write_diary_footer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/CommonConcept" />
+                android:background="@color/CommonConcept"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/pictureBtn"
+                    android:id="@+id/write_diary_footer_picture_Image_view"
                     android:layout_width="@dimen/CommonLargeButton"
                     android:layout_height="@dimen/CommonMediumButton"
                     android:contentDescription="@string/CommonDummy"
                     android:scaleType="center"
-                    android:src="@drawable/button_blog_write_picture_default" />
+                    android:src="@drawable/button_blog_write_picture_default"/>
 
                 <View
                     android:id="@+id/pictureBtnDivider"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/CommonDivider" />
+                    android:background="@color/CommonDivider"/>
 
                 <ImageView
-                    android:id="@+id/labelBtn"
+                    android:id="@+id/write_diary_footer_tag_image_view"
                     android:layout_width="@dimen/CommonLargeButton"
                     android:layout_height="@dimen/CommonMediumButton"
                     android:contentDescription="@string/CommonDummy"
                     android:scaleType="center"
-                    android:src="@drawable/button_blog_write_label_default" />
+                    android:src="@drawable/button_blog_write_label_default"/>
 
                 <View
                     android:id="@+id/labelBtnDivider"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/CommonDivider" />
+                    android:background="@color/CommonDivider"/>
 
                 <ImageView
-                    android:id="@+id/shareBtn"
+                    android:id="@+id/write_diary_footer_export_sns_image_view"
                     android:layout_width="@dimen/CommonLargeButton"
                     android:layout_height="@dimen/CommonMediumButton"
                     android:contentDescription="@string/CommonDummy"
                     android:scaleType="center"
-                    android:src="@drawable/button_blog_write_share_default" />
+                    android:src="@drawable/button_blog_write_share_default"/>
 
                 <View
                     android:id="@+id/shareBtnDivider"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/CommonDivider" />
+                    android:background="@color/CommonDivider"/>
 
                 <ImageView
-                    android:id="@+id/weatherBtn"
+                    android:id="@+id/write_diary_footer_weather_image_view"
                     android:layout_width="@dimen/CommonLargeButton"
                     android:layout_height="@dimen/CommonMediumButton"
                     android:contentDescription="@string/CommonDummy"
                     android:scaleType="center"
-                    android:src="@drawable/button_blog_write_sky_default" />
+                    android:src="@drawable/button_blog_write_sky_default"/>
 
                 <View
                     android:id="@+id/saveBtnDivider"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/CommonDivider" />
+                    android:background="@color/CommonDivider"/>
 
-                <RelativeLayout
+                <Button
+                    android:id="@+id/write_diary_footer_temporary_save_button"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <Button
-                        android:id="@+id/saveBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@null"
-                        android:gravity="center"
-                        android:text="@string/WriteDiaryButtonSave"
-                        android:textColor="@color/CommonText"
-                        android:textSize="@dimen/CommonMediumText"
-                        android:textStyle="bold" />
-                </RelativeLayout>
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:text="@string/WriteDiaryButtonSave"
+                    android:textColor="@color/CommonText"
+                    android:textSize="@dimen/CommonMediumText"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 
-    <include layout="@layout/view_progress" />
+    <include layout="@layout/view_progress"/>
 
 </FrameLayout>

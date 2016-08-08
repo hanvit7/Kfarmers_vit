@@ -9,7 +9,7 @@ public abstract class ViewOnClickListener implements android.view.View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (CustomViewUtil.Button.isRepeatClick()) {
+        if (CustomViewUtil.Button.isRepeatClick()) {//중복클릭방지
             return;
         }
         viewOnClick(v);
