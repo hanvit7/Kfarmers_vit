@@ -54,10 +54,10 @@ public class DiaryEditActivity extends BaseFragmentActivity
     {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView title = (TextView) findViewById(R.id.title);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
         title.setText(R.string.WriteDiaryEditTitle);
 
-        Button leftBtn = (Button) findViewById(R.id.leftBtn);
+        Button leftBtn = (Button) findViewById(R.id.actionbar_left_button);
         leftBtn.setVisibility(View.VISIBLE);
         leftBtn.setText(R.string.actionbar_cancel);
         leftBtn.setOnClickListener(new ViewOnClickListener()
@@ -69,7 +69,7 @@ public class DiaryEditActivity extends BaseFragmentActivity
             }
         });
 
-        Button rightBtn = (Button) findViewById(R.id.rightBtn);
+        Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
         rightBtn.setVisibility(View.VISIBLE);
         rightBtn.setText(R.string.actionbar_input);
         rightBtn.setOnClickListener(new ViewOnClickListener()

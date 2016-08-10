@@ -192,7 +192,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 			@Override
 			public void viewOnClick(View v) {
 				try {
-					KaKaoController.onShareBtnClicked(DiaryDetailActivity.this, JsonUtil.objectToJson(getDetailData()), "");
+					KaKaoController.onExportFooterClicked(DiaryDetailActivity.this, JsonUtil.objectToJson(getDetailData()), "");
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -434,7 +434,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_detail);
-        actionBarTitleText = (TextView) findViewById(R.id.title);
+        actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
 		/*actionBarFarmHomeBtn = (ImageButton) findViewById(R.id.FarmHomeBtn);
 
 		actionBarFarmHomeBtn.setOnClickListener(new ViewOnClickListener() {
@@ -498,7 +498,7 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
 
                         Intent intent = new Intent(this, DiaryWriteActivity.class);
                         intent.putExtra("detail", JsonUtil.objectToJson(getDetailData()));
-                        intent.putExtra("type", DiaryWriteActivity.TYPE_DIARY_EDIT);
+                        intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS);
                         startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();

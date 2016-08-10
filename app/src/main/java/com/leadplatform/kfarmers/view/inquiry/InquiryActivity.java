@@ -149,7 +149,7 @@ public class InquiryActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        ((TextView) findViewById(R.id.title)).setText(getString(R.string.MenuLInquiry));
+        ((TextView) findViewById(R.id.actionbar_title_text_view)).setText(getString(R.string.MenuLInquiry));
         initActionBarHomeBtn();
     }
 

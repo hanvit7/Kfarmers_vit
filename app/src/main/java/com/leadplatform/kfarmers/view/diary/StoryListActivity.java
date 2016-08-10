@@ -20,9 +20,9 @@ public class StoryListActivity extends BaseFragmentActivity {
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
 
         if(mKeyword != null && !mKeyword.isEmpty()) {
-            ((TextView) findViewById(R.id.title)).setText(mKeyword);
+            ((TextView) findViewById(R.id.actionbar_title_text_view)).setText(mKeyword);
         } else {
-            ((TextView) findViewById(R.id.title)).setText("밥상수다");
+            ((TextView) findViewById(R.id.actionbar_title_text_view)).setText("밥상수다");
         }
         initActionBarHomeBtn();
     }

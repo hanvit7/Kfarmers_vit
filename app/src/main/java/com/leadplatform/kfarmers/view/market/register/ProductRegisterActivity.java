@@ -58,15 +58,15 @@ public class ProductRegisterActivity extends BaseFragmentActivity {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_product_register);
 
-        actionBarTitleText = (TextView) findViewById(R.id.title);
+        actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
 
         displayActionBarTitleText(getString(R.string.MenuRightFarmerTextProdcut));
 
         initActionBarHomeBtn();
-        actionBatLeftHome = (ImageButton) findViewById(R.id.homeBtn);
+        actionBatLeftHome = (ImageButton) findViewById(R.id.actionbar_home_image_button);
 
-        actionBarLeftBtn = (Button) findViewById(R.id.leftBtn);
-        actionBatRightBtn = (TextView) findViewById(R.id.rightBtn);
+        actionBarLeftBtn = (Button) findViewById(R.id.actionbar_left_button);
+        actionBatRightBtn = (TextView) findViewById(R.id.actionbar_right_button);
 
         actionBarLeftBtn.setOnClickListener(new ViewOnClickListener() {
             @Override

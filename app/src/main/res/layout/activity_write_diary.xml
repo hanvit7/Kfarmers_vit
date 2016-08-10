@@ -224,7 +224,7 @@
                     android:src="@drawable/button_blog_write_picture_default"/>
 
                 <View
-                    android:id="@+id/pictureBtnDivider"
+                    android:id="@+id/write_diary_footer_divider1"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/CommonDivider"/>
@@ -238,7 +238,7 @@
                     android:src="@drawable/button_blog_write_label_default"/>
 
                 <View
-                    android:id="@+id/labelBtnDivider"
+                    android:id="@+id/write_diary_footer_divider2"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/CommonDivider"/>
@@ -252,7 +252,7 @@
                     android:src="@drawable/button_blog_write_share_default"/>
 
                 <View
-                    android:id="@+id/shareBtnDivider"
+                    android:id="@+id/write_diary_footer_divider3"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/CommonDivider"/>
@@ -266,7 +266,7 @@
                     android:src="@drawable/button_blog_write_sky_default"/>
 
                 <View
-                    android:id="@+id/saveBtnDivider"
+                    android:id="@+id/write_diary_footer_divider4"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@color/CommonDivider"/>

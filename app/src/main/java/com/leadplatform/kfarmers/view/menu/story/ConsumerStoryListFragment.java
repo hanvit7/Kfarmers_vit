@@ -294,7 +294,7 @@ public class ConsumerStoryListFragment extends BaseRefreshMoreListFragment imple
 						UiController.showDialog(getSherlockActivity(), R.string.dialog_ready);
 						// try
 						// {
-						// KaKaoController.onShareBtnClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
+						// KaKaoController.onExportFooterClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
 						// }
 						// catch (Exception e)
 						// {

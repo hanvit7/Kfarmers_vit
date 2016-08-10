@@ -65,7 +65,7 @@ public class FindAccountActivity extends BaseFragmentActivity
     {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView title = (TextView) findViewById(R.id.title);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
         title.setText(R.string.LoginTextFind);
     }
 

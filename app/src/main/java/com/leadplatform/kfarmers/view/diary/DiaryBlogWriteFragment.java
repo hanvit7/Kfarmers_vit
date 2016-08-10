@@ -51,7 +51,7 @@ import com.leadplatform.kfarmers.util.kakao.MyKakaoStoryHttpResponseHandler;
 import com.leadplatform.kfarmers.view.base.BaseFragmentActivity;
 import com.leadplatform.kfarmers.view.base.BaseRefreshMoreListFragment;
 import com.leadplatform.kfarmers.view.base.BaseSlideImageAdapter;
-import com.leadplatform.kfarmers.view.base.OnLodingCompleteListener;
+import com.leadplatform.kfarmers.view.base.OnLoadingCompleteListener;
 import com.leadplatform.kfarmers.view.common.DialogFragment;
 import com.leadplatform.kfarmers.view.common.DialogFragment.OnCloseCategoryDialogListener;
 import com.leadplatform.kfarmers.view.sns.SnsActivity;
@@ -108,7 +108,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
     private boolean bMoreFlag = false;
 
-    OnLodingCompleteListener mOnLodingCompleteListener;
+    OnLoadingCompleteListener mOnLoadingCompleteListener;
 
     public static DiaryBlogWriteFragment newInstance() {
         Log.d(TAG, "newInstance ");
@@ -127,7 +127,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
         super.onAttach(activity);
 
         try {
-            mOnLodingCompleteListener = (OnLodingCompleteListener) activity;
+            mOnLoadingCompleteListener = (OnLoadingCompleteListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnLodingcompleteListener");
@@ -530,7 +530,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     public void onClick(View v) {
                         selectItem = (Integer) v.getTag(R.id.ClickLayout);
                         //kakaoListAdapter.notifyDataSetChanged();
-                        ((DiaryWriteActivity) getActivity()).onSaveBtnClicked();
+                        ((DiaryWriteActivity) getActivity()).onTemporarySaveFooterClicked();
                     }
                 };
 
@@ -795,7 +795,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     public void onClick(View v) {
                         selectItem = (Integer) v.getTag(R.id.ClickLayout);
                         //kakaoListAdapter.notifyDataSetChanged();
-                        ((DiaryWriteActivity) getActivity()).onSaveBtnClicked();
+                        ((DiaryWriteActivity) getActivity()).onTemporarySaveFooterClicked();
                     }
                 };
 
@@ -1072,7 +1072,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
         public void showHTML(String html) {
             Log.d(TAG, "showHTML");
             saveHtml(html);
-            mOnLodingCompleteListener.OnLodingComplete(TAG, !content.trim().equals("") ? true : false);
+            mOnLoadingCompleteListener.OnLoadingComplete(TAG, !content.trim().equals("") ? true : false);
         }
     }
 }

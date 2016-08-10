@@ -18,7 +18,7 @@ public class SupportersDetailActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_detail);
-        ((TextView) findViewById(R.id.title)).setText("서포터즈");
+        ((TextView) findViewById(R.id.actionbar_title_text_view)).setText("서포터즈");
         initActionBarHomeBtn();
     }
 

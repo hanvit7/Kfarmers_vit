@@ -1,7 +1,6 @@
 package com.leadplatform.kfarmers.model.json;
 
-public class ProfileJson
-{
+public class ProfileJson {
     public String ID;
     public String Name;
     public String Phone1;

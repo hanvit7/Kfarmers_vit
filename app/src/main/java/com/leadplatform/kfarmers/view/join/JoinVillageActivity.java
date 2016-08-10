@@ -50,7 +50,7 @@ public class JoinVillageActivity extends BaseFragmentActivity
     {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView title = (TextView) findViewById(R.id.title);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
         title.setText(R.string.JoinTitleVillage);
     }
 
@@ -59,7 +59,7 @@ public class JoinVillageActivity extends BaseFragmentActivity
     /***************************************************************/
     public void initActionBarRightBtnNext()
     {
-        Button rightBtn = (Button) findViewById(R.id.rightBtn);
+        Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
         rightBtn.setVisibility(View.VISIBLE);
         rightBtn.setText(R.string.actionbar_next);
         rightBtn.setOnClickListener(new ViewOnClickListener()
@@ -76,7 +76,7 @@ public class JoinVillageActivity extends BaseFragmentActivity
 
     public void initActionBarRightBtnComplete()
     {
-        Button rightBtn = (Button) findViewById(R.id.rightBtn);
+        Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
         rightBtn.setVisibility(View.VISIBLE);
         rightBtn.setText(R.string.actionbar_complete);
         rightBtn.setOnClickListener(new ViewOnClickListener()

@@ -141,10 +141,10 @@ public class ImageRotateActivity extends BaseFragmentActivity {
 	public void initActionBar() {
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getSupportActionBar().setCustomView(R.layout.view_actionbar);
-		TextView title = (TextView) findViewById(R.id.title);
+		TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
 		title.setText(R.string.rotate_image_title);
 
-		Button leftBtn = (Button) findViewById(R.id.leftBtn);
+		Button leftBtn = (Button) findViewById(R.id.actionbar_left_button);
 		leftBtn.setVisibility(View.VISIBLE);
 		leftBtn.setText(R.string.actionbar_cancel);
 		leftBtn.setOnClickListener(new ViewOnClickListener() {
@@ -154,7 +154,7 @@ public class ImageRotateActivity extends BaseFragmentActivity {
 			}
 		});
 
-		rightBtn = (Button) findViewById(R.id.rightBtn);
+		rightBtn = (Button) findViewById(R.id.actionbar_right_button);
 		rightBtn.setText(R.string.actionbar_ok);
 	}
 

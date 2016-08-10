@@ -129,7 +129,7 @@ public class StoryViewActivity extends BaseFragmentActivity implements ShareDial
 	public void initActionBar() {
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getSupportActionBar().setCustomView(R.layout.view_actionbar);
-		actionBarTitleText = (TextView) findViewById(R.id.title);
+		actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
 
 		if(type.equals("daily")) {
 			actionBarTitleText.setText("일상");

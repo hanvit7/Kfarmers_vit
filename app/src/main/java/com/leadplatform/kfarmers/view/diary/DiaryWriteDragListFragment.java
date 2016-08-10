@@ -25,7 +25,7 @@ import com.leadplatform.kfarmers.model.holder.DiaryWriteHolder;
 import com.leadplatform.kfarmers.model.item.WDiaryItem;
 import com.leadplatform.kfarmers.util.KfarmersAnalytics;
 import com.leadplatform.kfarmers.view.base.BaseDragListFragment;
-import com.leadplatform.kfarmers.view.base.OnLodingCompleteListener;
+import com.leadplatform.kfarmers.view.base.OnLoadingCompleteListener;
 import com.mobeta.android.dslv.DragSortController;
 import com.mobeta.android.dslv.DragSortListView;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -40,22 +40,22 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
     public static final int MAX_PICTURE_COUNT = 5;
     public static final int MAX_FACEBOOK_PICTURE_COUNT = 10;
 
-    private int diaryType;
+    private DiaryWriteActivity.DiaryWriteState mDiaryWriteState;
     private ArrayList<WDiaryItem> itemArrayList;
     private DragAdapter dragAdapter;
     private DisplayImageOptions options;
 
-    OnLodingCompleteListener mOnLodingCompleteListener;
+    OnLoadingCompleteListener mOnLoadingCompleteListener;
 
-    public static DiaryWriteDragListFragment newInstance(int type) {
+    public static DiaryWriteDragListFragment newInstance(DiaryWriteActivity.DiaryWriteState diaryWriteState) {
         Log.d(TAG, "newInstance");
-        final DiaryWriteDragListFragment f = new DiaryWriteDragListFragment();
+        final DiaryWriteDragListFragment fragment = new DiaryWriteDragListFragment();
 
         final Bundle args = new Bundle();
-        args.putInt("type", type);
-        f.setArguments(args);
+        args.putSerializable("DIARY_WRITE_STATE", diaryWriteState);
+        fragment.setArguments(args);
 
-        return f;
+        return fragment;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            diaryType = getArguments().getInt("type");
+            mDiaryWriteState = (DiaryWriteActivity.DiaryWriteState) getArguments().getSerializable("DIARY_WRITE_STATE");
         }
     }
 
@@ -74,10 +74,10 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         super.onAttach(activity);
 
         try {
-            mOnLodingCompleteListener = (OnLodingCompleteListener) activity;
+            mOnLoadingCompleteListener = (OnLoadingCompleteListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnLodingcompleteListener");
+                    + " must implement OnLoadingcompleteListener");
         }
     }
 
@@ -129,8 +129,8 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
 
         setListAdapter(dragAdapter);
 
-        if (diaryType == DiaryWriteActivity.TYPE_DIARY_BLOG_TO_LIST) {
-            mOnLodingCompleteListener.OnLodingComplete(TAG, true);
+        if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
+            mOnLoadingCompleteListener.OnLoadingComplete(TAG, true);
         }
     }
 
@@ -161,18 +161,18 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         }
         super.onCreateContextMenu(menu, v, menuInfo);
     }
-
+   // DiaryWriteState.IMPORT_COMPLETED
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         Log.d(TAG, "onContextItemSelected");
         switch (item.getItemId()) {
             case R.id.btn_input_text_up:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (diaryType == DiaryWriteActivity.TYPE_DIARY_NORMAL) {
+                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "위에 글 추가");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_EDIT) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "위에 글 추가");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_BLOG_TO_LIST) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "위에 글 추가");
                     }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -182,11 +182,11 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
 
             case R.id.btn_input_text_down:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (diaryType == DiaryWriteActivity.TYPE_DIARY_NORMAL) {
+                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "아래 글 추가");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_EDIT) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "아래 글 추가");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_BLOG_TO_LIST) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "아래 글 추가");
                     }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -196,11 +196,11 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
 
             case R.id.btn_delete:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (diaryType == DiaryWriteActivity.TYPE_DIARY_NORMAL) {
+                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "삭제");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_EDIT) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "삭제");
-                    } else if (diaryType == DiaryWriteActivity.TYPE_DIARY_BLOG_TO_LIST) {
+                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "삭제");
                     }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -294,17 +294,17 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         }
     }
 
-    public int isPictureCount() {
-        Log.d(TAG, "isPictureCount");
+    public int getPictureNum() {
+        Log.d(TAG, "getPictureNum");
         if (dragAdapter != null) {
-            int pictureCount = 0;
+            int pictureNum = 0;
             for (int index = 0; index < dragAdapter.getCount(); index++) {
                 WDiaryItem item = dragAdapter.getItem(index);
 
                 if (item.getType() == WDiaryItem.PICTURE_TYPE)
-                    pictureCount++;
+                    pictureNum++;
             }
-            return pictureCount;
+            return pictureNum;
         }
         return 0;
     }

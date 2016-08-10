@@ -287,7 +287,7 @@ public class FreshStoryListFragment extends BaseRefreshMoreListFragment implemen
 					public void viewOnClick(View v) {
 						// try
 						// {
-						// KaKaoController.onShareBtnClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
+						// KaKaoController.onExportFooterClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
 						// }
 						// catch (Exception e)
 						// {

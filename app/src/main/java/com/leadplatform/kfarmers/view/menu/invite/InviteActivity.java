@@ -81,7 +81,7 @@ public class InviteActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView actionBarTitleText = (TextView) findViewById(R.id.title);
+        TextView actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
         actionBarTitleText.setText(R.string.setting_invite);
         initActionBarHomeBtn();
     }

@@ -707,10 +707,10 @@ public class StoryWriteActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView title = (TextView) findViewById(R.id.title);
-        title.setText(R.string.WriteDiaryTitle);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
+        title.setText(R.string.write_diary_title);
 
-        Button leftBtn = (Button) findViewById(R.id.leftBtn);
+        Button leftBtn = (Button) findViewById(R.id.actionbar_left_button);
         leftBtn.setVisibility(View.VISIBLE);
         leftBtn.setText(R.string.actionbar_cancel);
         leftBtn.setOnClickListener(new ViewOnClickListener() {
@@ -721,7 +721,7 @@ public class StoryWriteActivity extends BaseFragmentActivity {
             }
         });
 
-        Button rightBtn = (Button) findViewById(R.id.rightBtn);
+        Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
         rightBtn.setText(R.string.actionbar_upload);
         rightBtn.setVisibility(View.VISIBLE);
         rightBtn.setOnClickListener(new ViewOnClickListener() {

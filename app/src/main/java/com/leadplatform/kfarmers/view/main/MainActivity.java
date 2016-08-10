@@ -214,7 +214,7 @@ public class MainActivity extends BaseMenuFragmentActivity {
 
         setChatData();
 
-        ImageButton leftBtn = (ImageButton) findViewById(R.id.leftBtn);
+        ImageButton leftBtn = (ImageButton) findViewById(R.id.actionbar_left_button);
         leftBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {

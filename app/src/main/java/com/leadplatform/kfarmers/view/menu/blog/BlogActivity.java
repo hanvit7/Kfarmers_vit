@@ -64,11 +64,11 @@ public class BlogActivity extends BaseFragmentActivity {
 	}
 
 	public void displayBlogListActionBar() {
-		TextView title = (TextView) findViewById(R.id.title);
+		TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
 		title.setText(R.string.GetListBlogTitle);
 
 		if (userIndex.equals(profileUserIndex)) {
-			Button rightBtn = (Button) findViewById(R.id.rightBtn);
+			Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
 			rightBtn.setVisibility(View.VISIBLE);
 			rightBtn.setText(R.string.actionbar_write);
 			rightBtn.setOnClickListener(new ViewOnClickListener() {
@@ -84,7 +84,7 @@ public class BlogActivity extends BaseFragmentActivity {
 		// TextView title = (TextView) findViewById(R.id.title);
 		// title.setText(R.string.WriteBlogTitle);
 
-		Button rightBtn = (Button) findViewById(R.id.rightBtn);
+		Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
 		rightBtn.setVisibility(View.VISIBLE);
 		rightBtn.setText(R.string.actionbar_upload);
 		rightBtn.setOnClickListener(new ViewOnClickListener() {

@@ -64,7 +64,7 @@ public class MenuFragment extends BaseFragment
     public void onActivityCreated(Bundle savedInstanceState)
     {
         super.onActivityCreated(savedInstanceState);
-        displaySelectMenuBtn(R.id.homeBtn);
+        displaySelectMenuBtn(R.id.actionbar_home_image_button);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class MenuFragment extends BaseFragment
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Constants.REQUEST_LEFT_MENU)
         {
-            displaySelectMenuBtn(R.id.homeBtn);
+            displaySelectMenuBtn(R.id.actionbar_home_image_button);
         }
     }
 

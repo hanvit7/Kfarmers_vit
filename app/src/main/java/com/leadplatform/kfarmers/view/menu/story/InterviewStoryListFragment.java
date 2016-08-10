@@ -282,7 +282,7 @@ public class InterviewStoryListFragment extends BaseRefreshMoreListFragment impl
 					public void viewOnClick(View v) {
 						// try
 						// {
-						// KaKaoController.onShareBtnClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
+						// KaKaoController.onExportFooterClicked(getSherlockActivity(), JsonUtil.objectToJson(item), TAG);
 						// }
 						// catch (Exception e)
 						// {

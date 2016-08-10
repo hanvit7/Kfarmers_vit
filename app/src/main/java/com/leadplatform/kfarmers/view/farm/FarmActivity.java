@@ -61,7 +61,7 @@ public class FarmActivity extends BaseFragmentActivity
     {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_farm);
-        actionBarTitleText = (TextView) findViewById(R.id.title);
+        actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
         actionBarFavoriteBtn = (LinearLayout) findViewById(R.id.rightFarmBtn);
 
         actionBarFavoriteBtn.setOnClickListener(new ViewOnClickListener() {

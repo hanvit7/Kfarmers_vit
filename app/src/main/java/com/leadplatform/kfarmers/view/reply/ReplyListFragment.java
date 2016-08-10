@@ -108,11 +108,11 @@ public class ReplyListFragment extends BaseRefreshMoreListFragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		final View v = inflater.inflate(R.layout.fragment_reply, container, false);
 
-		actionBarTitleText = (TextView) v.findViewById(R.id.title);
+		actionBarTitleText = (TextView) v.findViewById(R.id.actionbar_title_text_view);
 		writeCommentLayout = (LinearLayout) v.findViewById(R.id.writeCommentLayout);
 		commentEdit = (EditText) v.findViewById(R.id.commentEdit);
 		sendBtn = (ImageView) v.findViewById(R.id.sendBtn);
-		homeBtn = (ImageButton) v.findViewById(R.id.homeBtn);
+		homeBtn = (ImageButton) v.findViewById(R.id.actionbar_home_image_button);
 
 		return v;
 	}

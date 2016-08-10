@@ -109,10 +109,10 @@ public class ImageSelectorActivity extends BaseFragmentActivity {
 	public void initActionBar() {
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		getSupportActionBar().setCustomView(R.layout.view_actionbar);
-		TextView title = (TextView) findViewById(R.id.title);
+		TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
 		title.setText("이미지 선택");
 		
-		Button rightBtn = (Button) findViewById(R.id.rightBtn);
+		Button rightBtn = (Button) findViewById(R.id.actionbar_right_button);
 		rightBtn.setVisibility(View.VISIBLE);
 		rightBtn.setText(R.string.actionbar_upload);
 		rightBtn.setOnClickListener(new ViewOnClickListener() {
@@ -122,7 +122,7 @@ public class ImageSelectorActivity extends BaseFragmentActivity {
 			}
 		});
 		
-		Button leftBtn = (Button) findViewById(R.id.leftBtn);
+		Button leftBtn = (Button) findViewById(R.id.actionbar_left_button);
 		leftBtn.setVisibility(View.VISIBLE);
 		leftBtn.setText(R.string.actionbar_cancel);
 		leftBtn.setOnClickListener(new ViewOnClickListener() {

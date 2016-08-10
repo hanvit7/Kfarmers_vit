@@ -89,7 +89,7 @@ public class VillageReleaseEditFragment extends BaseFragment implements OnCloseD
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		final View v = inflater.inflate(R.layout.fragment_village_release_edit, container, false);
 
-		title = (TextView) v.findViewById(R.id.title);
+		title = (TextView) v.findViewById(R.id.actionbar_title_text_view);
 		releaseDateStart = (TextView) v.findViewById(R.id.releaseDateStart);
 		releaseDateEnd = (TextView) v.findViewById(R.id.releaseDateEnd);
 		alwaysCheck = (CheckBox) v.findViewById(R.id.alwaysCheck);

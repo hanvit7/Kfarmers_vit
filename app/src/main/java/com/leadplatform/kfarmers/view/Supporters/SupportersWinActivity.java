@@ -32,7 +32,7 @@ public class SupportersWinActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_detail);
-        ((TextView) findViewById(R.id.title)).setText("당첨자 발표");
+        ((TextView) findViewById(R.id.actionbar_title_text_view)).setText("당첨자 발표");
         initActionBarHomeBtn();
     }
 

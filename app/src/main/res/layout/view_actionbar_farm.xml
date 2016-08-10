@@ -6,7 +6,7 @@
     android:background="#FF8DD427">
 
     <ImageButton
-        android:id="@+id/homeBtn"
+        android:id="@+id/actionbar_home_image_button"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -17,7 +17,7 @@
         android:visibility="gone" />
 
     <Button
-        android:id="@+id/leftBtn"
+        android:id="@+id/actionbar_left_button"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -27,7 +27,7 @@
         style="@style/ButtonMediumConcept" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/actionbar_title_text_view"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"

@@ -111,7 +111,7 @@ public class SnsActivity extends BaseFragmentActivity
 
     private void displayInitTitleText(int snsType)
     {
-        TextView title = (TextView) findViewById(R.id.title);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
         switch (snsType)
         {
             case Constants.REQUEST_SNS_NAVER:

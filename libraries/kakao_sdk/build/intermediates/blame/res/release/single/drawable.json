@@ -28,12 +28,12 @@
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\src\\main\\res\\drawable\\kakao_cancel_button_background.xml"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable\\common_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable\\kakao_login_bar.png",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\src\\main\\res\\drawable\\kakao_login_bar.png"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable\\common_signin_btn_icon_dark.xml",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable\\common_signin_btn_icon_dark.xml"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable\\kakao_editable_profile.png",

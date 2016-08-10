@@ -5,7 +5,7 @@
     android:background="#FF8DD427">
 
     <ImageButton
-        android:id="@+id/leftBtn"
+        android:id="@+id/actionbar_left_button"
         style="@style/ButtonMediumConcept"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@id/leftBtn"
+        android:layout_toRightOf="@id/actionbar_left_button"
         android:background="@null"
         android:entries="@array/dropdown_menu_main"
         android:padding="5dp"

@@ -73,7 +73,7 @@ public class ConsumerStoryActivity extends BaseFragmentActivity
     {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView title = (TextView) findViewById(R.id.title);
+        TextView title = (TextView) findViewById(R.id.actionbar_title_text_view);
         if (type == TYPE_CONSUMER_MAIN)
             title.setText(R.string.title_consumer_story);
         else if (type == TYPE_CONSUMER_MY)

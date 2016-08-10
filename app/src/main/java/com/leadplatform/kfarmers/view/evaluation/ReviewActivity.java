@@ -38,7 +38,7 @@ public class ReviewActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView mActionBarTitle = (TextView) findViewById(R.id.title);
+        TextView mActionBarTitle = (TextView) findViewById(R.id.actionbar_title_text_view);
         if(userId.equals("")) {
             mActionBarTitle.setText(getString(R.string.review_realtime_title));
         } else {

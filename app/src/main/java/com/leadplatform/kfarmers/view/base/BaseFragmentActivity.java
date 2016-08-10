@@ -126,12 +126,12 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                                 if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
                                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Write", "가져오기");
                                     Intent intent = new Intent(BaseFragmentActivity.this, DiaryWriteActivity.class);
-                                    intent.putExtra("type", DiaryWriteActivity.TYPE_DIARY_BLOG);
+                                    intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS);
                                     startActivity(intent);
                                 } else if (type == UiDialog.DIALOG_NEGATIVE_LISTENER) {
                                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Write", "직접등록");
                                     Intent intent = new Intent(BaseFragmentActivity.this, DiaryWriteActivity.class);
-                                    intent.putExtra("type", DiaryWriteActivity.TYPE_DIARY_NORMAL);
+                                    intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE);
                                     startActivity(intent);
                                 }
                             }
@@ -156,7 +156,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void initActionBarHomeBtn() {
-        ImageButton homeBtn = (ImageButton) findViewById(R.id.homeBtn);
+        ImageButton homeBtn = (ImageButton) findViewById(R.id.actionbar_home_image_button);
         homeBtn.setVisibility(View.VISIBLE);
         homeBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
@@ -167,7 +167,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void initActionBarBack() {
-        ImageButton homeBtn = (ImageButton) findViewById(R.id.homeBtn);
+        ImageButton homeBtn = (ImageButton) findViewById(R.id.actionbar_home_image_button);
         homeBtn.setVisibility(View.VISIBLE);
         homeBtn.setOnClickListener(new ViewOnClickListener() {
             @Override

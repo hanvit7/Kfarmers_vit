@@ -307,7 +307,7 @@
 	<string name="LoginCheckBoxAuto">자동로그인</string>
 
 	<!-- Write Diary -->
-	<string name="WriteDiaryTitle">글쓰기</string>
+	<string name="write_diary_title">글쓰기</string>
 	<string name="WriteDiaryEditTitle">내용입력</string>
 	<string name="WriteDiaryTextCategory">카테고리 선택</string>
 	<string name="WriteDiaryHintTitle"><![CDATA[※]]> 블로그, 공지사항 등록시 제목 기입</string>

@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\kakaostory_icon.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\src\\main\\res\\drawable-xxhdpi\\kakaostory_icon.png"
-    },
-    {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\common_signin_btn_icon_focus_light.9.png",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable-xxhdpi\\common_signin_btn_icon_focus_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\kakaostory_icon.png",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\src\\main\\res\\drawable-xxhdpi\\kakaostory_icon.png"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\common_signin_btn_text_pressed_light.9.png",
@@ -48,12 +48,12 @@
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable-xxhdpi\\common_signin_btn_text_disabled_light.9.png"
     },
     {
-        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\common_signin_btn_icon_disabled_dark.9.png",
-        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable-xxhdpi\\common_signin_btn_icon_disabled_dark.9.png"
-    },
-    {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\kakaotalk_icon.png",
         "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\src\\main\\res\\drawable-xxhdpi\\kakaotalk_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\common_signin_btn_icon_disabled_dark.9.png",
+        "source": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\7.3.0\\res\\drawable-xxhdpi\\common_signin_btn_icon_disabled_dark.9.png"
     },
     {
         "merged": "C:\\Users\\VIT_HOME\\AndroidStudioProjects\\kfarmers_android_vit\\libraries\\kakao_sdk\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4\\common_signin_btn_icon_disabled_light.9.png",

@@ -84,7 +84,7 @@ public class ProductActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar_product);
-        actionBarTitleText = (TextView) findViewById(R.id.title);
+        actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
         initActionBarHomeBtn();
 
         ImageButton cartBtn = (ImageButton) findViewById(R.id.CartBtn);

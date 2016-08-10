@@ -37,10 +37,10 @@ public class RecipeListActivity extends BaseFragmentActivity {
     public void initActionBar() {
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
         getSupportActionBar().setCustomView(R.layout.view_actionbar);
-        TextView actionBarTitleText = (TextView) findViewById(R.id.title);
+        TextView actionBarTitleText = (TextView) findViewById(R.id.actionbar_title_text_view);
         actionBarTitleText.setText("레시피");
 
-        ImageButton homeBtn = (ImageButton) findViewById(R.id.homeBtn);
+        ImageButton homeBtn = (ImageButton) findViewById(R.id.actionbar_home_image_button);
         homeBtn.setVisibility(View.VISIBLE);
         homeBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
