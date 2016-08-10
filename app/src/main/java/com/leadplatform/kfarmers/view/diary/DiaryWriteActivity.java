@@ -75,7 +75,6 @@ import org.apache.http.Header;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadingCompleteListener {
     public static final String TAG = "DiaryWriteActivity";
@@ -122,7 +121,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
     private ArrayList<String> categoryList;
     private ArrayList<CategoryJson> categoryObjectList;
     private DiaryDetailJson detailData;
-    private String detailDataString;
+    private String mDetailData;
     private String kakaoStoryText = null;
     private String naverBlogText = null;
     private ArrayList<File> imageArrayList = null;
@@ -156,10 +155,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
         Intent intent = getIntent();
         if (intent != null) {
-            mDiaryWriteState = (DiaryWriteState) getIntent().getSerializableExtra("DIARY_WRITE_STATE");
+            mDiaryWriteState = (DiaryWriteState) getIntent().getSerializableExtra("EXTRA_DIARY_WRITE_STATE");
 
-            if (getIntent().getStringExtra("detail") != null) {
-                detailDataString = getIntent().getStringExtra("detail");
+            if (getIntent().getStringExtra("EXTRA_DETAIL_DATA") != null) {
+                mDetailData = getIntent().getStringExtra("EXTRA_DETAIL_DATA");
             }
         }
 
@@ -372,12 +371,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                 KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE_SNS);
             } else {
                 DiaryWriteDragListFragment fragment = DiaryWriteDragListFragment.newInstance(
-                        (detailDataString == null)
+                        (mDetailData == null)
                                 ? DiaryWriteState.DIRECT_WRITE
                                 : DiaryWriteState.IMPORT_FROM_SNS);
                 ft.replace(R.id.fragment_container, fragment, DiaryWriteDragListFragment.TAG);
 
-                if (detailDataString == null) {
+                if (mDetailData == null) {
                     KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE);
                 } else {
                     KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE_MODIFY);
@@ -705,10 +704,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
             kakaoStoryText = "";
             naverBlogText = "";
-            imageArrayList = new ArrayList<File>();
+            imageArrayList = new ArrayList<>();
 
-            ArrayList<RowsData> rows = new ArrayList<RowsData>();
-            ArrayList<String> images = new ArrayList<String>();
+            ArrayList<RowsData> rows = new ArrayList<>();
+            ArrayList<String> images = new ArrayList<>();
             DragAdapter adapter = (DragAdapter) fragment.getListAdapter();
 
             for (int index = 0; index < adapter.getCount(); index++) {
@@ -750,7 +749,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                 String str[] = tag.split(",");
                 tempTag = mWriteDiaryCategoryTextView.getText().toString();
 
-                if (str != null && str.length > 0) {
+                if (str.length > 0) {
                     for (String subStr : str) {
                         kakaoStoryText += "#" + subStr + " ";
                         tempTag += "," + subStr;
@@ -969,7 +968,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         snsType = "페이스북";
         albumJsons = null;
 
-        ArrayList<RowJson> rows = new ArrayList<RowJson>();
+        ArrayList<RowJson> rows = new ArrayList<>();
 
         RowJson row = new RowJson();
         row.Type = "Text";
@@ -993,7 +992,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         diaryDetailJson.Rows = rows;
 
         try {
-            detailDataString = JsonUtil.objectToJson(diaryDetailJson);
+            mDetailData = JsonUtil.objectToJson(diaryDetailJson);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1039,7 +1038,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             date = info.created_at;
             snsType = "카카오스토리";
 
-            ArrayList<RowJson> rows = new ArrayList<RowJson>();
+            ArrayList<RowJson> rows = new ArrayList<>();
 
             if (!PatternUtil.isEmpty(html.trim())) {
                 RowJson row = new RowJson();
@@ -1069,7 +1068,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             diaryDetailJson.Rows = rows;
 
             try {
-                detailDataString = JsonUtil.objectToJson(diaryDetailJson);
+                mDetailData = JsonUtil.objectToJson(diaryDetailJson);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -1106,18 +1105,18 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
                 String str[] = html.split("==]img]==");
 
-                ArrayList<RowJson> rows = new ArrayList<RowJson>();
+                ArrayList<RowJson> rows = new ArrayList<>();
 
-                for (int index = 0; index < str.length; index++) {
-                    if (!str[index].trim().equals("")) {
+                for (String aStr : str) {
+                    if (!aStr.trim().equals("")) {
                         RowJson row = new RowJson();
 
-                        if (str[index].startsWith("http://")) {
+                        if (aStr.startsWith("http://")) {
                             row.Type = "Image";
                         } else {
                             row.Type = "Text";
                         }
-                        row.Value = str[index].trim();
+                        row.Value = aStr.trim();
                         rows.add(row);
                     }
                 }
@@ -1126,7 +1125,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                 diaryDetailJson.Rows = rows;
 
                 try {
-                    detailDataString = JsonUtil.objectToJson(diaryDetailJson);
+                    mDetailData = JsonUtil.objectToJson(diaryDetailJson);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -1159,7 +1158,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
 
         if (fragment != null) {
-            ArrayList<RowJson> rows = new ArrayList<RowJson>();
+            ArrayList<RowJson> rows = new ArrayList<>();
             DragAdapter adapter = (DragAdapter) fragment.getListAdapter();
 
             for (int index = 0; index < adapter.getCount(); index++) {
@@ -1196,8 +1195,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             if (bEmptyContentFlag)
                 return null;
 
-            String ret = JsonUtil.objectToJson(data);
-            return ret;
+            return JsonUtil.objectToJson(data);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -1300,12 +1298,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                 break;
 
             case IMPORT_COMPLETED:
-                data = makeWriteDiaryData();//data define check vit
-                if (data != null) {
+//                data = makeWriteDiaryData();//data define check vit
+//                if (data != null) {
                     //DbController.updateTemporaryDiary(DiaryWriteActivity.this, data);
 //                    Toast.makeText(DiaryWriteActivity.this, R.string.dialog_success_temporary_diary, Toast.LENGTH_LONG).show();
                     // UiController.showDialog(DiaryWriteActivity.this, R.string.dialog_success_temporary_diary);
-                }
+//                }
                 break;
         }
     }
@@ -1360,8 +1358,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         Log.d(TAG, "requestCategory");
         if (categoryObjectList == null) {
             UserDb user = DbController.queryCurrentUser(this);
-            categoryList = new ArrayList<String>();
-            categoryObjectList = new ArrayList<CategoryJson>();
+            categoryList = new ArrayList<>();
+            categoryObjectList = new ArrayList<>();
 
             //소 비 자
 //            if (mUserType != UserType.FARMER && mUserType != UserType.EXPERIENCE_VILLAGE) {
@@ -1383,9 +1381,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                             case 0:
                                 JsonNode root = JsonUtil.parseTree(content);
                                 if (root.findPath("List").isArray()) {
-                                    Iterator<JsonNode> it = root.findPath("List").iterator();
-                                    while (it.hasNext()) {
-                                        CategoryJson category = (CategoryJson) JsonUtil.jsonToObject(it.next().toString(), CategoryJson.class);
+                                    for (JsonNode jsonNode : root.findPath("List")) {
+                                        CategoryJson category = (CategoryJson) JsonUtil.jsonToObject(jsonNode.toString(), CategoryJson.class);
                                         categoryList.add(category.SubName);
                                         categoryObjectList.add(category);
                                     }
@@ -1530,7 +1527,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
     private void checkTemporaryDiary() {
         Log.d(TAG, "checkTemporaryDiary");
-        if (TemporaryDiary == false) {
+        if (!TemporaryDiary) {
             TemporaryDiary = true;
             String diary = DbController.queryTemporaryDiary(this);
 
@@ -1547,7 +1544,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                                     if (mDiaryWriteState == DiaryWriteState.IMPORT_FROM_SNS) {
                                         mDiaryWriteState = DiaryWriteState.IMPORT_COMPLETED;
                                         displayInitButton();
-                                        detailDataString = DbController.queryTemporaryDiary(DiaryWriteActivity.this);
+                                        mDetailData = DbController.queryTemporaryDiary(DiaryWriteActivity.this);
 
                                         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                                         DiaryWriteDragListFragment diaryWriteDragListFragment = DiaryWriteDragListFragment.newInstance(mDiaryWriteState);
@@ -1568,9 +1565,9 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
     private boolean checkEditDiary() {
         Log.d(TAG, "checkEditDiary");
-        if (detailDataString != null) {
-            displayUpdateDiaryData(detailDataString);
-            //detailDataString = null;
+        if (mDetailData != null) {
+            displayUpdateDiaryData(mDetailData);
+            //mDetailData = null;
             return true;
         }
         return false;
@@ -1651,7 +1648,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         AsyncTask<WriteDiaryData, Void, WriteDiaryData> task = new AsyncTask<WriteDiaryData, Void, WriteDiaryData>() {
             @Override
             protected WriteDiaryData doInBackground(WriteDiaryData... data) {
-                ArrayList<String> img = new ArrayList<String>();
+                ArrayList<String> img = new ArrayList<>();
                 for (String path : data[0].getImages()) {
                     try {
                         if (path.contains("http")) {
@@ -1718,17 +1715,17 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                                                 snsPostItem.setIsKakao(data.isbKakao());
                                                 snsPostItem.setIsNaver(data.isbNaver());
 
-                                                HashMap<String, String> faceBookData = new HashMap<String, String>();
+                                                HashMap<String, String> faceBookData = new HashMap<>();
                                                 faceBookData.put(SnsPostItem.TEXT, kakaoStoryText);
                                                 faceBookData.put(SnsPostItem.TAG, profileData.ID);
                                                 snsPostItem.setFaceBookData(faceBookData);
 
-                                                HashMap<String, String> kakaoData = new HashMap<String, String>();
+                                                HashMap<String, String> kakaoData = new HashMap<>();
                                                 kakaoData.put(SnsPostItem.TEXT, kakaoStoryText);
                                                 snsPostItem.setKakaoData(kakaoData);
 
 												/*naverBlogText += "\n\n<a href=\"http://kfarmers.kr/link\">새로운 직거래 생태계, K파머스</a>";*/
-                                                HashMap<String, String> naverData = new HashMap<String, String>();
+                                                HashMap<String, String> naverData = new HashMap<>();
                                                 naverData.put(SnsPostItem.TITLE, mWriteDiaryTitleEditTextForSNSnNotice.getText().toString());
                                                 naverData.put(SnsPostItem.TEXT, naverBlogText);
                                                 naverData.put(SnsPostItem.TAG, data.getBlogTag());
