@@ -362,8 +362,10 @@ public class StoryDetailActivity extends BaseFragmentActivity {
 		case R.id.btn_edit:
 			if (detailStoryData != null) {
 				try {
-					Intent intent = new Intent(this, DiaryWriteActivity.class);
-					intent.putExtra("detail", JsonUtil.objectToJson(makeEditStoryData(detailStoryData)));
+					Intent intent = DiaryWriteActivity.newIntent(
+							getApplicationContext(),
+							DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS,
+							JsonUtil.objectToJson(detailStoryData));
 					startActivity(intent);
 				} catch (Exception e) {
 					e.printStackTrace();

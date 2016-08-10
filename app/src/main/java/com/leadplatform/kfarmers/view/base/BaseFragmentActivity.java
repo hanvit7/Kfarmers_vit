@@ -125,13 +125,18 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                             public void onDialog(int type) {
                                 if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
                                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Write", "가져오기");
-                                    Intent intent = new Intent(BaseFragmentActivity.this, DiaryWriteActivity.class);
-                                    intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS);
+                                    Intent intent = DiaryWriteActivity.newIntent(
+                                            BaseFragmentActivity.this,
+                                            DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS,
+                                            null);
                                     startActivity(intent);
+
                                 } else if (type == UiDialog.DIALOG_NEGATIVE_LISTENER) {
                                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Write", "직접등록");
-                                    Intent intent = new Intent(BaseFragmentActivity.this, DiaryWriteActivity.class);
-                                    intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE);
+                                    Intent intent = DiaryWriteActivity.newIntent(
+                                            BaseFragmentActivity.this,
+                                            DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE,
+                                            null);
                                     startActivity(intent);
                                 }
                             }

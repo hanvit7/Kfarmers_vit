@@ -495,10 +495,10 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
                 if (getDetailData() != null) {
                     try {
                         KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Menu", "수정");
-
-                        Intent intent = new Intent(this, DiaryWriteActivity.class);
-                        intent.putExtra("detail", JsonUtil.objectToJson(getDetailData()));
-                        intent.putExtra("DIARY_WRITE_STATE", DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS);
+                        Intent intent = DiaryWriteActivity.newIntent(
+                                getApplicationContext(),
+                                DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS,
+                                JsonUtil.objectToJson(getDetailData()));
                         startActivity(intent);
                     } catch (Exception e) {
                         e.printStackTrace();

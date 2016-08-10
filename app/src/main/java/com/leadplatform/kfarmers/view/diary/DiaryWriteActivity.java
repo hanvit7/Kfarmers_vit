@@ -2,6 +2,7 @@ package com.leadplatform.kfarmers.view.diary;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -137,6 +138,16 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
     private ArrayList<MyFaceBookAlbumJson> albumJsons;
     public ImageLoader imageLoader = ImageLoader.getInstance();
     private ProgressDialog mDialog;
+
+    private static final String EXTRA_DETAIL_DATA = "kr.kfarmers.detail_data";
+    private static final String EXTRA_DIARY_WRITE_STATE = "kr.kfarmers.diary_write_state";
+
+    public static Intent newIntent(Context packageContext, DiaryWriteState diaryWriteState, String detailData) {
+        Intent intent = new Intent(packageContext, DiaryWriteActivity.class);
+        intent.putExtra(EXTRA_DIARY_WRITE_STATE, diaryWriteState);
+        intent.putExtra(EXTRA_DETAIL_DATA, detailData);
+        return intent;
+    }
 
     @Override
     public void onCreateView(Bundle savedInstanceState) {
