@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     
-    <item android:id="@+id/btn_input_text_up"
+    <item android:id="@+id/drag_list_insert_text_up"
           android:title="@string/context_menu_input_text_up"
           />
     
-    <item android:id="@+id/btn_input_text_down"
+    <item android:id="@+id/drag_list_insert_text_down"
           android:title="@string/context_menu_input_text_down"
           />
     
-    <item android:id="@+id/btn_delete"
+    <item android:id="@+id/drag_list_delete"
           android:title="@string/context_menu_delete"
           />
           

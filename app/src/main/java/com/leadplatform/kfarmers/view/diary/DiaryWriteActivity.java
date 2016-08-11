@@ -109,7 +109,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
     private String tag, tempTag, weather, temperature, humidity;
     private int categoryIndex = 0, noticeIndex = 0;
 
-    private RelativeLayout mWriteDiaryExportSNSLayout;
+    private RelativeLayout mWriteDiaryExportSnsLayout;
     private ToggleButton mWriteDiaryAlignImageForSNSnNotice,
             mWriteDiaryExportNaverBlogButton,
             mWriteDiaryExportTistoryButton,
@@ -141,7 +141,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
     private static final String EXTRA_DETAIL_DATA = "kr.kfarmers.detail_data";
     private static final String EXTRA_DIARY_WRITE_STATE = "kr.kfarmers.diary_write_state";
 
-    public static Intent newIntent(Context packageContext, DiaryWriteState diaryWriteState, String detailData) {
+    public static Intent newIntent(Context packageContext, DiaryWriteState diaryWriteState,
+                                   String detailData) {
         Intent intent = new Intent(packageContext, DiaryWriteActivity.class);
         intent.putExtra(EXTRA_DIARY_WRITE_STATE, diaryWriteState);
         intent.putExtra(EXTRA_DETAIL_DATA, detailData);
@@ -155,16 +156,16 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
         Intent intent = getIntent();
         if (intent != null) {
-            mDiaryWriteState = (DiaryWriteState) getIntent().getSerializableExtra("EXTRA_DIARY_WRITE_STATE");
+            mDiaryWriteState = (DiaryWriteState) getIntent()
+                    .getSerializableExtra(EXTRA_DIARY_WRITE_STATE);
 
-            if (getIntent().getStringExtra("EXTRA_DETAIL_DATA") != null) {
-                mDetailData = getIntent().getStringExtra("EXTRA_DETAIL_DATA");
+            if (getIntent().getStringExtra(EXTRA_DETAIL_DATA) != null) {
+                mDetailData = getIntent().getStringExtra(EXTRA_DETAIL_DATA);
             }
         }
 
         detailData = new DiaryDetailJson();
-
-        imgPath = new ArrayList<String>();
+        imgPath = new ArrayList<>();
 
         getUserProfile();
         initContentView(savedInstanceState);
@@ -188,8 +189,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
     @Override
     public void onBackPressed() {
         Log.d(TAG, "onBackPressed ");
-        if (mWriteDiaryExportSNSLayout.getVisibility() == View.VISIBLE) {
-            mWriteDiaryExportSNSLayout.setVisibility(View.GONE);
+        if (mWriteDiaryExportSnsLayout.getVisibility() == View.VISIBLE) {
+            mWriteDiaryExportSnsLayout.setVisibility(View.GONE);
             return;
         }
 
@@ -203,7 +204,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             }
         }
 
-        onTemporarySaveFooterClicked();
+        onTextFooterClicked();
         super.onBackPressed();
     }
 
@@ -291,7 +292,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             @Override
             public void viewOnClick(View v) {
                 KfarmersAnalytics.onClick(getType(), "Click_TempSave", null);
-                onTemporarySaveFooterClicked();
+                onTextFooterClicked();
             }
         });
 
@@ -300,7 +301,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         mWriteDiaryFooterDivider3 = findViewById(R.id.write_diary_footer_divider3);
         mWriteDiaryFooterDivider4 = findViewById(R.id.write_diary_footer_divider4);
 
-        mWriteDiaryExportSNSLayout = (RelativeLayout) findViewById(R.id.write_diary_export_sns_layout);
+        mWriteDiaryExportSnsLayout = (RelativeLayout) findViewById(R.id.write_diary_export_sns_layout);
 
         mWriteDiaryExportNaverBlogButton = (ToggleButton) findViewById(R.id.write_diary_export_naver_blog_button);
         mWriteDiaryExportNaverBlogButton.setChecked(DbController.queryNaverFlag(this));
@@ -366,8 +367,12 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
             if (mDiaryWriteState == DiaryWriteState.IMPORT_FROM_SNS) {
-                DiaryBlogWriteFragment fragment = DiaryBlogWriteFragment.newInstance();
-                ft.replace(R.id.fragment_container, fragment, DiaryBlogWriteFragment.TAG);
+//                DiaryBlogWriteFragment fragment = ;
+                ft.replace(
+                        R.id.fragment_container,
+                        DiaryBlogWriteFragment.newInstance(),
+                        DiaryBlogWriteFragment.TAG);
+
                 KfarmersAnalytics.onScreen(KfarmersAnalytics.S_WRITE_SNS);
             } else {
                 DiaryWriteDragListFragment fragment = DiaryWriteDragListFragment.newInstance(
@@ -427,8 +432,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
             int i = 0;
             for (MyFaceBookAlbumJson albumJson : albumJsons) {
-                menu.add(0, i, 0, albumJson.name);
-                i++;
+                menu.add(0, i++, 0, albumJson.name);
             }
         } else {
             menu.setHeaderTitle(R.string.context_menu_camera_title);
@@ -443,21 +447,28 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         if (snsType.equals("페이스북")) {
             try {
                 KfarmersAnalytics.onClick(getType(), "Click_Picture", "페이스북");
-                galleryChoice(albumJsons.get(item.getItemId()).id, date, DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_COUNT);
+                galleryChoice(
+                        albumJsons.get(item.getItemId()).id,
+                        date,
+                        DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_NUMBER);
             } catch (Exception e) {
             }
         } else {
             switch (item.getItemId()) {
                 case R.id.btn_camera_capture:
                     imgPath.clear();
-                    imgPath.add(ImageUtil.takePictureFromCamera(this, Constants.REQUEST_TAKE_CAPTURE));
+                    imgPath.add(ImageUtil.takePictureFromCamera(
+                            this, Constants.REQUEST_TAKE_CAPTURE));
                     KfarmersAnalytics.onClick(getType(), "Click_Picture", "촬영");
                     return true;
 
                 case R.id.btn_camera_gallery:
                     // 기본 안드로이드 갤러리
                     //ImageUtil.takePictureFromGallery(this, Constants.REQUEST_TAKE_PICTURE);
-                    galleryChoice("", "", DiaryWriteDragListFragment.MAX_PICTURE_COUNT);
+                    galleryChoice(
+                            "",
+                            "",
+                            DiaryWriteDragListFragment.MAX_PICTURE_NUMBER);
                     KfarmersAnalytics.onClick(getType(), "Click_Picture", "불러오기");
                     return true;
             }
@@ -465,16 +476,17 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         return super.onContextItemSelected(item);
     }
 
-    public void galleryChoice(String faceBoookId, String faceBookDate, int maxCount) {
+    public void galleryChoice(String faceBookId, String faceBookDate, int maxCount) {
         Log.d(TAG, "galleryChoice ");
-        int count = 0;
+        int pictureNum = 0;
         FragmentManager fm = getSupportFragmentManager();
-        DiaryWriteDragListFragment fragment = (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
+        DiaryWriteDragListFragment fragment =
+                (DiaryWriteDragListFragment) fm.findFragmentByTag(DiaryWriteDragListFragment.TAG);
 
         if (fragment != null) {
-            count = fragment.nowPictureCount();
+            pictureNum = fragment.getPictureNum();
         }
-        ImageUtil.takeSelectFromGallery(mContext, maxCount, count, faceBoookId, faceBookDate, Constants.REQUEST_GALLERY);
+        ImageUtil.takeSelectFromGallery(mContext, maxCount, pictureNum, faceBookId, faceBookDate, Constants.REQUEST_GALLERY);
     }
 
     @Override
@@ -533,7 +545,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                 DbController.updateKakaoFlag(DiaryWriteActivity.this, true);
                 return;
             } else if (requestCode == FACEBOOK_ALBUM) {
-                galleryChoice(data.getStringExtra("id"), date, DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_COUNT);
+                galleryChoice(
+                        data.getStringExtra("id"),
+                        date,
+                        DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_NUMBER);
                 return;
             }
         } else {
@@ -672,7 +687,7 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
     public void onActionBarCancelButtonClicked() {
         Log.d(TAG, "onActionBarCancelButtonClicked ");
-        onTemporarySaveFooterClicked();
+        onTextFooterClicked();
         finish();
     }
 
@@ -1212,13 +1227,13 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
             int count = dragListFragment.getPictureNum();
 
             if (snsType.equals("페이스북")) {
-                if (count >= DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_COUNT) {
-                    UiController.showDialog(mContext, String.format(mContext.getString(R.string.toast_img_max), DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_COUNT));
+                if (count >= DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_NUMBER) {
+                    UiController.showDialog(mContext, String.format(mContext.getString(R.string.toast_img_max), DiaryWriteDragListFragment.MAX_FACEBOOK_PICTURE_NUMBER));
                     return;
                 }
             } else {
-                if (count >= DiaryWriteDragListFragment.MAX_PICTURE_COUNT) {
-                    UiController.showDialog(mContext, String.format(mContext.getString(R.string.toast_img_max), DiaryWriteDragListFragment.MAX_PICTURE_COUNT));
+                if (count >= DiaryWriteDragListFragment.MAX_PICTURE_NUMBER) {
+                    UiController.showDialog(mContext, String.format(mContext.getString(R.string.toast_img_max), DiaryWriteDragListFragment.MAX_PICTURE_NUMBER));
                     return;
                 }
             }
@@ -1236,7 +1251,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
                     }
                 } else {
                     KfarmersAnalytics.onClick(getType(), "Click_Picture", "불러오기");
-                    galleryChoice("", "", DiaryWriteDragListFragment.MAX_PICTURE_COUNT);
+                    galleryChoice(
+                            "",
+                            "",
+                            DiaryWriteDragListFragment.MAX_PICTURE_NUMBER);
                 }
             } else {
                 registerForContextMenu(view);
@@ -1262,10 +1280,10 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
 
     public void onExportFooterClicked() {
         Log.d(TAG, "onExportFooterClicked");
-        if (mWriteDiaryExportSNSLayout.getVisibility() == View.GONE) {
-            mWriteDiaryExportSNSLayout.setVisibility(View.VISIBLE);
+        if (mWriteDiaryExportSnsLayout.getVisibility() == View.GONE) {
+            mWriteDiaryExportSnsLayout.setVisibility(View.VISIBLE);
         } else {
-            mWriteDiaryExportSNSLayout.setVisibility(View.GONE);
+            mWriteDiaryExportSnsLayout.setVisibility(View.GONE);
         }
     }
 
@@ -1278,8 +1296,8 @@ public class DiaryWriteActivity extends BaseFragmentActivity implements OnLoadin
         startActivityForResult(intent, Constants.REQUEST_WEATHER);
     }
 
-    public void onTemporarySaveFooterClicked() {
-        Log.d(TAG, "onTemporarySaveFooterClicked");
+    public void onTextFooterClicked() {
+        Log.d(TAG, "onTextFooterClicked");
         switch (mDiaryWriteState) {
             case DIRECT_WRITE:
                 String data = makeWriteDiaryData();

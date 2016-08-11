@@ -35,26 +35,28 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import java.util.ArrayList;
 
 public class DiaryWriteDragListFragment extends BaseDragListFragment {
+
     public static final String TAG = "DiaryWriteDragListFragment";
 
-    public static final int MAX_PICTURE_COUNT = 5;
-    public static final int MAX_FACEBOOK_PICTURE_COUNT = 10;
+    public static final int MAX_PICTURE_NUMBER = 5;
+    public static final int MAX_FACEBOOK_PICTURE_NUMBER = 10;
 
     private DiaryWriteActivity.DiaryWriteState mDiaryWriteState;
-    private ArrayList<WDiaryItem> itemArrayList;
     private DragAdapter dragAdapter;
     private DisplayImageOptions options;
 
     OnLoadingCompleteListener mOnLoadingCompleteListener;
 
-    public static DiaryWriteDragListFragment newInstance(DiaryWriteActivity.DiaryWriteState diaryWriteState) {
+    private static final String ARG_DIARY_WRITE_STATE = "diary_write_state";
+
+    public static DiaryWriteDragListFragment newInstance(
+            DiaryWriteActivity.DiaryWriteState diaryWriteState) {
         Log.d(TAG, "newInstance");
-        final DiaryWriteDragListFragment fragment = new DiaryWriteDragListFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_DIARY_WRITE_STATE, diaryWriteState);
 
-        final Bundle args = new Bundle();
-        args.putSerializable("DIARY_WRITE_STATE", diaryWriteState);
+        DiaryWriteDragListFragment fragment = new DiaryWriteDragListFragment();
         fragment.setArguments(args);
-
         return fragment;
     }
 
@@ -64,7 +66,8 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mDiaryWriteState = (DiaryWriteActivity.DiaryWriteState) getArguments().getSerializable("DIARY_WRITE_STATE");
+            mDiaryWriteState = (DiaryWriteActivity.DiaryWriteState) getArguments()
+                    .getSerializable(ARG_DIARY_WRITE_STATE);
         }
     }
 
@@ -77,22 +80,30 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
             mOnLoadingCompleteListener = (OnLoadingCompleteListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
-                    + " must implement OnLoadingcompleteListener");
+                    + " must implement OnLoadingCompleteListener");
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        final DragSortListView dragListView = (DragSortListView) inflater.inflate(R.layout.fragment_write_diary_draglist, container, false);
+        final DragSortListView dragListView = (DragSortListView) inflater
+                .inflate(R.layout.fragment_write_diary_draglist, container, false);
 
         DragSortController dragListController = buildController(dragListView);
         dragListView.setFloatViewManager(dragListController);
         dragListView.setOnTouchListener(dragListController);
         dragListView.setDragEnabled(true);
 
-        options = new DisplayImageOptions.Builder().resetViewBeforeLoading(true).cacheOnDisk(true).imageScaleType(ImageScaleType.IN_SAMPLE_INT)
-                .bitmapConfig(Bitmap.Config.RGB_565).showImageOnLoading(R.drawable.common_dummy).considerExifParams(true).displayer(new FadeInBitmapDisplayer(300)).build();
+        options = new DisplayImageOptions.Builder()
+                .resetViewBeforeLoading(true)
+                .cacheOnDisk(true)
+                .imageScaleType(ImageScaleType.IN_SAMPLE_INT)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .showImageOnLoading(R.drawable.common_dummy)
+                .considerExifParams(true)
+                .displayer(new FadeInBitmapDisplayer(300))
+                .build();
 
         return dragListView;
     }
@@ -110,18 +121,22 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
 
         WDiaryItem item = new WDiaryItem();
         item.setType(WDiaryItem.TEXT_TYPE);
-        itemArrayList = new ArrayList<WDiaryItem>();
+
+        ArrayList<WDiaryItem> itemArrayList = new ArrayList<>();
         itemArrayList.add(item);
-        dragAdapter = new DragAdapter(getSherlockActivity(), R.layout.item_write_diary, itemArrayList, options);
+
+        dragAdapter = new DragAdapter(
+                getSherlockActivity(),
+                R.layout.item_write_diary,
+                itemArrayList,
+                options);
 
         getListView().setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 WDiaryItem item = dragAdapter.getItem(position);
                 if (item.getType() == WDiaryItem.TEXT_TYPE) {
-                    Intent intent = new Intent(getSherlockActivity(), DiaryEditActivity.class);
-                    intent.putExtra("position", position);
-                    intent.putExtra("textContent", item.getTextContent());
+                    Intent intent = DiaryEditActivity.newIntent(getActivity(), position, item.getTextContent());
                     startActivityForResult(intent, Constants.REQUEST_EDIT_DIARY);
                 }
             }
@@ -155,56 +170,77 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         Log.d(TAG, "onCreateContextMenu");
         if (getSherlockActivity() instanceof DiaryWriteActivity) {
-            getSherlockActivity().getMenuInflater().inflate(R.menu.menu_w_diary, menu);
+            getSherlockActivity().getMenuInflater().inflate(R.menu.menu_diary_write_drag_list, menu);
             menu.setHeaderTitle(R.string.context_menu_edit_title);
             return;
         }
         super.onCreateContextMenu(menu, v, menuInfo);
     }
-   // DiaryWriteState.IMPORT_COMPLETED
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         Log.d(TAG, "onContextItemSelected");
         switch (item.getItemId()) {
-            case R.id.btn_input_text_up:
+            case R.id.drag_list_insert_text_up:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "위에 글 추가");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "위에 글 추가");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "위에 글 추가");
-                    }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                     addUpListViewTextItem(info.position);
+
+                    switch (mDiaryWriteState) {
+                        case DIRECT_WRITE:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "위에 글 추가");
+                            break;
+                        case MODIFY:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "위에 글 추가");
+                            break;
+                        case IMPORT_FROM_SNS:
+                            break;
+                        case IMPORT_COMPLETED:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "위에 글 추가");
+                            break;
+                    }
                 }
                 return true;
 
-            case R.id.btn_input_text_down:
+            case R.id.drag_list_insert_text_down:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "아래 글 추가");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "아래 글 추가");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "아래 글 추가");
-                    }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                     addDownListViewTextItem(info.position);
+
+                    switch (mDiaryWriteState) {
+                        case DIRECT_WRITE:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "아래 글 추가");
+                            break;
+                        case MODIFY:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "아래 글 추가");
+                            break;
+                        case IMPORT_FROM_SNS:
+                            break;
+                        case IMPORT_COMPLETED:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "아래 글 추가");
+                            break;
+                    }
                 }
                 return true;
 
-            case R.id.btn_delete:
+            case R.id.drag_list_delete:
                 if (getSherlockActivity() instanceof DiaryWriteActivity) {
-                    if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.DIRECT_WRITE) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "삭제");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_FROM_SNS) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "삭제");
-                    } else if (mDiaryWriteState == DiaryWriteActivity.DiaryWriteState.IMPORT_COMPLETED) {
-                        KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "삭제");
-                    }
                     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
                     deleteListViewItem(info.position);
+
+                    switch (mDiaryWriteState) {
+                        case DIRECT_WRITE:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE, "Click_Write-Menu", "삭제");
+                            break;
+                        case MODIFY:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_MODIFY, "Click_Write-Menu", "삭제");
+                            break;
+                        case IMPORT_FROM_SNS:
+                            break;
+                        case IMPORT_COMPLETED:
+                            KfarmersAnalytics.onClick(KfarmersAnalytics.S_WRITE_SNS, "Click_Write-Menu", "삭제");
+                            break;
+                    }
                 }
                 return true;
         }
@@ -309,22 +345,8 @@ public class DiaryWriteDragListFragment extends BaseDragListFragment {
         return 0;
     }
 
-    public int nowPictureCount() {
-        Log.d(TAG, "nowPictureCount");
-        if (dragAdapter != null) {
-            int pictureCount = 0;
-            for (int index = 0; index < dragAdapter.getCount(); index++) {
-                WDiaryItem item = dragAdapter.getItem(index);
-
-                if (item.getType() == WDiaryItem.PICTURE_TYPE)
-                    pictureCount++;
-            }
-            return pictureCount;
-        }
-        return 0;
-    }
-
     public class DragAdapter extends ArrayAdapter<WDiaryItem> {
+
         private int itemLayoutResourceId;
         private DisplayImageOptions options;
 

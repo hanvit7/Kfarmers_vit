@@ -1,69 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:orientation="vertical"
-	android:background="#FFFFFF" >
-	<LinearLayout
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal" 
-	    >
-		<!-- text item -->
-		<RelativeLayout
-		    android:id="@+id/textLayout"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:paddingLeft="@dimen/CommonMediumPadding"
-			android:paddingRight="@dimen/CommonMediumPadding"
-			android:paddingTop="@dimen/CommonSmallPadding"
-			android:paddingBottom="@dimen/CommonSmallPadding" >
-			<TextView
-			    android:id="@+id/textEdit"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:minHeight="@dimen/CommonMediumRow"
-				android:layout_centerVertical="true"
-				android:text="@string/CommonEmpty"
-				android:textColor="@color/CommonText"
-				android:textSize="@dimen/CommonMediumText"
-				android:hint="@string/WriteDiaryHintContents"
-				android:textColorHint="@color/CommonHint"
-				android:gravity="center_vertical"
-				android:background="#FFFFFF" />
-		</RelativeLayout>
-		<!-- image item -->
-		<RelativeLayout
-		    android:id="@+id/pictureLayout"
-			android:layout_width="0dp"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:padding="@dimen/CommonMediumPadding" >
-			<ImageView
-			    android:id="@+id/pictureImg"
-				android:layout_width="@dimen/DragImageSize"
-				android:layout_height="@dimen/DragImageSize"
-				android:layout_centerVertical="true"
-				android:adjustViewBounds="true"
-				android:scaleType="centerCrop"
-				android:src="@drawable/common_dummy"
-				android:contentDescription="@string/CommonDummy" />
-		</RelativeLayout>
-		
-		<ImageView
-		    android:id="@+id/dragImg"
-			android:layout_width="@dimen/DragImageSize"
-			android:layout_height="@dimen/DragImageSize"
-			android:layout_gravity="center_vertical"
-			android:scaleType="center"
-			android:src="@drawable/button_write_drag"
-			android:contentDescription="@string/CommonDummy" />
-				    
-	</LinearLayout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
-	<View
-		android:layout_width="match_parent"
-		android:layout_height="0.5dp"
-		android:background="@color/CommonDivider" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <!-- text item -->
+        <RelativeLayout
+            android:id="@+id/textLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingBottom="@dimen/CommonSmallPadding"
+            android:paddingLeft="@dimen/CommonMediumPadding"
+            android:paddingRight="@dimen/CommonMediumPadding"
+            android:paddingTop="@dimen/CommonSmallPadding">
+
+            <TextView
+                android:id="@+id/textEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:hint="@string/WriteDiaryHintContents"
+                android:minHeight="@dimen/CommonMediumRow"
+                android:text="@string/CommonEmpty"
+                android:textColor="@color/CommonText"
+                android:textColorHint="@color/CommonHint"
+                android:textSize="@dimen/CommonMediumText"/>
+        </RelativeLayout>
+        <!-- image item -->
+        <RelativeLayout
+            android:id="@+id/pictureLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/CommonMediumPadding">
+
+            <ImageView
+                android:id="@+id/pictureImg"
+                android:layout_width="@dimen/DragImageSize"
+                android:layout_height="@dimen/DragImageSize"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/CommonDummy"
+                android:scaleType="centerCrop"
+                android:src="@drawable/common_dummy"/>
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/dragImg"
+            android:layout_width="@dimen/DragImageSize"
+            android:layout_height="@dimen/DragImageSize"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@string/CommonDummy"
+            android:scaleType="center"
+            android:src="@drawable/button_write_drag"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/CommonDivider"/>
 </LinearLayout>

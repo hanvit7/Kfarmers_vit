@@ -131,7 +131,6 @@ public class DiaryDetailActivity extends BaseFragmentActivity implements OnClose
         farmLayout.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-
                 KfarmersAnalytics.onClick(KfarmersAnalytics.S_STROY_DETAIL, "Click_Farm", getDetailData().Farm);
 
                 Intent intent = new Intent(mContext, FarmActivity.class);

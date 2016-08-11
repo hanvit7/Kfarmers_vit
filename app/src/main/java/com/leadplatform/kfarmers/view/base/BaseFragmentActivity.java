@@ -58,6 +58,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         mContext = BaseFragmentActivity.this;
 
@@ -76,6 +77,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void runMainActivity() {
+        Log.d(TAG, "runMainActivity");
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -84,6 +86,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void runMainActivity(MainActivity.MainTab currentTab) {
+        Log.d(TAG, "runMainActivity");
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -93,7 +96,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void runMainActivity(HashMap<String, String> hashMap) {
-        Log.d(TAG, "VIT] MainActivity 생성 및 해시맵 전달");
+        Log.d(TAG, "runMainActivity");
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                 | Intent.FLAG_ACTIVITY_SINGLE_TOP);
@@ -103,6 +106,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     public void runReplyActivity(int replyType, String diaryTitle,
                                  String diaryIndex) {
+        Log.d(TAG, "runReplyActivity");
         Intent intent = new Intent(this, ReplyActivity.class);
         intent.putExtra("replyType", replyType);
         intent.putExtra("diaryTitle", diaryTitle);
@@ -112,6 +116,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void runWriteDiaryActivity(String type) {
+        Log.d(TAG, "runWriteDiaryActivity");
         if (AppPreferences.getLogin(this)) {
             if (type.equals("U")) {
                 Intent intent = new Intent(BaseFragmentActivity.this, StoryWriteActivity.class);
@@ -123,6 +128,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                         UiController.showDialog(this, R.string.dialog_write_type, R.string.dialog_write_sns, R.string.dialog_write_me, new CustomDialogListener() {
                             @Override
                             public void onDialog(int type) {
+                                Log.d(TAG, "onDialog");
                                 if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
                                     KfarmersAnalytics.onClick(KfarmersAnalytics.S_MAIN, "Click_ActionBar-Write", "가져오기");
                                     Intent intent = DiaryWriteActivity.newIntent(
@@ -146,6 +152,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                                 new CustomDialogListener() {
                                     @Override
                                     public void onDialog(int type) {
+                                        Log.d(TAG, "onDialog");
                                         if (type == UiDialog.DIALOG_POSITIVE_LISTENER) {
                                             CommonUtil.AndroidUtil.actionDial(mContext, getResources().getString(R.string.setting_service_center_phone));
                                         }
@@ -161,32 +168,38 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void initActionBarHomeBtn() {
+        Log.d(TAG, "initActionBarHomeBtn");
         ImageButton homeBtn = (ImageButton) findViewById(R.id.actionbar_home_image_button);
         homeBtn.setVisibility(View.VISIBLE);
         homeBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
+                Log.d(TAG, "viewOnClick");
                 runMainActivity();
             }
         });
     }
 
     public void initActionBarBack() {
+        Log.d(TAG, "initActionBarBack");
         ImageButton homeBtn = (ImageButton) findViewById(R.id.actionbar_home_image_button);
         homeBtn.setVisibility(View.VISIBLE);
         homeBtn.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
+                Log.d(TAG, "viewOnClick");
                 onBackPressed();
             }
         });
     }
 
     public void centerLikeDiary(final String index, final OnLikeDiaryListener listener) {
+        Log.d(TAG, "centerLikeDiary");
         if (!AppPreferences.getLogin(this)) {
             CenterController.likeNoMemberDiary(index, mContext, new CenterResponseListener(BaseFragmentActivity.this) {
                 @Override
                 public void onSuccess(int Code, String content) {
+                    Log.d(TAG, "onSuccess");
                     try {
                         switch (Code) {
                             case 0000:
@@ -224,6 +237,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                 BaseFragmentActivity.this) {
             @Override
             public void onSuccess(int Code, String content) {
+                Log.d(TAG, "onSuccess");
                 try {
                     switch (Code) {
                         case 0000:
@@ -258,6 +272,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     public void centerLikeUserDiary(final String index,
                                     final OnLikeDiaryListener listener) {
+        Log.d(TAG, "centerLikeUserDiary");
         if (!AppPreferences.getLogin(this)) {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
@@ -268,6 +283,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                 BaseFragmentActivity.this) {
             @Override
             public void onSuccess(int Code, String content) {
+                Log.d(TAG, "onSuccess");
                 try {
                     switch (Code) {
                         case 0000:
@@ -301,9 +317,11 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     public void centerDeleteDiary(final String index,
                                   final OnDeleteDiaryListener listener) {
+        Log.d(TAG, "centerDeleteDiary");
         CenterController.deleteDiary(index, new CenterResponseListener(this) {
             @Override
             public void onSuccess(int Code, String content) {
+                Log.d(TAG, "onSuccess");
                 try {
                     switch (Code) {
                         case 0000:
@@ -327,10 +345,12 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     public void centerDeleteConsumer(final String index,
                                      final OnDeleteDiaryListener listener) {
+        Log.d(TAG, "centerDeleteConsumer");
         CenterController.deleteConsumer(index,
                 new CenterResponseListener(this) {
                     @Override
                     public void onSuccess(int Code, String content) {
+                        Log.d(TAG, "onSuccess");
                         try {
                             switch (Code) {
                                 case 0000:
@@ -355,10 +375,12 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
     public void centerDeleteInterview(final String index,
                                       final OnDeleteDiaryListener listener) {
+        Log.d(TAG, "centerDeleteInterview");
         CenterController.deleteInterview(index,
                 new CenterResponseListener(this) {
                     @Override
                     public void onSuccess(int Code, String content) {
+                        Log.d(TAG, "onSuccess");
                         try {
                             switch (Code) {
                                 case 0000:
@@ -382,6 +404,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public ProfileJson getProfile() {
+        Log.d(TAG, "getProfile");
         ProfileJson profileJson = null;
         try {
             String profile = DbController.queryProfileContent(mContext);
@@ -394,6 +417,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void leaveMember() {
+        Log.d(TAG, "leaveMember");
         try {
             String profile = DbController.queryProfileContent(mContext);
             JsonNode root = JsonUtil.parseTree(profile);
@@ -403,6 +427,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
             CenterController.leaveMember(profileJson.ID, profileJson.Type, regId, new CenterResponseListener(mContext) {
                 @Override
                 public void onSuccess(int Code, String content) {
+                    Log.d(TAG, "onSuccess");
                     try {
                         switch (Code) {
                             case 0000:
@@ -424,11 +449,13 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                                 SnipeApiController.tokenExpired(new SnipeResponseListener(mContext) {
                                     @Override
                                     public void onSuccess(int Code, String content, String error) {
+                                        Log.d(TAG, "onSuccess");
                                         getToken();
                                     }
 
                                     @Override
                                     public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
+                                        Log.d(TAG, "onFailure");
                                         super.onFailure(statusCode, headers, content, error);
                                         getToken();
                                     }
@@ -449,11 +476,13 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void logout() {
+        Log.d(TAG, "logout");
         String regId = AppPreferences.getGcmRegistrationId(mContext);
 
         CenterController.logout(regId, new CenterResponseListener(mContext) {
             @Override
             public void onSuccess(int Code, String content) {
+                Log.d(TAG, "onSuccess");
                 try {
                     switch (Code) {
                         case 0000:
@@ -478,11 +507,13 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
                             SnipeApiController.tokenExpired(new SnipeResponseListener(mContext) {
                                 @Override
                                 public void onSuccess(int Code, String content, String error) {
+                                    Log.d(TAG, "onSuccess");
                                     getToken();
                                 }
 
                                 @Override
                                 public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
+                                    Log.d(TAG, "onFailure");
                                     super.onFailure(statusCode, headers, content, error);
                                     getToken();
                                 }
@@ -501,6 +532,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
     }
 
     public void getToken() {
+        Log.d(TAG, "getToken");
         String id = "";
         String pw = "";
 
@@ -513,6 +545,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
         SnipeApiController.getToken(id, pw, new SnipeResponseListener(mContext) {
             @Override
             public void onSuccess(int Code, String content, String error) {
+                Log.d(TAG, "onSuccess");
                 switch (Code) {
                     case 600:
                         DbController.updateApiToken(mContext, content);
@@ -530,6 +563,7 @@ public abstract class BaseFragmentActivity extends SherlockFragmentActivity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] content, Throwable error) {
+                Log.d(TAG, "onFailure");
                 super.onFailure(statusCode, headers, content, error);
             }
         });

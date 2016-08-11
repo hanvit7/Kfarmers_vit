@@ -112,8 +112,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
 
     public static DiaryBlogWriteFragment newInstance() {
         Log.d(TAG, "newInstance ");
-        final DiaryBlogWriteFragment f = new DiaryBlogWriteFragment();
-        return f;
+        return new DiaryBlogWriteFragment();
     }
 
     @Override
@@ -530,7 +529,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     public void onClick(View v) {
                         selectItem = (Integer) v.getTag(R.id.ClickLayout);
                         //kakaoListAdapter.notifyDataSetChanged();
-                        ((DiaryWriteActivity) getActivity()).onTemporarySaveFooterClicked();
+                        ((DiaryWriteActivity) getActivity()).onTextFooterClicked();
                     }
                 };
 
@@ -795,7 +794,7 @@ public class DiaryBlogWriteFragment extends BaseRefreshMoreListFragment {
                     public void onClick(View v) {
                         selectItem = (Integer) v.getTag(R.id.ClickLayout);
                         //kakaoListAdapter.notifyDataSetChanged();
-                        ((DiaryWriteActivity) getActivity()).onTemporarySaveFooterClicked();
+                        ((DiaryWriteActivity) getActivity()).onTextFooterClicked();
                     }
                 };
 

@@ -193,7 +193,7 @@ public class StoryWriteActivity extends BaseFragmentActivity {
         mImagePicture.setOnClickListener(new ViewOnClickListener() {
             @Override
             public void viewOnClick(View v) {
-                if (mImgPath.size() >= DiaryWriteDragListFragment.MAX_PICTURE_COUNT) {
+                if (mImgPath.size() >= DiaryWriteDragListFragment.MAX_PICTURE_NUMBER) {
 
                 } else {
                     pictureBtnClicked(v);
@@ -759,7 +759,7 @@ public class StoryWriteActivity extends BaseFragmentActivity {
                 tempPath.add(ImageUtil.takePictureFromCamera(this, Constants.REQUEST_TAKE_CAPTURE));
                 return true;
             case R.id.btn_camera_gallery:
-                galleryChoice(DiaryWriteDragListFragment.MAX_PICTURE_COUNT);
+                galleryChoice(DiaryWriteDragListFragment.MAX_PICTURE_NUMBER);
                 return true;
         }
         return super.onContextItemSelected(item);

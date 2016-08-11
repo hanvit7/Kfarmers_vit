@@ -114,7 +114,7 @@ public class EvaluationActivity  extends BaseFragmentActivity {
 
                 return true;
             case R.id.btn_camera_gallery:
-                galleryChoice(DiaryWriteDragListFragment.MAX_PICTURE_COUNT);
+                galleryChoice(DiaryWriteDragListFragment.MAX_PICTURE_NUMBER);
                 return true;
         }
         return super.onContextItemSelected(item);
